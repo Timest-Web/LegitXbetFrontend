@@ -1,9 +1,12 @@
 import React from 'react'
+import Header from '../../shared/Header'
 
 const LandingPage = () => {
   return (
-    <div>This is landing page</div>
-  )
+		<div className='transform -translate-x -translate-y'>
+			<Header />
+		</div>
+  );
 }
 
 export default LandingPage
