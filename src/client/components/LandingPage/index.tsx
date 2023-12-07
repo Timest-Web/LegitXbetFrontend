@@ -7,12 +7,11 @@ import CenterSecion from './MainSection/CenterSection';
 const LandingPage = () => {
 	return (
 		<Layout>
-      <div className='flex items-center justify-center py-2 px-1 space-x-2 bg-gray-100'>
+      <div className='flex flex-row items-center justify-center py-2 px-1 space-x-2 bg-gray-200'>
         <LeftSection/>
         <CenterSecion />
         <RightSection/>
       </div>
-      
 		</Layout>
 	);
 };
