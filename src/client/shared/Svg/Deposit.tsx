@@ -9,6 +9,7 @@ const Deposit = () => {
     <path opacity="0.4" d="M1.6665 7.50002C1.6665 4.27502 4.27484 1.66669 7.49984 1.66669L6.62485 3.12502" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
     </svg>
+    
      );
 }
  
