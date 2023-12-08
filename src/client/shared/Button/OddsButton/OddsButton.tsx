@@ -1,7 +1,7 @@
 import React from 'react'
 import { useButtonEventClick } from '../../Hooks/useButtonEventClick';
 
-const OddsButton = ({onextwo, onextwoValue}: {onextwo: string, onextwoValue: string}) => {
+const OddsButton = ({onextwo, onextwoValue}: {onextwo: string, onextwoValue: number}) => {
 	const { click, handleClick } = useButtonEventClick();
 	return (
 		<button

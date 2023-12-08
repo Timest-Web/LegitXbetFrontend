@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
-import LandScale from '../../../../../assets/Landscale1.png';
 import Star from '@/src/client/shared/Svg/Star';
 import MinusSqure from '@/src/client/shared/Svg/MinusSqure';
 import RightArrow from '@/src/client/shared/Svg/RightArrow';
 import DropDown from '@/src/client/shared/Dropdown';
-import { LINK_GAME_TYPES } from './constant/data';
+import LandScale from '../../../../../assets/Landscale1.png';
+import { LINK_GAME_TYPES, ODDS_VALUE } from './constant/data';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
 import TableRow from './components/TableRow';
 
@@ -92,9 +92,12 @@ const CenterSection = () => {
 						))}
 					</div>
 
-					<TableRow />
-					<TableRow />
-					<TableRow />
+					{ODDS_VALUE.map((value, index) => (
+						<TableRow
+							key={index}
+							{...value}
+						/>
+					))}
 				</div>
 			</div>
 		</div>

@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { POPULAR_DATA } from './constant/data';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
-import MinusSquare from '@/src/client/shared/Svg/MinusSqure';
-import AddSquare from '@/src/client/shared/Svg/AddSquare';
 import LeagueType from '../../../../../assets/LeagueType.png';
 import FifaCup from '../../../../../assets/fifaworldcup.png';
 import { MailFlag, ControlsChevronRightSmall } from '@heathmont/moon-icons-tw';
-
+import ViewMore from '../components/ViewMore';
 
 const LeftSection = () => {
 	const [collapse, setCollapse] = useState(false);
@@ -39,30 +37,11 @@ const LeftSection = () => {
 			</div>
 
 			<div className='flex flex-col mt-7'>
-				<div className='flex items-center justify-between px-4 text-gray-800 font-bold'>
-					<p>Favorites</p>
-					<div className='flex space-x-1'>
-						{collapse ? (
-							<>
-								<AddSquare />
-								<p
-									onClick={() => setCollapse(!collapse)}
-									className='cursor-pointer'>
-									Expand
-								</p>
-							</>
-						) : (
-							<>
-								<MinusSquare />
-								<p
-									onClick={() => setCollapse(!collapse)}
-									className='cursor-pointer'>
-									Collapse
-								</p>
-							</>
-						)}
-					</div>
-				</div>
+				<ViewMore
+				      collapse={collapse}
+					contentTitle='Favorites'
+					setCollapse={setCollapse}
+				/>
 			</div>
 
 			{!collapse && (
