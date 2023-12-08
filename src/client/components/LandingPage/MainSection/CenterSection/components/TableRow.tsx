@@ -3,14 +3,16 @@ import Time from '@/src/client/shared/Svg/Time';
 import Ranking from '@/src/client/shared/Svg/Ranking';
 import { OddsButtons } from './OddsButtons';
 import { MoreOdds } from './MoreOdds';
+import ScoreView from './ScoreView';
 
-const TableRow = ({ time, teamOne, teamTwo, win, draw, lose }: {
+const TableRow = ({ time, teamOne, teamTwo, win, draw, lose, isLiveTable }: {
       time: string,
       teamOne: string,
       teamTwo: string,
       win: number,
       draw: number,
-      lose: number
+	lose: number,
+	isLiveTable?: boolean
 }) => (
 	<div className='bg-darkAsh w-full rounded-b-xl'>
 		<div className='flex flex-row w-full'>
@@ -25,6 +27,7 @@ const TableRow = ({ time, teamOne, teamTwo, win, draw, lose }: {
                               <p>{ teamTwo}</p>
 				</div>
 				<Ranking />
+				{isLiveTable === true && <ScoreView teamOneScore={2} teamTwoScore={0}/>}
                         <OddsButtons win={win} draw={draw} lose={lose} />
 				<MoreOdds />
 			</div>

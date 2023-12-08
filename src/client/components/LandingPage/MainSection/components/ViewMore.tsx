@@ -10,7 +10,6 @@ type ViewMoreProps = {
 }
 
 const ViewMore = ({ icon, contentTitle, collapse, setCollapse }: ViewMoreProps) => {
-
 	return (
 		<div className='flex items-center justify-between px-4 text-gray-800 font-bold'>
 			<div className='flex space-x-1'>

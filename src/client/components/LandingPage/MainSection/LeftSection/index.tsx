@@ -31,7 +31,7 @@ const LeftSection = () => {
 	);
 
 	return (
-		<div className='flex flex-col h-[1000px]'>
+		<div className='flex flex-col h-[1500px]'>
 			<div className='flex flex-col space-y-[1px]'>
 				{POPULAR_DATA.map(renderLeagueItem)}
 			</div>

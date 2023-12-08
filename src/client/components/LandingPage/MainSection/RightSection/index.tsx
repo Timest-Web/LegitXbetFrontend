@@ -10,7 +10,7 @@ const RightSection = () => {
 	const betSlipTitle = ['Bet Slip', 'My Bets'];
 	const { link, handleClick } = useLink('Bet Slip');
 	return (
-		<div className='flex flex-col h-[1000px] space-y-2'>
+		<div className='flex flex-col h-[1500px] space-y-2'>
 			<div className='w-[283px] h-[334px] rounded-lg shadow-lg border bg-white'>
 				<div className='flex items-center justify-between py-3 px-6'>
 					{betSlipTitle.map((value, index) => (
