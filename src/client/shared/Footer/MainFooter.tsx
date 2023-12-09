@@ -70,7 +70,7 @@ const PaymentsSecuredBy = () => (
 const MainFooter = () => (
 	<div className='w-full'>
 		<div className='flex items-center justify-center bg-darkAsh w-full'>
-			<div className='flex items-start justify-between w-[1512px] py-10 px-28'>
+			<div className='flex items-start justify-between w-[1512px] py-10 px-24'>
 				<p className='text-xs text-gray-700 w-96 cursor-default'>
 					{LicenseText}
 				</p>

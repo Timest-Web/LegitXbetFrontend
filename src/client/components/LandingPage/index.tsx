@@ -4,6 +4,7 @@ import LeftSection from './MainSection/LeftSection';
 import RightSection from './MainSection/RightSection';
 import CenterSecion from './MainSection/CenterSection';
 import Footer from '../../shared/Footer';
+import Carousel from '../../shared/Carousel/Carousel';
 
 const LandingPage = () => {
 	return (
@@ -14,7 +15,7 @@ const LandingPage = () => {
 					<CenterSecion />
 					<RightSection />
 				</div>
-        <Footer/>
+				<Footer />
 			</div>
 		</Layout>
 	);

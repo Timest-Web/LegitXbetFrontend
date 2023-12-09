@@ -3,7 +3,7 @@ import { LINK_GAME_TYPES } from './constant';
 import { useLink } from '../Hooks/useLink';
 
 const SportBetMenu = () => {
-	const { link, handleClick } = useLink('Sports');
+	const { link, handleClick } = useLink('Football');
 
 	return (
 		<div className='flex items-center justify-center bg-gold h-10 w-full space-x-12'>
