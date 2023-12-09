@@ -1,13 +1,13 @@
-import React from 'react'
-import Header from '../shared/Header'
+import React from 'react';
+import Header from '../shared/Header';
 
-const Layout = ({children}: {children: React.JSX.Element}) => {
-  return (
-        <div>
-              <Header/>
-              {children}
-    </div>
-  )
-}
+const Layout = ({ children }: { children: React.JSX.Element }) => {
+	return (
+		<div>
+			<Header />
+			{children}
+		</div>
+	);
+};
 
-export default Layout
+export default Layout;

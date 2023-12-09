@@ -27,8 +27,10 @@ const TableRow = ({ time, teamOne, teamTwo, win, draw, lose, isLiveTable }: {
                               <p>{ teamTwo}</p>
 				</div>
 				<Ranking />
+				<div className='flex space-x-4'>
 				{isLiveTable === true && <ScoreView teamOneScore={2} teamTwoScore={0}/>}
                         <OddsButtons win={win} draw={draw} lose={lose} />
+				</div>
 				<MoreOdds />
 			</div>
 		</div>

@@ -9,7 +9,7 @@ const OddsButton = ({onextwo, onextwoValue}: {onextwo: string, onextwoValue: num
 			type='submit'
 			className={`flex items-center justify-between transition-all transform ${
 				click ? 'scale-75' : ''
-                        } text-xs bg-lightAsh w-24 px-3 h-7 rounded-md`}>
+                        } text-xs bg-lightAsh w-20 px-2 h-6 rounded-md`}>
                   <p>
                   {onextwo}
                   </p>

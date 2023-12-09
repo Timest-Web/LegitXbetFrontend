@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Partners from './Partners';
+import MainFooter from './MainFooter';
 
 const Footer = () => {
-  return (
-        <div>
-              
-    </div>
-  )
-}
+	return (
+            <div className='w-full '>
+                  <Partners />
+                  <MainFooter/>
+		</div>
+	);
+};
 
-export default Footer
+export default Footer;
