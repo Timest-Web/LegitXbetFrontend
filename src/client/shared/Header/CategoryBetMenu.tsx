@@ -2,14 +2,23 @@ import React from 'react';
 import Image from 'next/image';
 import Logo from '../../../assets/logo1.png';
 import Headphone from '../Svg/Headphone';
+import { Button } from '../Button';
 import { useLink } from '../Hooks/useLink';
 import { OtherCrown } from '@heathmont/moon-icons-tw';
-import { LINK_CATEGORY_TYPES, LINK_GAME_TYPES } from './constant';
+import { useVisibilityControl } from '../Hooks/useVisibilityControl';
 import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
-import { Button } from '../Button';
+import { LINK_CATEGORY_TYPES, LINK_GAME_TYPES } from './constant';
+import DesktopModal from '../Modal/DesktopModal';
+import DesktopModalView from '../../components/Auth/User/UserAuth/Components/DesktopModalView';
 
 const CategoryBetMenu = () => {
 	const { link, handleClick } = useLink('Sports');
+	const {
+		isOpen,
+		setIsOpen,
+		handleClick: onHandleClick,
+	} = useVisibilityControl();
+
 	return (
 		<div className='flex items-center justify-center w-full bg-black'>
 			<div className='flex items-center justify-between w-[1512px] h-20 px-6'>
@@ -72,17 +81,31 @@ const CategoryBetMenu = () => {
 					<div className='flex space-x-2'>
 						<Button
 							text='Log In'
+							onClick={() => {
+								onHandleClick();
+							}}
 							link='#'
 							className='text-gray-200 p-2 text-sm rounded-md border border-gray-200 font-bold'
 						/>
+
 						<Button
 							text='Register'
+							onClick={onHandleClick}
 							link='#'
 							className='text-gray-200 p-2 text-sm rounded-md border border-gray-200 font-bold'
 						/>
 					</div>
 				</div>
 			</div>
+
+			{isOpen && (
+				<DesktopModal
+					className=''
+					openModal={isOpen}
+					setOpenModal={setIsOpen}
+					modalContent={<DesktopModalView />}
+				/>
+			)}
 		</div>
 	);
 };

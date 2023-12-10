@@ -3,7 +3,6 @@ import { useButtonEventClick } from '../../Hooks/useButtonEventClick';
 
 const OddsButton = ({onextwo, onextwoValue}: {onextwo: string, onextwoValue: number}) => {
 	const { click, handleClick } = useButtonEventClick();
-	console.log(click);
 	return (
 		<button
 			onClick={handleClick}

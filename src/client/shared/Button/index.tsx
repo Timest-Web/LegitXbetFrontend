@@ -1,41 +1,31 @@
 import Link from 'next/link';
 import { useButtonEventClick } from '../Hooks/useButtonEventClick';
 
-type ActionButtonProps = {
-	text: string;
-	className: string;
-};
-
-const ActualButton = ({ text, className }: ActionButtonProps) => {
-	const { click, handleClick } = useButtonEventClick();
-	return (
-		<button
-			onClick={handleClick}
-			type='submit'
-			className={`transition-all transform ${
-				click ? 'scale-75' : ''
-			} ${className}`}>
-			{text}
-		</button>
-	);
-};
-
 export const Button = ({
 	text,
 	link,
 	className,
+	onClick,
 }: {
 	text: string;
 	link: string;
 	className: string;
+	onClick: Function;
 }) => {
+	const { click, handleClick: onHandleClick } = useButtonEventClick();
 	return (
 		<Link href={link}>
-			<ActualButton
-				text={text}
-				className={className}
-			/>
+			<button
+				onClick={() => {
+					onHandleClick();
+					onClick();
+				}}
+				type='submit'
+				className={`transition-all transform ${
+					click ? 'scale-75' : ''
+				} ${className}`}>
+				{text}
+			</button>
 		</Link>
 	);
 };
-
