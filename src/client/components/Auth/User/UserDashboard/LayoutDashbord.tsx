@@ -1,19 +1,28 @@
 import React from "react";
-import Layout from "../../../Layout";
 import SideBar from "../Reusables/SideBar";
 import HotlineBar from "../Reusables/HotlineBar";
 import CategoryBetMenu from "@/src/client/shared/Header/CategoryBetMenu";
+import BannerSection from "../Reusables/BannerSection";
 
-
-const LayoutDashbord = () => {
+const LayoutDashbord = ({content}: {content:React.JSX.Element} ) => {
   return (
-    <div className="bg-[#ECEEF1] h-[1062px] ">
-    <CategoryBetMenu />
-      <SideBar/>
-      <HotlineBar/>
+    <div>
+      <CategoryBetMenu />
+      <div className="bg-[#ECEEF1] h-[1062px] p-4 font-sans ">
+        <div className=" flex space-x-8">
+          <section>
+            <SideBar />
+            <HotlineBar />
+          </section>
+          <section>
+            {content}
+          </section>
+          <section>
+            <BannerSection/>
+          </section>
+        </div>
+      </div>
     </div>
-  
-    
   );
 };
 

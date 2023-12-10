@@ -1,9 +1,11 @@
 import React from 'react'
 import LayoutDashbord from './LayoutDashbord'
+import Overview from './Overview'
+
 
 const UserDashboard = () => {
   return (
-    <LayoutDashbord/>
+    <LayoutDashbord content={<Overview/>} />
   )
 }
 

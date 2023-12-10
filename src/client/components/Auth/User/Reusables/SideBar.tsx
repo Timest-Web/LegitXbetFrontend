@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../../../Layout";
 import UserProfile from "@/src/client/shared/Svg/UserProfile";
-import Overview from "@/src/client/shared/Svg/Overview";
+import Overview from "@/src/client/shared/Svg/OverviewIcon";
 import Deposit from "@/src/client/shared/Svg/Deposit";
 import WithdrawalIcon from "@/src/client/shared/Svg/WithdrawalIcon";
 import Transactions from "@/src/client/shared/Svg/Transaction";
@@ -13,7 +13,7 @@ import BetHistory from "@/src/client/shared/Svg/BetHistory";
 
 const SideBar = () => {
   return (
-    <div className=" bg-white w-[176px] h-[500px] mt-6 ml-6 rounded-2xl p-6 flex flex-col space-y-9 ">
+    <div className=" bg-white w-[176px] h-[500px] rounded-2xl p-6 flex flex-col space-y-9 ">
         <ProfileMenu title="Overview">{<Overview />}</ProfileMenu>
         <ProfileMenu title="Profile">{<UserProfile />}</ProfileMenu>
         <ProfileMenu title="Deposit">{<Deposit />}</ProfileMenu>

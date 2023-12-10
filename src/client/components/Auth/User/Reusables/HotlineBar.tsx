@@ -1,8 +1,11 @@
+import HotlineCall from "@/src/client/shared/Svg/HotlineCall";
+
 
 const HotlineBar = () => {
   return (
-    <div className=" bg-white w-[176px] h-[120px] mt-6 ml-6 rounded-2xl p-4 flex flex-col space-y-3 text-sm">
-      <div>
+    <div className=" bg-white w-[176px] h-[120px] mt-4 rounded-2xl p-4 flex flex-col space-y-3 text-sm">
+      <div className="flex space-x-3 ">
+        <HotlineCall/>
         <h3 className=" font-bold ">24/7 Call lines</h3>
       </div>
       <h3>+234 818 217 5835</h3>
