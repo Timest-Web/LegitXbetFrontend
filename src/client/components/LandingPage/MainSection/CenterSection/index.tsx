@@ -7,7 +7,7 @@ import LandScaleImageCarousel from '@/src/client/shared/Carousel/Carousel';
 
 const CenterSection = () => {
 	return (
-		<div className='top-0 h-[1500px]'>
+		<div className='pb-28'>
 			<div className='pt-1'>
 				<LandScaleImageCarousel />
 			</div>

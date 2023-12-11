@@ -1,13 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {ArrowsChevronRightDouble} from '@heathmont/moon-icons-tw';
 import Headphone from '../Svg/Headphone';
 import { LicenseText } from './constant';
 import PaystackImage from '../../../assets/Paystack.png';
 import AppleStoreImage from '../../../assets/AppleStore.png';
 import GooglePlayImage from '../../../assets/GooglePlay.png';
 import FlutterWaveImage from '../../../assets/Flutterwave.png';
+import { ArrowsChevronRightDouble } from '@heathmont/moon-icons-tw';
 
 const UsefulLinks = () => (
 	<div className='text-gray-700 text-sm underline space-y-2'>

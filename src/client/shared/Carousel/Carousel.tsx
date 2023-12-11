@@ -17,13 +17,13 @@ const LandScaleImageCarousel = () => {
 	}, []);
 
 	return (
-		<div className='relative h-[323px] w-[800px]'>
+		<div className='relative h-[323px] w-[730px]'>
 			{images.map((image, index) => (
 				<Image
 					key={index}
 					src={image}
 					alt={`Image ${index + 1}`}
-					className={`absolute w-[800px] h-[323px] transform transition-all duration-1000 ${
+					className={`absolute w-full h-[323px] transform transition-all duration-1000 ${
 						index === currentIndex ? 'opacity-100' : 'opacity-0 '
 					}`}
 				/>

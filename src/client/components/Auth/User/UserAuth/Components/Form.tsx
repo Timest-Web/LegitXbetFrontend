@@ -53,7 +53,7 @@ const Form = ({
 				text='Continue'
 				link='#'
 				className='text-white py-2 px-6 w-[155px] rounded-md bg-black mt-8 text-sm'
-				onClick={handleSubmit}
+                        onClick={handleSubmit}
 			/>
 		</form>
 	);

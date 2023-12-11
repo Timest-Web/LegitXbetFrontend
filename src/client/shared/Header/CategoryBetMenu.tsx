@@ -10,6 +10,7 @@ import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
 import { LINK_CATEGORY_TYPES, LINK_GAME_TYPES } from './constant';
 import DesktopModal from '../Modal/DesktopModal';
 import DesktopModalView from '../../components/Auth/User/UserAuth/Components/DesktopModalView';
+import Link from 'next/link';
 
 const CategoryBetMenu = () => {
 	const { link, handleClick } = useLink('Sports');
@@ -20,7 +21,7 @@ const CategoryBetMenu = () => {
 	} = useVisibilityControl();
 
 	return (
-		<div className='flex items-center justify-center w-full bg-black'>
+		<div className='flex items-center justify-center w-full  bg-black'>
 			<div className='flex items-center justify-between w-[1512px] h-20 px-6'>
 				<div className='flex items-center space-x-24 '>
 					<Image
@@ -73,10 +74,10 @@ const CategoryBetMenu = () => {
 				</div>
 
 				<div className='flex items-center space-x-10'>
-					<div className='flex space-x-2'>
+					<Link href="#" className='flex space-x-2'>
 						<Headphone />
 						<p className='text-gray-200 font-bold'>Supports</p>
-					</div>
+					</Link>
 
 					<div className='flex space-x-2'>
 						<Button

@@ -31,17 +31,13 @@ const LeftSection = () => {
 	);
 
 	return (
-		<div className='flex flex-col h-[1500px]'>
+		<div className='flex flex-col'>
 			<div className='flex flex-col space-y-[1px]'>
 				{POPULAR_DATA.map(renderLeagueItem)}
 			</div>
 
-			<div className='flex flex-col mt-7'>
-				<ViewMore
-				      collapse={collapse}
-					contentTitle='Favorites'
-					setCollapse={setCollapse}
-				/>
+			<div className='mt-7 px-4'>
+				<p className='font-bold text-black'>Favorites</p>
 			</div>
 
 			{!collapse && (

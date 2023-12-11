@@ -4,9 +4,11 @@ import SportBetMenu from './SportBetMenu';
 
 const Header = () => {
 	return (
-		<div className='w-full'>
+		<div className='w-full fixed z-50 top-0'>
+			<div className=''>
 			<CategoryBetMenu/>
 			<SportBetMenu/>
+			</div>
 		</div>
 	);
 };
