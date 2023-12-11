@@ -1,18 +1,12 @@
 import React from "react";
-import Padlock from "@/src/client/shared/Svg/Padlock";
+import ProfileVeriReuse from "../ProfileReusables/ProfileVeriReuse";
 
 const ProfileUpdate = () => {
   return (
     <div>
-      <div className="flex space-x-6 font-bold opacity-50 pl-6 mt-6">
-        <div className="flex space-x-3">
-          <Padlock />
-          <h3>Security & Safety</h3>
-        </div>
-        <h3>Profile Verification</h3>
-      </div>
+     <ProfileVeriReuse/>
       <div className=" bg-white w-[980px] h-[544px] rounded-[20px] p-12 mt-4">
-        <div className="flex space-x-8 font-bold text-[#292D32] mb-4">
+        <div className="flex space-x-8 font-bold text-[#292D32] mb-6">
           <h3>Mobile No</h3>
           <h3>+234 818 217 5835</h3>
         </div>
@@ -20,21 +14,21 @@ const ProfileUpdate = () => {
           <section className="flex flex-col space-y-12">
             <div className="flex flex-col space-y-2">
               <label className="font-bold pl-4">Firstname</label>
-              <input className="bg-[#ECEEF1] w-[306px] h-[45px] "></input>
+              <input className="bg-[#ECEEF1] w-[306px] h-[45px] p-2 rounded" type="text" placeholder="e.g bayo ojo"></input>
             </div>
             <div className="flex flex-col space-y-2">
               <label className="font-bold pl-4">Date of birth</label>
-              <input className="bg-[#ECEEF1] w-[306px] h-[45px] "></input>
+              <input className="bg-[#ECEEF1] w-[306px] h-[45px] p-2 rounded" placeholder="23/04/1997"></input>
             </div>
             <div className="flex flex-col space-y-2">
               <label className="font-bold pl-4">Email</label>
-              <input className="bg-[#ECEEF1] w-[306px] h-[45px] "></input>
+              <input className="bg-[#ECEEF1] w-[306px] h-[45px] p-2 rounded" type="email" placeholder="johnpaul@gmail.com" ></input>
             </div>
           </section>
           <section className="flex flex-col ">
             <div className="flex flex-col space-y-2">
               <label className="font-bold pl-4">Lastname</label>
-              <input className="bg-[#ECEEF1] w-[306px] h-[45px] "></input>
+              <input className="bg-[#ECEEF1] w-[306px] h-[45px] p-2 rounded" type="text" placeholder="e.g bayo ojo" ></input>
             </div>
             <div className="mt-12">
               <h2 className="font-bold mb-3 pl-4">Gender</h2>

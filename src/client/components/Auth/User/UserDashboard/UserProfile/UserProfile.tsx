@@ -1,5 +1,5 @@
 import React from "react";
-import ProfileUpdate from "./ProfileUpdate";
+import ProfileUpdate from "./InnerComps/ProfileUpdate";
 import LayoutDashbord from "../LayoutDashbord";
 
 const UserProfile = () => {
