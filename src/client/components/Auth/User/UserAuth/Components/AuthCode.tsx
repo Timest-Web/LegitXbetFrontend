@@ -2,15 +2,20 @@ import React, { useRef, ChangeEvent, KeyboardEvent, useState } from 'react';
 
 const AuthOtpCodeInput: React.FC = () => {
 	const [otpValues, setOtpValues] = useState('');
-	const inputRefs = Array(6)
-		.fill(null)
-		.map(() => useRef<HTMLInputElement | null>(null));
+	console.log(otpValues);
+	const inputRefs = useRef<Array<HTMLInputElement | null>>(
+		Array(6)
+			.fill(null)
+			.map(() => null)
+	);
+
 	const handleInputChange = (index: number, value: string) => {
-		const newOtpValues = otpValues.slice(0, index) + value + otpValues.slice(index + 1);
+		const newOtpValues =
+			otpValues.slice(0, index) + value + otpValues.slice(index + 1);
 		setOtpValues(newOtpValues);
 
-		if (value && index < inputRefs.length - 1) {
-			inputRefs[index + 1]?.current?.focus();
+		if (value && index < inputRefs.current.length - 1) {
+			inputRefs.current[index + 1]?.focus();
 		}
 	};
 
@@ -21,9 +26,9 @@ const AuthOtpCodeInput: React.FC = () => {
 		if (
 			event.key === 'Backspace' &&
 			index > 0 &&
-			!event?.currentTarget?.value
+			!event.currentTarget.value
 		) {
-			inputRefs[index - 1]?.current?.focus();
+			inputRefs.current[index - 1]?.focus();
 		}
 	};
 
@@ -34,10 +39,10 @@ const AuthOtpCodeInput: React.FC = () => {
 		event.preventDefault();
 		const pastedData = event.clipboardData
 			.getData('text')
-			.slice(0, inputRefs.length);
+			.slice(0, inputRefs.current.length);
 
 		pastedData.split('').forEach((char, i) => {
-			const currentRef = inputRefs[index + i]?.current;
+			const currentRef = inputRefs.current[index + i];
 			if (currentRef) {
 				currentRef.value = char;
 				handleInputChange(index + i, char);
@@ -47,13 +52,13 @@ const AuthOtpCodeInput: React.FC = () => {
 
 	return (
 		<div className='flex space-x-4'>
-			{inputRefs.map((ref, index) => (
+			{inputRefs.current.map((ref, index) => (
 				<input
 					key={index}
 					type='text'
 					maxLength={1}
 					className='h-12 w-12 text-3xl text-center border border-gray-300 rounded px-2 focus:outline-none focus:border-gray-500 bg-gray-200'
-					ref={ref}
+					ref={(el) => (inputRefs.current[index] = el)}
 					onChange={(e: ChangeEvent<HTMLInputElement>) =>
 						handleInputChange(index, e.target.value)
 					}
