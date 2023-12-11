@@ -21,7 +21,7 @@ const renderCarouselItems = () => {
 const Partners = () => {
 	return (
 		<div className='flex items-center justify-center w-full bg-lightAsh'>
-			<div className='flex items-center justify-start w-[1512px] pl-28 py-2 h-24'>
+			<div className='flex items-center justify-start w-full pl-28 py-2 h-24'>
 				<div className='text-white text-sm w-72'>
 					<p className=''>Official sports betting partners</p>
 				</div>

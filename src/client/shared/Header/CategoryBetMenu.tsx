@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../../../assets/logo1.png';
 import Headphone from '../Svg/Headphone';
@@ -10,7 +11,6 @@ import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
 import { LINK_CATEGORY_TYPES, LINK_GAME_TYPES } from './constant';
 import DesktopModal from '../Modal/DesktopModal';
 import DesktopModalView from '../../components/Auth/User/UserAuth/Components/DesktopModalView';
-import Link from 'next/link';
 
 const CategoryBetMenu = () => {
 	const { link, handleClick } = useLink('Sports');
