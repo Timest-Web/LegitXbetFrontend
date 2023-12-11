@@ -14,7 +14,7 @@ const SportBetMenu = () => {
 						link === value
 							? 'text-black font-bold'
 							: 'text-gray-600'
-					} cursor-pointer h-20 flex flex-col items-end justify-center`}>
+					} cursor-pointer h-20 flex flex-col items-end justify-center text-sm`}>
 					<p onClick={() => handleClick(value)}>{value}</p>
 				</div>
 			))}

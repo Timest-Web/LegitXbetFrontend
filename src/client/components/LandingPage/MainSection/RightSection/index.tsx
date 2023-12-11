@@ -21,26 +21,34 @@ const RightSection = () => {
 								value === link
 									? 'bg-black text-white'
 									: 'text-black'
-							} flex h-[32px] w-[108px] px-6 items-center justify-center m-auto rounded-md text-sm cursor-pointer`}>
+							} flex h-[32px] w-[108px] px-6 items-center justify-center transition transform duration-1000 transition-x m-auto rounded-md text-sm cursor-pointer`}>
 							<p className='text-center'>{value}</p>
 						</div>
 					))}
-                        </div>
+				</div>
 
-                        <hr />
+				<hr />
 
-                        <div className='flex items-center justify-center w-full m-auto'>
-                              <div className='flex flex-col items-center justify-center space-y-3 mt-24'>
-                                    <Receipt />
-                                    <p className='text-gray-400 text-xs'>No selection yet</p>
-                              </div>
-                        </div>
-                  </div>
-                  
-                  <div className='flex flex-col items-center justify-center space-y-1'>
-                        <Image src={BetCup} alt='BetCup' />
-                        <Image src={FifaWordCup2} alt='fifaworld' />
-                  </div>
+				<div className='flex items-center justify-center w-full m-auto'>
+					<div className='flex flex-col items-center justify-center space-y-3 mt-24'>
+						<Receipt />
+						<p className='text-gray-400 text-xs'>
+							No selection yet
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div className='flex flex-col items-center justify-center space-y-1'>
+				<Image
+					src={BetCup}
+					alt='BetCup'
+				/>
+				<Image
+					src={FifaWordCup2}
+					alt='fifaworld'
+				/>
+			</div>
 		</div>
 	);
 };

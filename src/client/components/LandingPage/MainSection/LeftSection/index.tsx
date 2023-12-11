@@ -5,7 +5,6 @@ import { useLink } from '@/src/client/shared/Hooks/useLink';
 import LeagueType from '../../../../../assets/LeagueType.png';
 import FifaCup from '../../../../../assets/fifaworldcup.png';
 import { MailFlag, ControlsChevronRightSmall } from '@heathmont/moon-icons-tw';
-import ViewMore from '../components/ViewMore';
 
 const LeftSection = () => {
 	const [collapse, setCollapse] = useState(false);
@@ -37,7 +36,7 @@ const LeftSection = () => {
 			</div>
 
 			<div className='mt-7 px-4'>
-				<p className='font-bold text-black'>Favorites</p>
+				<p className='font-bold text-black text-sm'>Favorites</p>
 			</div>
 
 			{!collapse && (

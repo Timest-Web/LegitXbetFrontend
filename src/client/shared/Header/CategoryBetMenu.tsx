@@ -40,14 +40,14 @@ const CategoryBetMenu = () => {
 										link === value
 											? 'text-gray-200 pt-4 font-bold'
 											: 'text-gray-400'
-									} cursor-pointer h-20 flex flex-col items-end justify-center`}>
+									} cursor-pointer h-20 flex flex-col items-end justify-center text-sm`}>
 									{value !== 'Jackpot' ? (
 										<p onClick={() => handleClick(value)}>
 											{value}
 										</p>
 									) : (
 										<div
-											className='flex items-center justify-center transition transform duration-300'
+											className='flex items-center justify-center text-sm transition transform duration-300'
 											onClick={() => handleClick(value)}>
 											<OtherCrown
 												height={28}
@@ -74,7 +74,7 @@ const CategoryBetMenu = () => {
 				</div>
 
 				<div className='flex items-center space-x-10'>
-					<Link href="#" className='flex space-x-2'>
+					<Link href="#" className='flex space-x-2 text-sm'>
 						<Headphone />
 						<p className='text-gray-200 font-bold'>Supports</p>
 					</Link>
