@@ -17,7 +17,7 @@ const LandScaleImageCarousel = () => {
 	}, []);
 
 	return (
-		<div className='relative h-[323px] w-[730px]'>
+		<div className='relative h-[323px] w-full'>
 			{images.map((image, index) => (
 				<Image
 					key={index}

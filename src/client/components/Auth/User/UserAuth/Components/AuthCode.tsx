@@ -2,12 +2,7 @@ import React, { useRef, ChangeEvent, KeyboardEvent, useState } from 'react';
 
 const AuthOtpCodeInput: React.FC = () => {
 	const [otpValues, setOtpValues] = useState('');
-	console.log(otpValues);
-	const inputRefs = useRef<Array<HTMLInputElement | null>>(
-		Array(6)
-			.fill(null)
-			.map(() => null)
-	);
+	const inputRefs = useRef<Array<HTMLInputElement | null>>(Array(6).fill(null).map(() => null));
 
 	const handleInputChange = (index: number, value: string) => {
 		const newOtpValues =
