@@ -1,9 +1,9 @@
 import React from "react";
-import LayoutDashbord from "../LayoutDashboard";
+import LayoutDashboard from "../LayoutDashboard";
 import BetInnerComp from "./BetInnerComp";
 
 const BetHistory = () => {
-    return ( <LayoutDashbord content={<BetInnerComp/>}/> );
+    return ( <LayoutDashboard content={<BetInnerComp/>}/> );
 }
  
 export default BetHistory;

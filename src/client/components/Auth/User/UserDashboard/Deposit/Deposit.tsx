@@ -1,9 +1,9 @@
 import React from "react";
-import LayoutDashbord from "../LayoutDashboard";
+import LayoutDashboard from "../LayoutDashboard";
 import DepositInner from "./DepositInner";
 
 const Deposit = () => {
-    return ( <LayoutDashbord content={<DepositInner/>}/> );
+    return ( <LayoutDashboard content={<DepositInner/>}/> );
 }
  
 export default Deposit;

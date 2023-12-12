@@ -1,8 +1,8 @@
 import TransactionInner from "./TransactionInner";
-import LayoutDashbord from "../LayoutDashboard";
+import LayoutDashboard from "../LayoutDashboard";
 
 const Transaction = () => {
-    return ( <LayoutDashbord content={<TransactionInner/>} /> );
+    return ( <LayoutDashboard content={<TransactionInner/>} /> );
 }
  
 export default Transaction;
