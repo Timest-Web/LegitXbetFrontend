@@ -4,7 +4,7 @@ import HotlineBar from "../Reusables/HotlineBar";
 import CategoryBetMenu from "@/src/client/shared/Header/CategoryBetMenu";
 import BannerSection from "../Reusables/BannerSection";
 
-const LayoutDashbord = ({content}: {content:React.JSX.Element} ) => {
+const LayoutDashboard = ({content}: {content:React.JSX.Element} ) => {
   return (
     <div>
       <CategoryBetMenu />
@@ -26,4 +26,4 @@ const LayoutDashbord = ({content}: {content:React.JSX.Element} ) => {
   );
 };
 
-export default LayoutDashbord;
+export default LayoutDashboard;

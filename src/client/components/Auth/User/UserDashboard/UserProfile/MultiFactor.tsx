@@ -1,5 +1,5 @@
 import React from "react";
-import LayoutDashbord from "../LayoutDashbord";
+import LayoutDashbord from "../LayoutDashboard";
 import MultiFactorInner from "./InnerComps/MultiFactorInner";
 
 const MultiFactor = () => {

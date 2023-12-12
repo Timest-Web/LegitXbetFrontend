@@ -1,31 +1,29 @@
 import React from "react";
-import BalanceCard from "../../Reusables/BalanceCard";
 import AllBetTable from "../../Reusables/AllBetTable";
 
-const DepositInner = () => {
+const TransactionInner = () => {
   const headers = [
     "No",
     "Reference Id",
     "Date",
     "Status",
+    "Type",
     "Amount",
     "Channel",
+    "Actions"
   ];
   return (
-    <div className="flex flex-col space-y-7 ">
-      <div className=" flex space-x-4">
-        <BalanceCard />
-      </div>
+    <div className="">
       <div>
         <AllBetTable
           title="Transaction History"
           headers={headers}
           noBetsMessage="No transactions recorded"
-          placeBetButtonText="Deposit"
+          placeBetButtonText={undefined}
         />
       </div>
     </div>
   );
 };
 
-export default DepositInner;
+export default TransactionInner;

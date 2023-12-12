@@ -5,7 +5,7 @@ interface AllBetTableProps {
   title: string;
   headers: string[];
   noBetsMessage: string;
-  placeBetButtonText: string;
+  placeBetButtonText: string|undefined;
 }
 
 const AllBetTable: React.FC<AllBetTableProps> = ({
@@ -41,9 +41,9 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
           <div className="flex flex-col justify-center items-center mt-36 space-y-4">
             <PlaceBetIcon />
             <h3>{noBetsMessage}</h3>
-            <button className="w-[128px] h-[38px] rounded-md bg-black p-2 text-white">
+           { placeBetButtonText && <button className="w-[128px] h-[38px] rounded-md bg-black p-2 text-white">
               {placeBetButtonText}
-            </button>
+            </button>} 
           </div>
         </div>
       </div>

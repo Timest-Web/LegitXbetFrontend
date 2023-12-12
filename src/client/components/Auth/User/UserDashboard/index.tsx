@@ -1,5 +1,5 @@
 import React from 'react'
-import LayoutDashbord from './LayoutDashbord'
+import LayoutDashbord from './LayoutDashboard'
 import Overview from './Overview'
 
 
@@ -9,4 +9,4 @@ const UserDashboard = () => {
   )
 }
 
-export default UserDashboard
+export default UserDashboard;
