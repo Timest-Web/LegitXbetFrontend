@@ -21,30 +21,30 @@ const Form = ({
 		<form
 			action='submit'
 			className='flex flex-col items-center justify-center'>
-			<div className='flex flex-col space-y-2'>
-				<p className='font-bold pl-6'>Mobile Number</p>
+			<div className='flex flex-col space-y-1'>
+				<p className='font-bold pl-6 text-sm'>Mobile Number</p>
 				<input
 					type='number'
 					value={phoneNo}
 					onChange={(e) => setPhoneNo(e.target.value)}
 					placeholder='e.g +234 818 217 59384'
-					className='bg-gray-100 py-4 px-5 rounded-lg w-96 borderless-input text-sm'
+					className='bg-gray-100 py-2 px-3 rounded-lg w-80 borderless-input text-sm'
 				/>
 			</div>
 
-			<div className='flex flex-col space-y-2 mt-6'>
-				<p className='font-bold pl-6'>Password</p>
+			<div className='flex flex-col space-y-1 mt-4'>
+				<p className='font-bold pl-6 text-sm'>Password</p>
 				<input
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					type='password'
-					className='bg-gray-100 py-4 px-5 rounded-lg w-96 borderless-input text-sm'
+					className='bg-gray-100 py-2 px-3 rounded-lg w-80 borderless-input text-sm'
 				/>
 			</div>
 
 			<div className='flex items-center justify-center space-x-2 mt-4'>
 				<Lock />
-				<p className='text-gray-400 text-xs'>
+				<p className='text-gray-400 text-[11px]'>
 					Secure password has numbers and character sets
 				</p>
 			</div>
@@ -52,7 +52,7 @@ const Form = ({
 			<Button
 				text='Continue'
 				link='#'
-				className='text-white py-2 px-6 w-[155px] rounded-md bg-black mt-8 text-sm'
+				className='text-white py-2 px-6 w-[155px] rounded-md bg-black mt-8 text-xs'
                         onClick={handleSubmit}
 			/>
 		</form>

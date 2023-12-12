@@ -52,7 +52,7 @@ const AuthOtpCodeInput: React.FC = () => {
 					key={index}
 					type='text'
 					maxLength={1}
-					className='h-12 w-12 text-3xl text-center border border-gray-300 rounded px-2 focus:outline-none focus:border-gray-500 bg-gray-200'
+					className='h-9 w-10 text-2xl text-center border border-gray-300 rounded px-2 focus:outline-none focus:border-gray-500 bg-gray-200'
 					ref={(el) => (inputRefs.current[index] = el)}
 					onChange={(e: ChangeEvent<HTMLInputElement>) =>
 						handleInputChange(index, e.target.value)

@@ -39,7 +39,7 @@ const SignUpSignIn = ({
 								link === label
 									? 'bg-black text-white'
 									: 'bg-white text-black'
-							} flex  py-2 w-[155px] px-6 items-center justify-center m-auto rounded-md text-sm cursor-pointer`}>
+							} flex  py-2 w-[135px] items-center justify-center m-auto rounded-md text-xs cursor-pointer`}>
 							<p className='text-center'>{label}</p>
 						</button>
 					</div>
