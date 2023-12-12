@@ -34,7 +34,6 @@ interface ExampleProps {
               magna vel orci pulvinar, et dignissim mi egestas. Pellentesque
               dapibus rhoncus ex, a finibus tortor sagittis quis. In nunc
               mauris, scelerisque vitae elit pulvinar, consequat accumsan leo.
-           
               tortor eu faucibus vestibulum, nunc magna laoreet leo, ut
               elementum diam ipsum vitae purus. Vestibulum egestas sit amet elit
               egestas auctor. Mauris vestibulum ex at erat viverra ultricies.
@@ -58,9 +57,7 @@ interface ExampleProps {
               auctor nec at diam. Aliquam imperdiet, tortor non dignissim
               semper, eros sem congue lacus, a vehicula diam tellus ut ligula.
               Sed eget porta nibh, nec interdum urna. In tempor placerat massa,
-              at imperdiet leo tincidunt eget. Vestibulum eu laoreet nisl, et
-   
-              amet felis. In aliquam ullamcorper nulla sit amet tristique.
+              at imperdiet leo tincidunt eget. Vestibulum eu laoreet nisl, et amet felis. In aliquam ullamcorper nulla sit amet tristique.
               Pellentesque odio ipsum, pulvinar sit amet est eget, maximus
               accumsan leo. Aenean consequat tellus vel pulvinar bibendum.
               Suspendisse finibus volutpat nisl, id dictum est feugiat sit amet.
@@ -68,8 +65,7 @@ interface ExampleProps {
               quam posuere, mollis imperdiet odio tincidunt. Nam non quam leo.
               Vivamus vulputate metus sed velit laoreet euismod id et turpis.
               Vestibulum dictum ac turpis quis ultrices. Vivamus non semper
-              nunc. Nullam vitae 
-              facilisis vel, mattis ut ex. Morbi luctus ex eu est tincidunt
+              nunc. Nullam vitae facilisis vel, mattis ut ex. Morbi luctus ex eu est tincidunt
               lacinia. Sed commodo eget neque eget aliquet. Phasellus tincidunt
               justo imperdiet nunc scelerisque, sit amet interdum lorem
               dignissim. Lorem ipsum dolor sit amet, consectetur adipiscing
