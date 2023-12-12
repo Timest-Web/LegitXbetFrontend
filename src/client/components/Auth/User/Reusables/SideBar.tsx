@@ -1,27 +1,42 @@
 import React from "react";
-import Layout from "../../../Layout";
 import UserProfile from "@/src/client/shared/Svg/UserProfile";
 import Overview from "@/src/client/shared/Svg/OverviewIcon";
 import Deposit from "@/src/client/shared/Svg/Deposit";
 import WithdrawalIcon from "@/src/client/shared/Svg/WithdrawalIcon";
-import Transactions from "@/src/client/shared/Svg/Transaction";
-import Bonus from "@/src/client/shared/Svg/Bonus";
-import Support from "@/src/client/shared/Svg/Support";
+import TransactionIcon from "@/src/client/shared/Svg/TransactionIcon";
+import BonusIcon from "@/src/client/shared/Svg/BonusIcon";
 import ProfileMenu from "./ProfileMenu";
-import CategoryBetMenu from "@/src/client/shared/Header/CategoryBetMenu";
 import BetHistory from "@/src/client/shared/Svg/BetHistory";
+import SupportIcon from "@/src/client/shared/Svg/SupportIcon";
+import Link from "next/link";
 
 const SideBar = () => {
   return (
     <div className=" bg-white w-[176px] h-[500px] rounded-2xl p-6 flex flex-col space-y-9 ">
+      <Link href="/user_dashboard">
         <ProfileMenu title="Overview">{<Overview />}</ProfileMenu>
+      </Link>
+      <Link href="/user_dashboard/profile/profile_update">
         <ProfileMenu title="Profile">{<UserProfile />}</ProfileMenu>
+      </Link>
+      <Link href="/user_dashboard/deposit">
         <ProfileMenu title="Deposit">{<Deposit />}</ProfileMenu>
+      </Link>
+      <Link href="/user_dashboard/withdrawal">
         <ProfileMenu title="Withdrawal">{<WithdrawalIcon />}</ProfileMenu>
+      </Link>
+      <Link href="/user_dashboard/bet_history">
         <ProfileMenu title="Bet History">{<BetHistory />}</ProfileMenu>
-        <ProfileMenu title="Transactions">{<Transactions />}</ProfileMenu>
-        <ProfileMenu title="Bonus">{<Bonus />}</ProfileMenu>
-        <ProfileMenu title="Support">{<Support />}</ProfileMenu>
+      </Link>
+      <Link href="/user_dasboard/transaction">
+        <ProfileMenu title="Transactions">{<TransactionIcon />}</ProfileMenu>
+      </Link>
+      <Link href="/user_dashboard/bonus">
+        <ProfileMenu title="Bonus">{<BonusIcon />}</ProfileMenu>
+      </Link>
+      <Link href="/user_dashboard/user_support">
+        <ProfileMenu title="Support">{<SupportIcon />}</ProfileMenu>
+      </Link>
     </div>
   );
 };

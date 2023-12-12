@@ -2,7 +2,9 @@ import React from "react";
 import BalanceCard from "../../Reusables/BalanceCard";
 import AllBetTable from "../../Reusables/AllBetTable";
 
+
 const DepositInner = () => {
+  
   const headers = [
     "No",
     "Reference Id",

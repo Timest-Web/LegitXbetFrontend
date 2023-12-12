@@ -12,11 +12,11 @@ const MultiFactorInner = () => {
         <form className="flex flex-col space-y-16">
           <section className="flex space-x-8">
             <div className="flex space-x-5">
-              <input type="radio" />
+              <input className="w-[22px] h-[22px]" type="radio" />
               <label className="font-bold">Activate</label>
             </div>
             <div className="flex space-x-5">
-              <input type="radio" />
+              <input className="w-[22px] h-[22px]" type="radio" />
               <label className="font-bold">Deactivate</label>
             </div>
           </section>
