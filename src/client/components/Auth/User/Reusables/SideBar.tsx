@@ -28,7 +28,7 @@ const SideBar = () => {
       <Link href="/user_dashboard/bet_history">
         <ProfileMenu title="Bet History">{<BetHistory />}</ProfileMenu>
       </Link>
-      <Link href="/user_dasboard/transaction">
+      <Link href="/user_dashboard/transaction">
         <ProfileMenu title="Transactions">{<TransactionIcon />}</ProfileMenu>
       </Link>
       <Link href="/user_dashboard/bonus">
