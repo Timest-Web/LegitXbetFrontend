@@ -1,14 +1,32 @@
 import React from 'react';
 import Lock from '@/src/client/shared/Svg/Lock';
 import { Button } from '@/src/client/shared/Button';
-import ModalContainer from '../Components/ModalContainer';
 import AuthOtpCodeInput from '../Components/AuthCode';
-import Link from 'next/link';
+import ModalContainer from '../Components/ModalContainer';
+import useCountdown from '@/src/client/shared/Hooks/useCountDown';
 
 const Otp = () => {
+	const { countdown, startCountdown } = useCountdown({
+		initialSeconds: 240,
+		initialActive: true,
+	});
+
 	const handleSubmit = () => {
-		console.log('Send otp');	
-	}
+		console.log('Send otp');
+	};
+
+	const resendOtp = () => {
+		startCountdown();
+	};
+
+	const formatTime = () => {
+		const minutes = Math.floor(countdown / 60);
+		const seconds = countdown % 60;
+		return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(
+			2,
+			'0'
+		)}`;
+	};
 
 	return (
 		<ModalContainer>
@@ -22,20 +40,22 @@ const Otp = () => {
 				<div className='flex flex-col items-center justify-center mt-4'>
 					<AuthOtpCodeInput />
 					<p className='text-xs text-gray-400 mt-6 cursor-default'>
-						Enter 4 digit OTP secured pin sent to your number
+						Enter 6 digit{' '}
+						<span className='font-bold text-black'>OTP </span>{' '}
+						secured pin sent to your number
 					</p>
 					<div className='flex items-center justify-between text-gray-400 text-xs space-x-4 mt-6 w-full'>
 						<p className='font-bold text-black cursor-default'>
-							4:00
+							{formatTime()}
 						</p>
 						<p className='text-gray-400 cursor-default'>
-							{` I didn't get 4 digit code `}
-							<Link
-								href='#'
-								className='text-black font-bold underline text-xs'>
+							{` I didn't get 6 digit code `}
+							<button
+								className='text-black font-bold underline text-xs'
+								onClick={countdown > 0 ? undefined : resendOtp}>
 								{' '}
 								Resend Otp
-							</Link>
+							</button>
 						</p>
 					</div>
 

@@ -38,9 +38,9 @@ const CategoryBetMenu = () => {
 								<div
 									className={`${
 										link === value
-											? 'text-gray-200 pt-4 font-bold'
+											? 'text-gray-200 pt-4'
 											: 'text-gray-400'
-									} cursor-pointer h-20 flex flex-col items-end justify-center text-sm`}>
+									} cursor-pointer h-20 flex flex-col items-end justify-center text-sm font-bold`}>
 									{value !== 'Jackpot' ? (
 										<p onClick={() => handleClick(value)}>
 											{value}
