@@ -3,7 +3,7 @@ import { LINK_GAME_TYPES } from './constant';
 import { useLink } from '../Hooks/useLink';
 
 const SportBetMenu = () => {
-	const { link, handleClick } = useLink('Sports');
+	const { link, handleClick } = useLink('Football');
 
 	return (
 		<div className='flex items-center justify-center bg-gold h-10 w-full space-x-12'>
@@ -11,10 +11,8 @@ const SportBetMenu = () => {
 				<div
 					key={index}
 					className={`${
-						link === value
-							? 'text-black font-bold'
-							: 'text-gray-600'
-					} cursor-pointer h-20 flex flex-col items-end justify-center`}>
+						link === value ? 'text-black' : 'text-gray-600'
+					} cursor-pointer h-20 flex flex-col items-end justify-center text-sm font-bold`}>
 					<p onClick={() => handleClick(value)}>{value}</p>
 				</div>
 			))}

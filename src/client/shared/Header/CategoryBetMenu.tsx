@@ -1,17 +1,27 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../../../assets/logo1.png';
 import Headphone from '../Svg/Headphone';
+import { Button } from '../Button';
 import { useLink } from '../Hooks/useLink';
 import { OtherCrown } from '@heathmont/moon-icons-tw';
-import { LINK_CATEGORY_TYPES, LINK_GAME_TYPES } from './constant';
+import { useVisibilityControl } from '../Hooks/useVisibilityControl';
 import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
-import { Button } from '../Button';
+import { LINK_CATEGORY_TYPES, LINK_GAME_TYPES } from './constant';
+import DesktopModal from '../Modal/DesktopModal';
+import DesktopModalView from '../../components/Auth/User/UserAuth/Components/DesktopModalView';
 
 const CategoryBetMenu = () => {
 	const { link, handleClick } = useLink('Sports');
+	const {
+		isOpen,
+		setIsOpen,
+		handleClick: onHandleClick,
+	} = useVisibilityControl();
+
 	return (
-		<div className='flex items-center justify-center w-full bg-black'>
+		<div className='flex items-center justify-center w-full  bg-black'>
 			<div className='flex items-center justify-between w-[1512px] h-20 px-6'>
 				<div className='flex items-center space-x-24 '>
 					<Image
@@ -28,16 +38,16 @@ const CategoryBetMenu = () => {
 								<div
 									className={`${
 										link === value
-											? 'text-gray-200 pt-4 font-bold'
+											? 'text-gray-200 pt-4'
 											: 'text-gray-400'
-									} cursor-pointer h-20 flex flex-col items-end justify-center`}>
+									} cursor-pointer h-20 flex flex-col items-end justify-center text-sm font-bold`}>
 									{value !== 'Jackpot' ? (
 										<p onClick={() => handleClick(value)}>
 											{value}
 										</p>
 									) : (
 										<div
-											className='flex items-center justify-center transition transform duration-300'
+											className='flex items-center justify-center text-sm transition transform duration-300'
 											onClick={() => handleClick(value)}>
 											<OtherCrown
 												height={28}
@@ -64,25 +74,39 @@ const CategoryBetMenu = () => {
 				</div>
 
 				<div className='flex items-center space-x-10'>
-					<div className='flex space-x-2'>
+					<Link href="#" className='flex space-x-2 text-sm'>
 						<Headphone />
 						<p className='text-gray-200 font-bold'>Supports</p>
-					</div>
+					</Link>
 
 					<div className='flex space-x-2'>
 						<Button
 							text='Log In'
+							onClick={() => {
+								onHandleClick();
+							}}
 							link='#'
 							className='text-gray-200 p-2 text-sm rounded-md border border-gray-200 font-bold'
 						/>
+
 						<Button
 							text='Register'
+							onClick={onHandleClick}
 							link='#'
 							className='text-gray-200 p-2 text-sm rounded-md border border-gray-200 font-bold'
 						/>
 					</div>
 				</div>
 			</div>
+
+			{isOpen && (
+				<DesktopModal
+					className=''
+					openModal={isOpen}
+					setOpenModal={setIsOpen}
+					modalContent={<DesktopModalView />}
+				/>
+			)}
 		</div>
 	);
 };

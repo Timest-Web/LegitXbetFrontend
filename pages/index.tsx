@@ -20,7 +20,6 @@ export default function Home() {
 					href='/favicon.ico'
 				/>
 			</Head>
-
 			<LandingPage />
 		</>
 	);
