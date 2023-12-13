@@ -1,8 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import ProfileMenu from "./ProfileMenu";
-
-// Import your SVG components
 import Overview from "@/src/client/shared/Svg/OverviewIcon";
 import UserProfile from "@/src/client/shared/Svg/UserProfile";
 import Deposit from "@/src/client/shared/Svg/Deposit";
@@ -12,7 +10,7 @@ import TransactionIcon from "@/src/client/shared/Svg/TransactionIcon";
 import BonusIcon from "@/src/client/shared/Svg/BonusIcon";
 import SupportIcon from "@/src/client/shared/Svg/SupportIcon";
 
-// Define an array of menu items with their associated data
+
 const menuItems = [
   { title: "Overview", icon: <Overview />, href: "/user_dashboard" },
   { title: "Profile", icon: <UserProfile />, href: "/user_dashboard/profile/profile_update" },
