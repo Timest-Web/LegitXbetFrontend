@@ -38,8 +38,7 @@ const BetTable = ({
 	isLiveTable: boolean;
 }) => {
 	const { link, handleClick } = useLink('3 Way & O/U');
-	const { link: sportTypeLink, handleClick: sportTypeHandleClick } =
-		useLink('Football');
+	const { link: sportTypeLink, handleClick: sportTypeHandleClick } =  useLink('Football');
 	const [collapse, setCollapse] = useState(false);
 	const betDates = ['All Matches', 'Today', '29 Nov', '30 Nov', '1 Dec'];
 

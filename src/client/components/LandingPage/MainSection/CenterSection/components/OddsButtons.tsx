@@ -13,6 +13,7 @@ export const OddsButtons = ({
 		<OddsButton
 			onextwo='1'
 			onextwoValue={win}
+			
 		/>
 		<OddsButton
 			onextwo='X'
