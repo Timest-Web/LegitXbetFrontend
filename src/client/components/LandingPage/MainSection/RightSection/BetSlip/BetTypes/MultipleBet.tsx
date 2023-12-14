@@ -23,7 +23,7 @@ const MultipleBet = () => {
 						<p>v</p>
 						<div className='flex flex-col space-y-3 text-xs'>
 							<p>Chelsea</p>
-							<p className='text-sm font-bold'>Draw 2.23</p>
+							<p className='text-xs font-bold'>Draw 2.23</p>
 						</div>
 					</div>
 					<DeleteIcon />
@@ -33,7 +33,7 @@ const MultipleBet = () => {
 						<p>2</p>
 						<div className='flex flex-col space-y-3 text-xs'>
 							<p>Real Madrid</p>
-							<p className='text-sm font-bold'>Win 1.14</p>
+							<p className='text-xs font-bold'>Win 1.14</p>
 						</div>
 						<p>v</p>
 						<p>Arsenal</p>

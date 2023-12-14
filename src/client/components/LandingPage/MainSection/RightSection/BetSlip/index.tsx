@@ -19,7 +19,7 @@ const BetSlip = () => {
 							value === link
 								? 'bg-black text-white'
 								: 'text-black'
-						} flex h-[32px] w-[116px] items-center justify-center transition transform duration-1000 transition-x m-auto rounded-md text-xs cursor-pointer`}>
+						} flex h-[32px] w-[116px] items-center hover:text-black justify-center transition transform duration-1000 transition-x m-auto rounded-md text-xs cursor-pointer`}>
 						<p className='text-center'>{value}</p>
 					</div>
 				))}

@@ -4,7 +4,8 @@ import DropDown from '@/src/client/shared/Dropdown';
 import ViewMore from '../../components/ViewMore';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
 import RightArrow from '@/src/client/shared/Svg/RightArrow';
-import { LINK_GAME_TYPES, ODDS_VALUE } from '../constant/data';
+import { LINK_GAME_TYPES, ODDS_VALUE, SPORTS_TYPES } from '../constant/data';
+
 
 type DateItemProps = {
 	value: string;
@@ -27,10 +28,21 @@ const DateItem: React.FC<DateItemProps> = ({ value, isToday }) => (
 	</div>
 );
 
-const BetTable = ({icon, contentTitle, isLiveTable}: {icon?: ReactElement, contentTitle: string, isLiveTable: boolean}) => {
+const BetTable = ({
+	icon,
+	contentTitle,
+	isLiveTable,
+}: {
+	icon?: ReactElement;
+	contentTitle: string;
+	isLiveTable: boolean;
+}) => {
 	const { link, handleClick } = useLink('3 Way & O/U');
+	const { link: sportTypeLink, handleClick: sportTypeHandleClick } =
+		useLink('Football');
 	const [collapse, setCollapse] = useState(false);
 	const betDates = ['All Matches', 'Today', '29 Nov', '30 Nov', '1 Dec'];
+
 	return (
 		<>
 			<div className='mt-5'>
@@ -52,13 +64,38 @@ const BetTable = ({icon, contentTitle, isLiveTable}: {icon?: ReactElement, conte
 								isToday={value === 'Today'}
 							/>
 						))}
-                              </div>
-                             {collapse &&  <p className='text-gray-300 text-[10px]'>Expand to view game odds</p>}
+					</div>
+					{collapse && (
+						<p className='text-gray-300 text-[10px]'>
+							Expand to view game odds
+						</p>
+					)}
+				</div>
+
+				<div className='flex items-center space-x-2 border-t border-t-gray-700  w-full py-2 px-4 bg-lightAsh text-sm'>
+					{SPORTS_TYPES.map((value, index) => (
+						<div
+							key={index}
+							onClick={() => sportTypeHandleClick(value.title)}
+							className={`${
+								value.title === sportTypeLink
+									? 'text-gold bg-gray-700'
+									: 'text-gray-500'
+							} flex items-center justify-center text-center text-xs hover:bg-gray-700 hover:text-gold cursor-pointer pr-3 pl-1 rounded-lg`}>
+							<value.icon
+								height={25}
+								width={25}
+							/>
+							{value.title}
+						</div>
+					))}
 				</div>
 
 				<div className='bg-darkAsh w-full rounded-b-lg'>
 					<div
-						className={`flex items-center space-x-4 text-xs  px-3 ${!collapse && 'border-b border-b-gray-800'} h-10`}>
+						className={`flex items-center space-x-4 text-xs  px-3 ${
+							!collapse && 'border-b border-b-gray-800'
+						} h-10`}>
 						{LINK_GAME_TYPES.map((value, index) => (
 							<div
 								key={index}
@@ -67,7 +104,7 @@ const BetTable = ({icon, contentTitle, isLiveTable}: {icon?: ReactElement, conte
 									value.name === link
 										? 'text-gray-200'
 										: 'text-gray-600'
-								} p-2 cursor-pointer`}>
+								} p-2 cursor-pointer hover:text-gray-200`}>
 								{value.data
 									? value.data && (
 											<DropDown
@@ -79,15 +116,15 @@ const BetTable = ({icon, contentTitle, isLiveTable}: {icon?: ReactElement, conte
 									: value.name}
 							</div>
 						))}
-                              </div>
-                              
+					</div>
+
 					{!collapse && (
 						<>
 							{ODDS_VALUE.map((value, index) => (
 								<TableRow
 									key={index}
-                                                      {...value}
-                                                      isLiveTable={isLiveTable}
+									{...value}
+									isLiveTable={isLiveTable}
 								/>
 							))}
 						</>

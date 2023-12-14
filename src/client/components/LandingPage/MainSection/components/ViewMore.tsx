@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import AddSquare from '@/src/client/shared/Svg/AddSquare';
 import MinusSqure from '@/src/client/shared/Svg/MinusSqure';
 

@@ -12,7 +12,7 @@ const SportBetMenu = () => {
 					key={index}
 					className={`${
 						link === value ? 'text-black' : 'text-gray-600'
-					} cursor-pointer h-20 flex flex-col items-end justify-center text-sm font-bold`}>
+					} cursor-pointer h-20 flex flex-col items-end justify-center text-sm hover:text-black font-bold`}>
 					<p onClick={() => handleClick(value)}>{value}</p>
 				</div>
 			))}

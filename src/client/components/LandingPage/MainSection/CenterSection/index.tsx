@@ -12,9 +12,21 @@ const CenterSection = () => {
 				<LandScaleImageCarousel />
 			</div>
 			<>
-				<BetTable icon={<Star />} contentTitle='Top Matches' isLiveTable={false} />
-				<BetTable icon={<MatchStar />} contentTitle='Upcoming Matches' isLiveTable={false} />
-				<BetTable icon={<LiveMatch />} contentTitle='LIVE' isLiveTable={true} />
+				<BetTable
+					icon={<LiveMatch />}
+					contentTitle='LIVE'
+					isLiveTable={true}
+				/>
+				<BetTable
+					icon={<MatchStar />}
+					contentTitle='Upcoming Matches'
+					isLiveTable={false}
+				/>
+				<BetTable
+					icon={<Star />}
+					contentTitle='Top Matches'
+					isLiveTable={false}
+				/>
 			</>
 		</div>
 	);

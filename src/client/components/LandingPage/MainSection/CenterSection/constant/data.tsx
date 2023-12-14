@@ -1,14 +1,40 @@
-export const LINK_GAME_TYPES: {  name: string; data?: string[] }[] = [
-    {name: '3 Way & O/U'},
-    {name: 'Over/Under'},
-    {name: 'Total Goals'},
-    {name: 'Draw No Bet'},
-    {name: 'Double chance'},
-    {name: 'Handicapped'},
-    {
-        name: 'Other Markets', data: ['Winner', 'Set Winner', 'Away O/U', '1X2', 'Home O/U']
-      }
-]
+import {
+	SportSoccer,
+	SportBasketball,
+	SportTableTennis,
+	SportBaseball,
+	SportRugby,
+	SportIceHockey,
+	SportBeachVolleyball,
+	SportDarts,
+	SportHandball,
+	SportSnooker,
+} from '@heathmont/moon-icons-tw';
+
+export const SPORTS_TYPES = [
+	{ icon: SportSoccer, title: 'Football' },
+	{ icon: SportBasketball, title: 'Baseketball' },
+	{ icon: SportTableTennis, title: 'Table Tannis' },
+	{ icon: SportBaseball, title: 'Baseball' },
+	{ icon: SportRugby, title: 'Rugby' },
+	{ icon: SportIceHockey, title: 'Ice Hockey' },
+	{ icon: SportBeachVolleyball, title: 'Volleyball' },
+	// { icon: SportDarts, title: 'Darts' },
+	// { icon: SportHandball, title: 'Handball' },
+];
+
+export const LINK_GAME_TYPES: { name: string; data?: string[] }[] = [
+	{ name: '3 Way & O/U' },
+	{ name: 'Over/Under' },
+	{ name: 'Total Goals' },
+	{ name: 'Draw No Bet' },
+	{ name: 'Double chance' },
+	{ name: 'Handicapped' },
+	{
+		name: 'Other Markets',
+		data: ['Winner', 'Set Winner', 'Away O/U', '1X2', 'Home O/U'],
+	},
+];
 
 export const ODDS_VALUE = [
 	{
