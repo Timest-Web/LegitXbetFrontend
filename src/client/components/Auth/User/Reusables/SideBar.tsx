@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import ProfileMenu from "./ProfileMenu";
 import Overview from "@/src/client/shared/Svg/OverviewIcon";
 import UserProfile from "@/src/client/shared/Svg/UserProfile";
@@ -9,7 +10,6 @@ import BetHistory from "@/src/client/shared/Svg/BetHistory";
 import TransactionIcon from "@/src/client/shared/Svg/TransactionIcon";
 import BonusIcon from "@/src/client/shared/Svg/BonusIcon";
 import SupportIcon from "@/src/client/shared/Svg/SupportIcon";
-
 
 const menuItems = [
   { title: "Overview", icon: <Overview />, href: "/user_dashboard" },
@@ -23,11 +23,18 @@ const menuItems = [
 ];
 
 const SideBar = () => {
+  const router = useRouter();
+
   return (
     <div className="bg-white w-[176px] h-[500px] rounded-2xl p-6 flex flex-col space-y-9">
       {menuItems.map((item, index) => (
         <Link key={index} href={item.href}>
-          <ProfileMenu title={item.title}>{item.icon}</ProfileMenu>
+          <ProfileMenu
+            title={item.title}
+            isActive={router.pathname === item.href} 
+          >
+            {item.icon}
+          </ProfileMenu>
         </Link>
       ))}
     </div>
