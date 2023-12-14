@@ -71,7 +71,7 @@ const BetTable = ({
 					)}
 				</div>
 
-				<div className='flex items-center space-x-2 border-t border-t-gray-700  w-full py-2 px-4 bg-lightAsh text-sm'>
+				<div className='flex items-center space-x-2 border-t border-t-gray-800  w-full py-2 px-4 bg-lightAsh text-sm'>
 					{SPORTS_TYPES.map((value, index) => (
 						<div
 							key={index}
