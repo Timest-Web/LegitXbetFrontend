@@ -25,7 +25,6 @@ export const BetProvider: React.FC<BetProviderProps> = ({
 	children,
 }: BetProviderProps) => {
 	const initialRender = useRef(true);
-	const [isBetSelected, setIsBetSelected] = useState(false);
 	const [bet, setBet] = useState<OddsValuesProps[]>([]);
 
 	useEffect(() => {
