@@ -11,6 +11,8 @@ import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
 import { LINK_CATEGORY_TYPES, LINK_GAME_TYPES } from './constant';
 import DesktopModal from '../Modal/DesktopModal';
 import DesktopModalView from '../../components/Auth/User/UserAuth/Components/DesktopModalView';
+import CustomerCareDrawer from '../Drawer/CustomerCareDrawer';
+import SupportContent from './SupportContent';
 
 const CategoryBetMenu = () => {
 	const { link, handleClick } = useLink('Sports');
@@ -18,6 +20,11 @@ const CategoryBetMenu = () => {
 		isOpen,
 		setIsOpen,
 		handleClick: onHandleClick,
+	} = useVisibilityControl();
+	const {
+		isOpen: openDrawer,
+		setIsOpen: setIsOpenDrawer,
+		handleClick: onHandleSupportClick,
 	} = useVisibilityControl();
 
 	return (
@@ -30,7 +37,7 @@ const CategoryBetMenu = () => {
 						className='h-[22px] w-[123px] cursor-pointer'
 					/>
 
-					<div className='flex space-x-12 h-20'>
+					<div className='flex space-x-16 h-20'>
 						{LINK_CATEGORY_TYPES.map((value, index) => (
 							<div
 								key={index}
@@ -74,10 +81,12 @@ const CategoryBetMenu = () => {
 				</div>
 
 				<div className='flex items-center space-x-10'>
-					<Link href="#" className='flex space-x-2 text-sm'>
+					<button
+						onClick={onHandleSupportClick}
+						className='flex space-x-2 text-sm'>
 						<Headphone />
-						<p className='text-gray-200 font-bold'>Supports</p>
-					</Link>
+						<p className='text-gray-200 font-bold pt-1'>Supports</p>
+					</button>
 
 					<div className='flex space-x-2'>
 						<Button
@@ -99,6 +108,14 @@ const CategoryBetMenu = () => {
 				</div>
 			</div>
 
+			{openDrawer && (
+				<CustomerCareDrawer
+					className=''
+					openDrawer={openDrawer}
+					setOpenDrawer={setIsOpenDrawer}
+					DrawerContent={<SupportContent/>}
+				/>
+			)}
 			{isOpen && (
 				<DesktopModal
 					className=''
