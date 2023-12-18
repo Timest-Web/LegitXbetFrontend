@@ -24,7 +24,7 @@ const SupportContent = () => {
 		<div className='flex flex-col items-center justify-center w-full space-y-4 px-4 pt-5'>
 			<hr className='w-full border-gray-300 space-x-6' />
 			<div className='relative flex flex-col w-full overflow-auto'>
-				<div className='space-y-6 h-[400px]'>
+				<div className='space-y-12 h-[400px]'>
 					<div className='w-full'>
 						<TextComponent
 							position='items-start'
