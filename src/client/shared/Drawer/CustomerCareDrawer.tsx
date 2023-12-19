@@ -8,9 +8,9 @@ type DrawerProps = {
 };
 
 const CustomerCareModal = ({
+	setOpenDrawer,
 	DrawerContent,
 	openDrawer,
-	setOpenDrawer,
 	className,
 }: DrawerProps) => {
 	return (

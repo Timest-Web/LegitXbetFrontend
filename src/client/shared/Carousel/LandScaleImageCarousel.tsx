@@ -4,7 +4,7 @@ import image1 from '../../../assets/landscapeImageOne.png';
 import image2 from '../../../assets/landscapeImageTwo.png';
 
 const images = [image1, image2];
-const LandScaleImageCarousel = () => {
+const LandScaleImageCarousel = ({width, height}: {height: string, width: string}) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	useEffect(() => {
@@ -17,13 +17,13 @@ const LandScaleImageCarousel = () => {
 	}, []);
 
 	return (
-		<div className='relative h-[323px] w-full'>
+		<div className={`relative w-full ${height}`}>
 			{images.map((image, index) => (
 				<Image
 					key={index}
 					src={image}
 					alt={`Image ${index + 1}`}
-					className={`absolute w-[952px] h-[323px] transform transition-all duration-1000 ${
+					className={`absolute ${width} ${height} transform transition-all duration-1000 ${
 						index === currentIndex ? 'opacity-100' : 'opacity-0 '
 					}`}
 				/>

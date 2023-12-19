@@ -1,9 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import BetSlip from './BetSlip';
-import BetCup from '../../../../../assets/betCup.png';
-import FifaWordCup2 from '../../../../../assets/fifaworldcup2.png';
-
+import BetCup from '../../../../../../assets/betCup.png';
+import FifaWordCup2 from '../../../../../../assets/fifaworldcup2.png';
 
 const RightSection = () => {
 	return (

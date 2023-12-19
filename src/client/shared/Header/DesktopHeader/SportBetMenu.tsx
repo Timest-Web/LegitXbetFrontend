@@ -1,6 +1,6 @@
 import React from 'react';
-import { LINK_GAME_TYPES } from './constant';
-import { useLink } from '../Hooks/useLink';
+import { LINK_GAME_TYPES } from '../constant';
+import { useLink } from '../../Hooks/useLink';
 
 const SportBetMenu = () => {
 	const { link, handleClick } = useLink('Football');

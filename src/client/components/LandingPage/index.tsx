@@ -1,23 +1,17 @@
 import React from 'react';
+import DeviceDisplay from '../../shared/Utils/DeviceDisplay';
+import MobileLandingPage from './MobileLandingPage';
+import DesktopLandingPage from './DesktopLandingPage';
 import Layout from '../Layout';
-import LeftSection from './MainSection/LeftSection';
-import RightSection from './MainSection/RightSection';
-import CenterSecion from './MainSection/CenterSection';
-import Footer from '../../shared/Footer';
 
 const LandingPage = () => {
 	return (
 		<Layout>
-			<div className='pt-[120px] bg-gray-200'>
-				<div className='flex flex-row items-start justify-center py-2 px-1 space-x-2 h-max '>
-					<LeftSection />
-					<CenterSecion />
-					<RightSection />
-				</div>
-				<Footer />
-			</div>
+			<DeviceDisplay
+				mobileViewDisplay={<MobileLandingPage />}
+				desktopViewDisplay={<DesktopLandingPage />}
+			/>
 		</Layout>
 	);
 };
-
 export default LandingPage;

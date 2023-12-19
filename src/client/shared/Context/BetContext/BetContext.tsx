@@ -1,5 +1,6 @@
+import { ODDS_VALUE } from '@/src/client/components/LandingPage/DesktopLandingPage/MainSection/CenterSection/constant/data';
 import React, { createContext, useEffect, useState, useRef } from 'react';
-import { ODDS_VALUE } from '../../../components/LandingPage/MainSection/CenterSection/constant/data';
+
 
 type OddsValuesProps = {
 	id: number;

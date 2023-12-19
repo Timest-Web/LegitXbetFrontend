@@ -5,9 +5,7 @@ const Layout = ({ children }: { children: React.JSX.Element }) => {
 	return (
 		<div>
 			<Header />
-			<div>
-			{children}
-			</div>
+			<div>{children}</div>
 		</div>
 	);
 };

@@ -1,10 +1,9 @@
 import React from 'react';
-import { Carousel } from '@heathmont/moon-core-tw';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
+import { Carousel } from '@heathmont/moon-core-tw';
 import { CustomCarousel } from '../Carousel';
 import { LOGOS } from './constant';
-
 
 const renderCarouselItems = () => {
 	return LOGOS?.map((value, index) => (
@@ -18,6 +17,7 @@ const renderCarouselItems = () => {
 		</Carousel.Item>
 	));
 };
+
 const Partners = () => {
 	return (
 		<div className='flex items-center justify-center w-full bg-lightAsh'>

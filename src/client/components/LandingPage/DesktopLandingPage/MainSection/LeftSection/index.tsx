@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { POPULAR_DATA } from './constant/data';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
-import LeagueType from '../../../../../assets/LeagueType.png';
-import FifaCup from '../../../../../assets/fifaworldcup.png';
+import LeagueType from '../../../../../../assets/LeagueType.png';
+import FifaCup from '../../../../../../assets/fifaworldcup.png';
 import { MailFlag, ControlsChevronRightSmall } from '@heathmont/moon-icons-tw';
 
 const LeftSection = () => {
