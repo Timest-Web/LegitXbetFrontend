@@ -34,7 +34,7 @@ const Otp = () => {
 				<p className='text-gray-600 cursor-default text-sm text-center'>{`We've have sent you a 6-digit code +2349000000000`}</p>
 				<div className='flex items-center justify-start space-x-2 mt-6 w-full cursor-default'>
 					<Lock />
-					<p className='font-bold text-sm'>Otp Verification</p>
+					<p className='font-bold text-sm'>OTP Verification</p>
 				</div>
 
 				<div className='flex flex-col items-center justify-center mt-4'>
@@ -54,7 +54,7 @@ const Otp = () => {
 								className='text-black font-bold underline text-xs'
 								onClick={countdown > 0 ? undefined : resendOtp}>
 								{' '}
-								Resend Otp
+								Resend OTP
 							</button>
 						</p>
 					</div>

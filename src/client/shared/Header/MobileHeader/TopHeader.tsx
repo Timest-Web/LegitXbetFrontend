@@ -15,13 +15,13 @@ const TopHeader = () => {
 				<Button
 					text='Log In'
 					link=''
-					className='border border-white px-2 py-[3px] rounded-md'
+					className='border border-white px-3 py-[3px] rounded-md'
 					onClick={Function}
                         />
                         <Button
 					text='Register'
 					link=''
-					className='border border-white px-2 py-[3px] rounded-md'
+					className='border border-white px-3 py-[3px] rounded-md'
 					onClick={Function}
 				/>
 			</div>

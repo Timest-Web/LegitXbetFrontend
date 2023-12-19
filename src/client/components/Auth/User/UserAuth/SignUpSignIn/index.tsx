@@ -1,6 +1,6 @@
 import { useLink } from '@/src/client/shared/Hooks/useLink';
 import React, { SetStateAction, useState } from 'react';
-import Form from '../Components/Form';
+import Form from '../Components/Form/Form';
 import AuthDescription from '../Components/AuthDescription';
 import ModalContainer from '../Components/ModalContainer';
 
@@ -19,7 +19,7 @@ const SignUpSignIn = ({
 	const [password, setPassword] = useState('');
 
 	const handleSubmit = () => {
-		setSubmitForm(true)
+		setSubmitForm(true);
 	};
 
 	return (
@@ -49,11 +49,12 @@ const SignUpSignIn = ({
 			<AuthDescription link={link} />
 
 			<Form
+				authType={link}
 				phoneNo={phoneNo}
 				password={password}
 				setPhoneNo={setPhoneNo}
 				setPassword={setPassword}
-                        handleSubmit={handleSubmit}
+				handleSubmit={handleSubmit}
 			/>
 		</ModalContainer>
 	);
