@@ -3,12 +3,16 @@ import Image from "next/image";
 import chatImg from '../../UserAssets/Ellipse 4.png'
 import ReceivedIcon from "@/src/client/shared/Svg/ReceivedIcon";
 
+interface LiveChatProps{
+    handleCloseModal: ()=>void
+}
 
-const LiveChat = () => {
+
+const LiveChat: React.FC<LiveChatProps> = ({handleCloseModal}) => {
     return ( <div className="bg-white w-[606px] h-[874px] rounded-[20px] p-8 pt-24 mt-4">
          <section className="flex justify-between">
             <h3 className=" text-[22px] font-bold ">Legit X bet Customer support</h3>
-            <button className=" w-[97px] h-[35px] border-[#5D5D5D] border rounded-md text-sm ">
+            <button onClick={handleCloseModal} className=" w-[97px] h-[35px] border-[#5D5D5D] border rounded-md text-sm ">
                 Close 
             </button>
          </section>

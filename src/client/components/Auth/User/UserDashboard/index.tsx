@@ -3,14 +3,15 @@ import LayoutDashboard from "../Reusables/LayoutDashboard";
 import Overview from "./Overview/Overview";
 import { DM_Sans } from "next/font/google";
 
-const dm_sans = DM_Sans({
+const dmsans = DM_Sans({
   subsets: ["latin"],
+  display: 'swap',
   variable: "--font-dm_sans",
 });
 
 const UserDashboard = () => {
   return (
-    <div className={`${dm_sans.variable} font-dm-sans`}>
+    <div className={`${dmsans.variable} font-dmsans`}>
       <LayoutDashboard content={<Overview />} />
     </div>
   );

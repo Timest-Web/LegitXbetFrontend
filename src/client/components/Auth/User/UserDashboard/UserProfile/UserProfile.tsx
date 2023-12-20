@@ -4,7 +4,8 @@ import LayoutDashboard from "../../Reusables/LayoutDashboard";
 
 
 const UserProfile = () => {
-    return ( <LayoutDashboard content={<ProfileUpdate/>} /> );
+    return (
+        <div className=" font-dmsans "><LayoutDashboard content={<ProfileUpdate/>} /></div>  );
 }
  
 export default UserProfile;

@@ -8,7 +8,7 @@ const LayoutDashboard = ({content}: {content:React.JSX.Element} ) => {
   return (
     <div>
       <CategoryBetMenu />
-      <div className="bg-[#ECEEF1] h-[1062px] p-4 font-sans ">
+      <div className="bg-[#ECEEF1] h-[1062px] p-4 font-dmsans ">
         <div className=" flex space-x-8">
           <section>
             <SideBar />

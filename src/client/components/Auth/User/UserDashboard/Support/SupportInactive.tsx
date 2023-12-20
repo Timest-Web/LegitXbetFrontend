@@ -5,6 +5,8 @@ import SubmitButton from "../../Reusables/SubmitButton";
 import LiveChat from "./LiveChat";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 
+
+
 const SupportInactive = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -31,7 +33,7 @@ const SupportInactive = () => {
         openModal={isModalOpen}
         setOpenModal={setIsModalOpen}
         className="custom-modal-class"
-        modalContent={<LiveChat />}
+        modalContent={<LiveChat handleCloseModal={handleCloseModal} />}
       />
     </div>
   );

@@ -3,6 +3,9 @@ import LayoutDashboard from "../../Reusables/LayoutDashboard";
 import TableComp from "../../Reusables/TableComp";
 import BetHistoryPopUp from "./BetHistoryPopUp";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
+import { createColumnHelper } from "@tanstack/react-table";
+import { TableProps } from "react-table";
+import MoreIcon from "@/src/client/shared/Svg/MoreIcon";
 
 const mData = [
   {
@@ -24,6 +27,8 @@ const mData = [
     action: "actionicon",
   },
 ];
+
+const columnHelper = createColumnHelper<TableProps>();
 
 const BetHistoryActive = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,10 +65,17 @@ const BetHistoryActive = () => {
       header: "Pot. Win",
       accessorKey: "pot_win",
     },
-    {
+    columnHelper.accessor("action", {
       header: "Action",
-      accessorKey: "action",
-    },
+      cell: () => (
+        <div className="flex  justify-center items-center">
+          <div onClick={handleOpenModal}>
+            <MoreIcon />
+          </div>
+          
+        </div>
+      ),
+    }),
   ];
 
   return (
@@ -83,7 +95,6 @@ const BetHistoryActive = () => {
             className="custom-modal-class"
             modalContent={<BetHistoryPopUp />}
           />
-          <button onClick={handleOpenModal}>Open</button>
         </div>
       }
     />
