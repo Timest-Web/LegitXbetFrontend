@@ -1,8 +1,8 @@
 import React from "react";
-import SideBar from "../Reusables/SideBar";
-import HotlineBar from "../Reusables/HotlineBar";
+import SideBar from "./SideBar";
+import HotlineBar from "./HotlineBar";
 import CategoryBetMenu from "@/src/client/shared/Header/CategoryBetMenu";
-import BannerSection from "../Reusables/BannerSection";
+import BannerSection from "./BannerSection";
 
 const LayoutDashboard = ({content}: {content:React.JSX.Element} ) => {
   return (

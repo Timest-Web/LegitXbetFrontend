@@ -9,6 +9,7 @@ interface AllBetTableProps {
   headers: string[];
   noBetsMessage: string;
   placeBetButtonText: string|undefined;
+  buttonAction?: ()=> void;
 }
 
 const AllBetTable: React.FC<AllBetTableProps> = ({
@@ -16,6 +17,7 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
   headers,
   noBetsMessage,
   placeBetButtonText,
+  buttonAction
 }) => {
   return (
     <div>
@@ -24,7 +26,7 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
         <div className="flex space-x-2 relative">
           <input
             type="text"
-            className="border-[#292D32] border w-[225px] h-[41px] rounded-[35px] p-3 bg-[#ECEEF1]"
+            className="border-[#292D32] border w-[225px] h-[41px] rounded-[35px] text-center p-3 bg-[#ECEEF1]"
           />
           <div className="absolute top-2 flex space-x-2">
             <SearchIcon/>
@@ -42,7 +44,7 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
       </div>
       <div className="bg-white w-[980px] h-[544px] rounded-[20px] p-8 mt-4">
         <div>
-          <ul className="font-bold flex justify-evenly">
+          <ul className="font-bold flex justify-between px-4">
             {headers.map((header, index) => (
               <li key={index}>{header}</li>
             ))}
@@ -51,7 +53,7 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
           <div className="flex flex-col justify-center items-center mt-36 space-y-4">
             <PlaceBetIcon />
             <h3>{noBetsMessage}</h3>
-           { placeBetButtonText && <button className="w-[128px] h-[38px] rounded-md bg-black p-2 text-white">
+           { placeBetButtonText && <button onClick={buttonAction} className="w-[128px] h-[38px] rounded-md bg-black p-2 text-white">
               {placeBetButtonText}
             </button>} 
           </div>

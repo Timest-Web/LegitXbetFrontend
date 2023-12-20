@@ -1,7 +1,7 @@
 import React from "react";
-import BalanceCard from "../Reusables/BalanceCard";
-import UserDocumentCard from "../Reusables/UserDocumentCard";
-import AllBetTable from "../Reusables/AllBetTable";
+import BalanceCard from "../../Reusables/BalanceCard";
+import UserDocumentCard from "../../Reusables/UserDocumentCard";
+import AllBetTable from "../../Reusables/AllBetTable";
 
 const Overview = () => {
   const headers = [
@@ -17,7 +17,7 @@ const Overview = () => {
     <div className="flex flex-col space-y-7 ">
       <div className=" flex space-x-4">
         <UserDocumentCard />
-        <BalanceCard />
+        <BalanceCard buttonState={false} buttonText="" />
       </div>
       <div>
         <AllBetTable
@@ -25,6 +25,7 @@ const Overview = () => {
           headers={headers}
           noBetsMessage="No bets palced"
           placeBetButtonText=" Place a bet"
+          buttonAction={undefined}
         />
       </div>
     </div>

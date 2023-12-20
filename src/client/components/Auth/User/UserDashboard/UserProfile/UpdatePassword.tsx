@@ -1,5 +1,5 @@
 import React from "react";
-import LayoutDashbord from "../LayoutDashboard";
+import LayoutDashbord from "../../Reusables/LayoutDashboard";
 import UpdatePass from "./InnerComps/UpdatePass";
 
 const UpdatePassword = () => {

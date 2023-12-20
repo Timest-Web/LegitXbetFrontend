@@ -1,6 +1,6 @@
 import React from "react";
 import ProfileUpdate from "./InnerComps/ProfileUpdate";
-import LayoutDashboard from "../LayoutDashboard";
+import LayoutDashboard from "../../Reusables/LayoutDashboard";
 
 
 const UserProfile = () => {

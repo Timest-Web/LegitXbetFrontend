@@ -1,5 +1,5 @@
 import React from "react";
-import LayoutDashboard from "../LayoutDashboard";
+import LayoutDashboard from "../../Reusables/LayoutDashboard";
 import BetInnerComp from "./BetInnerComp";
 
 const BetHistory = () => {

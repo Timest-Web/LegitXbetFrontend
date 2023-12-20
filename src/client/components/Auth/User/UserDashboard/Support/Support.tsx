@@ -1,9 +1,10 @@
-import LayoutDashboard from "../LayoutDashboard";
-import SupportInner from "./SupportInner";
+import LayoutDashboard from "../../Reusables/LayoutDashboard";
+import SupportComp from "./SupportComp";
+import SupportInactive from "./SupportInactive";
 
 
 const Support = () => {
-    return ( <LayoutDashboard content={<SupportInner/>}/> );
+    return ( <LayoutDashboard content={<SupportInactive/>}/> );
 }
  
 export default Support;

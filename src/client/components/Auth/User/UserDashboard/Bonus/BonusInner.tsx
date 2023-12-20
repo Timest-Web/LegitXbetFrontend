@@ -18,7 +18,7 @@ const BonusInner = () => {
         <Image src={BetWC} alt="betwc"/>
       <div>
         <AllBetTable
-          title="Transaction History"
+          title="Bonus & Promotions"
           headers={headers}
           noBetsMessage="No active Bonus"
           placeBetButtonText={undefined}
