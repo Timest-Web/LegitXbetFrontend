@@ -7,6 +7,8 @@ import { TableProps } from "react-table";
 import ViewDelete from "./ViewDelete";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import NotificationPopUp from "./NotificationPopUp";
+import { Row } from "@tanstack/react-table";
+import { RowData } from "@tanstack/react-table";
 
 const mData = [
   {
@@ -25,8 +27,13 @@ const mData = [
 
 const columnHelper = createColumnHelper<TableProps>();
 
+interface TabViewRows {
+  [key: string]: boolean;
+}
+
 const Notifications = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [tabViewRows, setTabViewRows] = useState<TabViewRows>({});
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -36,7 +43,13 @@ const Notifications = () => {
     setIsModalOpen(false);
   };
 
-  const [viewState, setViewState] = useState<boolean>(false);
+  const toggleTabView = (row: { id: string | number }) => {
+    setTabViewRows((prevState) => ({
+      ...prevState,
+      [row.id]: !prevState[row.id],
+    }));
+  };
+
   const data = useMemo(() => mData, []);
 
   const columns: any = [
@@ -54,12 +67,12 @@ const Notifications = () => {
     },
     columnHelper.accessor("action", {
       header: "Action",
-      cell: () => (
-        <div className="flex  justify-center items-center">
-          <div onClick={handleOpenModal}>
+      cell: ({ row }: { row: Row<TableProps> }) => (
+        <div className="flex  justify-center items-center relative">
+          <button onClick={() => toggleTabView(row)}>
             <MoreIcon />
-          </div>
-          {viewState && <ViewDelete />}
+          </button>
+          {tabViewRows[row.id] && <ViewDelete handleOpenModal={handleOpenModal} />}
         </div>
       ),
     }),

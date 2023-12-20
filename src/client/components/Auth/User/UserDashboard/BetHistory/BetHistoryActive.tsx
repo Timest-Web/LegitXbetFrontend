@@ -6,6 +6,8 @@ import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import { createColumnHelper } from "@tanstack/react-table";
 import { TableProps } from "react-table";
 import MoreIcon from "@/src/client/shared/Svg/MoreIcon";
+import { Row } from "@tanstack/react-table";
+import HistoryView from "./HistoryView";
 
 const mData = [
   {
@@ -29,9 +31,15 @@ const mData = [
 ];
 
 const columnHelper = createColumnHelper<TableProps>();
+interface TabViewRows {
+  [key: string]: boolean;
+}
+
+
 
 const BetHistoryActive = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [tabViewRows, setTabViewRows] = useState<TabViewRows>({});
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -40,6 +48,14 @@ const BetHistoryActive = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
+  const toggleTabView = (row: { id: string | number }) => {
+    setTabViewRows((prevState) => ({
+      ...prevState,
+      [row.id]: !prevState[row.id],
+    }));
+  };
+
 
   const data = useMemo(() => mData, []);
 
@@ -67,13 +83,14 @@ const BetHistoryActive = () => {
     },
     columnHelper.accessor("action", {
       header: "Action",
-      cell: () => (
-        <div className="flex  justify-center items-center">
-          <div onClick={handleOpenModal}>
+      cell: ({ row }: { row: Row<TableProps> }) => (
+        <div className="flex  justify-center items-center relative">
+          <button onClick={() => toggleTabView(row)}>
             <MoreIcon />
-          </div>
-          
+          </button>
+          {tabViewRows[row.id] && <HistoryView handleOpenModal={handleOpenModal} />}
         </div>
+    
       ),
     }),
   ];

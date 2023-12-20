@@ -13,10 +13,10 @@ const ProfileVeriReuse : React.FC<ProfileVeriReuseProps> = ({ isInsideKycComp })
     <div className="flex space-x-6 font-bold pl-6 mt-6 font-dmsans">
       <div className="flex space-x-3">
         <Padlock />
-        <h3 className="opacity-50 hover:opacity-100 font-dmsans">Security & Safety</h3>
+        <h3 className="opacity-50 hover:opacity-100 cursor-pointer font-dmsans">Security & Safety</h3>
       </div>
       <Link href="/user_dashboard/profile/profile_kyc">
-        <h3 className={isInsideKycComp ? "opacity-100" : "opacity-50 hover:opacity-100"}>Profile Verification</h3>
+        <h3 className={isInsideKycComp ? "opacity-100" : "opacity-50 hover:opacity-100 cursor-pointer"}>Profile Verification</h3>
       </Link>
     </div>
   );

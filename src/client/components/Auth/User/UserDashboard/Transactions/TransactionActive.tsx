@@ -1,6 +1,11 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import LayoutDashboard from "../../Reusables/LayoutDashboard";
 import TableComp from "../../Reusables/TableComp";
+import TransactionView from "./TransactionView";
+import { createColumnHelper } from "@tanstack/react-table";
+import { TableProps } from "react-table";
+import { Row } from "@tanstack/react-table";
+import MoreIcon from "@/src/client/shared/Svg/MoreIcon";
 
 const mData = [
   {
@@ -23,7 +28,23 @@ const mData = [
   },
 ];
 
+const columnHelper = createColumnHelper<TableProps>();
+
+interface TabViewRows {
+  [key: string]: boolean;
+}
+
 const TransactionActive = () => {
+  const [tabViewRows, setTabViewRows] = useState<TabViewRows>({});
+  const toggleTabView = (row: { id: string | number }) => {
+    setTabViewRows((prevState) => ({
+      ...prevState,
+      [row.id]: !prevState[row.id],
+    }));
+  };
+
+
+
   const data = useMemo(() => mData, []);
 
   const columns: any = [
@@ -49,10 +70,17 @@ const TransactionActive = () => {
       header: "Pot. Win",
       accessorKey: "pot_win",
     },
-    {
+    columnHelper.accessor("action", {
       header: "Action",
-      accessorKey: "action",
-    },
+      cell: ({ row }: { row: Row<TableProps> }) => (
+        <div className="flex  justify-center items-center relative">
+          <button onClick={() => toggleTabView(row)}>
+            <MoreIcon />
+          </button>
+          {tabViewRows[row.id] && <TransactionView />}
+        </div>
+      ),
+    }),
   ];
 
   return (
