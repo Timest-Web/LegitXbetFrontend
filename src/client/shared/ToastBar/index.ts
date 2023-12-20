@@ -18,7 +18,7 @@ export const SuccessToast = ({ text }: Props) => {
 	});
 };
 
-export const ErrorToast = ({ text }: Props) => {
+export const ErrorToast = (text: string) => {
 	toast.error(text, {
 		position: 'top-left',
 		autoClose: 5000,

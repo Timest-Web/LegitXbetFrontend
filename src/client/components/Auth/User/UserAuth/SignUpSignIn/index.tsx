@@ -10,17 +10,14 @@ const buttons = [
 ];
 
 const SignUpSignIn = ({
-	setSubmitForm,
+	setIsFormSubmit,
 }: {
-	setSubmitForm: React.Dispatch<SetStateAction<boolean>>;
+	setIsFormSubmit: React.Dispatch<SetStateAction<boolean>>;
 }) => {
 	const { link, handleClick } = useLink('Register Account');
 	const [phoneNo, setPhoneNo] = useState('');
 	const [password, setPassword] = useState('');
 
-	const handleSubmit = () => {
-		setSubmitForm(true);
-	};
 
 	return (
 		<ModalContainer>
@@ -54,7 +51,7 @@ const SignUpSignIn = ({
 				password={password}
 				setPhoneNo={setPhoneNo}
 				setPassword={setPassword}
-				handleSubmit={handleSubmit}
+				setIsFormSubmit={setIsFormSubmit}
 			/>
 		</ModalContainer>
 	);

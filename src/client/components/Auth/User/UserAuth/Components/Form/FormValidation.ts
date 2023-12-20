@@ -7,13 +7,13 @@ type Props = {
 
 export const formValidation = ({ values }: Props) => {
   let errors: { [key: string]: string } = {};
-      const phoneRegex = /^[0-9]{10,11}$/;
+  const phoneRegex = /^[0-9]{11}$/;
       
   if (!values.phoneNo) {
     errors.phoneNo = "Phone Number is Required";
   } else if (!phoneRegex.test(values.phoneNo)) {
     errors.phoneNo =
-      "Phone Number must be a 10 or 11-digit numeric value";
+      "Phone Number must be 11 numeric value";
       }
       
   if (!values.password) {

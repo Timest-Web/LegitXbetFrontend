@@ -3,10 +3,10 @@ import Otp from '../Otp';
 import SignUpSignIn from '../SignUpSignIn';
 
 const DesktopModalView = () => {
-	const [submitForm, setSubmitForm] = useState(false);
+	const [isFormSubmit, setIsFormSubmit] = useState(false);
 
-	return !submitForm ? (
-		<SignUpSignIn setSubmitForm={setSubmitForm} />
+	return !isFormSubmit ? (
+		<SignUpSignIn setIsFormSubmit={setIsFormSubmit} />
 	) : (
 		<Otp />
 	);

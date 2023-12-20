@@ -1,42 +1,74 @@
 import React, { SetStateAction, useState } from 'react';
-import Lock from '@/src/client/shared/Svg/Lock';
+import { useRouter } from 'next/router';
+import 'react-toastify/dist/ReactToastify.css';
+import SecureText from '../SecureText';
+import Loader from '@/src/client/shared/Loader/Loader';
+import { ToastContainer } from 'react-toastify';
 import { Button } from '@/src/client/shared/Button';
 import { formValidation } from './FormValidation';
-import { ToastContainer } from 'react-toastify';
+import { useMutation } from '@tanstack/react-query';
+import { signIn, signUp } from '@/src/helper/api/auth';
+import { ErrorToast } from '@/src/client/shared/ToastBar';
 import { Password, PhoneNumber, ResponseHint } from '../Input';
 
 type FormProps = {
 	phoneNo: string;
 	password: string;
 	authType: string;
-	handleSubmit: Function;
 	setPhoneNo: React.Dispatch<SetStateAction<string>>;
 	setPassword: React.Dispatch<SetStateAction<string>>;
+	setIsFormSubmit: React.Dispatch<SetStateAction<boolean>>;
 };
 
 const Form = ({
+	authType,
 	phoneNo,
 	password,
 	setPhoneNo,
 	setPassword,
-	handleSubmit,
+	setIsFormSubmit,
 }: FormProps) => {
+	const router = useRouter();
 	const [errors, setErrors] = useState<{
 		phoneNo?: string;
 		password?: string;
 	}>({});
 
-	const handleFormSubmit = () => {
-		const values = { phoneNo, password };
-		const validationErrors = formValidation({ values });
+	const values = { phoneNo, password };
+	const validationErrors = formValidation({ values });
+	const signUpMutation = useMutation({ mutationFn: signUp });
+	const signInMutation = useMutation({ mutationFn: signIn });
 
+	const handleFormSubmit = async () => {
 		if (Object.keys(validationErrors).length === 0) {
+			const formattedPhoneNo = phoneNo.startsWith('0')
+				? `+234${phoneNo.slice(1)}`
+				: `+234${phoneNo}`;
+			const valueEnter = { phoneNumber: formattedPhoneNo, password };
+			console.log(valueEnter);
 			setErrors({});
-			console.log('Form is valid. Submitting...');
+			if (authType === 'Register Account') {
+				const payload = await signUpMutation.mutateAsync(valueEnter);
+				if (payload.message.toLowerCase().includes('exist')) {
+					ErrorToast(payload?.message);
+				} else if (payload.message.toLowerCase().includes('successfully')) {
+					setIsFormSubmit(true);
+				} else {
+					ErrorToast('Bad Network');
+				}
+
+			} else {
+				const payload = await signInMutation.mutateAsync(valueEnter);
+				if (payload.message.toLowerCase().includes('invalid')) {
+					ErrorToast('Invalid Credential');
+				} else if (payload.message.toLowerCase().includes('successful')) {
+					router.reload();
+				} else {
+					ErrorToast('Bad Network');
+				}
+			}
 		} else {
 			setErrors(validationErrors);
-			console.log(errors);
-			console.log('Form is invalid. Please correct the errors.');
 		}
 	};
 
@@ -70,17 +102,25 @@ const Form = ({
 				{errors.password && <ResponseHint err={errors.password} />}
 			</div>
 
-			<div className='flex items-center justify-center space-x-2 mt-4'>
-				<Lock />
-				<p className='text-gray-400 text-[11px]'>
-					Secure password has numbers and character sets
-				</p>
-			</div>
+			<SecureText />
 
 			<Button
-				text='Continue'
+				text={
+					signUpMutation.isPending ? (
+						<Loader
+							height={16}
+							width={16}
+						/>
+					) : (
+						'Continue'
+					)
+				}
 				link='#'
-				className='text-white py-2 px-6 w-[155px] rounded-md bg-black mt-8 text-xs'
+				className={` ${
+					Object.keys(validationErrors).length === 0
+						? 'bg-black text-white'
+						: 'bg-gray-400 text-gray-700 disabled'
+				} text-white py-2 px-6 w-[155px] rounded-md mt-8 text-xs`}
 				onClick={handleFormSubmit}
 			/>
 		</form>
