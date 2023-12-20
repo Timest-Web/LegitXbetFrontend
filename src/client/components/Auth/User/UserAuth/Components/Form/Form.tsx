@@ -8,8 +8,8 @@ import { Button } from '@/src/client/shared/Button';
 import { formValidation } from './FormValidation';
 import { useMutation } from '@tanstack/react-query';
 import { signIn, signUp } from '@/src/helper/api/auth';
-import { ErrorToast } from '@/src/client/shared/ToastBar';
 import { Password, PhoneNumber, ResponseHint } from '../Input';
+import { handleFormSubmit } from '@/src/client/shared/Utils/FormUtils';
 
 type FormProps = {
 	phoneNo: string;
@@ -39,37 +39,20 @@ const Form = ({
 	const signUpMutation = useMutation({ mutationFn: signUp });
 	const signInMutation = useMutation({ mutationFn: signIn });
 
-	const handleFormSubmit = async () => {
-		if (Object.keys(validationErrors).length === 0) {
-			const formattedPhoneNo = phoneNo.startsWith('0')
-				? `+234${phoneNo.slice(1)}`
-				: `+234${phoneNo}`;
-			const valueEnter = { phoneNumber: formattedPhoneNo, password };
-			console.log(valueEnter);
-			setErrors({});
-			if (authType === 'Register Account') {
-				const payload = await signUpMutation.mutateAsync(valueEnter);
-				if (payload.message.toLowerCase().includes('exist')) {
-					ErrorToast(payload?.message);
-				} else if (payload.message.toLowerCase().includes('successfully')) {
-					setIsFormSubmit(true);
-				} else {
-					ErrorToast('Bad Network');
-				}
-
-			} else {
-				const payload = await signInMutation.mutateAsync(valueEnter);
-				if (payload.message.toLowerCase().includes('invalid')) {
-					ErrorToast('Invalid Credential');
-				} else if (payload.message.toLowerCase().includes('successful')) {
-					router.reload();
-				} else {
-					ErrorToast('Bad Network');
-				}
-			}
-		} else {
-			setErrors(validationErrors);
-		}
+	const handleSubmit = () => {
+		handleFormSubmit({
+			authType,
+			phoneNo,
+			password,
+			setPhoneNo,
+			setPassword,
+			setIsFormSubmit,
+			setErrors,
+			signUpMutation,
+			signInMutation,
+			router,
+			validationErrors,
+		});
 	};
 
 	return (
@@ -121,7 +104,7 @@ const Form = ({
 						? 'bg-black text-white'
 						: 'bg-gray-400 text-gray-700 disabled'
 				} text-white py-2 px-6 w-[155px] rounded-md mt-8 text-xs`}
-				onClick={handleFormSubmit}
+				onClick={handleSubmit}
 			/>
 		</form>
 	);
