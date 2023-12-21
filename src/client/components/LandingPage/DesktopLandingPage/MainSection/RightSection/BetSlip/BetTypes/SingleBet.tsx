@@ -1,11 +1,11 @@
 import React from 'react';
 import PlaceBet from '../components/PlaceBet';
 import DeleteBet from '../components/DeleteBet';
-import useBet from '@/src/client/shared/Context/BetContext/useBet';
 import { truncateText } from '@/src/client/shared/Utils/TruncateText';
 import NoSelectionYet from '../components/NoSelectionYet';
 import DeleteIcon from '@/src/client/shared/Svg/DeleteIcon';
 import { BetItemProps } from '../../constant/data';
+import useBet from '@/src/client/shared/Context/BetContext/useBet';
 
 
 const BetItem: React.FC<BetItemProps> = ({ index, value, onDelete }) => {

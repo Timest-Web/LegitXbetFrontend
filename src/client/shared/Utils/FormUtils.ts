@@ -31,13 +31,15 @@ export const handleFormSubmit = async ({
   if (Object.keys(validationErrors).length === 0) {
     const formattedPhoneNo = phoneNo.startsWith('0') ? `+234${phoneNo.slice(1)}` : `+234${phoneNo}`;
     const valueEnter = { phoneNumber: formattedPhoneNo, password };
-    console.log(valueEnter);
     setErrors({});
+
     if (authType === 'Register Account') {
       const payload = await signUpMutation.mutateAsync(valueEnter);
       if (payload.message.toLowerCase().includes('exist')) {
         ErrorToast(payload?.message);
       } else if (payload.message.toLowerCase().includes('successfully')) {
+        console.log(payload.user);
+        window.localStorage.setItem('user', JSON.stringify(payload.user));
         setIsFormSubmit(true);
       } else {
         ErrorToast('Bad Network');

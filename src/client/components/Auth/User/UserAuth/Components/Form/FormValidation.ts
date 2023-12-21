@@ -11,10 +11,11 @@ export const formValidation = ({ values }: Props) => {
       
   if (!values.phoneNo) {
     errors.phoneNo = "Phone Number is Required";
-  } else if (!phoneRegex.test(values.phoneNo)) {
-    errors.phoneNo =
-      "Phone Number must be 11 numeric value";
-      }
+  }
+  // else if (!phoneRegex.test(values.phoneNo)) {
+  //   errors.phoneNo =
+  //     "Phone Number must be 11 numeric value";
+  //     }
       
   if (!values.password) {
     errors.password = "Password is Required";

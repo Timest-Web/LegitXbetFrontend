@@ -1,17 +1,19 @@
 import React from 'react';
 import Image from 'next/image';
-import Logo from '../../../../assets/logo1.png';
-import Headphone from '../../Svg/Headphone';
-import { Button } from '../../Button';
-import { useLink } from '../../Hooks/useLink';
+import Logo from '../../../../../assets/logo1.png';
+import Headphone from '../../../Svg/Headphone';
+import { Button } from '../../../Button';
+import { useLink } from '../../../Hooks/useLink';
 import { OtherCrown } from '@heathmont/moon-icons-tw';
-import { useVisibilityControl } from '../../Hooks/useVisibilityControl';
+import { useVisibilityControl } from '../../../Hooks/useVisibilityControl';
 import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
-import { LINK_CATEGORY_TYPES } from '../constant';
-import DesktopModal from '../../Modal/DesktopModal';
-import DesktopModalView from '../../../components/Auth/User/UserAuth/Components/DesktopModalView';
-import CustomerCareDrawer from '../../Drawer/CustomerCareDrawer';
-import SupportContent from '../SupportContent';
+import DesktopModal from '../../../Modal/DesktopModal';
+import DesktopModalView from '../../../../components/Auth/User/UserAuth/Components/DesktopModalView';
+import CustomerCareDrawer from '../../../Drawer/CustomerCareDrawer';
+import SupportContent from '../../SupportContent';
+import UserSection from './UserSection';
+import { LINK_CATEGORY_TYPES } from '../../constant';
+import useUser from '../../../Context/UserContext/useUser';
 
 const CategoryBetMenu = () => {
 	const { link, handleClick } = useLink('Sports');
@@ -25,6 +27,8 @@ const CategoryBetMenu = () => {
 		setIsOpen: setIsOpenDrawer,
 		handleClick: onHandleSupportClick,
 	} = useVisibilityControl();
+	const { userId } = useUser();
+	console.log(userId);
 
 	return (
 		<div className='flex items-center justify-center w-full  bg-black'>
@@ -36,7 +40,7 @@ const CategoryBetMenu = () => {
 						className='h-[22px] w-[123px] cursor-pointer'
 					/>
 
-					<div className='flex space-x-16 h-20'>
+					<div className='flex space-x-12 h-20'>
 						{LINK_CATEGORY_TYPES.map((value, index) => (
 							<div
 								key={index}
@@ -79,32 +83,37 @@ const CategoryBetMenu = () => {
 					</div>
 				</div>
 
-				<div className='flex items-center space-x-10'>
-					<button
-						onClick={onHandleSupportClick}
-						className='flex space-x-2 text-sm'>
-						<Headphone />
-						<p className='text-gray-200 font-bold pt-1'>Supports</p>
-					</button>
+				{!userId && (
+					<div className='flex items-center space-x-10'>
+						<button
+							onClick={onHandleSupportClick}
+							className='flex space-x-2 text-sm'>
+							<Headphone />
+							<p className='text-gray-200 font-bold pt-1'>
+								Supports
+							</p>
+						</button>
 
-					<div className='flex space-x-2'>
-						<Button
-							text='Log In'
-							onClick={() => {
-								onHandleClick();
-							}}
-							link='#'
-							className='text-gray-200 p-2 text-sm rounded-md border border-gray-200 font-bold'
-						/>
+						<div className='flex space-x-2'>
+							<Button
+								text='Log In'
+								onClick={() => {
+									onHandleClick();
+								}}
+								link='#'
+								className='text-gray-200 p-2 text-sm rounded-md border border-gray-200 font-bold'
+							/>
 
-						<Button
-							text='Register'
-							onClick={onHandleClick}
-							link='#'
-							className='text-gray-200 p-2 text-sm rounded-md border border-gray-200 font-bold'
-						/>
+							<Button
+								text='Register'
+								onClick={onHandleClick}
+								link='#'
+								className='text-gray-200 p-2 text-sm rounded-md border border-gray-200 font-bold'
+							/>
+						</div>
 					</div>
-				</div>
+				)}
+				{userId && <UserSection />}
 			</div>
 
 			{openDrawer && (

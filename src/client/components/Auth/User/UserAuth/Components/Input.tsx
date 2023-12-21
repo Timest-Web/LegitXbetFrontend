@@ -22,13 +22,17 @@ export const PhoneNumber = ({
 	return (
 		<div className='flex flex-col space-y-1'>
 			<p className='font-bold pl-6 text-sm'>{label}</p>
-			<input
-				type={type}
-				value={value}
-				placeholder={placeHolder}
-				onChange={(e) => setValue(e.target.value)}
-				className={`${borderHint} bg-gray-100 py-2 px-3 rounded-lg w-80 borderless-input text-sm`}
-			/>
+			<div
+				className={`${borderHint} flex w-80 bg-gray-100  rounded-lg text-sm`}>
+				<div className='py-2 pl-3'>+234</div>
+				<input
+					type={type}
+					value={value}
+					placeholder={placeHolder}
+					onChange={(e) => setValue(e.target.value)}
+					className='bg-gray-100 py-2 px-3 w-full rounded-lg borderless-input '
+				/>
+			</div>
 		</div>
 	);
 };
@@ -61,7 +65,8 @@ export const Password = ({
 		<div className='flex flex-col space-y-1'>
 			<p className='font-bold pl-6 text-sm'>{label}</p>
 
-			<div className={`${borderHint} flex items-center justify-between bg-gray-100 w-80 rounded-lg`}>
+			<div
+				className={`${borderHint} flex items-center justify-between bg-gray-100 w-80 rounded-lg`}>
 				<input
 					value={value}
 					placeholder={placeHolder}
@@ -76,8 +81,8 @@ export const Password = ({
 					{!showPassword ? (
 						<ControlsEyeCrossed
 							height={23}
-                                          width={23}
-                                          color='black'
+							width={23}
+							color='black'
 							className='m-1 text-black'
 						/>
 					) : (

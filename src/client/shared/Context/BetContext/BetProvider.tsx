@@ -1,27 +1,13 @@
+import React, { useEffect, useState, useRef } from 'react';
+import { BetContext } from './BetContext';
+import { OddsValuesProps } from './constant';
 import { ODDS_VALUE } from '@/src/client/components/LandingPage/DesktopLandingPage/MainSection/CenterSection/constant/data';
-import React, { createContext, useEffect, useState, useRef } from 'react';
 
-
-type OddsValuesProps = {
-	id: number;
-	time: string;
-	teamOne: string;
-	teamTwo: string;
-	odd: number;
-	oddType: string;
-};
 
 type BetProviderProps = {
 	children: React.ReactNode;
 };
 
-export type BetContextType = {
-	bet: OddsValuesProps[];
-	handleDeleteAll: () => void;
-	addToBetSlip: (id: number, odd: number) => void;
-	handleDelete: (params: { id: number; odd: number }) => void  | boolean;
-};
-export const BetContext = createContext<BetContextType | undefined>(undefined);
 export const BetProvider: React.FC<BetProviderProps> = ({
 	children,
 }: BetProviderProps) => {
@@ -77,15 +63,14 @@ export const BetProvider: React.FC<BetProviderProps> = ({
 		}
 	};
 
-      const handleDelete = ({ id, odd }: { id: number; odd: number }) => {
-            if (id) {
-                  const updateBetList = bet.filter(
-                        (betItem) => !(betItem.id === id && betItem.odd === odd)
-                  );
-                  setBet([...updateBetList]);
-            }
-      };
-
+	const handleDelete = ({ id, odd }: { id: number; odd: number }) => {
+		if (id) {
+			const updateBetList = bet.filter(
+				(betItem) => !(betItem.id === id && betItem.odd === odd)
+			);
+			setBet([...updateBetList]);
+		}
+	};
 
 	const handleDeleteAll = () => {
 		setBet([]);
@@ -101,7 +86,7 @@ export const BetProvider: React.FC<BetProviderProps> = ({
 
 	return (
 		<BetContext.Provider
-                  value={{
+			value={{
 				handleDeleteAll,
 				addToBetSlip,
 				handleDelete,

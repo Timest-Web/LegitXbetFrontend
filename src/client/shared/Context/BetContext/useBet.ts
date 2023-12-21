@@ -1,5 +1,7 @@
 import { useContext } from 'react';
-import { BetContextType, BetContext } from './BetContext';
+
+import { BetContextType } from './constant';
+import { BetContext } from './BetContext';
 
 const useBet = (): BetContextType => {
 	const context = useContext(BetContext);

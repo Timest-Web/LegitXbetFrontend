@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryBetMenu from './CategoryBetMenu';
+import CategoryBetMenu from './CategoryBetMenu/CategoryBetMenu';
 import SportBetMenu from './SportBetMenu';
 
 const DesktopHeader = () => {

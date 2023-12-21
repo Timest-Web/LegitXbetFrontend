@@ -36,8 +36,8 @@ const Form = ({
 
 	const values = { phoneNo, password };
 	const validationErrors = formValidation({ values });
-	const signUpMutation = useMutation({ mutationFn: signUp });
 	const signInMutation = useMutation({ mutationFn: signIn });
+	const signUpMutation = useMutation({ mutationFn: signUp });
 
 	const handleSubmit = () => {
 		handleFormSubmit({
@@ -67,7 +67,7 @@ const Form = ({
 					label='Mobile Number'
 					value={phoneNo}
 					setValue={setPhoneNo}
-					placeHolder='e.g +234 818 217 59384'
+					placeHolder='e.g 0818 2175 9384'
 					borderHint={errors.phoneNo ? 'border border-red-600' : ''}
 				/>
 				{errors.phoneNo && <ResponseHint err={errors.phoneNo} />}
