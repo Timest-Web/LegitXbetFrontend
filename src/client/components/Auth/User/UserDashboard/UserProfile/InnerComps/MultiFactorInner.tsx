@@ -6,7 +6,7 @@ import ProfileButton from "../ProfileReusables/ProfileButton";
 const MultiFactorInner = () => {
   return (
     <div>
-      <ProfileVeriReuse />
+      <ProfileVeriReuse isInsideSecurityComp />
       <div className=" bg-white w-[980px] h-[544px] rounded-[20px] p-12 pl-16 mt-4">
         <MultiReuse />
         <form className="flex flex-col space-y-16">

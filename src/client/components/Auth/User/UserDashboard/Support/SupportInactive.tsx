@@ -20,7 +20,7 @@ const SupportInactive = () => {
 
   return (
     <div>
-      <SupportComp
+      <SupportComp isLiveChat
         supportContent={
           <div className="flex flex-col space-y-3 justify-center items-center mt-32 ">
             <PlaceBetIcon />

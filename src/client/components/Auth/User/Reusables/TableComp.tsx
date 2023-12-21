@@ -66,8 +66,8 @@ const TableComp: React.FC<TableProps> = ({
               <input
                 className="border-[#292D32] border w-[135px] h-[35px] bg-[#ECEEF1] p-2 mt-2"
                 type="text"
-                // value={filtering}
-                // onChange={(e) => setFiltering(e.target.value)}
+                value={filtering}
+                onChange={(e) => setFiltering(e.target.value)}
               />
               <div className="absolute top-[0.8rem] right-4 flex space-x-2">
                 <FilterSearch />

@@ -3,33 +3,28 @@ import LayoutDashboard from "../../Reusables/LayoutDashboard";
 import TableComp from "../../Reusables/TableComp";
 import { useMemo } from "react";
 import {
-    useReactTable,
-    getCoreRowModel,
-    flexRender,
-    getPaginationRowModel,
-    getFilteredRowModel,
-  } from "@tanstack/react-table";
-  import { useState } from "react";
-  import ArrowLeft from "@/src/client/shared/Svg/ArrowLeft";
-  import ArrowRight from "@/src/client/shared/Svg/ArrowRight";
-
-  
+  useReactTable,
+  getCoreRowModel,
+  flexRender,
+  getPaginationRowModel,
+  getFilteredRowModel,
+} from "@tanstack/react-table";
+import { useState } from "react";
+import ArrowLeft from "@/src/client/shared/Svg/ArrowLeft";
+import ArrowRight from "@/src/client/shared/Svg/ArrowRight";
 
 const mData = [
   {
-    no: 1,
-    reference_id: "337914456",
-    date: "11/27/2023",
-    status: "success",
-    preview: "preview",
+    username: "Jezzki....",
+    email: "johndoe@gmail.com",
+    ticket_id: "23JJKLOP",
+    priority: "High",
+    call_number: "0807672367",
+    created: "28/09/2023",
+    status: "open",
+    actions: ""
   },
-  {
-    no: 2,
-    reference_id: "46787856",
-    date: "04/16/2023",
-    status: "success",
-    preview: "preview",
-  },
+
 ];
 
 const SupportActive = () => {
@@ -37,24 +32,36 @@ const SupportActive = () => {
 
   const columns: any = [
     {
-      header: "No",
-      accessorKey: "no",
+      header: "Username",
+      accessorKey: "username",
     },
     {
-      header: "Doc.",
-      accessorKey: "reference_id",
+      header: "Email",
+      accessorKey: "email",
     },
     {
-      header: "Date",
-      accessorKey: "date",
+      header: "Ticket ID",
+      accessorKey: "ticket_id",
+    },
+    {
+      header: "Priority",
+      accessorKey: "priority",
+    },
+    {
+      header: "Call Number",
+      accessorKey: "call_number",
+    },
+    {
+      header: "Created",
+      accessorKey: "created",
     },
     {
       header: "Status",
       accessorKey: "status",
     },
     {
-      header: "Preview",
-      accessorKey: "preview",
+      header: "Actions",
+      accessorKey: "actions",
     },
   ];
   const table = useReactTable({
@@ -66,52 +73,55 @@ const SupportActive = () => {
   return (
     <LayoutDashboard
       content={
-        <SupportComp
+        <SupportComp isOpenTicket
           supportContent={
             <div className="mt-3">
-            <table className="w-full  ">
-              {table.getHeaderGroups().map((headerGroup) => (
-                <tr key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => (
-                    <th
-                      className="  "
-                      key={header.id}
-                    >
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                    </th>
+              <table className="w-full  ">
+                <tbody>
+                  {table.getHeaderGroups().map((headerGroup) => (
+                    <tr key={headerGroup.id}>
+                      {headerGroup.headers.map((header) => (
+                        <th className="  " key={header.id}>
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                        </th>
+                      ))}
+                    </tr>
                   ))}
-                </tr>
-              ))}
-              <tbody className="mt-4">
-                {table.getRowModel().rows.map((row) => (
-                  <tr key={row.id}>
-                    {row.getVisibleCells().map((cell) => (
-                      <td className=" text-center h-11" key={cell.id}>
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <div className="flex space-x-2 justify-end items-end pr-12 absolute bottom-5 right-5">
-              <button
-                disabled={!table.getCanPreviousPage()}
-                onClick={() => table.previousPage()}
-              >
-                <ArrowLeft />
-              </button>
-              <button
-                disabled={!table.getCanNextPage()}
-                onClick={() => table.nextPage()}
-              >
-                <ArrowRight />
-              </button>
+                </tbody>
+
+                <tbody className="mt-4">
+                  {table.getRowModel().rows.map((row) => (
+                    <tr key={row.id}>
+                      {row.getVisibleCells().map((cell) => (
+                        <td className=" text-center h-11" key={cell.id}>
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <div className="flex space-x-2 justify-end items-end pr-12 absolute bottom-5 right-5">
+                <button
+                  disabled={!table.getCanPreviousPage()}
+                  onClick={() => table.previousPage()}
+                >
+                  <ArrowLeft />
+                </button>
+                <button
+                  disabled={!table.getCanNextPage()}
+                  onClick={() => table.nextPage()}
+                >
+                  <ArrowRight />
+                </button>
+              </div>
             </div>
-          </div>
           }
         />
       }

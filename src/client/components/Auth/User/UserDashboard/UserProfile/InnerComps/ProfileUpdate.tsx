@@ -4,7 +4,7 @@ import ProfileVeriReuse from "../ProfileReusables/ProfileVeriReuse";
 const ProfileUpdate = () => {
   return (
     <div>
-     <ProfileVeriReuse/>
+     <ProfileVeriReuse isInsideSecurityComp />
       <div className=" bg-white w-[980px] h-[544px] rounded-[20px] p-12 mt-4">
         <div className="flex space-x-8 font-bold text-[#292D32] mb-6">
           <h3>Mobile No</h3>
