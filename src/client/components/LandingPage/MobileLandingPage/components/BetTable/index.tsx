@@ -33,7 +33,7 @@ const DateItem: React.FC<DateItemProps> = ({ value, isToday }) => (
 	<div
 		className={`${
 			isToday ? 'text-gray-200' : 'text-gray-400'
-		} text-xs cursor-default`}>
+		} text-[10px] cursor-default`}>
 		{value === 'All Matches' ? <TopMatches /> : <p>{value}</p>}
 	</div>
 );
@@ -53,7 +53,7 @@ const renderSportTypes = ({
 				value.title === sportTypeLink
 					? 'text-gold bg-gray-700'
 					: 'text-gray-500'
-			} flex items-center justify-center text-center text-xs hover:bg-gray-700 hover:text-gold cursor-pointer pr-3 pl-1 rounded-lg`}>
+			} flex items-center justify-center text-center hover:bg-gray-700 hover:text-gold cursor-pointer pr-3 pl-1 rounded-lg`}>
 			<value.icon
 				height={25}
 				width={25}
@@ -109,7 +109,7 @@ const BetTable = ({
 
 			<div className='w-full rounded-xl px-3 mt-2 h-max'>
 				<div className='flex items-center justify-between h-10 rounded-t-lg bg-lightAsh  w-full py-3 px-5'>
-					<div className='flex items-center space-x-6 text-[8px]'>
+					<div className='flex items-center space-x-4 text-[8px]'>
 						{BETDATES.map((value, index) => (
 							<DateItem
 								key={index}

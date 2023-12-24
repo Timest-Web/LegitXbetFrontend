@@ -41,8 +41,8 @@ const TableRow = ({
 			className={`bg-darkAsh w-full ${
 				oddArray.length - 1 === index ? 'rounded-b-xl' : ''
 			}`}>
-			<div className='flex flex-row w-full'>
-				<div className='flex items-center justify-center w-20 h-12 text-[10px] space-x-1 border-r border-r-gray-800'>
+			<div className='flex flex-row w-full h-11'>
+				<div className='flex items-center justify-center w-20 h-11 text-[10px] space-x-1 border-r border-r-gray-800'>
 					<Time />
 					<p className='text-gray-400 '>{time}</p>
 				</div>

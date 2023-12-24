@@ -9,19 +9,19 @@ const TopHeader = () => {
 			<Image
 				src={Logo}
 				alt='Logo alt'
-                        className='h-5 w-28'
+                        className='h-4 w-24'
 			/>
-			<div className='flex text-white text-xs space-x-3'>
+			<div className='flex text-white text-xs space-x-2'>
 				<Button
 					text='Log In'
 					link=''
-					className='border border-white px-3 py-[3px] rounded-md'
+					className='border border-white px-3 py-[2px] rounded-md'
 					onClick={Function}
                         />
                         <Button
 					text='Register'
 					link=''
-					className='border border-white px-3 py-[3px] rounded-md'
+					className='border border-white px-3 py-[2px] rounded-md'
 					onClick={Function}
 				/>
 			</div>
