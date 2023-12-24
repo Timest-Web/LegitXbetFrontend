@@ -50,7 +50,7 @@ const TableComp: React.FC<TableProps> = ({
           {searchField && (
             <div className="relative">
               <input
-                className="border-[#292D32] border w-[225px] h-[41px] rounded-[35px] p-3 mt-1 bg-[#ECEEF1]"
+                className="border-[#292D32] border w-[14.0625rem] h-[2.5625rem] rounded-[35px] p-3 mt-1 bg-[#ECEEF1]"
                 type="text"
                 value={filtering}
                 onChange={(e) => setFiltering(e.target.value)}
@@ -64,7 +64,7 @@ const TableComp: React.FC<TableProps> = ({
           {filterField && (
             <div className="relative mt-[-2px]">
               <input
-                className="border-[#292D32] border w-[135px] h-[35px] bg-[#ECEEF1] p-2 mt-2"
+                className="border-[#292D32] border w-[8.4375rem] h-[2.1875rem] bg-[#ECEEF1] p-2 mt-2"
                 type="text"
                 value={filtering}
                 onChange={(e) => setFiltering(e.target.value)}
@@ -79,7 +79,7 @@ const TableComp: React.FC<TableProps> = ({
         </section>
       </div>
 
-      <div className="bg-white w-[980px] h-[544px] rounded-[20px] p-8 mt-4 relative">
+      <div className="bg-white w-[61.25rem] h-[34rem] rounded-[20px] p-8 mt-4 relative">
         <table className="w-full  ">
           <tbody>
             {table.getHeaderGroups().map((headerGroup) => (

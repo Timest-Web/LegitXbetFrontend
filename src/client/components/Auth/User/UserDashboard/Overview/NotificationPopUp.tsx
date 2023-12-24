@@ -1,7 +1,7 @@
 import SubmitButton from "../../Reusables/SubmitButton";
 
 const NotificationPopUp = () => {
-    return ( <div className="bg-white w-[980px] h-[544px] rounded-[20px] p-8 mt-4">
+    return ( <div className="bg-white w-[61.25rem] h-[34rem] rounded-[1.25rem] p-8 mt-4">
         <section className="flex justify-between">
             <h3 className="pt-2">
             New sign up Bonuses

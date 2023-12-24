@@ -6,8 +6,8 @@ import BetWC from "../UserAssets/download (1) 1.png";
 
 const BannerSection = () => {
   return (
-    <div className="flex flex-col w-[243px] h-[423px] ">
-      <section className="flex justify-between mb-2 px-4 font-bold text-sm  ">
+    <div className="flex flex-col w-[16.05rem] h-[28.05rem]">
+      <section className="flex justify-between mb-2 px-4 font-bold text-sm">
         <h3>Favorites </h3>
         <div className="flex space-x-1 " >
           <CollapseIcon />

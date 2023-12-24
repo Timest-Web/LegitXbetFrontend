@@ -36,13 +36,13 @@ const WithdrawPop = () => {
                 </div>
                 <input
                   placeholder="Choose a Bank"
-                  className=" bg-[#F5F5F5] w-[306px] h-11 p-3 text-sm "
+                  className=" bg-[#F5F5F5] w-[19.0625rem] h-11 p-3 text-sm "
                 />
               </div>
               <div className="flex flex-col space-y-3">
                 <label className="font-bold">Account No.</label>
                 <input
-                  className="bg-[#F5F5F5] w-[306px] h-11 p-4 text-sm"
+                  className="bg-[#F5F5F5] w-[19.0625rem] h-11 p-4 text-sm"
                   placeholder="e.g  555*******567"
                 />
               </div>
@@ -52,7 +52,7 @@ const WithdrawPop = () => {
                 <label className="font-bold">Amount</label>
                 <input
                   placeholder="Min 1.00"
-                  className="bg-[#F5F5F5] w-[167px] h-11 p-4 text-sm"
+                  className="bg-[#F5F5F5] w-[10.4375rem] h-11 p-4 text-sm"
                 ></input>
               </div>
               <div>

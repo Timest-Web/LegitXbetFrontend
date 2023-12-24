@@ -8,8 +8,8 @@ interface AllBetTableProps {
   title: string;
   headers: string[];
   noBetsMessage: string;
-  placeBetButtonText: string|undefined;
-  buttonAction?: ()=> void;
+  placeBetButtonText: string | undefined;
+  buttonAction?: () => void;
 }
 
 const AllBetTable: React.FC<AllBetTableProps> = ({
@@ -17,7 +17,7 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
   headers,
   noBetsMessage,
   placeBetButtonText,
-  buttonAction
+  buttonAction,
 }) => {
   return (
     <div>
@@ -26,23 +26,23 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
         <div className="flex space-x-2 relative">
           <input
             type="text"
-            className="border-[#292D32] border w-[225px] h-[41px] rounded-[35px] text-center p-3 bg-[#ECEEF1]"
+            className="border-[#292D32] border w-[14.0625rem] h-[2.5625rem] rounded-[2.1875rem] text-center p-1.875rem bg-[#ECEEF1]"
           />
           <div className="absolute top-2 flex space-x-2">
-            <SearchIcon/>
-            <h4 className=" opacity-50 ">Search</h4>
+            <SearchIcon />
+            <h4 className="opacity-50">Search</h4>
           </div>
           <input
-            className="border-[#292D32] border w-[135px] h-[35px] bg-[#ECEEF1] p-2 mt-[0.15rem]"
+            className="border-[#292D32] border w-[8.4375rem] h-[2.1875rem] bg-[#ECEEF1] p-2 mt-[0.15rem]"
           />
           <div className="absolute top-2 right-4 flex space-x-2">
-            <FilterSearch/>
+            <FilterSearch />
             <h2>Filter By</h2>
-            <ArrowDownIcon/>
+            <ArrowDownIcon />
           </div>
         </div>
       </div>
-      <div className="bg-white w-[980px] h-[544px] rounded-[20px] p-8 mt-4">
+      <div className="bg-white w-[61.25rem] h-[34rem] rounded-[1.25rem] p-8 mt-4">
         <div>
           <ul className="font-bold flex justify-between px-4">
             {headers.map((header, index) => (
@@ -53,9 +53,14 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
           <div className="flex flex-col justify-center items-center mt-36 space-y-4">
             <PlaceBetIcon />
             <h3>{noBetsMessage}</h3>
-           { placeBetButtonText && <button onClick={buttonAction} className="w-[128px] h-[38px] rounded-md bg-black p-2 text-white">
-              {placeBetButtonText}
-            </button>} 
+            {placeBetButtonText && (
+              <button
+                onClick={buttonAction}
+                className="w-[8rem] h-[2.375rem] rounded-md bg-black p-2 text-white"
+              >
+                {placeBetButtonText}
+              </button>
+            )}
           </div>
         </div>
       </div>

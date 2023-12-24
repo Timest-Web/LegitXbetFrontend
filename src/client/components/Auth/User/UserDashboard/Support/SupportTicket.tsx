@@ -3,7 +3,7 @@ import ExportIcon from "@/src/client/shared/Svg/ExportIcon";
 
 const SupportTicket = () => {
   return (
-    <div className="bg-white w-[877px] h-[874px] rounded-3xl px-12 pt-24 ">
+    <div className="bg-white w-[54.8125rem] h-[54.625rem] rounded-3xl px-12 pt-24 ">
       <div>
         <h2 className="font-bold">Support/tickets</h2>
         <hr className="mt-6 mb-6"></hr>
@@ -45,9 +45,9 @@ const SupportTicket = () => {
            <div className="p-1"><ExportIcon /></div> 
           </div>
         </div>
-        <textarea className="bg-[#F5F5F5] w-[789px] h-[221px] mt-6 mb-6 "></textarea>
+        <textarea className="bg-[#F5F5F5] w-[49.3125rem] h-[13.8125rem] mt-6 mb-6 "></textarea>
         <div className="flex justify-end items-end">
-          <button className="text-[#5D5D5D]  w-[132px] h-[35px] border border-solid rounded-sm">
+          <button className="text-[#5D5D5D]  w-[8.25rem] h-[2.1875rem] border border-solid rounded-sm">
             Open a ticket
           </button>
         </div>

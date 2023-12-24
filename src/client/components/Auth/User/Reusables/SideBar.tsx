@@ -26,7 +26,7 @@ const SideBar = () => {
   const router = useRouter();
 
   return (
-    <div className="bg-white w-[176px] h-[500px] rounded-2xl p-6 flex flex-col space-y-9 font-dmsans ">
+    <div className="bg-white w-[11rem] h-[31.25rem] rounded-2xl p-6 flex flex-col space-y-9 font-dmsans">
       {menuItems.map((item, index) => (
         <Link key={index} href={item.href}>
           <ProfileMenu

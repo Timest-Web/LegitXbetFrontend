@@ -7,23 +7,23 @@ const MultiFactorInner = () => {
   return (
     <div>
       <ProfileVeriReuse isInsideSecurityComp />
-      <div className=" bg-white w-[980px] h-[544px] rounded-[20px] p-12 pl-16 mt-4">
+      <div className=" bg-white w-[61.25rem] h-[34rem] rounded-[20px] p-12 pl-16 mt-4">
         <MultiReuse />
         <form className="flex flex-col space-y-16">
           <section className="flex space-x-8">
             <div className="flex space-x-5">
-              <input className="w-[22px] h-[22px]" type="radio" />
+              <input className="w-[1.375rem] h-[1.375rem]" type="radio" />
               <label className="font-bold">Activate</label>
             </div>
             <div className="flex space-x-5">
-              <input className="w-[22px] h-[22px]" type="radio" />
+              <input className="w-[1.375rem] h-[1.375rem]" type="radio" />
               <label className="font-bold">Deactivate</label>
             </div>
           </section>
           <div className="flex space-x-10">
             <input
               type="text"
-              className="bg-[#ECEEF1] w-[306px] h-[45px] p-2 rounded"
+              className="bg-[#ECEEF1] w-[19.0625rem] h-[2.8125rem] p-2 rounded"
             />
             <ProfileButton />
           </div>

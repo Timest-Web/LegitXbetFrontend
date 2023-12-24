@@ -6,18 +6,18 @@ const UpdatePass = () => {
   return (
     <div>
       <ProfileVeriReuse isInsideSecurityComp />
-      <div className=" bg-white w-[980px] h-[544px] rounded-[20px] p-12 mt-4">
+      <div className=" bg-white w-[61.25rem] h-[34rem] rounded-[20px] p-12 mt-4">
         <MultiReuse/>
         <form className="flex space-x-6">
           <div className="flex flex-col space-y-4 ">
             <label className="font-bold pl-4">Old Password</label>
-            <input className="bg-[#ECEEF1] w-[306px] h-[45px] p-2 rounded" type="text" />
+            <input className="bg-[#ECEEF1] w-[19.0625rem] h-[2.8125rem] p-2 rounded" type="text" />
           </div>
           <div className="flex flex-col space-y-4 ">
             <label className="font-bold pl-4">New Password</label>
-            <input className="bg-[#ECEEF1] w-[306px] h-[45px] p-2 rounded" type="text" />
+            <input className="bg-[#ECEEF1] w-[19.0625rem] h-[2.8125rem] p-2 rounded" type="text" />
           </div>
-          <button className="bg-black text-white w-[115px] h-[31px] text-[15px] rounded font-medium mt-[3rem] ">
+          <button className="bg-black text-white w-[7.1875rem] h-[1.9375rem] text-[15px] rounded font-medium mt-[3rem] ">
               Save & Update
             </button>
         </form>
