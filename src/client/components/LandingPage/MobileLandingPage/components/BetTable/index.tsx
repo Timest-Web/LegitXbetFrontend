@@ -133,7 +133,7 @@ const BetTable = ({
 				</div>
 
 				<div
-					className={`flex items-center justify-center space-x-4 text-xs  px-3 bg-darkAsh w-full h-10 pt-1 border-b border-b-darkAsh ${
+					className={`flex items-center justify-center space-x-4 text-xs  px-3 bg-darkAsh w-full h-10 pt-1 border-b border-b-gray-900 ${
 						collapse && 'rounded-b-xl'
 					}`}>
 					<CustomCarousel

@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import AddSquare from '@/src/client/shared/Svg/AddSquare';
 import MinusSqure from '@/src/client/shared/Svg/MinusSqure';
+import useDeviceType from '@/src/client/shared/Hooks/useDeviceType';
 
 type ViewMoreProps = {
 	icon?: ReactElement;
@@ -15,9 +16,10 @@ const ViewMore = ({
 	collapse,
 	setCollapse,
 }: ViewMoreProps) => {
+	const { isMobile } = useDeviceType();
 	return (
-		<div className='flex items-center justify-between px-4 text-gray-800 font-bold'>
-			<div className='flex space-x-1'>
+		<div className={`flex items-center justify-between px-4 text-gray-800 font-bold ${isMobile && 'text-xs'}`}>
+			<div className='flex items-center space-x-1'>
 				{icon && icon}
 				<p>{contentTitle}</p>
 			</div>
@@ -25,14 +27,14 @@ const ViewMore = ({
 				{collapse ? (
 					<div
 						onClick={() => setCollapse(!collapse)}
-						className='flex space-x-1 cursor-pointer'>
+						className='flex items-center space-x-1 cursor-pointer'>
 						<AddSquare />
 						<p className='cursor-pointer'>Expand</p>
 					</div>
 				) : (
 					<div
 						onClick={() => setCollapse(!collapse)}
-						className='flex space-x-1 cursor-pointer'>
+						className='flex items-center space-x-1 cursor-pointer'>
 						<MinusSqure />
 						<p>Collapse</p>
 					</div>
