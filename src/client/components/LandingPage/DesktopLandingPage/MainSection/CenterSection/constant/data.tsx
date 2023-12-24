@@ -11,6 +11,8 @@ import {
 	SportSnooker,
 } from '@heathmont/moon-icons-tw';
 
+export const BETDATES = ['All Matches', 'Today', '29 Nov', '30 Nov', '1 Dec'];
+
 export const SPORTS_TYPES = [
 	{ icon: SportSoccer, title: 'Football' },
 	{ icon: SportBasketball, title: 'Baseketball' },

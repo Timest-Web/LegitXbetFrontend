@@ -28,6 +28,7 @@ const Partners = () => {
 
 				<div className=' w-full'>
 					<CustomCarousel
+						autoSlideDelay={3000}
 						className='space-x-12'
 						renderCarouselItems={renderCarouselItems}
 					/>

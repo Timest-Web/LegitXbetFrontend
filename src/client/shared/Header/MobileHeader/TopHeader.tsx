@@ -5,7 +5,7 @@ import { Button } from '../../Button';
 
 const TopHeader = () => {
 	return (
-		<div className='flex items-center justify-between px-3 h-12 w-full bg-black'>
+		<div className='flex items-center justify-between px-4 h-12 w-full bg-black'>
 			<Image
 				src={Logo}
 				alt='Logo alt'

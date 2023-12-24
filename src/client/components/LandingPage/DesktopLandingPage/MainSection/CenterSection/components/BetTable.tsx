@@ -1,10 +1,10 @@
 import React, { useState, ReactElement } from 'react';
 import TableRow from './TableRow';
-import DropDown from '@/src/client/shared/Dropdown';
 import ViewMore from '../../components/ViewMore';
+import DropDown from '@/src/client/shared/Dropdown';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
 import RightArrow from '@/src/client/shared/Svg/RightArrow';
-import { LINK_GAME_TYPES, ODDS_VALUE, SPORTS_TYPES } from '../constant/data';
+import { BETDATES, LINK_GAME_TYPES, ODDS_VALUE, SPORTS_TYPES } from '../constant/data';
 
 
 type DateItemProps = {
@@ -39,9 +39,7 @@ const BetTable = ({
 }) => {
 	const [collapse, setCollapse] = useState(false);
 	const { link, handleClick } = useLink('3 Way & O/U');
-	const betDates = ['All Matches', 'Today', '29 Nov', '30 Nov', '1 Dec'];
-	const { link: sportTypeLink, handleClick: sportTypeHandleClick } =
-		useLink('Football');
+	const { link: sportTypeLink, handleClick: sportTypeHandleClick } = useLink('Football');
 
 	return (
 		<>
@@ -57,7 +55,7 @@ const BetTable = ({
 			<div className='w-full  rounded-xl mt-2'>
 				<div className='flex items-center justify-between h-10 rounded-t-lg bg-lightAsh  w-full py-3 px-5'>
 					<div className='flex items-center space-x-8'>
-						{betDates.map((value, index) => (
+						{BETDATES.map((value, index) => (
 							<DateItem
 								key={index}
 								value={value}
@@ -92,8 +90,7 @@ const BetTable = ({
 				</div>
 
 				<div className='bg-darkAsh w-full rounded-b-lg'>
-					<div
-						className={`flex items-center space-x-4 text-xs  px-3 ${
+					<div className={`flex items-center space-x-4 text-xs  px-3 ${
 							!collapse && 'border-b border-b-gray-800'
 						} h-10`}>
 						{LINK_GAME_TYPES.map((value, index) => (
