@@ -35,23 +35,26 @@ export const handleFormSubmit = async ({
 
     if (authType === 'Register Account') {
       const payload = await signUpMutation.mutateAsync(valueEnter);
-      if (payload.message.toLowerCase().includes('exist')) {
-        ErrorToast(payload?.message);
-      } else if (payload.message.toLowerCase().includes('successfully')) {
-        console.log(payload.user);
-        window.localStorage.setItem('user', JSON.stringify(payload.user));
-        setIsFormSubmit(true);
+      if (payload) {
+        if (payload.message.toLowerCase().includes('exist')) {
+          ErrorToast(payload?.message);
+        } else if (payload.message.toLowerCase().includes('successfully')) {
+          window.localStorage.setItem('user', JSON.stringify(payload.user));
+          setIsFormSubmit(true);
+        } else if (payload.message.toLowerCase().includes('error')){
+          ErrorToast({text: 'User Already Exisr'});
+        }        
       } else {
-        ErrorToast('Bad Network');
+          ErrorToast({text: 'Bad Network'});
       }
     } else {
       const payload = await signInMutation.mutateAsync(valueEnter);
       if (payload.message.toLowerCase().includes('invalid')) {
-        ErrorToast('Invalid Credential');
+        ErrorToast({ text: 'Invalid Credential' });
       } else if (payload.message.toLowerCase().includes('successful')) {
         router.reload();
       } else {
-        ErrorToast('Bad Network');
+        ErrorToast({text: 'Bad Network'});
       }
     }
   } else {

@@ -59,7 +59,7 @@ const TableRow = ({
 					<div className='w-8'>
 						<Ranking />
 					</div>
-					<div className='flex'>
+					<div className='flex space-x-6'>
 						{isLiveTable === true && (
 							<ScoreView
 								teamOneScore={2}

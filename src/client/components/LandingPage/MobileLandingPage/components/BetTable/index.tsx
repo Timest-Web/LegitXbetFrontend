@@ -38,7 +38,6 @@ const DateItem: React.FC<DateItemProps> = ({ value, isToday }) => (
 	</div>
 );
 
-
 const renderSportTypes = ({
 	sportTypeLink,
 	sportTypeHandleClick,
@@ -54,7 +53,7 @@ const renderSportTypes = ({
 				value.title === sportTypeLink
 					? 'text-gold bg-gray-700'
 					: 'text-gray-500'
-			} flex items-center justify-center text-center text-xs mt-3 hover:bg-gray-700 hover:text-gold cursor-pointer pr-3 pl-1 rounded-lg`}>
+			} flex items-center justify-center text-center text-xs hover:bg-gray-700 hover:text-gold cursor-pointer pr-3 pl-1 rounded-lg`}>
 			<value.icon
 				height={25}
 				width={25}
@@ -83,13 +82,12 @@ const renderGameTypes = ({
 	));
 };
 
-
 const BetTable = ({
 	icon,
 	contentTitle,
 	isLiveTable,
 }: {
-	icon?: SVGRectElement;
+	icon?: React.JSX.Element;
 	contentTitle: string;
 	isLiveTable: boolean;
 }) => {
@@ -99,11 +97,11 @@ const BetTable = ({
 		useLink('Football');
 
 	return (
-		<>
+		<div>
 			<div>
 				<ViewMore
-					icon={<Star />}
-					contentTitle='Top Matches'
+					icon={icon}
+					contentTitle={contentTitle}
 					collapse={collapse}
 					setCollapse={setCollapse}
 				/>
@@ -122,7 +120,7 @@ const BetTable = ({
 					</div>
 				</div>
 
-				<div className='flex items-center space-x-2 border-t py-2 h-10 -pb-4 border-t-gray-800  w-full px-4 bg-lightAsh text-sm'>
+				<div className='flex items-center space-x-2 border-t py-2 h-10 border-t-gray-800  w-full px-4 bg-lightAsh text-sm'>
 					<CustomCarousel
 						className='flex items-start justify-start w-full'
 						renderCarouselItems={() =>
@@ -134,16 +132,16 @@ const BetTable = ({
 					/>
 				</div>
 
-				<div className='bg-darkAsh w-full h-10 pt-1 border-b border-b-darkAsh'>
-					<div
-						className={`flex items-center justify-center space-x-4 text-xs  px-3`}>
-						<CustomCarousel
-							className='flex items-start justify-start w-full'
-							renderCarouselItems={() =>
-								renderGameTypes({ link, handleClick })
-							}
-						/>
-					</div>
+				<div
+					className={`flex items-center justify-center space-x-4 text-xs  px-3 bg-darkAsh w-full h-10 pt-1 border-b border-b-darkAsh ${
+						collapse && 'rounded-b-xl'
+					}`}>
+					<CustomCarousel
+						className='flex items-start justify-start w-full'
+						renderCarouselItems={() =>
+							renderGameTypes({ link, handleClick })
+						}
+					/>
 				</div>
 
 				{!collapse && (
@@ -160,7 +158,7 @@ const BetTable = ({
 					</div>
 				)}
 			</div>
-		</>
+		</div>
 	);
 };
 
