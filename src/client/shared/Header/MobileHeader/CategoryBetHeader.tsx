@@ -23,7 +23,7 @@ const CategoryBetHeader = () => {
 			<div className='flex items-center justify-center pr-5  w-2/12'>
 				<MenuIcon />
 			</div>
-			<div className='w-10/12 -mb-4'>
+			<div className='w-10/12 -mb-1'>
 				<CustomCarousel
 					renderCarouselItems={renderCarouselItems}
 				/>
