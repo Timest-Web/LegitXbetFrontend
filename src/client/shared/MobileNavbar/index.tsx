@@ -6,11 +6,10 @@ import useBet from '../Context/BetContext/useBet';
 const MobileNavbar = () => {
 	const { link, handleClick } = useLink('Home');
 	const { bet } = useBet();
-	console.log(bet);
 	
 	return (
 		<div className=' px-3 w-full fixed bottom-0 right-0 left-0'>
-			<div className='flex items-center justify-between px-5 py-3 border rounded-3xl bg-white'>
+			<div className='flex items-center justify-between px-5 pt-3 border rounded-3xl bg-white'>
 				{MOBILE_NAVBAR_DATA.map((value, index) => (
 					<div
 						onClick={() => handleClick(value.title)}
