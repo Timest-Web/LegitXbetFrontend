@@ -7,7 +7,7 @@ import LandScaleImageCarousel from '@/src/client/shared/Carousel/LandScaleImageC
 
 const MobileLandingPage = () => {
 	return (
-		<div className='h-max w-full pb-32'>
+		<div className='h-max w-full pb-24'>
 			<LandScaleImageCarousel
 				height='h-[134.36px]'
 				width='w-full'
