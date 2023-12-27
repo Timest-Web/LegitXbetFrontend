@@ -1,17 +1,20 @@
 import React from 'react';
 import LeagueType from './components/LeagueType';
-import LandScaleImageCarousel from '@/src/client/shared/Carousel/LandScaleImageCarousel';
 import BetTableSection from './components/BetTableSection';
+import MobileNavbar from '@/src/client/shared/MobileNavbar';
+import LandScaleImageCarousel from '@/src/client/shared/Carousel/LandScaleImageCarousel';
+
 
 const MobileLandingPage = () => {
 	return (
-		<div className='h-max w-full'>
+		<div className='h-max w-full pb-32'>
 			<LandScaleImageCarousel
 				height='h-[134.36px]'
 				width='w-full'
                   />
                   <LeagueType />
-                  <BetTableSection />
+			<BetTableSection />
+			<MobileNavbar/>
 		</div>
 	);
 };

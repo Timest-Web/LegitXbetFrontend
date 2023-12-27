@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Logout = () => {
+const Logout = ({color, width, height}: {color: string, width: string, height: string}) => {
 	return (
 		<svg
-			width='19'
-			height='19'
+			width={width}
+			height={height}
+			color={color}
 			viewBox='0 0 24 24'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'>

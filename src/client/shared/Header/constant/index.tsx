@@ -38,7 +38,7 @@ export const USER_HEADER_DATA = [
 			],
 		},
 		{
-			icon: <Logout />,
+			icon: <Logout color="gray" height='20' width="20"/>,
 			title: 'Deposit',
 		},
 	];

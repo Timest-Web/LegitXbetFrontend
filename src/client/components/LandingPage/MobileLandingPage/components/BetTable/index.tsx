@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Star from '@/src/client/shared/Svg/Star';
 import { BETDATES } from '../../constant/data';
 import RightArrow from '@/src/client/shared/Svg/RightArrow';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
@@ -10,11 +9,6 @@ import {
 	ODDS_VALUE,
 	SPORTS_TYPES,
 } from '../../../DesktopLandingPage/MainSection/CenterSection/constant/data';
-import { OddsButtons } from '../../../DesktopLandingPage/MainSection/CenterSection/components/OddsButtons';
-import { MoreOdds } from '../../../DesktopLandingPage/MainSection/CenterSection/components/MoreOdds';
-import ScoreView from '../../../DesktopLandingPage/MainSection/CenterSection/components/ScoreView';
-import Ranking from '@/src/client/shared/Svg/Ranking';
-import Time from '@/src/client/shared/Svg/Time';
 import TableRow from './TableRow';
 
 type DateItemProps = {
@@ -51,9 +45,9 @@ const renderSportTypes = ({
 			onClick={() => sportTypeHandleClick(value.title)}
 			className={`${
 				value.title === sportTypeLink
-					? 'text-gold bg-gray-700'
-					: 'text-gray-500'
-			} flex items-center justify-center text-center hover:bg-gray-700 hover:text-gold cursor-pointer pr-3 pl-1 rounded-lg`}>
+					? 'text-gold bg-lightAsh'
+					: 'text-gray-400'
+			} flex items-center justify-center text-center hover:bg-lightAsh hover:text-gold cursor-pointer pr-3 pl-1 rounded-lg`}>
 			<value.icon
 				height={25}
 				width={25}
@@ -120,7 +114,7 @@ const BetTable = ({
 					</div>
 				</div>
 
-				<div className='flex items-center space-x-2 border-t py-2 h-10 border-t-gray-800  w-full px-4 bg-lightAsh text-sm'>
+				<div className='flex items-center space-x-2 border-t py-2 h-11 border-t-lightAsh  w-full px-2 bg-darkAsh text-sm'>
 					<CustomCarousel
 						className='flex items-start justify-start w-full'
 						renderCarouselItems={() =>
@@ -133,7 +127,7 @@ const BetTable = ({
 				</div>
 
 				<div
-					className={`flex items-center justify-center space-x-4 text-xs  px-3 bg-darkAsh w-full h-10 pt-1 border-b border-b-gray-900 ${
+					className={`flex items-center justify-center space-x-4 text-xs  px-1 border-t border-t-lightAsh -mt-[1px] bg-darkAsh w-full h-10 pt-1 border-b border-b-lightAsh ${
 						collapse && 'rounded-b-xl'
 					}`}>
 					<CustomCarousel

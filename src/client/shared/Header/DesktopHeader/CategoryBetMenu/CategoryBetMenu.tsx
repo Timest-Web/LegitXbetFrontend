@@ -28,7 +28,6 @@ const CategoryBetMenu = () => {
 		handleClick: onHandleSupportClick,
 	} = useVisibilityControl();
 	const { userId } = useUser();
-	console.log(userId);
 
 	return (
 		<div className='flex items-center justify-center w-full  bg-black'>
@@ -88,7 +87,7 @@ const CategoryBetMenu = () => {
 						<button
 							onClick={onHandleSupportClick}
 							className='flex space-x-2 text-sm'>
-							<Headphone />
+							<Headphone height='20' width='20' color='gray'/>
 							<p className='text-gray-200 font-bold pt-1'>
 								Supports
 							</p>
