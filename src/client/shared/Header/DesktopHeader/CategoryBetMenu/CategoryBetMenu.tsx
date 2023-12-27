@@ -87,7 +87,7 @@ const CategoryBetMenu = () => {
 						<button
 							onClick={onHandleSupportClick}
 							className='flex space-x-2 text-sm'>
-							<Headphone height='20' width='20' color='gray'/>
+							<Headphone />
 							<p className='text-gray-200 font-bold pt-1'>
 								Supports
 							</p>
