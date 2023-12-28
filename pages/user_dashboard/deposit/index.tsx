@@ -1,4 +1,4 @@
-import Deposit from '@/src/client/components/Auth/User/UserDashboard/Deposit/Deposit';
+import Deposit from '@/src/client/components/Auth/User/UserDashboard/Deposit/Components/Deposit';
 import type { NextPage } from 'next';
 
 const Deposits: NextPage = (props) => (

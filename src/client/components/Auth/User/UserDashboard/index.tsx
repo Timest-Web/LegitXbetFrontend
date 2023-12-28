@@ -1,6 +1,6 @@
 import React from "react";
-import LayoutDashboard from "../Reusables/LayoutDashboard";
-import Overview from "./Overview/Overview";
+import LayoutDashboard from "./Constants/LayoutDashboard";
+import Overview from "./Overview/Components/Overview";
 import { DM_Sans } from "next/font/google";
 
 const dmsans = DM_Sans({

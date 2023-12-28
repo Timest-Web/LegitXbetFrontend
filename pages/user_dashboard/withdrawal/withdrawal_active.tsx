@@ -1,4 +1,4 @@
-import WithdrawalActive from '@/src/client/components/Auth/User/UserDashboard/Withdrawal/WithdrawalActive';
+import WithdrawalActive from '@/src/client/components/Auth/User/UserDashboard/Withdrawal/Components/WithdrawalActive';
 import type { NextPage } from 'next';
 
 const WithdrawalActives: NextPage = (props) => (

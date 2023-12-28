@@ -1,4 +1,4 @@
-import Notifications from '@/src/client/components/Auth/User/UserDashboard/Overview/Notifications';
+import Notifications from '@/src/client/components/Auth/User/UserDashboard/Overview/Components/Notifications';
 import type { NextPage } from 'next';
 
 const Notification: NextPage = (props) => (

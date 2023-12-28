@@ -1,4 +1,4 @@
-import TransactionActive from '@/src/client/components/Auth/User/UserDashboard/Transactions/TransactionActive';
+import TransactionActive from '@/src/client/components/Auth/User/UserDashboard/Transactions/Components/TransactionActive';
 import type { NextPage } from 'next';
 
 const TransactionAct: NextPage = (props) => (
