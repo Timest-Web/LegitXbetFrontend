@@ -1,5 +1,5 @@
 
-import SubmitButton from "../../../Constants/SubmitButton";
+import SubmitButton from "../../../Extras/SubmitButton";
 import Image from "next/image";
 import GTBlogo from "../../../assets/gtbank 1.png";
 import zenithLogo from "../../../assets/zenithbank 1.png";

@@ -1,8 +1,8 @@
 import React from "react";
-import PopUpContainer from "../../Constants/PopUpContainer";
+import PopUpContainer from "../../Extras/PopUpContainer";
 import Image from "next/image";
 import gtbLogo from "../../assets/gtbank 1.png";
-import SubmitButton from "../../Constants/SubmitButton";
+import SubmitButton from "../../Extras/SubmitButton";
 
 const WithdrawPop = () => {
   return (

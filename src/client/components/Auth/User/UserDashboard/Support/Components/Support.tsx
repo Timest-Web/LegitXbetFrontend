@@ -1,5 +1,4 @@
 import LayoutDashboard from "../../Extras/LayoutDashboard";
-import SupportComp from "./SupportComp";
 import SupportInactive from "./SupportInactive";
 
 

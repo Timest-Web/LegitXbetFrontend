@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import SupportComp from "./SupportComp";
-import LayoutDashboard from "../../Constants/LayoutDashboard";
+import LayoutDashboard from "../../Extras/LayoutDashboard";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import SupportTicket from "./SupportTicket";
 import PlaceBetIcon from "@/src/client/shared/Svg/AllReceipt";
-import SubmitButton from "../../Constants/SubmitButton";
+import SubmitButton from "../../Extras/SubmitButton";
 
 const EmptySupportTicket = () => {
   const headers = ["Live Chat", "Open a Ticket"];
@@ -23,20 +23,23 @@ const EmptySupportTicket = () => {
     <LayoutDashboard
       content={
         <div className="">
-          <SupportComp isOpenTicket
+          <SupportComp
+            isOpenTicket
             supportContent={
               <div>
                 <table className="w-full mt-4">
-                  <tr className="text-center ">
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Ticket Id</th>
-                    <th>Priority</th>
-                    <th>Call number</th>
-                    <th>Created</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                  </tr>
+                  <tbody>
+                    <tr className="text-center ">
+                      <th>Username</th>
+                      <th>Email</th>
+                      <th>Ticket Id</th>
+                      <th>Priority</th>
+                      <th>Call number</th>
+                      <th>Created</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </tbody>
                 </table>
                 <div className="flex flex-col space-y-3 justify-center items-center mt-32 ">
                   <PlaceBetIcon />

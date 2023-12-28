@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import BalanceCard from "../../Constants/BalanceCard";
-import AllBetTable from "../../Constants/AllBetTable";
+import BalanceCard from "../../Extras/BalanceCard";
+import AllBetTable from "../../Extras/AllBetTable";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import WithdrawPop from "./WithdrawPop";
 
@@ -25,7 +25,7 @@ const WithdrawalInner = () => {
   return (
     <div className="flex flex-col space-y-7 ">
       <div className=" flex space-x-4">
-        <BalanceCard buttonState={true} buttonText="Withdraw" />
+        <BalanceCard buttonState={true} buttonText="Withdraw" balanceButtonAction={handleOpenModal} />
       </div>
       <div>
         <AllBetTable

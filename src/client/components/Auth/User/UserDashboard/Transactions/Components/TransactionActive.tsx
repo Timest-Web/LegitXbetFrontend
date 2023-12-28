@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
-import LayoutDashboard from "../../Constants/LayoutDashboard";
-import TableComp from "../../Constants/TableComp";
+import LayoutDashboard from "../../Extras/LayoutDashboard";
+import TableComp from "../../Extras/TableComp";
 import TransactionView from "./TransactionView";
 import { createColumnHelper } from "@tanstack/react-table";
 import { TableProps } from "react-table";

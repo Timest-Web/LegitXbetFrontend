@@ -1,5 +1,5 @@
 import React from "react";
-import AllBetTable from "../../Constants/AllBetTable";
+import AllBetTable from "../../Extras/AllBetTable";
 
 const TransactionInner = () => {
   const headers = [

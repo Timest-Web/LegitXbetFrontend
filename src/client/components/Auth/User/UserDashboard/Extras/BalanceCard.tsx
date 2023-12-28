@@ -7,9 +7,10 @@ import SubmitButton from "./SubmitButton";
 interface BalanceCardProps {
   buttonText: string;
   buttonState: boolean;
+  balanceButtonAction: ()=> void
 }
 
-const BalanceCard: React.FC<BalanceCardProps> = ({ buttonText, buttonState }) => {
+const BalanceCard: React.FC<BalanceCardProps> = ({ buttonText, buttonState, balanceButtonAction }) => {
   return (
     <div className=" bg-white rounded-2xl w-[30.0625rem] h-[16.3125rem] p-8 text-base flex justify-between ">
       <section className="flex flex-col">
@@ -21,7 +22,7 @@ const BalanceCard: React.FC<BalanceCardProps> = ({ buttonText, buttonState }) =>
           <h3>NGN 26.24</h3>
         </div>
         <h3 className="mb-2">Balance</h3>
-        {buttonState && <SubmitButton buttonContent={buttonText} />}
+        {buttonState && <div onClick={balanceButtonAction} ><SubmitButton buttonContent={buttonText} /></div>}
       </section>
       <div><MoreIcon /></div>
     </div>

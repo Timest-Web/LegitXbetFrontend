@@ -28,7 +28,7 @@ const DepositInner = () => {
   return (
     <div className="flex flex-col space-y-7 ">
       <div className=" flex space-x-4">
-        <BalanceCard buttonState={true} buttonText="Deposit" />
+        <BalanceCard buttonState={true} buttonText="Deposit" balanceButtonAction={handleOpenModal} />
       </div>
       <div>
         <AllBetTable
