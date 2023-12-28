@@ -6,27 +6,7 @@ import { createColumnHelper } from "@tanstack/react-table";
 import { TableProps } from "react-table";
 import { Row } from "@tanstack/react-table";
 import MoreIcon from "@/src/client/shared/Svg/MoreIcon";
-
-const mData = [
-  {
-    no: 1,
-    reference_id: "337914456",
-    date: "11/27/2023",
-    status: "success",
-    amount: "400",
-    pot_win: "20000",
-    action: "actionicon",
-  },
-  {
-    no: 2,
-    reference_id: "46787856",
-    date: "04/16/2023",
-    status: "success",
-    amount: "200",
-    pot_win: "20000",
-    action: "actionicon",
-  },
-];
+import TransactionData from "../Constants/TransactionData";
 
 const columnHelper = createColumnHelper<TableProps>();
 
@@ -45,7 +25,7 @@ const TransactionActive = () => {
 
 
 
-  const data = useMemo(() => mData, []);
+  const data = useMemo(() => TransactionData, []);
 
   const columns: any = [
     {

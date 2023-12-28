@@ -15,7 +15,6 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['"SpaceGrotesk"', 'sans-serif'],
-        dmsans: ['var(--font-dm_sans)'],
 
       },
       colors: {

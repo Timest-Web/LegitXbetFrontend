@@ -7,7 +7,7 @@ import SubmitButton from "./SubmitButton";
 interface BalanceCardProps {
   buttonText: string;
   buttonState: boolean;
-  balanceButtonAction: ()=> void
+  balanceButtonAction?: ()=> void
 }
 
 const BalanceCard: React.FC<BalanceCardProps> = ({ buttonText, buttonState, balanceButtonAction }) => {

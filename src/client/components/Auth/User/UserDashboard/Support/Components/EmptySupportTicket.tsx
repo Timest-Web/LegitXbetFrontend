@@ -7,22 +7,17 @@ import PlaceBetIcon from "@/src/client/shared/Svg/AllReceipt";
 import SubmitButton from "../../Extras/SubmitButton";
 
 const EmptySupportTicket = () => {
-  const headers = ["Live Chat", "Open a Ticket"];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = () => {
+  const handleOpenModal:()=>void = () => {
     setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
   };
 
   return (
     <LayoutDashboard
       content={
-        <div className="">
+        <div>
           <SupportComp
             isOpenTicket
             supportContent={
@@ -45,7 +40,7 @@ const EmptySupportTicket = () => {
                   <PlaceBetIcon />
                   <h2 className=" opacity-60 ">No tickets yet</h2>
                   <div onClick={handleOpenModal}>
-                    <SubmitButton buttonContent="Create a Ticket" />{" "}
+                    <SubmitButton buttonContent="Create a Ticket" />
                   </div>
                 </div>
               </div>

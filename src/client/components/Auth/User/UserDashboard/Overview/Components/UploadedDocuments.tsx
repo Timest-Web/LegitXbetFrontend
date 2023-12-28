@@ -1,27 +1,11 @@
 import React, {useMemo} from "react";
-import LayoutDashboard from "../../Constants/LayoutDashboard";
-import TableComp from "../../Constants/TableComp";
-
-const mData = [
-    {
-      no: 1,
-      reference_id: "337914456",
-      date: "11/27/2023",
-      status: "success",
-      preview: "preview",
-    },
-    {
-      no: 2,
-      reference_id: "46787856",
-      date: "04/16/2023",
-      status: "success",
-      preview: "preview",
-    },
-  ];
+import LayoutDashboard from "../../Extras/LayoutDashboard";
+import TableComp from "../../Extras/TableComp";
+import UploadedData from "../Constants/UploadedData";
 
 
 const UploadedDocuments = () => {
-    const data = useMemo(() => mData, []);
+    const data = useMemo(() => UploadedData, []);
 
     const columns: any = [
         {

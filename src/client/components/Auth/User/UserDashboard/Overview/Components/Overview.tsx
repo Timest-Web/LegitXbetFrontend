@@ -17,7 +17,7 @@ const Overview = () => {
     <div className="flex flex-col space-y-7 ">
       <div className=" flex space-x-4">
         <UserDocumentCard />
-        <BalanceCard buttonState={false} buttonText="" />
+        <BalanceCard buttonState={false} buttonText=""  />
       </div>
       <div>
         <AllBetTable

@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
-import LayoutDashboard from "../../Constants/LayoutDashboard";
-import TableComp from "../../Constants/TableComp";
+import LayoutDashboard from "../../Extras/LayoutDashboard";
+import TableComp from "../../Extras/TableComp";
 import MoreIcon from "@/src/client/shared/Svg/MoreIcon";
 import { createColumnHelper } from "@tanstack/react-table";
 import { TableProps } from "react-table";
@@ -9,21 +9,9 @@ import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import NotificationPopUp from "./NotificationPopUp";
 import { Row } from "@tanstack/react-table";
 import { RowData } from "@tanstack/react-table";
+import NotificationData from "../Constants/NotificationData";
 
-const mData = [
-  {
-    messages:
-      "Lorem ipsum dolor sit amet consectetur. Phasellus urna phasellus orci...",
-    date: "11/27/2023",
-    time: "17:30",
-  },
-  {
-    messages:
-      "Lorem ipsum dolor sit amet consectetur. Phasellus urna phasellus orci...",
-    date: "11/27/2023",
-    time: "17:30",
-  },
-];
+
 
 const columnHelper = createColumnHelper<TableProps>();
 
@@ -50,7 +38,7 @@ const Notifications = () => {
     }));
   };
 
-  const data = useMemo(() => mData, []);
+  const data = useMemo(() => NotificationData, []);
 
   const columns: any = [
     {
