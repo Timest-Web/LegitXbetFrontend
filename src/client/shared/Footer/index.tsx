@@ -1,14 +1,14 @@
 import React from 'react';
-import Partners from './Partners';
-import MainFooter from './MainFooter';
+import DeviceDisplay from '../Utils/DeviceDisplay';
+import DesktopFooter from './DesktopFooter';
+import MobileFooter from './MobileFooter';
 
 const Footer = () => {
 	return (
-            <div className='w-full '>
-                  <Partners />
-                  <MainFooter/>
-		</div>
+		<DeviceDisplay
+			mobileViewDisplay={<MobileFooter />}
+			desktopViewDisplay={<DesktopFooter />}
+		/>
 	);
 };
-
 export default Footer;

@@ -1,9 +1,8 @@
 import React from 'react';
-import Layout from '../../Layout';
-import Footer from '../../../shared/Footer';
 import LeftSection from './MainSection/LeftSection';
 import CenterSection from './MainSection/CenterSection';
 import RightSection from './MainSection/RightSection';
+import Footer from '@/src/client/shared/Footer';
 
 const DesktopLandingPage = () => {
 	return (

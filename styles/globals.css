@@ -10,6 +10,6 @@ html {
   outline: none;
 }
 
-::-webkit-scrollbar {
+.custom-scrollbar::-webkit-scrollbar {
   display: none;
 }

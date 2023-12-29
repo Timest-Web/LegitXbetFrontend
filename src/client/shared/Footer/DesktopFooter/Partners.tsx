@@ -2,8 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Carousel } from '@heathmont/moon-core-tw';
-import { CustomCarousel } from '../Carousel';
-import { LOGOS } from './constant';
+import { CustomCarousel } from '../../Carousel';
+import { LOGOS } from '../constant';
 
 const renderCarouselItems = () => {
 	return LOGOS?.map((value, index) => (

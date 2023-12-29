@@ -34,6 +34,8 @@ const DeviceDisplay: React.FC<Props> = ({
 		return mobileViewDisplay;
 	}
 	return desktopViewDisplay;
+
+
 };
 
 export default DeviceDisplay;
