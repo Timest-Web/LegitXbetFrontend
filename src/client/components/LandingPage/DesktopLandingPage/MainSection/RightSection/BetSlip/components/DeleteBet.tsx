@@ -15,5 +15,4 @@ const DeleteBet = () => {
 		</div>
 	);
 };
-
 export default DeleteBet;

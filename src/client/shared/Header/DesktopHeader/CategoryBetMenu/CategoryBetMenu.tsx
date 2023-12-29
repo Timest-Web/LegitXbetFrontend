@@ -17,6 +17,7 @@ import useUser from '../../../Context/UserContext/useUser';
 
 const CategoryBetMenu = () => {
 	const { link, handleClick } = useLink('Sports');
+	const { link: click, handleClick: selectedHandle } = useLink('login');
 	const {
 		isOpen,
 		setIsOpen,
@@ -98,6 +99,7 @@ const CategoryBetMenu = () => {
 								text='Log In'
 								onClick={() => {
 									onHandleClick();
+									selectedHandle('login');
 								}}
 								link='#'
 								className='text-gray-200 p-2 text-sm rounded-md border border-gray-200 font-bold'
@@ -105,7 +107,10 @@ const CategoryBetMenu = () => {
 
 							<Button
 								text='Register'
-								onClick={onHandleClick}
+								onClick={() => {
+									onHandleClick();
+									selectedHandle('register');
+								}}
 								link='#'
 								className='text-gray-200 p-2 text-sm rounded-md border border-gray-200 font-bold'
 							/>
@@ -128,7 +133,7 @@ const CategoryBetMenu = () => {
 					className=''
 					openModal={isOpen}
 					setOpenModal={setIsOpen}
-					modalContent={<DesktopModalView />}
+					modalContent={<DesktopModalView selectedButton={click} />}
 				/>
 			)}
 		</div>

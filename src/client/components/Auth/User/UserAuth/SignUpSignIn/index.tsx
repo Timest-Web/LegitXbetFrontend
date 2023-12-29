@@ -11,13 +11,14 @@ const buttons = [
 
 const SignUpSignIn = ({
 	setIsFormSubmit,
+	selectedButton
 }: {
 	setIsFormSubmit: React.Dispatch<SetStateAction<boolean>>;
+	selectedButton: string
 }) => {
-	const { link, handleClick } = useLink('Register Account');
+	const { link, handleClick } = useLink(selectedButton);
 	const [phoneNo, setPhoneNo] = useState('');
 	const [password, setPassword] = useState('');
-
 
 	return (
 		<ModalContainer>
@@ -25,18 +26,14 @@ const SignUpSignIn = ({
 				{buttons.map(({ label, key }) => (
 					<div
 						key={key}
-						className={`flex items-center justify-between py-2 px-5 ${
-							key === 'login'
-								? 'border-l border-l-black  border-t border-t-black'
-								: 'border-b border-b-black'
-						}`}>
+						className={`flex items-center justify-between`}>
 						<button
-							onClick={() => handleClick(label)}
+							onClick={() => handleClick(key)}
 							className={`${
-								link === label
+								link === key
 									? 'bg-black text-white'
 									: 'bg-white text-black'
-							} flex  py-2 w-[135px] items-center justify-center m-auto rounded-md text-xs cursor-pointer`}>
+							} flex  py-2 w-[135px] items-center font-bold justify-center m-auto rounded-md text-xs cursor-pointer`}>
 							<p className='text-center'>{label}</p>
 						</button>
 					</div>
@@ -58,3 +55,10 @@ const SignUpSignIn = ({
 };
 
 export default SignUpSignIn;
+
+
+// ${
+// 							key === 'login'
+// 								? 'border-l border-l-black  border-t border-t-black'
+// 								: 'border-b border-b-black'
+// 						}

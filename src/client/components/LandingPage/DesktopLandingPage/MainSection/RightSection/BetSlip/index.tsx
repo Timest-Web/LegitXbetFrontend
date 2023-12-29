@@ -36,7 +36,7 @@ const BetSlip = () => {
 						onClick={() => betSlipTypeHandleClick(value)}
 						className={`${
 							value === betSlipTypeLink
-								? 'text-black'
+								? 'text-black font-bold'
 								: 'text-gray-400'
 						} cursor-pointer`}>
 						{value}
