@@ -70,7 +70,7 @@ const renderGameTypes = ({
 			onClick={() => handleClick(value.name)}
 			className={`${
 				value.name === link ? 'text-gray-200' : 'text-gray-600'
-			} p-2 cursor-pointer hover:text-gray-200 flex items-center justify-center`}>
+			} p-2 cursor-pointer hover:text-gray-200 text-center`}>
 			{value.data ? value.data && <p>{`Other Marker`}</p> : value.name}
 		</div>
 	));
@@ -114,7 +114,7 @@ const BetTable = ({
 					</div>
 				</div>
 
-				<div className='flex items-center space-x-2 border-t py-2 h-11 border-t-lightAsh  w-full px-2 bg-darkAsh text-sm'>
+				<div className='flex items-center justify-start h-10 w-full px-2 bg-darkAsh text-sm'>
 					<CustomCarousel
 						className='flex items-start justify-start w-full'
 						renderCarouselItems={() =>
@@ -127,7 +127,7 @@ const BetTable = ({
 				</div>
 
 				<div
-					className={`flex items-center justify-center space-x-4 text-xs  px-1 border-t border-t-lightAsh -mt-[1px] bg-darkAsh w-full h-10 pt-1 border-b border-b-lightAsh ${
+					className={`flex items-center justify-start text-xs overflow-x-scroll custom-scrollbar  px-1 border-y border-y-lightAsh bg-darkAsh w-full h-8 pt-1 ${
 						collapse && 'rounded-b-xl'
 					}`}>
 					<CustomCarousel
