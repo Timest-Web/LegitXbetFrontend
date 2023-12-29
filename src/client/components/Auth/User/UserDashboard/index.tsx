@@ -1,10 +1,16 @@
-import React from 'react'
-import LayoutDashbord from './LayoutDashbord'
+import React from "react";
+import LayoutDashboard from "./Extras/LayoutDashboard";
+import Overview from "./Overview/Components/Overview";
+
+
+
 
 const UserDashboard = () => {
   return (
-    <LayoutDashbord/>
-  )
-}
+    <div className=" font-sans " >
+      <LayoutDashboard content={<Overview />} />
+    </div>
+  );
+};
 
-export default UserDashboard
+export default UserDashboard;
