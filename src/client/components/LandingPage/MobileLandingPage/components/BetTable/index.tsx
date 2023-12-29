@@ -101,56 +101,57 @@ const BetTable = ({
 				/>
 			</div>
 
-			<div className='w-full rounded-xl px-3 mt-2 h-max'>
-				<div className='flex items-center justify-between h-10 rounded-t-lg bg-lightAsh  w-full py-3 px-5'>
-					<div className='flex items-center space-x-4 text-[8px]'>
-						{BETDATES.map((value, index) => (
-							<DateItem
-								key={index}
-								value={value}
-								isToday={value === 'Today'}
-							/>
-						))}
+			<div className='w-full  px-3 mt-2 h-max'>
+				<div className='w-full bg-darkAsh rounded-xl'>
+					<div className='flex items-center justify-between h-10 rounded-t-lg bg-lightAsh  w-full py-3 px-5'>
+						<div className='flex items-center space-x-4 text-[8px]'>
+							{BETDATES.map((value, index) => (
+								<DateItem
+									key={index}
+									value={value}
+									isToday={value === 'Today'}
+								/>
+							))}
+						</div>
 					</div>
-				</div>
 
-				<div className='flex items-center justify-start h-10 w-full px-2 bg-darkAsh text-sm'>
-					<CustomCarousel
-						className='flex items-start justify-start w-full'
-						renderCarouselItems={() =>
-							renderSportTypes({
-								sportTypeLink,
-								sportTypeHandleClick,
-							})
-						}
-					/>
-				</div>
-
-				<div
-					className={`flex items-center justify-start text-xs overflow-x-scroll custom-scrollbar  px-1 border-y border-y-lightAsh bg-darkAsh w-full h-8 pt-1 ${
-						collapse && 'rounded-b-xl'
-					}`}>
-					<CustomCarousel
-						className='flex items-start justify-start w-full'
-						renderCarouselItems={() =>
-							renderGameTypes({ link, handleClick })
-						}
-					/>
-				</div>
-
-				{!collapse && (
-					<div className='bg-darkAsh rounded-b-xl'>
-						{ODDS_VALUE.map((value, index) => (
-							<TableRow
-								key={index}
-								{...value}
-								index={index}
-								oddArray={ODDS_VALUE}
-								isLiveTable={isLiveTable}
-							/>
-						))}
+					<div className='flex items-center justify-start h-10 w-full px-2 bg-darkAsh text-sm'>
+						<CustomCarousel
+							className='flex items-start justify-start w-full'
+							renderCarouselItems={() =>
+								renderSportTypes({
+									sportTypeLink,
+									sportTypeHandleClick,
+								})
+							}
+						/>
 					</div>
-				)}
+
+					<div className={`flex items-center justify-start text-xs  px-1 border-y border-y-lightAsh bg-darkAsh w-full h-8 pt-1 ${
+							collapse && 'rounded-b-xl'
+						}`}>
+						<CustomCarousel
+							className='flex items-start justify-start w-full'
+							renderCarouselItems={() =>
+								renderGameTypes({ link, handleClick })
+							}
+						/>
+					</div>
+
+					{!collapse && (
+						<div className='bg-darkAsh rounded-b-xl'>
+							{ODDS_VALUE.map((value, index) => (
+								<TableRow
+									key={index}
+									{...value}
+									index={index}
+									oddArray={ODDS_VALUE}
+									isLiveTable={isLiveTable}
+								/>
+							))}
+						</div>
+					)}
+				</div>
 			</div>
 		</div>
 	);
