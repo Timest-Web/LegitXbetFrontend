@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import SupportComp from "./SupportComp";
-import LayoutDashboard from "../../Extras/LayoutDashboard";
+import LayoutDashboard from "../../shared/LayoutDashboard";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import SupportTicket from "./SupportTicket";
 import PlaceBetIcon from "@/src/client/shared/Svg/AllReceipt";
-import SubmitButton from "../../Extras/SubmitButton";
+import SubmitButton from "../../shared/SubmitButton";
 
 const EmptySupportTicket = () => {
 

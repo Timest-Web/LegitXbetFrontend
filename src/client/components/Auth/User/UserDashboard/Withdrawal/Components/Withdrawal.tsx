@@ -1,5 +1,5 @@
 import React from "react";
-import LayoutDashboard from "../../Extras/LayoutDashboard";
+import LayoutDashboard from "../../shared/LayoutDashboard";
 import WithdrawalInner from "./WithdrawalInner";
 
 const Withdrawal = () => {

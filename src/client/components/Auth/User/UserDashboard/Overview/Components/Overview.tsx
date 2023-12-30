@@ -1,7 +1,7 @@
 import React from "react";
-import BalanceCard from "../../Extras/BalanceCard";
-import UserDocumentCard from "../../Extras/UserDocumentCard";
-import AllBetTable from "../../Extras/AllBetTable";
+import BalanceCard from "../../shared/BalanceCard";
+import UserDocumentCard from "../../shared/UserDocumentCard";
+import AllBetTable from "../../shared/AllBetTable";
 
 const Overview = () => {
   const headers = [

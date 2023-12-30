@@ -1,4 +1,4 @@
-import SubmitButton from "../../Extras/SubmitButton";
+import SubmitButton from "../../shared/SubmitButton";
 
 const NotificationPopUp = () => {
     return ( <div className="bg-white w-[61.25rem] h-[34rem] rounded-[1.25rem] p-8 mt-4">

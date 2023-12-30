@@ -6,16 +6,16 @@ import BannerSection from "./BannerSection";
 
 const LayoutDashboard = ({ content }: { content: React.JSX.Element }) => {
   return (
-    <div>
+    <div className="">
       <CategoryBetMenu />
-      <div className="bg-[#ECEEF1] w-[94.5rem] h-[66.375rem] p-4">
-        <div className="flex space-x-8">
+      <div className="bg-[#ECEEF1] w-full h-full pt-3">
+        <div className=" w-full flex justify-evenly">
           <section>
-            <SideBar />
+            <SideBar /> 
             <HotlineBar />
           </section>
-          <section>{content}</section>
-          <section>
+          <section className=" w-[63%]" >{content}</section>
+          <section >
             <BannerSection />
           </section>
         </div>

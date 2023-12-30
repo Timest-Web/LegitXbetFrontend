@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import BalanceCard from "../../Extras/BalanceCard";
-import AllBetTable from "../../Extras/AllBetTable";
+import BalanceCard from "../../shared/BalanceCard";
+import AllBetTable from "../../shared/AllBetTable";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import WithdrawPop from "./WithdrawPop";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import BetWC from "../../assets/download (1) 1.png";
-import AllBetTable from "../../Extras/AllBetTable";
+import AllBetTable from "../../shared/AllBetTable";
 
 const BonusInner = () => {
   const headers = [

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SupportComp from "./SupportComp";
 import PlaceBetIcon from "@/src/client/shared/Svg/AllReceipt";
-import SubmitButton from "../../Extras/SubmitButton";
+import SubmitButton from "../../shared/SubmitButton";
 import LiveChat from "./LiveChat";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 

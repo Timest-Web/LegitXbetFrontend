@@ -1,4 +1,4 @@
-import SubmitButton from "../../Extras/SubmitButton";
+import SubmitButton from "../../shared/SubmitButton";
 
 const BetHistoryPopUp = () => {
   return (

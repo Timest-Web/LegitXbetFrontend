@@ -20,20 +20,17 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
   buttonAction,
 }) => {
   return (
-    <div>
+    <div className="w-full">
       <div className="flex justify-between px-8">
         <h2 className="font-bold">{title}</h2>
         <div className="flex space-x-2 relative">
           <input
             type="text"
-            className="border-[#292D32] border w-[14.0625rem] h-[2.5625rem] rounded-[2.1875rem] text-center p-1.875rem bg-[#ECEEF1]"
+            placeholder="Search"
+            className=" bg-searchIcon bg-no-repeat bg-[center_left_1rem] border-[#292D32] border w-[14.0625rem] h-[2.5625rem] rounded-[2.1875rem] pl-12 bg-[#ECEEF1]"
           />
-          <div className="absolute top-2 flex space-x-2">
-            <SearchIcon />
-            <h4 className="opacity-50">Search</h4>
-          </div>
           <input
-            className="border-[#292D32] border w-[8.4375rem] h-[2.1875rem] bg-[#ECEEF1] p-2 mt-[0.15rem]"
+            className=" border-[#292D32] border w-[8.4375rem] h-[2.1875rem] bg-[#ECEEF1] p-2 mt-[0.15rem]"
           />
           <div className="absolute top-2 right-4 flex space-x-2">
             <FilterSearch />
@@ -42,7 +39,7 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
           </div>
         </div>
       </div>
-      <div className="bg-white w-[61.25rem] h-[34rem] rounded-[1.25rem] p-8 mt-4">
+      <div className="bg-white w-full h-[34rem] rounded-[1.25rem] p-8 mt-4">
         <div>
           <ul className="font-bold flex justify-between px-4">
             {headers.map((header, index) => (

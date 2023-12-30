@@ -1,4 +1,4 @@
-import LayoutDashboard from "../../Extras/LayoutDashboard";
+import LayoutDashboard from "../../shared/LayoutDashboard";
 import SupportInactive from "./SupportInactive";
 
 

@@ -12,7 +12,8 @@ import ArrowRight from "@/src/client/shared/Svg/ArrowRight";
 import SearchIcon from "@/src/client/shared/Svg/SearchIcon";
 import FilterSearch from "@/src/client/shared/Svg/FilterSearch";
 import ArrowDownIcon from "@/src/client/shared/Svg/ArrowDownIcon";
-
+import { Dropdown, MenuItem } from "@heathmont/moon-core-tw";
+import { Checkbox } from '@heathmont/moon-core-tw';
 
 interface TableProps {
   tableTitle: string;
@@ -20,8 +21,10 @@ interface TableProps {
   filterField: boolean;
   data: any[];
   columns: any[];
-
 }
+type Day = {
+  day: string;
+};
 
 const TableComp: React.FC<TableProps> = ({
   tableTitle,
@@ -31,8 +34,9 @@ const TableComp: React.FC<TableProps> = ({
   columns,
 }) => {
   const [filtering, setFiltering] = useState("");
+  const [option, setOption] = useState<Day | null>(null);
 
-  const days = [
+  const dayOption = [
     { day: "All" },
     { day: "Today" },
     { day: "Yesterday" },
@@ -60,30 +64,52 @@ const TableComp: React.FC<TableProps> = ({
           {searchField && (
             <div className="relative">
               <input
-                className="border-[#292D32] border w-[14.0625rem] h-[2.5625rem] rounded-[35px] p-3 mt-1 bg-[#ECEEF1]"
+                className=" bg-searchIcon bg-no-repeat bg-[center_left_1rem] border-[#292D32] border w-[14.0625rem] h-[2.5625rem] rounded-[35px] pl-12 mt-1 bg-[#ECEEF1]"
                 type="text"
                 value={filtering}
                 placeholder="Search"
                 onChange={(e) => setFiltering(e.target.value)}
               />
-              <div className="absolute top-3 left-4 flex space-x-2">
-                <SearchIcon />
-              </div>
             </div>
           )}
           {filterField && (
-            <div className="relative">
-              <input className=" border-[#292D32] border w-[8.4375rem] h-[2.1875rem] bg-[#ECEEF1] p-2 mt-[0.3rem]" />
-              <div className="absolute top-2 right-5 flex space-x-2">
-                <h2>Filter By</h2>
-                <ArrowDownIcon />
-              </div>
+            <div className="flex w-full max-w-sm items-center bg-white">
+              <Dropdown
+                className=""
+                value={option}
+                onChange={setOption}
+              >
+                {({ open }) => (
+                  <>
+                    <Dropdown.InsetSelect open={open} placeholder="Filter By">
+                      {option?.day}
+                    </Dropdown.InsetSelect>
+
+                    <Dropdown.Options className="bg-white">
+                      {dayOption.map((pickedDay, index) => (
+                        <Dropdown.Option value={pickedDay} key={index}>
+                          {({ selected, active }) => (
+                            <MenuItem isActive={active} isSelected={selected}>
+                              
+                              <MenuItem.Checkbox
+                                className="bg-[white] border-black border "
+                                isSelected={selected}
+                              />
+                              <MenuItem.Title>{pickedDay.day}</MenuItem.Title>
+                            </MenuItem>
+                          )}
+                        </Dropdown.Option>
+                      ))}
+                    </Dropdown.Options>
+                  </>
+                )}
+              </Dropdown>
             </div>
           )}
         </section>
       </div>
-
-      <div className="bg-white w-[61.25rem] h-[34rem] rounded-[20px] p-8 mt-4 relative">
+      
+      <div className="bg-white w-[full] h-[34rem] rounded-[20px] p-8 mt-4 relative">
         <table className="w-full  ">
           <tbody>
             {table.getHeaderGroups().map((headerGroup) => (

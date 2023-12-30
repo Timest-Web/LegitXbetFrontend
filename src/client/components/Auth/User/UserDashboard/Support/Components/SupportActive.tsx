@@ -1,5 +1,5 @@
 import SupportComp from "./SupportComp";
-import LayoutDashboard from "../../Extras/LayoutDashboard";
+import LayoutDashboard from "../../shared/LayoutDashboard";
 import { useMemo } from "react";
 import {
   useReactTable,

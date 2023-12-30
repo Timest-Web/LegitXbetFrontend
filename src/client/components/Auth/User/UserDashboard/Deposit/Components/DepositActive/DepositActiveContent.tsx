@@ -1,11 +1,10 @@
-import TableComp from "../../../Extras/TableComp";
-import LayoutDashboard from "../../../Extras/LayoutDashboard";
-import BalanceCard from "../../../Extras/BalanceCard";
+import TableComp from "../../../shared/TableComp";
+import LayoutDashboard from "../../../shared/LayoutDashboard";
+import BalanceCard from "../../../shared/BalanceCard";
 import { useMemo, useState } from "react";
-import mData from "../../../Extras/MOCK_DATA (4).json";
+import mData from "../../../constant/MOCK_DATA (4).json";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import DepositContainer from "../DepositModal/DepositContainer";
-
 const DepositActiveContent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 

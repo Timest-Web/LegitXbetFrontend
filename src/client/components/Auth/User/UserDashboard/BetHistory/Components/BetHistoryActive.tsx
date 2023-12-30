@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
-import LayoutDashboard from "../../Extras/LayoutDashboard";
-import TableComp from "../../Extras/TableComp";
+import LayoutDashboard from "../../shared/LayoutDashboard";
+import TableComp from "../../shared/TableComp";
 import BetHistoryPopUp from "./BetHistoryPopUp";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import { createColumnHelper } from "@tanstack/react-table";

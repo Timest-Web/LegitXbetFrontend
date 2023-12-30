@@ -22,6 +22,9 @@ const config: Config = {
         lightAsh: '#1D1F26',
         darkAsh: '#101010',
         lightGray: '#ECEFE1'
+      },
+      backgroundImage: {
+        'searchIcon': "url('../src/assets/search-normal.svg')",
       }
     },
   },

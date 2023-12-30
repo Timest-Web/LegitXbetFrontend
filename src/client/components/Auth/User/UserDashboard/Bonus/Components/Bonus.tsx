@@ -1,6 +1,6 @@
 import React from "react";
 import BonusInner from "./BonusInner";
-import LayoutDashboard from "../../Extras/LayoutDashboard";
+import LayoutDashboard from "../../shared/LayoutDashboard";
 
 
 const Bonus = () => {

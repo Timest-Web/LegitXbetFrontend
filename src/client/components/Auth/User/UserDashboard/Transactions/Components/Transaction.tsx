@@ -1,5 +1,5 @@
 import TransactionInner from "./TransactionInner";
-import LayoutDashboard from "../../Extras/LayoutDashboard";
+import LayoutDashboard from "../../shared/LayoutDashboard";
 
 const Transaction = () => {
     return ( <LayoutDashboard content={<TransactionInner/>} /> );

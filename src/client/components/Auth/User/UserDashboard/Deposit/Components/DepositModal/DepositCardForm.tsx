@@ -1,6 +1,6 @@
 import React from "react";
 import DepositContainer from "./DepositContainer";
-import SubmitButton from "../../../Extras/SubmitButton";
+import SubmitButton from "../../../shared/SubmitButton";
 
 const DepositCardForm = () => {
   return (
