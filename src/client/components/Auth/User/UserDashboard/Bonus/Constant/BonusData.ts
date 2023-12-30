@@ -1,22 +1,13 @@
 const BonusData = [
     {
-      no: 1,
-      reference_id: "337914456",
-      date: "11/27/2023",
-      status: "success",
-      amount: "400",
-      pot_win: "20000",
-      action: "actionicon",
-    },
-    {
-      no: 2,
-      reference_id: "46787856",
-      date: "04/16/2023",
-      status: "success",
-      amount: "200",
-      pot_win: "20000",
-      action: "actionicon",
-    },
+      no:1,
+      bonus_Id:"AJFJ0099",
+      start_date: "23/08/2023" ,
+      exp_date:"23/09/2023",
+      type:"100% welcome bonus",
+      percentage:"100%",
+      
+    }
   ];
 
   export default BonusData

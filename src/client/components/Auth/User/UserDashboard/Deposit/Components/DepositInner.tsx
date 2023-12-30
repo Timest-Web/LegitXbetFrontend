@@ -3,32 +3,20 @@ import BalanceCard from "../../shared/BalanceCard";
 import AllBetTable from "../../shared/AllBetTable";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import DepositContainer from "./DepositModal/DepositContainer";
-
-
+import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
 
 const DepositInner = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-  
-  const headers = [
-    "No",
-    "Reference Id",
-    "Date",
-    "Status",
-    "Amount",
-    "Channel",
-  ];
+  const headers = ["No", "Reference Id", "Date", "Status", "Amount", "Channel"];
   return (
     <div className="flex flex-col space-y-7 ">
       <div className=" flex space-x-4">
-        <BalanceCard buttonState={true} buttonText="Deposit" balanceButtonAction={handleOpenModal} />
+        <BalanceCard
+          buttonState={true}
+          buttonText="Deposit"
+          balanceButtonAction={handleClick}
+        />
       </div>
       <div>
         <AllBetTable
@@ -36,14 +24,14 @@ const DepositInner = () => {
           headers={headers}
           noBetsMessage="No transactions recorded"
           placeBetButtonText="Deposit"
-          buttonAction={handleOpenModal}
+          buttonAction={handleClick}
         />
       </div>
       <DesktopModal
-        openModal={isModalOpen}
-        setOpenModal={setIsModalOpen}
+        openModal={isOpen}
+        setOpenModal={setIsOpen}
         className="custom-modal-class"
-        modalContent={<DepositContainer/>}
+        modalContent={<DepositContainer />}
       />
     </div>
   );

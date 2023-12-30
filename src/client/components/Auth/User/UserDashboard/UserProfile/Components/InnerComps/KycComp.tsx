@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ProfileVeriReuse from "../ProfileReusables/ProfileVeriReuse";
 import Image from "next/image";
 import pdfImg from "../../../assets/export.png";
+import ProfileReusableCard from "../ProfileReusables/ProfileReusableCard";
 
 
 
@@ -22,7 +23,7 @@ const KycComp= () => {
   return (
     <div>
       <ProfileVeriReuse isInsideKycComp />
-      <div className="bg-white w-[61.25rem] h-[34rem] rounded-[20px] p-12 mt-4">
+     <ProfileReusableCard profileContent={ <div>
         <div className="font-bold flex justify-between mb-8">
           <h2>Upload your KYC for verification</h2>
           <h2>Verified documents will appear here</h2>
@@ -43,7 +44,7 @@ const KycComp= () => {
         <p className="mt-12">
           NB - Only government-issued documents will be approved
         </p>
-      </div>
+      </div>}/>
     </div>
   );
 

@@ -5,14 +5,11 @@ import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import SupportTicket from "./SupportTicket";
 import PlaceBetIcon from "@/src/client/shared/Svg/AllReceipt";
 import SubmitButton from "../../shared/SubmitButton";
+import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
 
 const EmptySupportTicket = () => {
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenModal:()=>void = () => {
-    setIsModalOpen(true);
-  };
+  const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
 
   return (
     <LayoutDashboard
@@ -39,7 +36,7 @@ const EmptySupportTicket = () => {
                 <div className="flex flex-col space-y-3 justify-center items-center mt-32 ">
                   <PlaceBetIcon />
                   <h2 className=" opacity-60 ">No tickets yet</h2>
-                  <div onClick={handleOpenModal}>
+                  <div onClick={handleClick}>
                     <SubmitButton buttonContent="Create a Ticket" />
                   </div>
                 </div>
@@ -47,8 +44,8 @@ const EmptySupportTicket = () => {
             }
           />
           <DesktopModal
-            openModal={isModalOpen}
-            setOpenModal={setIsModalOpen}
+            openModal={isOpen}
+            setOpenModal={setIsOpen}
             className="custom-modal-class"
             modalContent={<SupportTicket />}
           />

@@ -5,41 +5,14 @@ import { useMemo, useState } from "react";
 import mData from "../../../constant/MOCK_DATA (4).json";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import DepositContainer from "../DepositModal/DepositContainer";
+import DepositColumn from "../../Constants/DepositColumn";
+import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
+
 const DepositActiveContent = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
+  const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
   const data = useMemo(() => mData, []);
 
-  const columns: any = [
-    {
-      header: "No",
-      accessorKey: "no",
-    },
-    {
-      header: "Reference Id",
-      accessorKey: "reference_id",
-    },
-    {
-      header: "Date",
-      accessorKey: "date",
-    },
-    {
-      header: "Status",
-      accessorKey: "status",
-    },
-    {
-      header: "Amount",
-      accessorKey: "amount",
-    },
-    {
-      header: "Channel",
-      accessorKey: "channel",
-    },
-  ];
+  const columns: any = DepositColumn();
 
   return (
     <LayoutDashboard
@@ -48,7 +21,7 @@ const DepositActiveContent = () => {
           <BalanceCard
             buttonState={true}
             buttonText="Deposit"
-            balanceButtonAction={handleOpenModal}
+            balanceButtonAction={handleClick}
           />
           <TableComp
             tableTitle="Transactions history"
@@ -58,8 +31,8 @@ const DepositActiveContent = () => {
             columns={columns}
           />
           <DesktopModal
-            openModal={isModalOpen}
-            setOpenModal={setIsModalOpen}
+            openModal={isOpen}
+            setOpenModal={setIsOpen}
             className="custom-modal-class"
             modalContent={<DepositContainer />}
           />

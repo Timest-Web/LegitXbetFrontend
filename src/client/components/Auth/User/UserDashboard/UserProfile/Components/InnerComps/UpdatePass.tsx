@@ -1,12 +1,13 @@
 import React from "react";
 import ProfileVeriReuse from "../ProfileReusables/ProfileVeriReuse";
 import MultiReuse from "../ProfileReusables/MultiReuse";
+import ProfileReusableCard from "../ProfileReusables/ProfileReusableCard";
 
 const UpdatePass = () => {
   return (
     <div>
       <ProfileVeriReuse isInsideSecurityComp />
-      <div className="bg-white w-[61.25rem] h-[34rem] rounded-[20px] p-12 mt-4">
+      <ProfileReusableCard profileContent={<div >
         <MultiReuse />
         <form className="flex space-x-6">
           <div className="flex flex-col space-y-4">
@@ -33,7 +34,7 @@ const UpdatePass = () => {
             Save & Update
           </button>
         </form>
-      </div>
+      </div>}/>
     </div>
   );
 };

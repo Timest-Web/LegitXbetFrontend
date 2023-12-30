@@ -1,70 +1,18 @@
 import React, { useMemo, useState } from "react";
 import LayoutDashboard from "../../shared/LayoutDashboard";
 import TableComp from "../../shared/TableComp";
-import MoreIcon from "@/src/client/shared/Svg/MoreIcon";
-import { createColumnHelper } from "@tanstack/react-table";
-import { TableProps } from "react-table";
-import ViewDelete from "./ViewDelete";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import NotificationPopUp from "./NotificationPopUp";
-import { Row } from "@tanstack/react-table";
-import { RowData } from "@tanstack/react-table";
 import NotificationData from "../Constants/NotificationData";
-
-
-
-const columnHelper = createColumnHelper<TableProps>();
-
-interface TabViewRows {
-  [key: string]: boolean;
-}
+import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
+import NotificationColumn from "../Constants/NotificationColumn";
 
 const Notifications = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [tabViewRows, setTabViewRows] = useState<TabViewRows>({});
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const toggleTabView = (row: { id: string | number }) => {
-    setTabViewRows((prevState) => ({
-      ...prevState,
-      [row.id]: !prevState[row.id],
-    }));
-  };
+  const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
 
   const data = useMemo(() => NotificationData, []);
 
-  const columns: any = [
-    {
-      header: "Messages",
-      accessorKey: "messages",
-    },
-    {
-      header: "Date",
-      accessorKey: "date",
-    },
-    {
-      header: "Time",
-      accessorKey: "time",
-    },
-    columnHelper.accessor("action", {
-      header: "Action",
-      cell: ({ row }: { row: Row<TableProps> }) => (
-        <div className="flex  justify-center items-center relative">
-          <button onClick={() => toggleTabView(row)}>
-            <MoreIcon />
-          </button>
-          {tabViewRows[row.id] && <ViewDelete handleOpenModal={handleOpenModal} />}
-        </div>
-      ),
-    }),
-  ];
+  const columns: any = NotificationColumn(handleClick);
 
   return (
     <div>
@@ -80,8 +28,8 @@ const Notifications = () => {
         }
       />
       <DesktopModal
-        openModal={isModalOpen}
-        setOpenModal={setIsModalOpen}
+        openModal={isOpen}
+        setOpenModal={setIsOpen}
         className="custom-modal-class"
         modalContent={<NotificationPopUp />}
       />
