@@ -7,7 +7,7 @@ export const Button = ({
 	className,
 	onClick,
 }: {
-	text: string;
+	text: string | React.ReactNode;
 	link: string;
 	className: string;
 	onClick: Function;
@@ -21,7 +21,7 @@ export const Button = ({
 					onClick();
 				}}
 				type='submit'
-				className={`transition-all transform ${
+				className={`flex items-center justify-center transition-all transform ${
 					click ? 'scale-75' : ''
 				} ${className}`}>
 				{text}

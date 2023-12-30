@@ -1,14 +1,14 @@
 import React from 'react';
-import CategoryBetMenu from './CategoryBetMenu';
-import SportBetMenu from './SportBetMenu';
+import DeviceDisplay from '../Utils/DeviceDisplay';
+import DesktopHeader from './DesktopHeader';
+import MobileHeader from './MobileHeader';
 
 const Header = () => {
 	return (
-		<div className='w-full fixed z-50 top-0'>
-			<CategoryBetMenu/>
-			<SportBetMenu/>
-		</div>
+		<DeviceDisplay
+			mobileViewDisplay={<MobileHeader />}
+			desktopViewDisplay={<DesktopHeader />}
+		/>
 	);
 };
-
 export default Header;

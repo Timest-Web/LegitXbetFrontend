@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import Otp from '../Otp';
 import SignUpSignIn from '../SignUpSignIn';
 
-const DesktopModalView = () => {
-	const [submitForm, setSubmitForm] = useState(false);
+const DesktopModalView = ({selectedButton}:{selectedButton: string}) => {
+	const [isFormSubmit, setIsFormSubmit] = useState(false);
 
-	return !submitForm ? (
-		<SignUpSignIn setSubmitForm={setSubmitForm} />
+	return !isFormSubmit ? (
+		<SignUpSignIn setIsFormSubmit={setIsFormSubmit} selectedButton={selectedButton} />
 	) : (
 		<Otp />
 	);

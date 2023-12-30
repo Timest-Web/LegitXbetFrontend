@@ -3,7 +3,7 @@ import React from 'react'
 const AuthDescription = ({link}: {link: string}) => {
   return (
 		<p className='text-center text-black text-sm px-8 py-6'>
-			{link === 'Log in' ? (
+			{link === 'login' ? (
 				<>
 					Login to your account, place bet on top games on various{' '}
 					<br />

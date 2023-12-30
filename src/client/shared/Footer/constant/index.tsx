@@ -6,6 +6,11 @@ import Panathinaikos from '../../../../assets/Panathinaikos.png';
 import Poak from '../../../../assets/PAOK.png';
 import UnivCraiova from '../../../../assets/UnivCraiova.png';
 import ViktoriaPlzen from '../../../../assets/ViktoriaPlzen.png';
+import ApoelFC from '../../../../assets/ApoelFC.png';
+import FCSB from '../../../../assets/FCSB.png';
+import Melgar from '../../../../assets/Melgar.png';
+import SCP from '../../../../assets/SCP.png';
+
 
 export const LOGOS = [
 	Atletico,
@@ -24,6 +29,22 @@ export const LOGOS = [
 	Poak,
 	UnivCraiova,
 	ViktoriaPlzen,
+];
+
+
+export const MOBILE_FOOTER_LOGO = [
+	Atletico,
+	Kometa,
+	Lokomotive,
+	Olympiacos,
+	Panathinaikos,
+	Poak,
+	UnivCraiova,
+	ViktoriaPlzen,
+	ApoelFC,
+      FCSB,
+      Melgar,
+      SCP
 ];
 
 export const LicenseText = `This website is operated by Legit X bet Nigeria Limited, a
