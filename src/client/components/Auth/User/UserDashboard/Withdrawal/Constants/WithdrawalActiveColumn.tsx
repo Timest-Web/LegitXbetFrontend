@@ -24,3 +24,5 @@ const WithdrawalActiveColumn = () => [
     accessorKey: "channel",
   },
 ];
+
+export default WithdrawalActiveColumn;

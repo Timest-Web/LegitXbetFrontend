@@ -6,6 +6,7 @@ import mData from "../../constant/MOCK_DATA (4).json";
 import WithdrawPop from "./WithdrawPop";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
+import WithdrawalActiveColumn from "../Constants/WithdrawalActiveColumn";
 
 const WithdrawalActive = () => {
   const { isOpen, setIsOpen, handleClick } = useVisibilityControl();

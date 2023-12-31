@@ -4,6 +4,7 @@ import { createColumnHelper } from "@tanstack/react-table";
 import { TableProps } from "react-table";
 import { Row } from "@tanstack/react-table";
 import MoreIcon from "@/src/client/shared/Svg/MoreIcon";
+import ActionColumn from "../../shared/ActionColumn";
 
 const columnHelper = createColumnHelper<TableProps>();
 
@@ -11,14 +12,6 @@ interface TabViewRows {
   [key: string]: boolean;
 }
 
-
-  const [tabViewRows, setTabViewRows] = useState<TabViewRows>({});
-  const toggleTabView = (row: { id: string | number }) => {
-    setTabViewRows((prevState) => ({
-      ...prevState,
-      [row.id]: !prevState[row.id],
-    }));
-  };
 
 
 const TransactionColumn = ()=> [
@@ -47,12 +40,9 @@ const TransactionColumn = ()=> [
     columnHelper.accessor("action", {
       header: "Action",
       cell: ({ row }: { row: Row<TableProps> }) => (
-        <div className="flex  justify-center items-center relative">
-          <button onClick={() => toggleTabView(row)}>
-            <MoreIcon />
-          </button>
-          {tabViewRows[row.id] && <TransactionView />}
-        </div>
+        <ActionColumn
+        row={row}
+        popUpElement={<TransactionView/>}/>
       ),
     }),
   ];
