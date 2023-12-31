@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import LayoutDashboard from "../../shared/LayoutDashboard";
-import TableComp from "../../shared/TableComp";
+import TableComp from "../../shared/ActiveTableComp";
 import BonusData from "../Constant/BonusData";
 import BonusColumn from "../Constant/BonusColumn";
 

@@ -1,35 +1,14 @@
 import React, {useMemo} from "react";
 import LayoutDashboard from "../../shared/LayoutDashboard";
-import TableComp from "../../shared/TableComp";
+import TableComp from "../../shared/ActiveTableComp";
 import UploadedData from "../Constants/UploadedData";
+import UploadedColumn from "../Constants/UploadedColumn";
 
 
 const UploadedDocuments = () => {
     const data = useMemo(() => UploadedData, []);
 
-    const columns: any = [
-        {
-          header: "No",
-          accessorKey: "no",
-        },
-        {
-          header: "Doc.",
-          accessorKey: "reference_id",
-        },
-        {
-          header: "Date",
-          accessorKey: "date",
-        },
-        {
-          header: "Status",
-          accessorKey: "status",
-        },
-        {
-          header: "Preview",
-          accessorKey: "preview",
-        },
-        
-      ];
+    const columns: any = UploadedColumn()
 
   return (
     <LayoutDashboard

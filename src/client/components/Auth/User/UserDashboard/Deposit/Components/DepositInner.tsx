@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import BalanceCard from "../../shared/BalanceCard";
-import AllBetTable from "../../shared/AllBetTable";
+import AllBetTable from "../../shared/InactiveTable";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import DepositContainer from "./DepositModal/DepositContainer";
 import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";

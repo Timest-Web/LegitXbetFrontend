@@ -4,9 +4,7 @@ import Image from "next/image";
 import pdfImg from "../../../assets/export.png";
 import ProfileReusableCard from "../ProfileReusables/ProfileReusableCard";
 
-
-
-const KycComp= () => {
+const KycComp = () => {
   const [selectedDocumentType, setSelectedDocumentType] = useState<string>("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
@@ -23,28 +21,40 @@ const KycComp= () => {
   return (
     <div>
       <ProfileVeriReuse isInsideKycComp />
-     <ProfileReusableCard profileContent={ <div>
-        <div className="font-bold flex justify-between mb-8">
-          <h2>Upload your KYC for verification</h2>
-          <h2>Verified documents will appear here</h2>
-        </div>
-        <h2 className="font-bold mb-4">Document type</h2>
-        <form className="flex flex-col space-y-9">
-          <div className="flex space-x-10 font-bold">
-            {renderRadioButton("intPassport", "Int. Passport", "documentType")}
-            {renderRadioButton("nin", "NIN", "documentType")}
-            {renderRadioButton("votersCard", "Voters Card", "documentType")}
-            {renderRadioButton("driversLicense", "Drivers License", "documentType")}
+      <ProfileReusableCard
+        profileContent={
+          <div>
+            <div className="font-bold flex justify-between mb-8">
+              <h2>Upload your KYC for verification</h2>
+              <h2>Verified documents will appear here</h2>
+            </div>
+            <h2 className="font-bold mb-4">Document type</h2>
+            <form className="flex flex-col space-y-9">
+              <div className="flex space-x-10 font-bold">
+                {renderRadioButton(
+                  "intPassport",
+                  "Int. Passport",
+                  "documentType"
+                )}
+                {renderRadioButton("nin", "NIN", "documentType")}
+                {renderRadioButton("votersCard", "Voters Card", "documentType")}
+                {renderRadioButton(
+                  "driversLicense",
+                  "Drivers License",
+                  "documentType"
+                )}
+              </div>
+              {renderUploadSection()}
+              <button className="bg-[#101010] text-white w-[10.75rem] h-[2.375rem] p-1 rounded-[5px] ml-12">
+                Send for verification
+              </button>
+            </form>
+            <p className="mt-12">
+              NB - Only government-issued documents will be approved
+            </p>
           </div>
-          {renderUploadSection()}
-          <button className="bg-[#101010] text-white w-[10.75rem] h-[2.375rem] p-1 rounded-[5px] ml-12">
-            Send for verification
-          </button>
-        </form>
-        <p className="mt-12">
-          NB - Only government-issued documents will be approved
-        </p>
-      </div>}/>
+        }
+      />
     </div>
   );
 
@@ -67,7 +77,10 @@ const KycComp= () => {
   function renderUploadSection() {
     return (
       <div className="bg-[#ECEEF1] border-[#101010] border-2 border-dashed w-[18.0625rem] h-[8.6875rem] rounded-[20px] flex flex-col justify-center items-center text-center">
-        <label htmlFor="fileUpload" className="cursor-pointer flex flex-col justify-center items-center text-center">
+        <label
+          htmlFor="fileUpload"
+          className="cursor-pointer flex flex-col justify-center items-center text-center"
+        >
           <Image src={pdfImg} alt="Upload icon" />
           <h2>Upload PDF only</h2>
         </label>

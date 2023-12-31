@@ -1,17 +1,9 @@
 import React from "react";
-import AllBetTable from "../../shared/AllBetTable";
+import AllBetTable from "../../shared/InactiveTable";
+import TransactionInactiveHeader from "../Constants/TransactionInactiveHeaders";
 
 const TransactionInner = () => {
-  const headers = [
-    "No",
-    "Reference Id",
-    "Date",
-    "Status",
-    "Type",
-    "Amount",
-    "Channel",
-    "Actions"
-  ];
+  const headers = TransactionInactiveHeader()
   return (
     <div className="">
       <div>

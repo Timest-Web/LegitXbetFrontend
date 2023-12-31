@@ -9,46 +9,14 @@ import {
   getFilteredRowModel,
 } from "@tanstack/react-table";
 import SupportTicketData from "../Constants/SupportTicketData";
+import SupportActiveColumn from "../Constants/SupportActiveColumn";
 
 
 
 const SupportActive = () => {
   const data = useMemo(() => SupportTicketData, []);
 
-  const columns: any = [
-    {
-      header: "Username",
-      accessorKey: "username",
-    },
-    {
-      header: "Email",
-      accessorKey: "email",
-    },
-    {
-      header: "Ticket ID",
-      accessorKey: "ticket_id",
-    },
-    {
-      header: "Priority",
-      accessorKey: "priority",
-    },
-    {
-      header: "Call Number",
-      accessorKey: "call_number",
-    },
-    {
-      header: "Created",
-      accessorKey: "created",
-    },
-    {
-      header: "Status",
-      accessorKey: "status",
-    },
-    {
-      header: "Actions",
-      accessorKey: "actions",
-    },
-  ];
+  const columns: any = SupportActiveColumn()
   const table = useReactTable({
     data,
     columns,

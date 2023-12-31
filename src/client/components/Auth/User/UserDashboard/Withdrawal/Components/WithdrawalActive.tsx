@@ -1,46 +1,18 @@
-import TableComp from "../../shared/TableComp";
+import TableComp from "../../shared/ActiveTableComp";
 import LayoutDashboard from "../../shared/LayoutDashboard";
 import BalanceCard from "../../shared/BalanceCard";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import mData from "../../constant/MOCK_DATA (4).json";
 import WithdrawPop from "./WithdrawPop";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
+import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
 
 const WithdrawalActive = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
+  const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
 
   const data = useMemo(() => mData, []);
 
-  const columns: any = [
-    {
-      header: "No",
-      accessorKey: "no",
-    },
-    {
-      header: "Reference Id",
-      accessorKey: "reference_id",
-    },
-    {
-      header: "Date",
-      accessorKey: "date",
-    },
-    {
-      header: "Status",
-      accessorKey: "status",
-    },
-    {
-      header: "Amount",
-      accessorKey: "amount",
-    },
-    {
-      header: "Channel",
-      accessorKey: "channel",
-    },
-  ];
+  const columns: any = WithdrawalActiveColumn()
 
   return (
     <LayoutDashboard
@@ -49,7 +21,7 @@ const WithdrawalActive = () => {
           <BalanceCard
             buttonState={true}
             buttonText="Withdraw"
-            balanceButtonAction={handleOpenModal}
+            balanceButtonAction={handleClick}
           />
           <TableComp
             tableTitle="Transactions  history"
@@ -59,8 +31,8 @@ const WithdrawalActive = () => {
             columns={columns}
           />
           <DesktopModal
-            openModal={isModalOpen}
-            setOpenModal={setIsModalOpen}
+            openModal={isOpen}
+            setOpenModal={setIsOpen}
             className="custom-modal-class"
             modalContent={<WithdrawPop />}
           />

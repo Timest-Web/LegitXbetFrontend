@@ -1,5 +1,5 @@
 import React from "react";
-import AllBetTable from "../../shared/AllBetTable";
+import AllBetTable from "../../shared/InactiveTable";
 
 const BetInnerComp = () => {
   const headers = [

@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import LayoutDashboard from "../../shared/LayoutDashboard";
-import TableComp from "../../shared/TableComp";
+import TableComp from "../../shared/ActiveTableComp";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import NotificationPopUp from "./NotificationPopUp";
 import NotificationData from "../Constants/NotificationData";

@@ -1,31 +1,23 @@
 import React, { useState } from "react";
 import BalanceCard from "../../shared/BalanceCard";
-import AllBetTable from "../../shared/AllBetTable";
+import AllBetTable from "../../shared/InactiveTable";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import WithdrawPop from "./WithdrawPop";
+import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
+import WithdrawalInactiveHeader from "../Constants/WithdrawalInactiveTableWeather";
 
 const WithdrawalInner = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-  const headers = [
-    "No",
-    "Reference Id",
-    "Date",
-    "Status",
-    "Amount",
-    "Channel",
-  ];
+  const headers = WithdrawalInactiveHeader();
   return (
     <div className="flex flex-col space-y-7 ">
       <div className=" flex space-x-4">
-        <BalanceCard buttonState={true} buttonText="Withdraw" balanceButtonAction={handleOpenModal} />
+        <BalanceCard
+          buttonState={true}
+          buttonText="Withdraw"
+          balanceButtonAction={handleClick}
+        />
       </div>
       <div>
         <AllBetTable
@@ -33,12 +25,12 @@ const WithdrawalInner = () => {
           headers={headers}
           noBetsMessage="No transactions recorded"
           placeBetButtonText="Withdraw"
-          buttonAction={handleOpenModal}
+          buttonAction={handleClick}
         />
       </div>
       <DesktopModal
-        openModal={isModalOpen}
-        setOpenModal={setIsModalOpen}
+        openModal={isOpen}
+        setOpenModal={setIsOpen}
         className="custom-modal-class"
         modalContent={<WithdrawPop />}
       />

@@ -1,7 +1,7 @@
-import TableComp from "../../../shared/TableComp";
+import TableComp from "../../../shared/ActiveTableComp";
 import LayoutDashboard from "../../../shared/LayoutDashboard";
 import BalanceCard from "../../../shared/BalanceCard";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import mData from "../../../constant/MOCK_DATA (4).json";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal";
 import DepositContainer from "../DepositModal/DepositContainer";

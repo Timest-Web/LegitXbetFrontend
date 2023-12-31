@@ -1,18 +1,11 @@
 import React from "react";
 import BalanceCard from "../../shared/BalanceCard";
 import UserDocumentCard from "../../shared/UserDocumentCard";
-import AllBetTable from "../../shared/AllBetTable";
+import AllBetTable from "../../shared/InactiveTable";
+import OverViewHeader from "../Constants/OverviewHeader";
 
 const Overview = () => {
-  const headers = [
-    "No",
-    "Bet Id",
-    "Date",
-    "Type",
-    "Status",
-    "Stake Amt.",
-    "Potential win",
-  ];
+  const headers = OverViewHeader()
   return (
     <div className="flex flex-col space-y-7 ">
       <div className=" flex space-x-4">
