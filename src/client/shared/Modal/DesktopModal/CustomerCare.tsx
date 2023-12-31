@@ -1,24 +1,18 @@
 import React from 'react';
-
-type DrawerProps = {
-	className: string;
-	openDrawer: boolean;
-	DrawerContent: React.JSX.Element;
-	setOpenDrawer: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import { ModalProps } from '../constant/type';
 
 const CustomerCareModal = ({
-	setOpenDrawer,
-	DrawerContent,
-	openDrawer,
+	setOpenModal,
+	modalContent,
+	openModal,
 	className,
-}: DrawerProps) => {
+}: ModalProps) => {
 	return (
 		<div>
-			{openDrawer && (
+			{openModal && (
 				<div>
 					<div
-						onClick={() => setOpenDrawer(false)}
+						onClick={() => setOpenModal(false)}
 						className={`z-10000 fixed w-[100%] h-[100%] top-0 left-0 bg-black opacity-75`}>	
 					</div>
 					<div
@@ -29,12 +23,12 @@ const CustomerCareModal = ({
 							</p>
 							<button
 								className='flex items-center justify-center px-4 py-1 text-center text-xs border border-gray-600 rounded'
-								onClick={() => setOpenDrawer(false)}>
+								onClick={() => setOpenModal(false)}>
 								Close
 							</button>
 						</div>
 						{/* CustomerCareModal Content */}
-						<div className='w-full'>{DrawerContent}</div>
+						<div className='w-full'>{modalContent}</div>
 					</div>
 				</div>
 			)}

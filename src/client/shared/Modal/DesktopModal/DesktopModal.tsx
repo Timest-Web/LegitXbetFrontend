@@ -1,12 +1,7 @@
 import React from 'react';
+import { ModalProps } from '../constant/type';
 import { ControlsClose } from '@heathmont/moon-icons-tw';
 
-type ModalProps = {
-	className: string;
-	openModal: boolean;
-	modalContent: React.JSX.Element;
-	setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
-};
 
 const DesktopModal = ({
 	modalContent,

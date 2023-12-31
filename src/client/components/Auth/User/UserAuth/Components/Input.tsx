@@ -64,7 +64,6 @@ export const Password = ({
 	return (
 		<div className='flex flex-col space-y-1'>
 			<p className='font-bold pl-6 text-sm'>{label}</p>
-
 			<div
 				className={`${borderHint} flex items-center justify-between bg-gray-100 w-80 rounded-lg`}>
 				<input

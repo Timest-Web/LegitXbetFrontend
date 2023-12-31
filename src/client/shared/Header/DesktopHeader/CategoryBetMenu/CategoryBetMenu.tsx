@@ -7,9 +7,9 @@ import { useLink } from '../../../Hooks/useLink';
 import { OtherCrown } from '@heathmont/moon-icons-tw';
 import { useVisibilityControl } from '../../../Hooks/useVisibilityControl';
 import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
-import DesktopModal from '../../../Modal/DesktopModal';
-import DesktopModalView from '../../../../components/Auth/User/UserAuth/Components/DesktopModalView';
-import CustomerCareDrawer from '../../../Drawer/CustomerCareDrawer';
+import DesktopModal from '../../../Modal/DesktopModal/DesktopModal';
+import DesktopModalView from '../../../../components/Auth/User/UserAuth/Components/ModalView';
+import CustomerCareDrawer from '../../../Modal/DesktopModal/CustomerCare';
 import SupportContent from '../../SupportContent';
 import UserSection from './UserSection';
 import { LINK_CATEGORY_TYPES } from '../../constant';
@@ -24,8 +24,8 @@ const CategoryBetMenu = () => {
 		handleClick: onHandleClick,
 	} = useVisibilityControl();
 	const {
-		isOpen: openDrawer,
-		setIsOpen: setIsOpenDrawer,
+		isOpen: openModal,
+		setIsOpen: setIsOpenModal,
 		handleClick: onHandleSupportClick,
 	} = useVisibilityControl();
 	const { userId } = useUser();
@@ -120,12 +120,12 @@ const CategoryBetMenu = () => {
 				{userId && <UserSection />}
 			</div>
 
-			{openDrawer && (
+			{openModal && (
 				<CustomerCareDrawer
 					className=''
-					openDrawer={openDrawer}
-					setOpenDrawer={setIsOpenDrawer}
-					DrawerContent={<SupportContent />}
+					openModal={openModal}
+					setOpenModal={setIsOpenModal}
+					modalContent={<SupportContent />}
 				/>
 			)}
 			{isOpen && (
