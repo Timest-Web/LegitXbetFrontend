@@ -25,6 +25,7 @@ const config: Config = {
       },
       backgroundImage: {
         'searchIcon': "url('../src/assets/search-normal.svg')",
+        'filterIcon': "url('../src/assets/filter-search.svg')",
       }
     },
   },

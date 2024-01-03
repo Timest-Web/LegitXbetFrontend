@@ -9,7 +9,7 @@ interface LiveChatProps{
 
 const LiveChat: React.FC<LiveChatProps> = ({handleCloseModal}) => {
     return (
-        <div className="bg-white w-[37.875rem] h-[54.625rem] rounded-[1.25rem] p-8 pt-24 mt-4">
+        <div className="bg-white w-full h-full rounded-[1.25rem] p-8 pt-24 mt-4">
             <section className="flex justify-between">
                 <h3 className="text-[1.375rem] font-bold ">Legit X bet Customer support</h3>
                 <button onClick={handleCloseModal} className="w-[6.0625rem] h-[2.1875rem] border-[#5D5D5D] border rounded-md text-sm ">

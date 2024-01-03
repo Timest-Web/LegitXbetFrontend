@@ -9,11 +9,8 @@ import {
 import { useState } from "react";
 import ArrowLeft from "@/src/client/shared/Svg/ArrowLeft";
 import ArrowRight from "@/src/client/shared/Svg/ArrowRight";
-import SearchIcon from "@/src/client/shared/Svg/SearchIcon";
-import FilterSearch from "@/src/client/shared/Svg/FilterSearch";
-import ArrowDownIcon from "@/src/client/shared/Svg/ArrowDownIcon";
 import { Dropdown, MenuItem } from "@heathmont/moon-core-tw";
-import { Checkbox } from '@heathmont/moon-core-tw';
+
 
 interface TableProps {
   tableTitle: string;
@@ -73,7 +70,7 @@ const TableComp: React.FC<TableProps> = ({
             </div>
           )}
           {filterField && (
-            <div className="flex w-full max-w-sm items-center bg-white">
+            <div className="flex bg-filterIcon bg-no-repeat bg-[center_left_0.2rem] pl-6 w-36 h-9 mt-[0.4rem] items-center bg-[#ECEEF1] border-[#292D32] border ">
               <Dropdown
                 className=""
                 value={option}
@@ -85,7 +82,7 @@ const TableComp: React.FC<TableProps> = ({
                       {option?.day}
                     </Dropdown.InsetSelect>
 
-                    <Dropdown.Options className="bg-white">
+                    <Dropdown.Options className=" bg-white rounded-2xl ">
                       {dayOption.map((pickedDay, index) => (
                         <Dropdown.Option value={pickedDay} key={index}>
                           {({ selected, active }) => (

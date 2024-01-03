@@ -3,7 +3,7 @@ import ExportIcon from "@/src/client/shared/Svg/ExportIcon";
 
 const SupportTicket = () => {
   return (
-    <div className="bg-white w-[54.8125rem] h-[54.625rem] rounded-3xl px-12 pt-24 ">
+    <div className="bg-white w-[54.8125rem] h-full rounded-3xl p-12 ">
       <div>
         <h2 className="font-bold">Support/tickets</h2>
         <hr className="mt-6 mb-6"></hr>
