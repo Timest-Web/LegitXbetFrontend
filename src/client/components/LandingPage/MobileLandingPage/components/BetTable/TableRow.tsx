@@ -47,7 +47,7 @@ const TableRow = ({
 					<p className='text-gray-400 '>{time}</p>
 				</div>
 
-				<div className='flex items-center justify-between space-x-6  overflow-x-scroll custom-scrollbar border-t border-t-lightAsh w-screen text-gray-200 px-4 text-xs'>
+				<div className='flex items-center justify-between space-x-6  overflow-x-scroll border-t tablerow border-t-lightAsh w-screen text-gray-200 px-4 text-xs'>
 					<div className='flex items-center space-x-4 justify-start text-[10px]'>
 						<p>v</p>
 						<div className='w-16'>

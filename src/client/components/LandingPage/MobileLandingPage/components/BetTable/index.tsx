@@ -115,7 +115,7 @@ const BetTable = ({
 						</div>
 					</div>
 
-					<div className='flex items-center justify-start h-10 w-full px-2 bg-darkAsh text-sm'>
+					<div className='flex items-center pt-3 h-10 justify-start w-full px-2 bg-darkAsh text-sm'>
 						<CustomCarousel
 							className='flex items-start justify-start w-full'
 							renderCarouselItems={() =>
@@ -127,7 +127,7 @@ const BetTable = ({
 						/>
 					</div>
 
-					<div className={`flex items-center justify-start text-xs  px-1 border-y border-y-lightAsh bg-darkAsh w-full h-8 pt-1 ${
+					<div className={`flex items-center pt-3 justify-start text-xs  px-1 border-y border-y-lightAsh bg-darkAsh w-full h-8 ${
 							collapse && 'rounded-b-xl'
 						}`}>
 						<CustomCarousel

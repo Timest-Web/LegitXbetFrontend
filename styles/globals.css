@@ -11,6 +11,6 @@ html {
   outline: none;
 }
 
-::-webkit-scrollbar {
+.tablerow::-webkit-scrollbar {
   display: none;
 }
