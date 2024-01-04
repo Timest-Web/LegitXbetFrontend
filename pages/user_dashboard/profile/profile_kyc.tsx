@@ -1,5 +1,5 @@
+import ProfileKyc from '@/src/client/components/Auth/User/UserDashboard/DesktopUserDashboard/UserProfile/Components/ProfileKyc';
 import type { NextPage } from 'next';
-import ProfileKyc from '@/src/client/components/Auth/User/UserDashboard/UserProfile/Components/ProfileKyc';
 
 const ProfileKycComp: NextPage = (props) => (
 	<div>

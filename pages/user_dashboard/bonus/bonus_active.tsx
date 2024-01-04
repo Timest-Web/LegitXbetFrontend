@@ -1,4 +1,4 @@
-import BonusActive from '@/src/client/components/Auth/User/UserDashboard/Bonus/Components/BonusActive';
+import BonusActive from '@/src/client/components/Auth/User/UserDashboard/DesktopUserDashboard/components/Bonus/Components/BonusActive';
 import type { NextPage } from 'next';
 
 const BonusAct: NextPage = (props) => (

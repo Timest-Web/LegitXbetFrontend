@@ -1,4 +1,4 @@
-import BetHistoryActive from '@/src/client/components/Auth/User/UserDashboard/BetHistory/Components/BetHistoryActive';
+import BetHistoryActive from '@/src/client/components/Auth/User/UserDashboard/DesktopUserDashboard/components/BetHistory/Components/BetHistoryActive';
 import type { NextPage } from 'next';
 
 const BetHistoryAct: NextPage = (props) => (

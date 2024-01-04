@@ -1,5 +1,5 @@
+import MultiFactor from '@/src/client/components/Auth/User/UserDashboard/DesktopUserDashboard/UserProfile/Components/MultiFactor';
 import type { NextPage } from 'next';
-import MultiFactor from '@/src/client/components/Auth/User/UserDashboard/UserProfile/Components/MultiFactor';
 
 const MultiAuth: NextPage = (props) => (
 	<div>

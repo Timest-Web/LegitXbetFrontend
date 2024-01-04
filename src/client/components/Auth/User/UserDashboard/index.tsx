@@ -1,16 +1,16 @@
-import React from "react";
-import LayoutDashboard from "./shared/LayoutDashboard";
-import Overview from "./Overview/Components/Overview";
-
-
-
+import DeviceDisplay from "@/src/client/shared/Utils/DeviceDisplay";
+import Layout from "../../../Layout";
+import DesktopUserDashboard from "./DesktopUserDashboard";
+import MobileUserDeshboard from "./MobileUserDashboard";
 
 const UserDashboard = () => {
-  return (
-    <div className=" font-sans " >
-      <LayoutDashboard content={<Overview />} />
-    </div>
-  );
+	return (
+		<Layout>
+			<DeviceDisplay
+				mobileViewDisplay={<MobileUserDeshboard/>}
+				desktopViewDisplay={<DesktopUserDashboard />}
+			/>
+		</Layout>
+	);
 };
-
 export default UserDashboard;

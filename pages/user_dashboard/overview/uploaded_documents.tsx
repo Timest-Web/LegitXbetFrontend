@@ -1,4 +1,4 @@
-import UploadedDocuments from '@/src/client/components/Auth/User/UserDashboard/Overview/Components/UploadedDocuments';
+import UploadedDocuments from '@/src/client/components/Auth/User/UserDashboard/DesktopUserDashboard/Overview/Components/UploadedDocuments';
 import type { NextPage } from 'next';
 
 const UploadedDocument: NextPage = (props) => (
