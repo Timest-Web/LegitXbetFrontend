@@ -14,15 +14,13 @@ import SupportContent from '../../SupportContent';
 import UserSection from './UserSection';
 import { LINK_CATEGORY_TYPES } from '../../constant';
 import useUser from '../../../Context/UserContext/useUser';
-import { useRouter } from 'next/router';
+import useUrlPathChecker from '../../../Hooks/useUrlPathChecker';
 
 const CategoryBetMenu = () => {
 	const { userId } = useUser();
-	const router = useRouter();
-	const currentURL = router.asPath;
 	const { link, handleClick } = useLink('Sports');
 	const { link: click, handleClick: selectedHandle } = useLink('login');
-	const isUserDashboardIncluded = currentURL.includes('user_dashboard');
+	const isUrlPathIncluded = useUrlPathChecker({ urlPath: 'user_dashboard' });
 	const {
 		isOpen,
 		setIsOpen,
@@ -55,7 +53,7 @@ const CategoryBetMenu = () => {
 									className={`${
 										link === value
 											? `text-gray-200 ${
-													!isUserDashboardIncluded &&
+													!isUrlPathIncluded &&
 													'pt-[12px]'
 											  }`
 											: 'text-gray-400'
@@ -76,7 +74,7 @@ const CategoryBetMenu = () => {
 										</div>
 									)}
 								</div>
-								{!isUserDashboardIncluded &&
+								{!isUrlPathIncluded &&
 									<>
 										{link === value ? (
 											<ControlsChevronDown

@@ -1,4 +1,4 @@
-import UserDashboard from '@/src/client/components/Auth/User/UserDashboard/DesktopUserDashboard';
+import UserDashboard from '@/src/client/components/Auth/User/UserDashboard';
 import type { NextPage } from 'next';
 
 const UserDashboards: NextPage = (props) => (
