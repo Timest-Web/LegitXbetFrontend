@@ -14,10 +14,15 @@ import SupportContent from '../../SupportContent';
 import UserSection from './UserSection';
 import { LINK_CATEGORY_TYPES } from '../../constant';
 import useUser from '../../../Context/UserContext/useUser';
+import { useRouter } from 'next/router';
 
 const CategoryBetMenu = () => {
+	const { userId } = useUser();
+	const router = useRouter();
+	const currentURL = router.asPath;
 	const { link, handleClick } = useLink('Sports');
 	const { link: click, handleClick: selectedHandle } = useLink('login');
+	const isUserDashboardIncluded = currentURL.includes('user_dashboard');
 	const {
 		isOpen,
 		setIsOpen,
@@ -28,7 +33,8 @@ const CategoryBetMenu = () => {
 		setIsOpen: setIsOpenModal,
 		handleClick: onHandleSupportClick,
 	} = useVisibilityControl();
-	const { userId } = useUser();
+
+
 
 	return (
 		<div className='flex items-center justify-center w-full  bg-black'>
@@ -48,7 +54,10 @@ const CategoryBetMenu = () => {
 								<div
 									className={`${
 										link === value
-											? 'text-gray-200 pt-4'
+											? `text-gray-200 ${
+													!isUserDashboardIncluded &&
+													'pt-[12px]'
+											  }`
 											: 'text-gray-400'
 									} cursor-pointer h-20 flex flex-col items-end justify-center text-sm font-bold hover:text-gray-200`}>
 									{value !== 'Jackpot' ? (
@@ -67,17 +76,21 @@ const CategoryBetMenu = () => {
 										</div>
 									)}
 								</div>
-								{link === value ? (
-									<ControlsChevronDown
-										fill='black'
-										color='black'
-										className='-mb-5 text-center'
-										height={40}
-										width={40}
-									/>
-								) : (
-									''
-								)}
+								{!isUserDashboardIncluded &&
+									<>
+										{link === value ? (
+											<ControlsChevronDown
+												fill='black'
+												color='black'
+												className='-mb-5 text-center'
+												height={40}
+												width={40}
+											/>
+										) : (
+											''
+										)}
+									</>
+								}
 							</div>
 						))}
 					</div>
