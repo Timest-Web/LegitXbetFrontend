@@ -3,7 +3,7 @@ import React from 'react'
 const MobileUserDeshboard = () => {
   return (
     <div>
-      This mobile userdashboard
+      This mobile user
     </div>
   )
 }
