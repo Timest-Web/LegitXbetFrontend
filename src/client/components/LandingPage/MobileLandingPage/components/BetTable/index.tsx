@@ -127,9 +127,7 @@ const BetTable = ({
 						/>
 					</div>
 
-					<div className={`flex items-center pt-3 justify-start text-xs  px-1 border-y border-y-lightAsh bg-darkAsh w-full h-8 ${
-							collapse && 'rounded-b-xl'
-						}`}>
+					<div className={`flex items-center pt-3 justify-start text-xs  px-1 border-y border-y-lightAsh bg-darkAsh w-full h-8`}>
 						<CustomCarousel
 							className='flex items-start justify-start w-full'
 							renderCarouselItems={() =>
@@ -139,7 +137,7 @@ const BetTable = ({
 					</div>
 
 					{!collapse && (
-						<div className='bg-darkAsh rounded-b-xl'>
+						<div className='bg-darkAsh'>
 							{ODDS_VALUE.map((value, index) => (
 								<TableRow
 									key={index}
