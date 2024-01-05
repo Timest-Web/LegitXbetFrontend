@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProfileVeriReuse from "../ProfileReusables/ProfileVeriReuse";
 import Image from "next/image";
-import pdfImg from "../../../../assets/export.png";
+import pdfImg from "../../../../assets/pdfImg.png";
 import ProfileReusableCard from "../ProfileReusables/ProfileReusableCard";
 
 const KycComp = () => {
