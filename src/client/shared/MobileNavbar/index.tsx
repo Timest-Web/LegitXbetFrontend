@@ -8,8 +8,8 @@ const MobileNavbar = () => {
 	const { bet } = useBet();
 	
 	return (
-		<div className=' px-3 w-full fixed bottom-0 right-0 left-0'>
-			<div className='flex items-center justify-between px-5 pt-3 border rounded-3xl bg-white'>
+		<div className='w-full fixed bottom-0 right-0 left-0'>
+			<div className='flex items-center justify-between px-5 pt-1 border bg-white'>
 				{MOBILE_NAVBAR_DATA.map((value, index) => (
 					<div
 						onClick={() => handleClick(value.title)}
@@ -21,7 +21,7 @@ const MobileNavbar = () => {
 						key={index}>
 						<div className='relative'>
 							{value.title === 'Betslips' && (
-								<div className='absolute right-0 top-0 bg-gray-800 text-white text-[6px] font-bold text-center h-4 w-4 rounded-full pt-1'>
+								<div className='absolute flex items-center justify-center right-0 top-0 bg-gray-800 text-white text-[8px] font-bold text-center  h-4 w-4 rounded-full'>
 									<p>{bet.length}</p>
 								</div>
 							)}

@@ -6,7 +6,7 @@ import useDeviceType from "../../Hooks/useDeviceType";
 export const PaymentsSecuredBy = () => {
       const { isMobile } = useDeviceType();
       return (
-			<div className={`px-8 mt-10 ${isMobile && 'pb-28'}`}>
+			<div className={`px-8 ${isMobile && 'pb-28 mt-10'}`}>
 				<p className='text-gray-200 text-sm cursor-default'>
 					Payments secured by
 				</p>

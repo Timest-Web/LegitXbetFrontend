@@ -101,9 +101,9 @@ const BetTable = ({
 				/>
 			</div>
 
-			<div className='w-full  px-3 mt-2 h-max'>
-				<div className='w-full bg-darkAsh rounded-xl'>
-					<div className='flex items-center justify-between h-10 rounded-t-lg bg-lightAsh  w-full py-3 px-5'>
+			<div className='w-full mt-2 h-max'>
+				<div className='w-full bg-darkAsh'>
+					<div className='flex items-center justify-between h-8 bg-lightAsh  w-full py-3 px-5'>
 						<div className='flex items-center space-x-4 text-[8px]'>
 							{BETDATES.map((value, index) => (
 								<DateItem
