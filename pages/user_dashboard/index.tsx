@@ -7,4 +7,4 @@ const UserDashboards: NextPage = (props) => (
 	</div>
 );
 
-export default UserDashboards;
+export default UserDashboards;                                        

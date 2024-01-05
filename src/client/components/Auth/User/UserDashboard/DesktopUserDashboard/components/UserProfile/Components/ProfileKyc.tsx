@@ -1,11 +1,11 @@
 import React from "react";
-import LayoutDashbord from "../../shared/LayoutDashboard";
 import KycComp from "./InnerComps/KycComp";
+import LayoutDashboard from "../../../shared/LayoutDashboard";
 
 
 const ProfileKyc = () => {
     return ( 
-        <LayoutDashbord content={<KycComp/>}/>
+        <LayoutDashboard content={<KycComp/>}/>
      );
 }
  

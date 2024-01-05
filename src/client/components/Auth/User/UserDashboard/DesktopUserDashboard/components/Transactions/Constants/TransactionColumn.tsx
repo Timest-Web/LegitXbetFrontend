@@ -4,7 +4,7 @@ import { createColumnHelper } from "@tanstack/react-table";
 import { TableProps } from "react-table";
 import { Row } from "@tanstack/react-table";
 import MoreIcon from "@/src/client/shared/Svg/MoreIcon";
-import ActionColumn from "../../shared/ActionColumn";
+import ActionColumn from "../../../shared/ActionColumn";
 
 const columnHelper = createColumnHelper<TableProps>();
 

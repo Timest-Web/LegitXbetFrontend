@@ -1,10 +1,8 @@
-import SubmitButton from "../../shared/SubmitButton";
 import React from "react";
 import { createColumnHelper } from "@tanstack/react-table";
 import { TableProps } from "react-table";
-import ActionColumn from "../../shared/ActionColumn";
-
 import { Row } from "@tanstack/react-table";
+import SubmitButton from "../../../shared/SubmitButton";
 
 const columnHelper = createColumnHelper<TableProps>();
 

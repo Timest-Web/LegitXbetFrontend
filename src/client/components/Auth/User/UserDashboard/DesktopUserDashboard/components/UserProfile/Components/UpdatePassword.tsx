@@ -1,9 +1,9 @@
 import React from "react";
-import LayoutDashbord from "../../shared/LayoutDashboard";
 import UpdatePass from "./InnerComps/UpdatePass";
+import LayoutDashboard from "../../../shared/LayoutDashboard";
 
 const UpdatePassword = () => {
-    return ( <LayoutDashbord content={<UpdatePass/>}/>);
+    return ( <LayoutDashboard content={<UpdatePass/>}/>);
 }
  
 export default UpdatePassword;
