@@ -2,7 +2,7 @@ import React from "react";
 import { Carousel } from "@heathmont/moon-core-tw";
 import Link from "next/link";
 import { CustomCarousel } from "@/src/client/shared/Carousel";
-import menuList from "../../constant/MenuItems";
+import menuList from "../../DesktopUserDashboard/shared/MenuItems";
 
 const menuItems = menuList();
 

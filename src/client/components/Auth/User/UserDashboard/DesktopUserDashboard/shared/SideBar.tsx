@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ProfileMenu from "./ProfileMenu";
-import menuList from "../../constant/MenuItems";
+import menuList from "./MenuItems";
 
 
 

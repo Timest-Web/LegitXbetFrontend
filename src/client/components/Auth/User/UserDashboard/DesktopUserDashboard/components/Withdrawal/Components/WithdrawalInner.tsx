@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import WithdrawPop from "./WithdrawPop";
 import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
-import WithdrawalInactiveHeader from "../Constants/WithdrawalInactiveTableWeather";
+import WithdrawalInactiveHeader from "./WithdrawalInactiveTableHeader";
 import BalanceCard from "../../../shared/BalanceCard";
 import AllBetTable from "../../../shared/InactiveTable";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal/DesktopModal";

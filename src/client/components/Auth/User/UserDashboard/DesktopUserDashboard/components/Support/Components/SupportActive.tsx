@@ -8,7 +8,7 @@ import {
   getFilteredRowModel,
 } from "@tanstack/react-table";
 import SupportTicketData from "../Constants/SupportTicketData";
-import SupportActiveColumn from "../Constants/SupportActiveColumn";
+import SupportActiveColumn from "./SupportActiveColumn";
 import LayoutDashboard from "../../../shared/LayoutDashboard";
 
 

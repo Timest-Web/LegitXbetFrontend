@@ -1,6 +1,6 @@
 import React, {useMemo} from "react";
 import UploadedData from "../Constants/UploadedData";
-import UploadedColumn from "../Constants/UploadedColumn";
+import UploadedColumn from "./UploadedColumn";
 import LayoutDashboard from "../../../shared/LayoutDashboard";
 import TableComp from "../../../shared/ActiveTableComp";
 

@@ -1,8 +1,8 @@
 import { useMemo } from "react";
-import mData from "../../../../constant/MOCK_DATA (4).json";
+import mData from "../../BetHistory/Constant/data";
 import WithdrawPop from "./WithdrawPop";
 import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
-import WithdrawalActiveColumn from "../Constants/WithdrawalActiveColumn";
+import WithdrawalActiveColumn from "./WithdrawalActiveColumn";
 import LayoutDashboard from "../../../shared/LayoutDashboard";
 import BalanceCard from "../../../shared/BalanceCard";
 import TableComp from "../../../shared/ActiveTableComp";
