@@ -2,17 +2,27 @@ import React from 'react';
 import { MOBILE_NAVBAR_DATA } from './constant/data';
 import { useLink } from '../Hooks/useLink';
 import useBet from '../Context/BetContext/useBet';
+import { useVisibilityControl } from '../Hooks/useVisibilityControl';
+import Modal from '../Modal';
 
 const MobileNavbar = () => {
+	const {
+		isOpen,
+		setIsOpen,
+		handleClick: onHandleClick,
+	} = useVisibilityControl();
 	const { link, handleClick } = useLink('Home');
 	const { bet } = useBet();
-	
+
 	return (
 		<div className='w-full fixed bottom-0 right-0 left-0'>
 			<div className='flex items-center justify-between px-5 pt-1 border bg-white'>
 				{MOBILE_NAVBAR_DATA.map((value, index) => (
 					<div
-						onClick={() => handleClick(value.title)}
+						onClick={() => {
+							handleClick(value.title);
+							onHandleClick();
+						}}
 						className={`flex flex-col items-center justify-center -space-y-1 ${
 							link === value.title
 								? 'text-black'
@@ -39,6 +49,16 @@ const MobileNavbar = () => {
 					</div>
 				))}
 			</div>
+			{isOpen && (
+				<Modal
+					className=''
+					openModal={isOpen}
+					setOpenModal={setIsOpen}
+					modalContent={
+						<div className='h-72 w-80 bg-white-500'></div>
+					}
+				/>
+			)}
 		</div>
 	);
 };

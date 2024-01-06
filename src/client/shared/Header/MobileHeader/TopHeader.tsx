@@ -4,7 +4,7 @@ import Logo from '../../../../assets/logo1.png';
 import { Button } from '../../Button';
 import CustomerCareMobile from '../../Drawer/CustomerCareMobile';
 import { useVisibilityControl } from '../../Hooks/useVisibilityControl';
-import DesktopModal from '../../Modal/DesktopModal/DesktopModal';
+import DesktopModal from '../../Modal';
 import DesktopModalView from '@/src/client/components/Auth/User/UserAuth/Components/ModalView';
 import { useLink } from '../../Hooks/useLink';
 
