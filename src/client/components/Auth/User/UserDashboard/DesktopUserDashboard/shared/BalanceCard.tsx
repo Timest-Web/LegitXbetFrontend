@@ -12,8 +12,8 @@ interface BalanceCardProps {
 
 const BalanceCard: React.FC<BalanceCardProps> = ({ buttonText, buttonState, balanceButtonAction }) => {
   return (
-    <div className=" bg-white rounded-2xl w-[15.063rem] h-[8.438rem] md:w-[30.0625rem] md:h-[16.3125rem] p-4 md:p-8 text-xs md:text-base flex justify-between ">
-      <section className="flex flex-col space-y-2 md:space-y-0 ">
+    <div className=" bg-white rounded-2xl w-[15.063rem] h-[10rem] md:w-[30.0625rem] md:h-[16.3125rem] p-3 md:p-8 text-xs md:text-base flex justify-between ">
+      <section className="flex flex-col space-y-2 ">
         <div className="bg-[#ECEEF1] w-[3.25rem] h-[3.25rem] md:w-[4.375rem] md:h-[4.375rem] rounded-full flex justify-center items-center ">
           <TagIcon />
         </div>
@@ -21,7 +21,7 @@ const BalanceCard: React.FC<BalanceCardProps> = ({ buttonText, buttonState, bala
           <RepeatIcon />
           <h3>NGN 26.24</h3>
         </div>
-        <h3 className="mb-2 ml-1 md:ml-0">Balance</h3>
+        <h3 className="mb-2 ml-1 md:ml-0 text-[13px] md:text-sm">Balance</h3>
         {buttonState && <div onClick={balanceButtonAction} ><SubmitButton buttonContent={buttonText} /></div>}
       </section>
       <div><MoreIcon /></div>

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import GTBlogo from "../../../../assets/GtbankLogo.png";
-import zenithLogo from "../../../../assets/ZenithBankLogo.png";
+import GTBlogo from "../../../../../assets/GtbankLogo.png";
+import zenithLogo from "../../../../../assets/ZenithBankLogo.png";
 import SubmitButton from "../../../../shared/SubmitButton";
 
 const BankTransfer = () => {

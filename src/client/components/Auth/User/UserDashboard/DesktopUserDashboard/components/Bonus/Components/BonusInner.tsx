@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import BetWC from "../../../assets/BonusWC.png";
+import BetWC from "../../../../assets/BonusWC.png";
 import AllBetTable from "../../../shared/InactiveTable";
 
 const BonusInner = () => {

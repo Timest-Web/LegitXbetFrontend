@@ -1,5 +1,5 @@
 import React from "react";
-import TransactionInactiveHeader from "../Constants/TransactionInactiveHeaders";
+import TransactionInactiveHeader from "./TransactionInactiveHeaders";
 import AllBetTable from "../../../shared/InactiveTable";
 
 const TransactionInner = () => {

@@ -1,6 +1,6 @@
 
 import { useMemo } from "react";
-import mData from "../../../../constant/MOCK_DATA (4).json";
+import mData from "../../../../../constant/MOCK_DATA (4).json";
 import DepositContainer from "../DepositModal/DepositContainer";
 import DepositColumn from "../../Constants/DepositColumn";
 import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";

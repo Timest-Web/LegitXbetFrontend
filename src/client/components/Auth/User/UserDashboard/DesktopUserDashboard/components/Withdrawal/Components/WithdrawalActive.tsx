@@ -1,6 +1,5 @@
-
 import { useMemo } from "react";
-import mData from "../../../constant/MOCK_DATA (4).json";
+import mData from "../../../../constant/MOCK_DATA (4).json";
 import WithdrawPop from "./WithdrawPop";
 import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
 import WithdrawalActiveColumn from "../Constants/WithdrawalActiveColumn";

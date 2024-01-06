@@ -2,7 +2,7 @@ import React from "react";
 import { createColumnHelper } from "@tanstack/react-table";
 import { TableProps } from "react-table";
 import ActionColumn from "../../../shared/ActionColumn";
-import ViewDelete from "../Components/ViewDelete";
+import ViewDelete from "./ViewDelete";
 import { Row } from "@tanstack/react-table";
 
 const columnHelper = createColumnHelper<TableProps>();

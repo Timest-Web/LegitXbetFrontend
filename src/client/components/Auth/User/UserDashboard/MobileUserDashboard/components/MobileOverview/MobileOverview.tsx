@@ -5,7 +5,7 @@ import UserDocumentCard from "../../../DesktopUserDashboard/shared/UserDocumentC
 import AllBetTable from "../../../DesktopUserDashboard/shared/InactiveTable";
 import { Carousel } from "@heathmont/moon-core-tw";
 import { CustomCarousel } from "@/src/client/shared/Carousel";
-import OverViewHeader from "../../../DesktopUserDashboard/components/Overview/Constants/OverviewHeader";
+import OverViewHeader from "../../../DesktopUserDashboard/components/Overview/Components/OverviewHeader";
 
 const renderCarouselItems = () => {
   return (

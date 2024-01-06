@@ -1,19 +1,21 @@
 import React from "react";
 import MobileDashboardLayout from "../../shared/MobileDashboardLayout";
 import ProfileUpdate from "../../../DesktopUserDashboard/components/UserProfile/Components/InnerComps/ProfileUpdate";
-import SupportInactive from "../../../DesktopUserDashboard/components/Support/Components/SupportInactive";
+import WithdrawalInner from "../../../DesktopUserDashboard/components/Withdrawal/Components/WithdrawalInner";
 
-const MobileSupportInactive = () => {
+const MobileWithdrawal = () => {
 
   return (
     <div>
       <MobileDashboardLayout
         mobilelayoutcontent={
-            <SupportInactive/>
+          <div>
+            <WithdrawalInner/>
+          </div>
         }
       />
     </div>
   );
 };
 
-export default MobileSupportInactive;
+export default MobileWithdrawal;

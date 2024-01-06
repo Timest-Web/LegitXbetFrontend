@@ -1,7 +1,7 @@
 import React from "react";
 import MobileDashboardLayout from "../../shared/MobileDashboardLayout";
 import AllBetTable from "../../../DesktopUserDashboard/shared/InactiveTable";
-import TransactionInactiveHeader from "../../../DesktopUserDashboard/components/Transactions/Constants/TransactionInactiveHeaders";
+import TransactionInactiveHeader from "../../../DesktopUserDashboard/components/Transactions/Components/TransactionInactiveHeaders";
 
 const MobileTransaction = () => {
   const headers = TransactionInactiveHeader();

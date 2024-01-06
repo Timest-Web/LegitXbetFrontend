@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import gtbLogo from "../../../assets/GtbankLogo.png";
+import gtbLogo from "../../../../assets/GtbankLogo.png";
 import PopUpContainer from "../../../shared/PopUpContainer";
 import SubmitButton from "../../../shared/SubmitButton";
 

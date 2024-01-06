@@ -1,5 +1,5 @@
 import React from "react";
-import OverViewHeader from "../Constants/OverviewHeader";
+import OverViewHeader from "./OverviewHeader";
 import UserDocumentCard from "../../../shared/UserDocumentCard";
 import BalanceCard from "../../../shared/BalanceCard";
 import AllBetTable from "../../../shared/InactiveTable";

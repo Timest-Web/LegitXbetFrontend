@@ -4,6 +4,7 @@ import PlaceBetIcon from "@/src/client/shared/Svg/AllReceipt";
 import LiveChat from "./LiveChat";
 import SubmitButton from "../../../shared/SubmitButton";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal/DesktopModal";
+import SearchFilter from "../../../shared/SearchAndFilter";
 
 const SupportInactive = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,6 +19,7 @@ const SupportInactive = () => {
 
   return (
     <div>
+      <div className="md:hidden" ><SearchFilter/></div>
       <SupportComp
         isLiveChat
         supportContent={

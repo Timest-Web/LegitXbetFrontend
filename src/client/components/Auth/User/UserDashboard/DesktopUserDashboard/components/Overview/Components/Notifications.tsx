@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import NotificationPopUp from "./NotificationPopUp";
 import NotificationData from "../Constants/NotificationData";
 import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
-import NotificationColumn from "../Constants/NotificationColumn";
+import NotificationColumn from "./NotificationColumn";
 import LayoutDashboard from "../../../shared/LayoutDashboard";
 import TableComp from "../../../shared/ActiveTableComp";
 import DesktopModal from "@/src/client/shared/Modal/DesktopModal/DesktopModal";

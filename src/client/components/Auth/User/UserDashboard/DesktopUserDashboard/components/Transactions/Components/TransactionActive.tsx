@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 
 import TransactionData from "../Constants/TransactionData";
-import TransactionColumn from "../Constants/TransactionColumn";
+import TransactionColumn from "./TransactionColumn";
 import LayoutDashboard from "../../../shared/LayoutDashboard";
 import TableComp from "../../../shared/ActiveTableComp";
 
