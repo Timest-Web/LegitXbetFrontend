@@ -65,7 +65,7 @@ const ProfileUpdate: React.FC = () => {
               <h3>Mobile No</h3>
               <h3>+234 818 217 5835</h3>
             </div>
-            <form className="flex space-x-16">
+            <form className="flex flex-col space-y-8 md:space-y-0 md:flex-row md:space-x-16">
               <div className="flex flex-col space-y-12">
                 <InputField
                   label="Firstname"
@@ -100,7 +100,7 @@ const ProfileUpdate: React.FC = () => {
                 <GenderSelection />
                 <button
                   onClick={handleSaveUpdate}
-                  className="bg-black text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium mt-[6.5rem]"
+                  className="bg-black text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium mt-8 md:mt-[6.5rem]"
                 >
                   Save & Update
                 </button>

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import CollapseIcon from "@/src/client/shared/Svg/CollapseIcon";
-import ClubCollage from "../assets/ClubCollage.png";
-import WorldCup from "../assets/FIFAWorldCup2022.png";
-import BetWC from "../assets/BonusWC.png";
+import ClubCollage from "../../assets/ClubCollage.png";
+import WorldCup from "../../assets/FIFAWorldCup2022.png";
+import BetWC from "../../assets/BonusWC.png";
 
 const BannerSection = () => {
   return (

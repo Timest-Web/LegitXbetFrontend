@@ -16,7 +16,7 @@ const Overview = () => {
         <AllBetTable
           title="All Bets"
           headers={headers}
-          noBetsMessage="No bets palced"
+          noBetsMessage="No bets placed"
           placeBetButtonText=" Place a bet"
           buttonAction={undefined}
         />

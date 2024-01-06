@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import chatImg from '../../../assets/CustomerCareAvatar.png'
+import chatImg from '../../../../assets/CustomerCareAvatar.png'
 import ReceivedIcon from "@/src/client/shared/Svg/ReceivedIcon";
 
 interface LiveChatProps{

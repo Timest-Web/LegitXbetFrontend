@@ -1,11 +1,17 @@
-import React from 'react'
+import React from "react";
+import MobileOverview from "./components/MobileOverview/MobileOverview";
+import MobileTransaction from "./components/MobileTransactions/MobileTransaction";
+import MobileProfile from "./components/MobileProfileDashboard/MobileProfile";
+import MobileSupportInactive from "./components/MobileSupport/MobileSupportInactive";
 
-const MobileUserDeshboard = () => {
+
+
+const MobileUserDashboard = () => {
   return (
     <div>
-      This mobile user
+      <MobileSupportInactive/>
     </div>
-  )
-}
+  );
+};
 
-export default MobileUserDeshboard
+export default MobileUserDashboard;

@@ -1,8 +1,7 @@
 const DocumentSvg = () => {
   return (
     <svg
-      width="30"
-      height="30"
+      className="w-[18px] h-[18px] lg:w-[30px] lg:h-[30px] "
       viewBox="0 0 30 30"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
