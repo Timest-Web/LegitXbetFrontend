@@ -47,12 +47,5 @@ export const MOBILE_FOOTER_LOGO = [
       SCP
 ];
 
-export const LicenseText = `This website is operated by Legit X bet Nigeria Limited, a
-	company established in Nigeria with registration number
-	2004782, having its registered address at 6TH FLOOR LANDMARK
-	TOWERS, 5B, WATER CORPORATION ROAD, VICTORIA ISLAND,
-	ETI-OSA, LAGOS STATE. Kaizen Gaming Nigeria Limited is
-	licensed and regulated by the National Lottery Regulatory
-	Commission under license 0001085, issued on the 24th of
-	March 2023.`
+export const LicenseText = `This website is operated by LegitXbet Nigeria Limited, a company established in Nigeria with registration number 2*2 and is licensed and regulated by the National Lottery Regulatory Commission under license 000000, issued on the 24th of March 2023.`;
 ;

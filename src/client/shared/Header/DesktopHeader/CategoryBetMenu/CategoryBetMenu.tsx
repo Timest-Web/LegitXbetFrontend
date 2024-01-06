@@ -7,9 +7,9 @@ import { useLink } from '../../../Hooks/useLink';
 import { OtherCrown } from '@heathmont/moon-icons-tw';
 import { useVisibilityControl } from '../../../Hooks/useVisibilityControl';
 import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
-import DesktopModal from '../../../Modal/DesktopModal/DesktopModal';
+import DesktopModal from '../../../Modal';
 import DesktopModalView from '../../../../components/Auth/User/UserAuth/Components/ModalView';
-import CustomerCareDrawer from '../../../Modal/DesktopModal/CustomerCare';
+import CustomerCareDrawer from '../../../Modal/components/DesktopCustomerCare';
 import SupportContent from '../../SupportContent';
 import UserSection from './UserSection';
 import { LINK_CATEGORY_TYPES } from '../../constant';
@@ -31,8 +31,6 @@ const CategoryBetMenu = () => {
 		setIsOpen: setIsOpenModal,
 		handleClick: onHandleSupportClick,
 	} = useVisibilityControl();
-
-
 
 	return (
 		<div className='flex items-center justify-center w-full  bg-black'>
@@ -74,7 +72,7 @@ const CategoryBetMenu = () => {
 										</div>
 									)}
 								</div>
-								{!isUrlPathIncluded &&
+								{!isUrlPathIncluded && (
 									<>
 										{link === value ? (
 											<ControlsChevronDown
@@ -88,7 +86,7 @@ const CategoryBetMenu = () => {
 											''
 										)}
 									</>
-								}
+								)}
 							</div>
 						))}
 					</div>

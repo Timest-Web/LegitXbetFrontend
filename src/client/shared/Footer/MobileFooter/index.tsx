@@ -8,7 +8,7 @@ import { PaymentsSecuredBy } from '../components/PaymentSecureBy';
 
 const MobileFooter = () => {
       return (
-			<div className='bg-darkAsh w-ful'>
+			<div className='bg-darkAsh w-full'>
 				<div className='p-8 bg-lightAsh w-full mt-6 text-lightGray'>
 					Official sports betting partners
 				</div>

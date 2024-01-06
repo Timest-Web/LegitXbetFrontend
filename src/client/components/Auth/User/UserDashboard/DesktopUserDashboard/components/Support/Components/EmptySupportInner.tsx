@@ -1,5 +1,4 @@
 import SubmitButton from "../../../shared/SubmitButton";
-import DesktopModal from "@/src/client/shared/Modal/DesktopModal/DesktopModal";
 import SupportComp from "./SupportComp";
 import SupportTicket from "./SupportTicket";
 import PlaceBetIcon from "@/src/client/shared/Svg/AllReceipt";
@@ -8,6 +7,7 @@ import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityCon
 import { Carousel } from "@heathmont/moon-core-tw";
 import { CustomCarousel } from "@/src/client/shared/Carousel";
 import SearchFilter from "../../../shared/SearchAndFilter";
+import Modal from "@/src/client/shared/Modal";
 
 const EmptySupportInner = () => {
   const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
@@ -60,7 +60,7 @@ const EmptySupportInner = () => {
           </div>
         }
       />
-      <DesktopModal
+      <Modal
         openModal={isOpen}
         setOpenModal={setIsOpen}
         className="custom-modal-class"

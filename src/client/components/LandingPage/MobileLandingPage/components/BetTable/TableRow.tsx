@@ -38,9 +38,7 @@ const TableRow = ({
       const truncatedTeamTwo = truncateText(teamTwo, 10);
 	return (
 		<div
-			className={`bg-darkAsh w-full  ${
-				oddArray.length - 1 === index ? 'rounded-b-xl' : ''
-			}`}>
+			className={`bg-darkAsh w-full`}>
 			<div className='flex flex-row w-full h-11'>
 				<div className='flex items-center justify-center w-20 h-11 text-[10px] space-x-1 border-r border-r-lightAsh'>
 					<Time />

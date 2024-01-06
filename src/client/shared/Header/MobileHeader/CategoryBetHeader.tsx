@@ -7,7 +7,7 @@ import { POPULAR_DATA } from '@/src/client/components/LandingPage/DesktopLanding
 
 const renderCarouselItems = () => {
 	return POPULAR_DATA?.map((value, index) => (
-		<Carousel.Item key={index}>
+		<Carousel.Item key={index} className='flex items-center justify-start'>
 			<Link
 				href='#'
 				className='text-[11px] text-white text-xs'>
@@ -23,7 +23,7 @@ const CategoryBetHeader = () => {
 			<div className='flex items-center justify-center pr-5  w-2/12'>
 				<MenuIcon />
 			</div>
-			<div className='w-10/12'>
+			<div className='flex items-center pt-3 w-10/12'>
 				<CustomCarousel
 					renderCarouselItems={renderCarouselItems}
 				/>

@@ -3,19 +3,19 @@ import SupportComp from "./SupportComp";
 import PlaceBetIcon from "@/src/client/shared/Svg/AllReceipt";
 import LiveChat from "./LiveChat";
 import SubmitButton from "../../../shared/SubmitButton";
-import DesktopModal from "@/src/client/shared/Modal/DesktopModal/DesktopModal";
+import Modal from "@/src/client/shared/Modal";
 import SearchFilter from "../../../shared/SearchAndFilter";
 
 const SupportInactive = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
+	const handleOpenModal = () => {
+		setIsModalOpen(true);
+	};
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
+	const handleCloseModal = () => {
+		setIsModalOpen(false);
+	};
 
   return (
     <div>
@@ -32,7 +32,7 @@ const SupportInactive = () => {
           </div>
         }
       />
-      <DesktopModal
+      <Modal
         openModal={isModalOpen}
         setOpenModal={setIsModalOpen}
         className="custom-modal-class"

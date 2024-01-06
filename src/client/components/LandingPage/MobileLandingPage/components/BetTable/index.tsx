@@ -101,9 +101,9 @@ const BetTable = ({
 				/>
 			</div>
 
-			<div className='w-full  px-3 mt-2 h-max'>
-				<div className='w-full bg-darkAsh rounded-xl'>
-					<div className='flex items-center justify-between h-10 rounded-t-lg bg-lightAsh  w-full py-3 px-5'>
+			<div className='w-full mt-2 h-max'>
+				<div className='w-full bg-darkAsh'>
+					<div className='flex items-center justify-between h-8 bg-lightAsh  w-full py-3 px-5'>
 						<div className='flex items-center space-x-4 text-[8px]'>
 							{BETDATES.map((value, index) => (
 								<DateItem
@@ -127,9 +127,7 @@ const BetTable = ({
 						/>
 					</div>
 
-					<div className={`flex items-center pt-3 justify-start text-xs  px-1 border-y border-y-lightAsh bg-darkAsh w-full h-8 ${
-							collapse && 'rounded-b-xl'
-						}`}>
+					<div className={`flex items-center pt-3 justify-start text-xs  px-1 border-y border-y-lightAsh bg-darkAsh w-full h-8`}>
 						<CustomCarousel
 							className='flex items-start justify-start w-full'
 							renderCarouselItems={() =>
@@ -139,7 +137,7 @@ const BetTable = ({
 					</div>
 
 					{!collapse && (
-						<div className='bg-darkAsh rounded-b-xl'>
+						<div className='bg-darkAsh'>
 							{ODDS_VALUE.map((value, index) => (
 								<TableRow
 									key={index}

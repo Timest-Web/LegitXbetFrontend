@@ -1,9 +1,8 @@
 import React from 'react';
-import { ModalProps } from '../constant/type';
+import { ModalProps } from './constant/type';
 import { ControlsClose } from '@heathmont/moon-icons-tw';
 
-
-const DesktopModal = ({
+const Modal = ({
 	modalContent,
 	openModal,
 	setOpenModal,
@@ -29,7 +28,7 @@ const DesktopModal = ({
 								/>
 							</button>
 
-							{/* DesktopModal Content */}
+							{/* Modal Content */}
 							<div>{modalContent}</div>
 						</div>
 					</div>
@@ -39,4 +38,4 @@ const DesktopModal = ({
 	);
 };
 
-export default DesktopModal;
+export default Modal;
