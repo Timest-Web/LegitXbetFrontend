@@ -11,6 +11,7 @@ html {
   outline: none;
 }
 
+.betslip::-webkit-scrollbar,
 .tablerow::-webkit-scrollbar {
   display: none;
 }

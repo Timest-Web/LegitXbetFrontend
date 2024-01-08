@@ -7,7 +7,6 @@ const BetSlip = () => {
 	const betSlipTitle = ['Bet Slip', 'My Bets'];
       const BetSlipType = ['Single', 'Multiple', 'System'];
 	const { link, handleClick } = useLink('Bet Slip');
-	const {bet} = useBet()
 	const { link: betSlipTypeLink, handleClick: betSlipTypeHandleClick } = useLink('Single');
 
 	return (
