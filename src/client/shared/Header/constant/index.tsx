@@ -13,6 +13,7 @@ export const LINK_CATEGORY_TYPES = [
 ]
 
 export const LINK_GAME_TYPES = [
+     'Home',
     'Football',
      'Basketball',
      'Table Tennis',
@@ -25,21 +26,34 @@ export const LINK_GAME_TYPES = [
 ]
 
 export const USER_HEADER_DATA = [
-		{
-			icon: <Repeat />,
-			title: 'NGN26.24',
-		},
-		{
-			icon: <UserTage />,
-			title: 'My Account',
-			data: [
-				{ icon: <User />, title: 'Profile', link: '/user_dashboard' },
-				{ icon: <ReceiptSearch />, title: 'Bet History', link: '/bet_history'},
-			],
-		},
-		{
-			icon: <Logout />,
-			title: 'Deposit',
-		},
-	];
+	{
+		icon: <Repeat />,
+		title: 'NGN26.24',
+	},
+	{
+		icon: <UserTage />,
+		title: 'My Account',
+		data: [
+			{
+				icon: <User />,
+				title: 'Profile',
+				link: '/user_dashboard/profile/profile_update'
+			},
+			{
+				icon: <ReceiptSearch />,
+				title: 'Bet History',
+				link: '/user_dashboard/bet_history',
+			},
+			{
+				icon: <Logout />,
+				title: 'Log Out',
+				link: '',
+			},
+		],
+	},
+	{
+		icon: <Logout />,
+		title: 'Deposit',
+	},
+];
 

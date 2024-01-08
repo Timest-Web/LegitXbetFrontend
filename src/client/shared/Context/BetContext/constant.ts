@@ -6,6 +6,7 @@ export type OddsValuesProps = {
 	teamOne: string;
 	teamTwo: string;
 };
+
 export type BetContextType = {
 	bet: OddsValuesProps[];
 	handleDeleteAll: () => void;

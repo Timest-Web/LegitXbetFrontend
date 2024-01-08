@@ -15,8 +15,12 @@ export const UserProvider: React.FC<UserProviderProps> = ({
 		setUserId(userIdFromLocalStorage);
 	}, []);
 
+	const handleUserLogout = () => {
+		localStorage.removeItem('user');
+	}
+
 	return (
-		<UserContext.Provider value={{ userId }}>
+		<UserContext.Provider value={{ userId, handleUserLogout }}>
 			{children}
 		</UserContext.Provider>
 	);
