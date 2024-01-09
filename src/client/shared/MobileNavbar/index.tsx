@@ -4,14 +4,23 @@ import { useLink } from '../Hooks/useLink';
 import useBet from '../Context/BetContext/useBet';
 import { useVisibilityControl } from '../Hooks/useVisibilityControl';
 import Modal from '../Modal';
+import BetSlip from '../BetSlip';
+import { useRouter } from 'next/router';
 
 const MobileNavbar = () => {
 	const {
 		isOpen,
 		setIsOpen,
-		handleClick: onHandleClick,
+		handleClick: onBetSlipClick,
 	} = useVisibilityControl();
+	const router = useRouter();
 	const { link, handleClick } = useLink('Home');
+	const onSupportClick = () => {
+		router.push('/user_dashboard/support');
+	};
+	const onDepositClick = () => {
+		router.push('/user_dashboard/deposit');
+	};
 	const { bet } = useBet();
 
 	return (
@@ -21,12 +30,20 @@ const MobileNavbar = () => {
 					<div
 						onClick={() => {
 							handleClick(value.title);
-							onHandleClick();
+							{
+								value.title === 'Betslips' && onBetSlipClick();
+							}
+							{
+								value.title === 'Support' && onSupportClick();
+							}
+							{
+								value.title === 'Support' && onSupportClick();
+							}
 						}}
 						className={`flex flex-col items-center justify-center -space-y-1 ${
 							link === value.title
 								? 'text-black'
-								: 'text-gray-400'
+								: 'text-gray-600'
 						}`}
 						key={index}>
 						<div className='relative'>
@@ -54,9 +71,7 @@ const MobileNavbar = () => {
 					className=''
 					openModal={isOpen}
 					setOpenModal={setIsOpen}
-					modalContent={
-						<div className='h-72 w-80 bg-white-500'></div>
-					}
+					modalContent={<BetSlip />}
 				/>
 			)}
 		</div>

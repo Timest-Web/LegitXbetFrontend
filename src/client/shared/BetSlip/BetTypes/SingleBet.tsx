@@ -4,8 +4,8 @@ import DeleteBet from '../components/DeleteBet';
 import { truncateText } from '@/src/client/shared/Utils/TruncateText';
 import NoSelectionYet from '../components/NoSelectionYet';
 import DeleteIcon from '@/src/client/shared/Svg/DeleteIcon';
-import { BetItemProps } from '../../constant/data';
 import useBet from '@/src/client/shared/Context/BetContext/useBet';
+import { BetItemProps } from '../constant/data';
 
 
 const BetItem: React.FC<BetItemProps> = ({ index, value, onDelete }) => {
