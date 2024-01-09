@@ -55,7 +55,7 @@ const TableComp: React.FC<TableProps> = ({
   });
 
   return (
-    <div className="mt-6 w-full box-border ">
+    <div className="mt-6 w-full box-border pb-20 md:pb-0 ">
       <div className="flex justify-between px-8">
         <div className="hidden md:block font-bold mt-2">{tableTitle}</div>
         <section className="flex space-x-2">
