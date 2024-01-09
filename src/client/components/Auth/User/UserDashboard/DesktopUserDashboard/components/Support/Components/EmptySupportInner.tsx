@@ -30,7 +30,7 @@ const EmptySupportInner = () => {
     ));
   };
   return (
-    <div>
+    <div className="pb-24 md:pb-0">
       <div className="md:hidden">
         <SearchFilter />
       </div>
