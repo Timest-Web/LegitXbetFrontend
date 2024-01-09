@@ -1,14 +1,15 @@
 import React from "react";
 import MobileDashboardLayout from "../../shared/MobileDashboardLayout";
-import TransactionInner from "../../../DesktopUserDashboard/components/Transactions/Components/TransactionInner";
+import BonusInner from "../../../DesktopUserDashboard/components/Bonus/Components/BonusInner";
 
-const MobileTransaction = () => {
+const MobileBonusInactive = () => {
+
   return (
     <div>
       <MobileDashboardLayout
         mobilelayoutcontent={
           <div>
-            <TransactionInner/>
+            <BonusInner/>
           </div>
         }
       />
@@ -16,4 +17,4 @@ const MobileTransaction = () => {
   );
 };
 
-export default MobileTransaction;
+export default MobileBonusInactive;

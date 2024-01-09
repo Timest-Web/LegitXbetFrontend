@@ -9,9 +9,13 @@ import { useRouter } from "next/router";
 const menuItems = menuList();
 
 const renderCarouselItems = () => {
+  return <Carousel.Item ><Nav></Nav></Carousel.Item>;
+};
+
+const Nav = () => {
   const router = useRouter();
   return (
-    <Carousel.Item className="flex space-x-3 ">
+    <div className="flex space-x-3 ">
       {menuItems.map((item, index) => (
         <Link key={index} href={item.href}>
           <ProfileMenu
@@ -22,7 +26,7 @@ const renderCarouselItems = () => {
           </ProfileMenu>
         </Link>
       ))}
-    </Carousel.Item>
+    </div>
   );
 };
 
