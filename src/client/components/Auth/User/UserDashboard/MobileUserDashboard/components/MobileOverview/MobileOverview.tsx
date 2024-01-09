@@ -11,12 +11,8 @@ const renderCarouselItems = () => {
   return (
     <Carousel.Item>
       <div className="flex space-x-3">
-        <div className="">
-          <UserDocumentCard />
-        </div>
-        <div className="w-56">
-          <BalanceCard buttonText="" buttonState={false} />
-        </div>
+        <UserDocumentCard />
+        <BalanceCard buttonText="" buttonState={false} />
       </div>
     </Carousel.Item>
   );

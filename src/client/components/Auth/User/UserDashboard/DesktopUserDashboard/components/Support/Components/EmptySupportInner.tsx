@@ -45,12 +45,9 @@ const EmptySupportInner = () => {
                     <th key={index}>{header}</th>
                   ))}
                 </tr>
-                <tr className="hidden">
-                  <CustomCarousel renderCarouselItems={renderCarouselItems} />
-                </tr>
               </tbody>
             </table>
-            <div className="flex flex-col space-y-3 justify-center items-center mt-32 ">
+            <div className="flex flex-col space-y-3 justify-center items-center h-[50vh] ">
               <PlaceBetIcon />
               <h2 className=" opacity-60 ">No tickets yet</h2>
               <div onClick={handleClick}>

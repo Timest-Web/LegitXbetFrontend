@@ -7,7 +7,7 @@ interface PopUpContainerProps {
 const PopUpContainer: React.FC<PopUpContainerProps> = ({ popUpContent }) => {
     
   return (
-    <div className="bg-white w-[61.25rem] h-[40.5rem] rounded-2xl p-12">
+    <div className="bg-white rounded-2xl p-6">
       {popUpContent}
     </div>
   );

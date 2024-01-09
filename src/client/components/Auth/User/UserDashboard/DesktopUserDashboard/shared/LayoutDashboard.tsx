@@ -4,6 +4,7 @@ import HotlineBar from "./HotlineBar";
 // import CategoryBetMenu from "@/src/client/shared/Header/CategoryBetMenu";
 import BannerSection from './BannerSection';
 import CategoryBetMenu from "@/src/client/shared/Header/DesktopHeader/CategoryBetMenu/CategoryBetMenu";
+import RightSection from "@/src/client/components/LandingPage/DesktopLandingPage/MainSection/RightSection";
 
 const LayoutDashboard = ({ content }: { content: React.JSX.Element }) => {
   return (
@@ -17,7 +18,7 @@ const LayoutDashboard = ({ content }: { content: React.JSX.Element }) => {
           </section>
           <section className=" w-[63%]" >{content}</section>
           <section >
-            <BannerSection />
+            <RightSection/>
           </section>
         </div>
       </div>

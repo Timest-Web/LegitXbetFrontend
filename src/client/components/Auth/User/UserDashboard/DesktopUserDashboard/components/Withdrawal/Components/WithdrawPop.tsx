@@ -9,10 +9,10 @@ const WithdrawPop = () => {
     <PopUpContainer
       popUpContent={
         <div>
-          <h2 className="font-bold mb-4 pl-16 ">Card Debit</h2>
+          <h2 className="font-bold mb-4  ">Card Debit</h2>
           <hr></hr>
-          <form className="mt-8 px-16">
-            <section className="flex space-x-44">
+          <form className="mt-8 ">
+            <section className="flex space-x-32">
               <div>
                 <label className="font-bold pl-10 ">Bank Name</label>
                 <div className="flex space-x-5 mt-4">
@@ -26,7 +26,7 @@ const WithdrawPop = () => {
                 <h3>****8994</h3>
               </div>
             </section>
-            <section className="flex space-x-24 mt-12">
+            <section className="flex space-x-16 mt-12">
               <div className="flex flex-col space-y-3 ">
                 <div className="flex space-x-5">
                   <input className="w-5 h-5" type="radio"></input>

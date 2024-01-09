@@ -5,7 +5,7 @@ import SubmitButton from "../../../../shared/SubmitButton";
 
 const BankTransfer = () => {
   return (
-    <div className="flex space-x-24 px-24 py-12">
+    <div className="flex space-x-24 mt-4">
       <div className="flex flex-col space-y-7">
         <Image src={GTBlogo} alt="gtb" />
         <p>Dial *737*50*Amount*558#</p>
