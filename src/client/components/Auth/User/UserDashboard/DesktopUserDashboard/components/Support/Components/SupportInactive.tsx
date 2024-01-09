@@ -7,19 +7,21 @@ import Modal from "@/src/client/shared/Modal";
 import SearchFilter from "../../../shared/SearchAndFilter";
 
 const SupportInactive = () => {
-	const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-	const handleOpenModal = () => {
-		setIsModalOpen(true);
-	};
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
 
-	const handleCloseModal = () => {
-		setIsModalOpen(false);
-	};
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div>
-      <div className="md:hidden" ><SearchFilter/></div>
+      <div className="md:hidden">
+        <SearchFilter />
+      </div>
       <SupportComp
         isLiveChat
         supportContent={

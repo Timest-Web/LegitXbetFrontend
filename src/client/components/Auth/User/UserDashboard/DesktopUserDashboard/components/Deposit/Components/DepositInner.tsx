@@ -3,7 +3,7 @@ import DepositContainer from './DepositModal/DepositContainer';
 import { useVisibilityControl } from '@/src/client/shared/Hooks/useVisibilityControl';
 import BalanceCard from '../../../shared/BalanceCard';
 import AllBetTable from '../../../shared/InactiveTable';
-import DesktopModal from '@/src/client/shared/Modal';
+import Modal from '@/src/client/shared/Modal';
 
 const DepositInner = () => {
 	const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
@@ -34,7 +34,7 @@ const DepositInner = () => {
 					buttonAction={handleClick}
 				/>
 			</div>
-			<DesktopModal
+			<Modal
 				openModal={isOpen}
 				setOpenModal={setIsOpen}
 				className='custom-modal-class'

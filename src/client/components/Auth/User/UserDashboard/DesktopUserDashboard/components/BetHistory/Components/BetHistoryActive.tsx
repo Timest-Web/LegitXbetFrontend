@@ -1,16 +1,10 @@
 import React, { useMemo, useState } from "react";
 import BetHistoryPopUp from "./BetHistoryPopUp";
-import { createColumnHelper } from "@tanstack/react-table";
-import { TableProps } from "react-table";
-import MoreIcon from "@/src/client/shared/Svg/MoreIcon";
-import { Row } from "@tanstack/react-table";
-import HistoryView from "./HistoryView";
 import mData from "../Constant/data";
 import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
-
 import LayoutDashboard from "../../../shared/LayoutDashboard";
 import TableComp from "../../../shared/ActiveTableComp";
-import DesktopModal from "@/src/client/shared/Modal";
+import Modal from "@/src/client/shared/Modal";
 import betHistoryColumns from "./betHistoryColumns";
 
 const BetHistoryActive = () => {
@@ -30,7 +24,7 @@ const BetHistoryActive = () => {
             filterField={false}
             tableTitle="Bet History"
           />
-          <DesktopModal
+          <Modal
             openModal={isOpen}
             setOpenModal={setIsOpen}
             className="custom-modal-class"

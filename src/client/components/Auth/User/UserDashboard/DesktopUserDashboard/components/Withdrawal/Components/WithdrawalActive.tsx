@@ -6,7 +6,7 @@ import WithdrawalActiveColumn from './WithdrawalActiveColumn';
 import LayoutDashboard from '../../../shared/LayoutDashboard';
 import BalanceCard from '../../../shared/BalanceCard';
 import TableComp from '../../../shared/ActiveTableComp';
-import DesktopModal from '@/src/client/shared/Modal';
+import Modal from '@/src/client/shared/Modal';
 
 const WithdrawalActive = () => {
 	const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
@@ -29,7 +29,7 @@ const WithdrawalActive = () => {
 						data={data}
 						columns={columns}
 					/>
-					<DesktopModal
+					<Modal
 						openModal={isOpen}
 						setOpenModal={setIsOpen}
 						className='custom-modal-class'

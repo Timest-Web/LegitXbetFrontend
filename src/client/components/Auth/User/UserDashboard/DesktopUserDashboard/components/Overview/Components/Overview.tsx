@@ -1,8 +1,8 @@
 import React from "react";
-import OverViewHeader from "./OverviewHeader";
 import UserDocumentCard from "../../../shared/UserDocumentCard";
 import BalanceCard from "../../../shared/BalanceCard";
 import AllBetTable from "../../../shared/InactiveTable";
+import OverViewHeader from "./OverviewHeader";
 
 const Overview = () => {
   const headers = OverViewHeader()

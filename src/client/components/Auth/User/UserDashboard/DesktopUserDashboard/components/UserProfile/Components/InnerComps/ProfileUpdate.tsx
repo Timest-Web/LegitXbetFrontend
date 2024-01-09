@@ -56,7 +56,7 @@ const ProfileUpdate: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="pb-24 md:pb-0">
       <ProfileVeriReuse isInsideSecurityComp />
       <ProfileReusableCard
         profileContent={
@@ -65,8 +65,8 @@ const ProfileUpdate: React.FC = () => {
               <h3>Mobile No</h3>
               <h3>+234 818 217 5835</h3>
             </div>
-            <form className="flex flex-col space-y-8 md:space-y-0 md:flex-row md:space-x-16">
-              <div className="flex flex-col space-y-12">
+            <form className="flex flex-col space-y-6 md:space-y-0 md:flex-row md:space-x-16">
+              <div className="flex flex-col space-y-6 md:space-y-12">
                 <InputField
                   label="Firstname"
                   type="text"
@@ -89,7 +89,7 @@ const ProfileUpdate: React.FC = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col space-y-6">
                 <InputField
                   label="Lastname"
                   type="text"

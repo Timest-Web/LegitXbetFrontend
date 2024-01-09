@@ -5,11 +5,11 @@ import ProfileReusableCard from "../ProfileReusables/ProfileReusableCard";
 
 const UpdatePass = () => {
   return (
-    <div>
+    <div className="pb-20 md:pb-0">
       <ProfileVeriReuse isInsideSecurityComp />
       <ProfileReusableCard profileContent={<div >
         <MultiReuse />
-        <form className="flex space-x-6">
+        <form className="flex flex-col space-y-3 md:flex-row md:space-x-6">
           <div className="flex flex-col space-y-4">
             <label htmlFor="oldPassword" className="font-bold pl-4">
               Old Password

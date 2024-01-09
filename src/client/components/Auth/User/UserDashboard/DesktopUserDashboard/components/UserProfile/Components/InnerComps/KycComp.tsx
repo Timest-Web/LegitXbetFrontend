@@ -19,7 +19,7 @@ const KycComp = () => {
   };
 
   return (
-    <div>
+    <div className="pb-20 md:pb-0">
       <ProfileVeriReuse isInsideKycComp />
       <ProfileReusableCard
         profileContent={
@@ -30,7 +30,7 @@ const KycComp = () => {
             </div>
             <h2 className="font-bold mb-4">Document type</h2>
             <form className="flex flex-col space-y-9">
-              <div className="flex space-x-10 font-bold">
+              <div className=" hidden md:flex space-x-10 font-bold">
                 {renderRadioButton(
                   "intPassport",
                   "Int. Passport",

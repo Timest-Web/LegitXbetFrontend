@@ -10,7 +10,8 @@ import { useState } from "react";
 import ArrowLeft from "@/src/client/shared/Svg/ArrowLeft";
 import ArrowRight from "@/src/client/shared/Svg/ArrowRight";
 import { Dropdown, MenuItem } from "@heathmont/moon-core-tw";
-
+import { Carousel } from "@heathmont/moon-core-tw";
+import { CustomCarousel } from "@/src/client/shared/Carousel";
 
 interface TableProps {
   tableTitle: string;
@@ -54,9 +55,9 @@ const TableComp: React.FC<TableProps> = ({
   });
 
   return (
-    <div className="mt-6">
+    <div className="mt-6 w-full box-border ">
       <div className="flex justify-between px-8">
-        <div className=" font-bold mt-2">{tableTitle}</div>
+        <div className="hidden md:block font-bold mt-2">{tableTitle}</div>
         <section className="flex space-x-2">
           {searchField && (
             <div className="relative">
@@ -71,11 +72,7 @@ const TableComp: React.FC<TableProps> = ({
           )}
           {filterField && (
             <div className="flex bg-filterIcon bg-no-repeat bg-[center_left_0.2rem] pl-6 w-36 h-9 mt-[0.4rem] items-center bg-[#ECEEF1] border-[#292D32] border ">
-              <Dropdown
-                className=""
-                value={option}
-                onChange={setOption}
-              >
+              <Dropdown className="" value={option} onChange={setOption}>
                 {({ open }) => (
                   <>
                     <Dropdown.InsetSelect open={open} placeholder="Filter By">
@@ -87,7 +84,6 @@ const TableComp: React.FC<TableProps> = ({
                         <Dropdown.Option value={pickedDay} key={index}>
                           {({ selected, active }) => (
                             <MenuItem isActive={active} isSelected={selected}>
-                              
                               <MenuItem.Checkbox
                                 className="bg-[white] border-black border "
                                 isSelected={selected}
@@ -105,15 +101,15 @@ const TableComp: React.FC<TableProps> = ({
           )}
         </section>
       </div>
-      
-      <div className="bg-white w-[full] h-[34rem] rounded-[20px] p-8 mt-4 relative">
-        <table className="w-full  ">
+
+      <div className="bg-white box-border md:w-full md:h-[34rem] h-[28rem] rounded-[20px] p-8 mt-4 relative">
+        <table className="w-full">
           <tbody>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <th
-                    className=" border-b-2 border-red-50 border-solid "
+                    className=" border-b-2 border-50 border-solid "
                     key={header.id}
                   >
                     {flexRender(
@@ -124,9 +120,6 @@ const TableComp: React.FC<TableProps> = ({
                 ))}
               </tr>
             ))}
-          </tbody>
-
-          <tbody className="mt-4">
             {table.getRowModel().rows.map((row) => (
               <tr key={row.id}>
                 {row.getVisibleCells().map((cell) => (
@@ -138,7 +131,7 @@ const TableComp: React.FC<TableProps> = ({
             ))}
           </tbody>
         </table>
-        <div className="flex absolute bottom-5 left-5 justify-between w-full px-2 ">
+        <div className="flex w-[95%] absolute bottom-5 left-5 justify-between  ">
           <section>{`${
             table.getRowModel().rows.length
           } of ${table.getPageCount()} `}</section>

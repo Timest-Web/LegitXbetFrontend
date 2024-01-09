@@ -31,12 +31,12 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
 
   
   return (
-    <div className="md:w-full">
+    <div className="md:w-full pb-1">
       <div className="md:flex md:justify-between md:px-8">
         <h2 className="hidden md:block font-bold ">{title}</h2>
         <SearchFilter/>
       </div>
-      <div className="bg-white w-full h-[28rem] md:h-[34rem] rounded-[1.25rem] p-4 md:p-8 mt-4">
+      <div className="bg-white w-full h-[50vh] md:h-[34rem] rounded-[1.25rem] mb-24 p-4 md:p-8 mt-4">
         <div>
           <ul className="hidden font-bold md:flex justify-between px-4">
             {headers.map((header, index) => (
@@ -47,7 +47,7 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
             <CustomCarousel renderCarouselItems={renderCarouselItems} />
           </div>
           <hr />
-          <div className="flex flex-col justify-center items-center mt-24 md:mt-36 space-y-4">
+          <div className="flex flex-col place-items-center h-72 md:h-96 justify-center items-center space-y-4">
             <PlaceBetIcon />
             <h3>{noBetsMessage}</h3>
             {placeBetButtonText && (

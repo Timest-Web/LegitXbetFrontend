@@ -4,7 +4,7 @@ import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityCon
 import WithdrawalInactiveHeader from "./WithdrawalInactiveTableHeader";
 import BalanceCard from "../../../shared/BalanceCard";
 import AllBetTable from "../../../shared/InactiveTable";
-import DesktopModal from '@/src/client/shared/Modal';
+import Modal from '@/src/client/shared/Modal';
 
 const WithdrawalInner = () => {
 	const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
@@ -27,7 +27,7 @@ const WithdrawalInner = () => {
 					buttonAction={handleClick}
 				/>
 			</div>
-			<DesktopModal
+			<Modal
 				openModal={isOpen}
 				setOpenModal={setIsOpen}
 				className='custom-modal-class'

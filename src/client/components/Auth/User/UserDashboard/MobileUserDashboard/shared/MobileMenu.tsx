@@ -3,20 +3,27 @@ import { Carousel } from "@heathmont/moon-core-tw";
 import Link from "next/link";
 import { CustomCarousel } from "@/src/client/shared/Carousel";
 import menuList from "../../DesktopUserDashboard/shared/MenuItems";
+import ProfileMenu from "../../DesktopUserDashboard/shared/ProfileMenu";
+import { useRouter } from "next/router";
 
 const menuItems = menuList();
 
 const renderCarouselItems = () => {
-  return menuItems.map((item, index) => (
-    <Carousel.Item key={index}>
-      <Link href="#" className="text-[11px] text-black text-xs">
-        <div className="flex space-x-3">
-          <div className="">{item.icon}</div>
-          <div>{item.title}</div>
-        </div>
-      </Link>
+  const router = useRouter();
+  return (
+    <Carousel.Item className="flex space-x-3 ">
+      {menuItems.map((item, index) => (
+        <Link key={index} href={item.href}>
+          <ProfileMenu
+            title={item.title}
+            isActive={router.pathname === item.href}
+          >
+            {item.icon}
+          </ProfileMenu>
+        </Link>
+      ))}
     </Carousel.Item>
-  ));
+  );
 };
 
 const MobileMenu = () => {

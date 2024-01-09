@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+ import React, { ReactNode } from 'react';
 
 interface ProfileMenuProps {
   title: string;
@@ -9,7 +9,7 @@ interface ProfileMenuProps {
 const ProfileMenu: React.FC<ProfileMenuProps> = ({ title, children, isActive }) => {
   return (
     <div
-      className={`flex space-x-3 text-[#292D32] text-sm font-bold ${
+      className={`flex space-x-2 md:space-x-3 text-[#292D32] text-sm font-bold ${
         isActive ? "opacity-100" : "opacity-50"
       } hover:opacity-100 cursor-pointer`}
     >

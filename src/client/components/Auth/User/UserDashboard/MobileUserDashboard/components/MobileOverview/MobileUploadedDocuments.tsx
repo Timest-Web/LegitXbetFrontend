@@ -1,15 +1,16 @@
 import React from "react";
 import MobileDashboardLayout from "../../shared/MobileDashboardLayout";
-import NotificationInnerComp from "../../../DesktopUserDashboard/components/Overview/Components/NotificationInnerComp";
+import UploadedDocumentsInnerComp from "../../../DesktopUserDashboard/components/Overview/Components/UploadedDocumentsInnerComp";
 
-const MobileNotification = () => {
+
+const MobileUploadedDocuments = () => {
 
   return (
     <div>
       <MobileDashboardLayout
         mobilelayoutcontent={
           <div>
-           <NotificationInnerComp/>
+           <UploadedDocumentsInnerComp/>
           </div>
         }
       />
@@ -17,5 +18,5 @@ const MobileNotification = () => {
   );
 };
 
-export default MobileNotification;
+export default MobileUploadedDocuments;
 
