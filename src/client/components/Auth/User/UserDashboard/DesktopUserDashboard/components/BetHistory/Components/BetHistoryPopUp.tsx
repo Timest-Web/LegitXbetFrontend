@@ -2,7 +2,7 @@ import SubmitButton from "../../../shared/SubmitButton";
 
 const BetHistoryPopUp = () => {
   return (
-    <div className="bg-white rounded-[1.25rem] p-8 mt-4">
+    <div className="bg-white md:w-[40vw] rounded-[1.25rem] p-8 mt-4">
       <section className="flex justify-between">
         <h3 className="pt-2 space-x-3">
           <span className="font-bold">ID</span> AJFJ0099
