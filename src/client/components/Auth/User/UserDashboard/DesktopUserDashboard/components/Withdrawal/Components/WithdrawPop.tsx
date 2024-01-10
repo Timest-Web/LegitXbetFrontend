@@ -11,10 +11,10 @@ const WithdrawPop = () => {
         <div>
           <h2 className="font-bold mb-4  ">Card Debit</h2>
           <hr></hr>
-          <form className="mt-8 ">
-            <section className="flex space-x-32">
+          <form className=" mt-4 md:mt-8 ">
+            <section className="flex flex-col md:flex-row md:space-x-32">
               <div>
-                <label className="font-bold pl-10 ">Bank Name</label>
+                <label className="font-bold md:pl-10 ">Bank Name</label>
                 <div className="flex space-x-5 mt-4">
                   <input className="w-5 h-5" type="radio"></input>
                   <Image width={24} height={24} src={gtbLogo} alt="gtb" />
@@ -26,7 +26,7 @@ const WithdrawPop = () => {
                 <h3>****8994</h3>
               </div>
             </section>
-            <section className="flex space-x-16 mt-12">
+            <section className="flex flex-col md:flex-row md:space-x-16 mt-6 md:mt-12">
               <div className="flex flex-col space-y-3 ">
                 <div className="flex space-x-5">
                   <input className="w-5 h-5" type="radio"></input>
@@ -47,7 +47,7 @@ const WithdrawPop = () => {
                 />
               </div>
             </section>
-            <section className="flex space-x-6 mt-12">
+            <section className="flex space-x-6 mt-3 md:mt-12">
               <div className="flex flex-col space-y-3">
                 <label className="font-bold">Amount</label>
                 <input
@@ -62,7 +62,7 @@ const WithdrawPop = () => {
               </div>
             </section>
           </form>
-          <p className="font-bold mt-20">
+          <p className="font-bold mt-6 md:mt-20">
             NB - Minimum per transaction is NGN 1.00. | Maximum per transaction
             is NGN 9,999,999.00.
           </p>

@@ -6,13 +6,13 @@ const DepositCardForm = () => {
   return (
     <div>
       <form className="md:mt-6">
-        <section className="flex flex-col md:flex-row md:space-x-4">
+        <section className="flex flex-col space-y-4 md:flex-row md:space-x-4">
           <div className="flex flex-col space-y-2">
             <label className="font-bold text-sm md:text-base">Card Number</label>
             <input
               placeholder="e.g  555*******567"
               type="text"
-              className="bg-[#ECEEF1] w-[19.125rem] h-[2.813rem] p-2"
+              className="bg-[#ECEEF1] md:w-[19.125rem] md:h-[2.813rem] p-2"
             />
           </div>
           <div className="flex flex-col space-y-2">
@@ -20,7 +20,7 @@ const DepositCardForm = () => {
             <input
               placeholder="e.g 24/2023"
               type="text"
-              className="bg-[#ECEEF1] w-[10.48rem] h-[2.813rem] p-2"
+              className="bg-[#ECEEF1] md:w-[10.48rem] md:h-[2.813rem] p-2"
             />
           </div>
           <div className="flex flex-col space-y-2">
@@ -32,7 +32,7 @@ const DepositCardForm = () => {
             />
           </div>
         </section>
-        <section className="flex space-x-8 md:mt-4">
+        <section className="flex space-x-8 my-4">
           <div className="flex flex-col space-y-2">
             <label className="font-bold text-sm md:text-base">Amount</label>
             <input
