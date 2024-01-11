@@ -1,15 +1,15 @@
 import React, { SetStateAction, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import 'react-toastify/dist/ReactToastify.css';
 import SecureText from '../SecureText';
 import Loader from '@/src/client/shared/Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import { Button } from '@/src/client/shared/Button';
-import { formValidation } from './FormValidation';
+import { signInValidation } from './FormValidation';
 import { useMutation } from '@tanstack/react-query';
-import { signIn, signUp } from '@/src/helper/api/auth';
+import { signIn } from '@/src/helper/api/auth';
 import { Password, PhoneNumber, ResponseHint } from '../Input';
-import { handleFormSubmit } from '@/src/client/shared/Utils/FormUtils';
+import apiMessageHelper from '@/src/helper/apiMessageHelper';
 
 type FormProps = {
 	phoneNo: string;
@@ -20,39 +20,40 @@ type FormProps = {
 	setIsFormSubmit: React.Dispatch<SetStateAction<boolean>>;
 };
 
-const Form = ({
-	authType,
+const Login = ({
 	phoneNo,
 	password,
 	setPhoneNo,
 	setPassword,
-	setIsFormSubmit,
 }: FormProps) => {
-	const router = useRouter();
+	  const { push } = useRouter();
 	const [errors, setErrors] = useState<{
 		phoneNo?: string;
 		password?: string;
 	}>({});
 
 	const values = { phoneNo, password };
-	const validationErrors = formValidation({ values });
-	const signInMutation = useMutation({ mutationFn: signIn });
-	const signUpMutation = useMutation({ mutationFn: signUp });
+	const validationErrors = signInValidation({ values });
+	const { mutateAsync, isPending } = useMutation({ mutationFn: signIn });
 
 	const handleSubmit = () => {
-		handleFormSubmit({
-			authType,
-			phoneNo,
-			password,
-			setPhoneNo,
-			setPassword,
-			setIsFormSubmit,
-			setErrors,
-			signUpMutation,
-			signInMutation,
-			router,
-			validationErrors,
-		});
+		const formattedPhoneNo = phoneNo.startsWith('0')
+			? `+234${phoneNo.slice(1)}`
+			: `+234${phoneNo}`;
+		const data = { phoneNumber: formattedPhoneNo, password }; 
+
+		if (Object.keys(validationErrors).length === 0) {
+			mutateAsync(data).then((res) => {
+				apiMessageHelper({
+					message: res?.message,
+					statusCode: res?.statusCode,
+					onSuccessCallback: () => push('/dashboard'),
+				});
+			});
+			setErrors({});
+		} else {
+			setErrors(validationErrors)
+		}
 	};
 
 	return (
@@ -72,7 +73,6 @@ const Form = ({
 				/>
 				{errors.phoneNo && <ResponseHint err={errors.phoneNo} />}
 			</div>
-
 			<div>
 				<Password
 					type='password'
@@ -89,7 +89,7 @@ const Form = ({
 
 			<Button
 				text={
-					signUpMutation.isPending ? (
+					isPending ? (
 						<Loader
 							height={16}
 							width={16}
@@ -103,11 +103,11 @@ const Form = ({
 					Object.keys(validationErrors).length === 0
 						? 'bg-black text-white'
 						: 'bg-gray-400 text-gray-700 disabled'
-				} text-white py-2 px-6 w-[155px] rounded-md mt-8 text-xs`}
+				} text-white py-2 px-6 w-[135px] rounded-md mt-8 text-xs`}
 				onClick={handleSubmit}
 			/>
 		</form>
 	);
 };
 
-export default Form;
+export default Login;

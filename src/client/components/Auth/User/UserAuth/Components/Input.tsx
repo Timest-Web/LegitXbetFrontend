@@ -31,6 +31,7 @@ export const PhoneNumber = ({
 					placeholder={placeHolder}
 					onChange={(e) => setValue(e.target.value)}
 					className='bg-gray-100 py-2 px-3 w-full rounded-lg borderless-input '
+					required
 				/>
 			</div>
 		</div>
@@ -41,7 +42,7 @@ export const ResponseHint = ({ err }: { err: string }) => {
 	return (
 		<Hint
 			error
-			className='flex items-start justify-start text-red-600 font-semibold w-80 text-[9px] space-x-1 px-5'>
+			className='flex items-start justify-start text-red-600 font-semibold w-80 text-[8px] space-x-1 px-5'>
 			<p className='text-md'>*</p>
 			<p>{err}</p>
 		</Hint>
@@ -94,6 +95,30 @@ export const Password = ({
 					)}
 				</button>
 			</div>
+		</div>
+	);
+};
+
+
+export const InputField = ({
+	label,
+	type,
+	value,
+	setValue,
+	borderHint,
+	placeHolder,
+}: InputProps) => {
+	return (
+		<div className='flex flex-col space-y-1'>
+			<p className='font-bold pl-6 text-sm'>{label}</p>
+			<input
+				type={type}
+				value={value}
+				placeholder={placeHolder}
+				onChange={(e) => setValue(e.target.value)}
+				className={`${borderHint} flex w-80 bg-gray-100  text-sm py-2 px-3 borderless-input rounded-lg`}
+				required
+			/>
 		</div>
 	);
 };

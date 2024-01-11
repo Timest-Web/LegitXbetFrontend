@@ -1,8 +1,9 @@
 import { useLink } from '@/src/client/shared/Hooks/useLink';
 import React, { SetStateAction, useState } from 'react';
-import Form from '../Components/Form/Form';
+import Form from '../Components/Form/Login';
 import AuthDescription from '../Components/AuthDescription';
 import ModalContainer from '../Components/ModalContainer';
+import SignUpForm from '../Components/Form/Register';
 
 const buttons = [
 	{ label: 'Register Account', key: 'register' },
@@ -17,6 +18,8 @@ const SignUpSignIn = ({
 	selectedButton: string
 }) => {
 	const { link, handleClick } = useLink(selectedButton);
+	const [email, setEmail] = useState('');
+	const [fullname, setFullname] = useState('');
 	const [phoneNo, setPhoneNo] = useState('');
 	const [password, setPassword] = useState('');
 
@@ -42,14 +45,31 @@ const SignUpSignIn = ({
 
 			<AuthDescription link={link} />
 
-			<Form
-				authType={link}
-				phoneNo={phoneNo}
-				password={password}
-				setPhoneNo={setPhoneNo}
-				setPassword={setPassword}
-				setIsFormSubmit={setIsFormSubmit}
-			/>
+			{link === 'login' && (
+				<Form
+					authType={link}
+					phoneNo={phoneNo}
+					password={password}
+					setPhoneNo={setPhoneNo}
+					setPassword={setPassword}
+					setIsFormSubmit={setIsFormSubmit}
+				/>
+			)}
+
+			{link === 'register' &&
+				<SignUpForm
+					email={email}
+				      authType={link}
+					fullname={fullname}
+					phoneNo={phoneNo}
+			       	password={password}
+					setEmail={setEmail}
+			       	setFullname={setFullname}
+					setPhoneNo={setPhoneNo}
+					setPassword={setPassword}
+					setIsFormSubmit={setIsFormSubmit}
+				/>
+			}
 		</ModalContainer>
 	);
 };
@@ -58,7 +78,7 @@ export default SignUpSignIn;
 
 
 // ${
-// 							key === 'login'
-// 								? 'border-l border-l-black  border-t border-t-black'
-// 								: 'border-b border-b-black'
-// 						}
+// 	key === 'login'
+// 		? 'border-l border-l-black  border-t border-t-black'
+// 		: 'border-b border-b-black'
+// }
