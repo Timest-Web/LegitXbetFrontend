@@ -2,6 +2,7 @@ import React from "react";
 
 interface SubmitButtonProps {
   buttonContent: string;
+ 
 }
 
 const SubmitButton: React.FC<SubmitButtonProps> = ({ buttonContent }) => {

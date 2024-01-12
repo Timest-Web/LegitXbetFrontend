@@ -17,7 +17,9 @@ const DepositActiveContentInner = () => {
     <div>
       <BalanceCard
         buttonState={true}
-        buttonText="Deposit"
+        secondButton={false}
+        firstButtonText="Deposit"
+        secondButtonText=""
         balanceButtonAction={handleClick}
       />
       <TableComp

@@ -20,7 +20,7 @@ const CategoryBetMenu = () => {
 	const { userId } = useUser();
 	const { link, handleClick } = useLink('Sports');
 	const { link: click, handleClick: selectedHandle } = useLink('login');
-	const isUrlPathIncluded = useUrlPathChecker({ urlPath: 'user_dashboard' });
+	const isUrlPathIncluded = useUrlPathChecker({ urlPath: 'user-dashboard' });
 	const {
 		isOpen,
 		setIsOpen,

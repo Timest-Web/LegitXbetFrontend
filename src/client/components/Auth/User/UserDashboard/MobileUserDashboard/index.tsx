@@ -6,7 +6,7 @@ import MobileOverview from "./components/MobileOverview/MobileOverview";
 
 const MobileUserDashboard = () => {
   return (
-    <div className=" font-sans " >
+    <div className="  " >
       <MobileOverview/>
     </div>
   );

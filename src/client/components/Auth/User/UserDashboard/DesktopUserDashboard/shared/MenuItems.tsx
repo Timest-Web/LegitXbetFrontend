@@ -9,13 +9,13 @@ import BonusIcon from "@/src/client/shared/Svg/BonusIcon";
 import SupportIcon from "@/src/client/shared/Svg/SupportIcon";
 
 const menuList = ()=> [
-    { title: "Overview", icon: <Overview />, href: "/user_dashboard" },
-    { title: "Profile", icon: <UserProfile />, href: "/user_dashboard/profile/profile_update" },
-    { title: "Deposit", icon: <Deposit />, href: "/user_dashboard/deposit" },
-    { title: "Withdrawal", icon: <WithdrawalIcon />, href: "/user_dashboard/withdrawal" },
-    { title: "Bet History", icon: <BetHistory />, href: "/user_dashboard/bet_history" },
-    { title: "Transactions", icon: <TransactionIcon />, href: "/user_dashboard/transaction" },
-    { title: "Bonus", icon: <BonusIcon />, href: "/user_dashboard/bonus" },
-    { title: "Support", icon: <SupportIcon />, href: "/user_dashboard/user_support" },
+    { title: "Overview", icon: <Overview />, href: "/user-dashboard" },
+    { title: "Profile", icon: <UserProfile />, href: "/user-dashboard/profile/profile-update" },
+    { title: "Deposit", icon: <Deposit />, href: "/user-dashboard/deposit" },
+    { title: "Withdrawal", icon: <WithdrawalIcon />, href: "/user-dashboard/withdrawal" },
+    { title: "Bet History", icon: <BetHistory />, href: "/user-dashboard/bet-history" },
+    { title: "Transactions", icon: <TransactionIcon />, href: "/user-dashboard/transaction" },
+    { title: "Bonus", icon: <BonusIcon />, href: "/user-dashboard/bonus" },
+    { title: "Support", icon: <SupportIcon />, href: "/user-dashboard/user-support" },
   ];
 export default menuList  

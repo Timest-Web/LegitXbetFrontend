@@ -21,7 +21,9 @@ const DepositInner = () => {
 			<div className=' flex space-x-4'>
 				<BalanceCard
 					buttonState={true}
-					buttonText='Deposit'
+					secondButton={false}
+					firstButtonText='Deposit'
+					secondButtonText=''
 					balanceButtonAction={handleClick}
 				/>
 			</div>

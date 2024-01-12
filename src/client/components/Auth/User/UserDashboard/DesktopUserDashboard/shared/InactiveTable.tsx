@@ -1,9 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import PlaceBetIcon from "@/src/client/shared/Svg/AllReceipt";
 import { Carousel } from "@heathmont/moon-core-tw";
 import { CustomCarousel } from "@/src/client/shared/Carousel";
 import SearchFilter from "./SearchAndFilter";
-
 
 interface AllBetTableProps {
   title: string;
@@ -11,8 +10,8 @@ interface AllBetTableProps {
   noBetsMessage: string;
   placeBetButtonText: string | undefined;
   buttonAction?: () => void;
+  betStatus?: React.JSX.Element
 }
-
 
 const AllBetTable: React.FC<AllBetTableProps> = ({
   title,
@@ -20,21 +19,24 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
   noBetsMessage,
   placeBetButtonText,
   buttonAction,
+  betStatus
 }) => {
   const renderCarouselItems = () => {
     return headers.map((header, index) => (
       <Carousel.Item key={index}>
-          <div>{header}</div>
+        <div>{header}</div>
       </Carousel.Item>
     ));
   };
 
-  
   return (
     <div className="md:w-full pb-1">
       <div className="md:flex md:justify-between md:px-8">
-        <h2 className="hidden md:block font-bold ">{title}</h2>
-        <SearchFilter/>
+        <section>
+          <h2 className="hidden md:block font-bold ">{title}</h2>
+          {betStatus}
+        </section>
+        <SearchFilter />
       </div>
       <div className="bg-white w-full h-[50vh] md:h-[34rem] rounded-[1.25rem] mb-24 p-4 md:p-8 mt-4">
         <div>

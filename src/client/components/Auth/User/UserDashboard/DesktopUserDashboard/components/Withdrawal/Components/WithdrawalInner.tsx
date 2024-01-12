@@ -14,7 +14,9 @@ const WithdrawalInner = () => {
 			<div className=' flex space-x-4'>
 				<BalanceCard
 					buttonState={true}
-					buttonText='Withdraw'
+					secondButton={false}
+					firstButtonText="Withdraw"
+					secondButtonText=""
 					balanceButtonAction={handleClick}
 				/>
 			</div>

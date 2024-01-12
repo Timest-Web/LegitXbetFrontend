@@ -1,5 +1,6 @@
 import React from "react";
 import AllBetTable from "../../../shared/InactiveTable";
+import BetStatusTab from "./BetStatusTab";
 
 const BetInnerComp = () => {
   const headers = [
@@ -16,6 +17,7 @@ const BetInnerComp = () => {
       <div>
         <AllBetTable
           title="Bet History"
+          betStatus={<BetStatusTab isAll/>}
           headers={headers}
           noBetsMessage="No Bet found yet"
           placeBetButtonText="Bet Now"

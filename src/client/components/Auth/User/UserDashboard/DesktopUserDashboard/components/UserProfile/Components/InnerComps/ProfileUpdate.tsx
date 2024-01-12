@@ -13,15 +13,15 @@ const GenderSelection = () => {
   return (
     <div className="mt-12">
       <h2 className="font-bold mb-3 pl-4">Gender</h2>
-      <div className="flex space-x-8">
-        <div className="flex space-x-1 ">
+      <div className="flex space-x-4">
+        <div className="flex space-x-1">
           <input
             type="radio"
             id="male"
             value="male"
             checked={selectedGender === "male"}
             onChange={handleGenderChange}
-            className="w-[1.375rem] h-[1.375rem] mr-4 text-base bg-[green]"
+            className="w-[1.375rem] h-[1.375rem] text-base bg-[green]"
           />
           <label htmlFor="male" className="font-bold">
             Male
@@ -34,7 +34,7 @@ const GenderSelection = () => {
             value="female"
             checked={selectedGender === "female"}
             onChange={handleGenderChange}
-            className="w-[1.375rem] h-[1.375rem] mr-4 text-base"
+            className="w-[1.375rem] h-[1.375rem]  text-base text-green-400 bg-green-400"
           />
           <label htmlFor="female" className="font-bold">
             Female
@@ -52,12 +52,12 @@ const ProfileUpdate: React.FC = () => {
   const [email, setEmail] = useState<string>("");
 
   const handleSaveUpdate = () => {
-    console.log("Save and update");
+    console.log(firstName, lastName, dob, email);
   };
 
   return (
     <div className="pb-24 md:pb-0">
-      <ProfileVeriReuse isInsideSecurityComp />
+      <ProfileVeriReuse isInsidePersonalDetails />
       <ProfileReusableCard
         profileContent={
           <div>

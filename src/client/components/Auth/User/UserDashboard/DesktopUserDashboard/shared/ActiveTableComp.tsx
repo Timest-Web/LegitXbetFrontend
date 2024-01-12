@@ -12,6 +12,7 @@ import ArrowRight from "@/src/client/shared/Svg/ArrowRight";
 import { Dropdown, MenuItem } from "@heathmont/moon-core-tw";
 import { Carousel } from "@heathmont/moon-core-tw";
 import { CustomCarousel } from "@/src/client/shared/Carousel";
+import FilterComponent from "./FilterComponent";
 
 interface TableProps {
   tableTitle: string;
@@ -19,10 +20,8 @@ interface TableProps {
   filterField: boolean;
   data: any[];
   columns: any[];
+  betStatus?: React.JSX.Element;
 }
-type Day = {
-  day: string;
-};
 
 const TableComp: React.FC<TableProps> = ({
   tableTitle,
@@ -30,17 +29,9 @@ const TableComp: React.FC<TableProps> = ({
   filterField,
   data,
   columns,
+  betStatus,
 }) => {
   const [filtering, setFiltering] = useState("");
-  const [option, setOption] = useState<Day | null>(null);
-
-  const dayOption = [
-    { day: "All" },
-    { day: "Today" },
-    { day: "Yesterday" },
-    { day: "Past 5 days" },
-    { day: "Past 10 days" },
-  ];
 
   const table = useReactTable({
     data,
@@ -92,12 +83,15 @@ const TableComp: React.FC<TableProps> = ({
   return (
     <div className="mt-6 w-full box-border pb-20 md:pb-0 ">
       <div className="flex md:justify-between md:px-8">
-        <div className="hidden md:block font-bold mt-2">{tableTitle}</div>
+        <section>
+          <div className="hidden md:block font-bold mt-2">{tableTitle}</div>
+          {betStatus}
+        </section>
         <section className="flex space-x-2">
           {searchField && (
             <div className="relative">
               <input
-                className=" bg-searchIcon bg-no-repeat bg-[center_left_1rem] border-[#292D32] border w-[12rem] md:w-[14.0625rem] h-[2.5625rem] rounded-[35px] pl-12 mt-1 bg-[#ECEEF1]"
+                className=" bg-searchIcon bg-no-repeat bg-[center_left_1rem] border-[#292D32] border w-[12rem] md:w-[14.0625rem] h-[2.5625rem] rounded-[35px] pl-12 bg-[#ECEEF1]"
                 type="text"
                 value={filtering}
                 placeholder="Search"
@@ -105,35 +99,7 @@ const TableComp: React.FC<TableProps> = ({
               />
             </div>
           )}
-          {filterField && (
-            <div className="flex bg-filterIcon bg-no-repeat bg-[center_left_0.2rem] pl-6 w-36 h-9 mt-[0.4rem] items-center bg-[#ECEEF1] border-[#292D32] border ">
-              <Dropdown className="" value={option} onChange={setOption}>
-                {({ open }) => (
-                  <>
-                    <Dropdown.InsetSelect open={open} placeholder="Filter By">
-                      {option?.day}
-                    </Dropdown.InsetSelect>
-
-                    <Dropdown.Options className=" bg-white rounded-2xl ">
-                      {dayOption.map((pickedDay, index) => (
-                        <Dropdown.Option value={pickedDay} key={index}>
-                          {({ selected, active }) => (
-                            <MenuItem isActive={active} isSelected={selected}>
-                              <MenuItem.Checkbox
-                                className="bg-[white] border-black border "
-                                isSelected={selected}
-                              />
-                              <MenuItem.Title>{pickedDay.day}</MenuItem.Title>
-                            </MenuItem>
-                          )}
-                        </Dropdown.Option>
-                      ))}
-                    </Dropdown.Options>
-                  </>
-                )}
-              </Dropdown>
-            </div>
-          )}
+          {filterField && <FilterComponent />}
         </section>
       </div>
 

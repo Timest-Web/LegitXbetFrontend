@@ -16,6 +16,7 @@ const BonusInner = () => {
   return (
     <div className="flex flex-col space-y-7 ">
         <Image src={BetWC} alt="betwc"/>
+
       <div>
         <AllBetTable
           title="Bonus & Promotions"

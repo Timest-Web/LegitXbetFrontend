@@ -15,8 +15,10 @@ const WithdrawalActiveInner = () => {
   return (
     <div>
       <BalanceCard
-        buttonState={true}
-        buttonText="Withdraw"
+        firstButtonText=""
+        buttonState={false}
+        secondButton={true}
+        secondButtonText="Withdraw"
         balanceButtonAction={handleClick}
       />
       <TableComp
