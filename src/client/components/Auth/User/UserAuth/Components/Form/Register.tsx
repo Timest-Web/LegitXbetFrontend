@@ -8,9 +8,9 @@ import { Button } from '@/src/client/shared/Button';
 import { signUpValidation } from './FormValidation';
 import { useMutation } from '@tanstack/react-query';
 import { signUp } from '@/src/helper/api/auth';
+import apiMessageHelper from '@/src/helper/apiMessageHelper';
 import { InputField, Password, PhoneNumber, ResponseHint } from '../Input';
 import useCreateSearchQuery from '@/src/client/shared/Hooks/useCreateParams';
-import apiMessageHelper from '@/src/helper/apiMessageHelper';
 
 type FormProps = {
 	fullname: string;
@@ -42,9 +42,9 @@ const Register = ({
 		phoneNo?: string;
 		password?: string;
 	}>({});
-
 	const values = { fullname, email, phoneNo, password };
 	const validationErrors = signUpValidation({ values });
+      const { createSearchParams } = useCreateSearchQuery();
 	const { mutateAsync, isPending } = useMutation({ mutationFn: signUp });
 
 	const handleSubmit = () => {
@@ -58,6 +58,15 @@ const Register = ({
 				apiMessageHelper({
 					message: res?.message,
 					statusCode: res?.statusCode,
+					onSuccessCallback: () => {
+					createSearchParams({
+							param: {
+								name: '',
+								value: 'success',
+							},
+							url: '/',
+						});
+					},
 				});
 			});
 			setErrors({});

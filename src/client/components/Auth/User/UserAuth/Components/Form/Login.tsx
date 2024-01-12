@@ -47,7 +47,7 @@ const Login = ({
 				apiMessageHelper({
 					message: res?.message,
 					statusCode: res?.statusCode,
-					onSuccessCallback: () => push('/dashboard'),
+					onSuccessCallback: () => push('/'),
 				});
 			});
 			setErrors({});
