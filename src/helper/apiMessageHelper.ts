@@ -5,6 +5,7 @@ interface IApiMsgHelperTYpe {
   onFailureCallback?: () => void;
   message: string | string[];
 }
+
 const apiMessageHelper = ({
   statusCode,
   onSuccessCallback,

@@ -32,6 +32,8 @@ const CategoryBetMenu = () => {
 		handleClick: onHandleSupportClick,
 	} = useVisibilityControl();
 
+
+
 	return (
 		<div className='flex items-center justify-center w-full  bg-black'>
 			<div className='flex items-center justify-between w-[1512px] h-20 px-6'>

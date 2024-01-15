@@ -4,11 +4,15 @@ import SignUpSignIn from '../SignUpSignIn';
 
 const DesktopModalView = ({selectedButton}:{selectedButton: string}) => {
 	const [isFormSubmit, setIsFormSubmit] = useState(false);
-
+	const [inputPhoneNo, setInputPhoneNo] = useState('');
 	return !isFormSubmit ? (
-		<SignUpSignIn setIsFormSubmit={setIsFormSubmit} selectedButton={selectedButton} />
+		<SignUpSignIn
+			setIsFormSubmit={setIsFormSubmit}
+			setInputPhoneNo={setInputPhoneNo}
+			selectedButton={selectedButton}
+		/>
 	) : (
-		<Otp />
+			<Otp phoneNo={inputPhoneNo} />
 	);
 };
 
