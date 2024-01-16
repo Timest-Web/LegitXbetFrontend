@@ -8,13 +8,13 @@ import { OtherCrown } from '@heathmont/moon-icons-tw';
 import { useVisibilityControl } from '../../../Hooks/useVisibilityControl';
 import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
 import DesktopModal from '../../../Modal';
-import DesktopModalView from '../../../../components/Auth/User/UserAuth/Components/ModalView';
 import CustomerCareDrawer from '../../../Modal/components/DesktopCustomerCare';
 import SupportContent from '../../SupportContent';
 import UserSection from './UserSection';
 import { LINK_CATEGORY_TYPES } from '../../constant';
 import useUser from '../../../Context/UserContext/useUser';
 import useUrlPathChecker from '../../../Hooks/useUrlPathChecker';
+import AuthContent from '../../../../components/Auth/User/UserAuth/Components/AuthContent';
 
 const CategoryBetMenu = () => {
 	const { userId } = useUser();
@@ -31,8 +31,6 @@ const CategoryBetMenu = () => {
 		setIsOpen: setIsOpenModal,
 		handleClick: onHandleSupportClick,
 	} = useVisibilityControl();
-
-
 
 	return (
 		<div className='flex items-center justify-center w-full  bg-black'>
@@ -144,7 +142,7 @@ const CategoryBetMenu = () => {
 					className=''
 					openModal={isOpen}
 					setOpenModal={setIsOpen}
-					modalContent={<DesktopModalView selectedButton={click} />}
+					modalContent={<AuthContent selectedButton={click} />}
 				/>
 			)}
 		</div>

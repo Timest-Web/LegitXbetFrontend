@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Otp from '../Otp';
 import SignUpSignIn from '../SignUpSignIn';
 
-const DesktopModalView = ({selectedButton}:{selectedButton: string}) => {
+const AuthContent = ({selectedButton}:{selectedButton: string}) => {
 	const [isFormSubmit, setIsFormSubmit] = useState(false);
 	const [inputPhoneNo, setInputPhoneNo] = useState('');
 	return !isFormSubmit ? (
@@ -16,4 +16,4 @@ const DesktopModalView = ({selectedButton}:{selectedButton: string}) => {
 	);
 };
 
-export default DesktopModalView;
+export default AuthContent;

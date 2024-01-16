@@ -7,13 +7,15 @@ type Props = {
 	isOpen: boolean;
 };
 
-const CustomerCareMobile = ({ isOpen, closeDrawer, drawerContent }: Props) => {
+const MobileTopDrawer = ({ isOpen, closeDrawer, drawerContent }: Props) => {
 	return (
 		<>
 			<Drawer
 				open={isOpen}
 				setOpen={closeDrawer}>
-				<Drawer.Panel position='top' className='bg-white rounded-b-3xl'>
+				<Drawer.Panel
+					position='top'
+					className='bg-white rounded-b-3xl'>
 					<div className='p-3'>{drawerContent}</div>
 				</Drawer.Panel>
 				<Drawer.Backdrop className='bg-black opacity-75' />
@@ -22,4 +24,4 @@ const CustomerCareMobile = ({ isOpen, closeDrawer, drawerContent }: Props) => {
 	);
 };
 
-export default CustomerCareMobile;
+export default MobileTopDrawer;

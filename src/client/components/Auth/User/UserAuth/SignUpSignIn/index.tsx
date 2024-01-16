@@ -4,6 +4,9 @@ import AuthDescription from '../Components/AuthDescription';
 import ModalContainer from '../Components/ModalContainer';
 import Login from '../Components/Form/Login';
 import Register from '../Components/Form/Register';
+import { ControlsClose } from '@heathmont/moon-icons-tw';
+import { IconButton } from '@heathmont/moon-core-tw';
+import useDeviceType from '@/src/client/shared/Hooks/useDeviceType';
 
 const buttons = [
 	{ label: 'Register Account', key: 'register' },
@@ -20,9 +23,22 @@ const SignUpSignIn = ({
 	selectedButton: string;
 }) => {
 	const { link, handleClick } = useLink(selectedButton);
+	const { isMobile } = useDeviceType();
 
 	return (
 		<ModalContainer>
+			{isMobile ? (
+				<div className='flex w-full justify-end'>
+					<div className='flex items-center justify-center rounded-full mb-3 mr-3'>
+						<ControlsClose
+							height={14}
+							width={14}
+						/>
+					</div>
+				</div>
+			) : (
+				''
+			)}
 			<div className='flex'>
 				{buttons.map(({ label, key }) => (
 					<div

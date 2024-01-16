@@ -8,14 +8,16 @@ import { useMutation } from '@tanstack/react-query';
 import { signUp } from '@/src/helper/api/auth';
 import apiMessageHelper from '@/src/helper/apiMessageHelper';
 import { InputField, Password, PhoneNumber, ResponseHint } from '../Input';
+import useDeviceType from '@/src/client/shared/Hooks/useDeviceType';
 
 type FormProps = {
 	setInputPhoneNo: React.Dispatch<SetStateAction<string>>;
 	setIsFormSubmit: React.Dispatch<SetStateAction<boolean>>;
 };
 
-const Register = ({setInputPhoneNo, setIsFormSubmit}: FormProps) => {
+const Register = ({ setInputPhoneNo, setIsFormSubmit }: FormProps) => {
 	const [email, setEmail] = useState('');
+	const { isMobile } = useDeviceType();
 	const [fullname, setFullname] = useState('');
 	const [phoneNo, setPhoneNo] = useState('');
 	const [password, setPassword] = useState('');
@@ -55,10 +57,10 @@ const Register = ({setInputPhoneNo, setIsFormSubmit}: FormProps) => {
 	return (
 		<form
 			action='submit'
-			className='flex flex-col items-center justify-center space-y-3 px-8'>
+			className={`flex flex-col items-center justify-center px-8 ${isMobile ? 'space-y-2' : 'space-y-3'}`}>
 			<ToastContainer />
 
-			<div className='flex space-x-3'>
+			<div className={`flex ${isMobile ? 'flex-col space-y-2' : 'space-x-3'}`}>
 				<div>
 					<InputField
 						type='text'
@@ -86,7 +88,7 @@ const Register = ({setInputPhoneNo, setIsFormSubmit}: FormProps) => {
 				</div>
 			</div>
 
-			<div className='flex space-x-3'>
+			<div className={`flex ${isMobile ? 'flex-col space-y-2' : 'space-x-3'}`}>
 				<div>
 					<PhoneNumber
 						type='number'
