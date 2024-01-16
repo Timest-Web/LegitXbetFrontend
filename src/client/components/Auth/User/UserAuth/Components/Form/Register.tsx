@@ -57,7 +57,7 @@ const Register = ({ setInputPhoneNo, setIsFormSubmit }: FormProps) => {
 	return (
 		<form
 			action='submit'
-			className={`flex flex-col items-center justify-center overflow-y-auto px-8 ${isMobile ? 'space-y-2' : 'space-y-3'}`}>
+			className={`flex flex-col items-center justify-center px-8 ${isMobile ? 'space-y-2' : 'space-y-3'}`}>
 			<ToastContainer />
 
 			<div className={`flex ${isMobile ? 'flex-col space-y-2' : 'space-x-3'}`}>
