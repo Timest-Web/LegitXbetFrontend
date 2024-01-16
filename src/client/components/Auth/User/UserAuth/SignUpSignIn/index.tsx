@@ -4,7 +4,6 @@ import AuthDescription from '../Components/AuthDescription';
 import ModalContainer from '../Components/ModalContainer';
 import Login from '../Components/Form/Login';
 import Register from '../Components/Form/Register';
-import useDeviceType from '@/src/client/shared/Hooks/useDeviceType';
 
 const buttons = [
 	{ label: 'Register Account', key: 'register' },
@@ -21,10 +20,9 @@ const SignUpSignIn = ({
 	selectedButton: string;
 }) => {
 	const { link, handleClick } = useLink(selectedButton);
-
 	return (
 		<ModalContainer>
-			<div className='flex overflow-y-auto'>
+			<div className='flex'>
 				{buttons.map(({ label, key }) => (
 					<div
 						key={key}
@@ -43,9 +41,6 @@ const SignUpSignIn = ({
 			</div>
 
 			<AuthDescription link={link} />
-			{/* <div className=''>
-				<p></p>
-			</div> */}
 			{link === 'login' && <Login />}
 			{link === 'register' && (
 				<Register
@@ -59,8 +54,3 @@ const SignUpSignIn = ({
 
 export default SignUpSignIn;
 
-// ${
-// 	key === 'login'
-// 		? 'border-l border-l-black  border-t border-t-black'
-// 		: 'border-b border-b-black'
-// }
