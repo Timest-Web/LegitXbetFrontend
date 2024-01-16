@@ -24,7 +24,7 @@ const SignUpSignIn = ({
 
 	return (
 		<ModalContainer>
-			<div className='flex'>
+			<div className='flex overflow-y-auto'>
 				{buttons.map(({ label, key }) => (
 					<div
 						key={key}
@@ -43,6 +43,9 @@ const SignUpSignIn = ({
 			</div>
 
 			<AuthDescription link={link} />
+			{/* <div className=''>
+				<p></p>
+			</div> */}
 			{link === 'login' && <Login />}
 			{link === 'register' && (
 				<Register
