@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import DepositCardForm from "./DepositCardForm";
 import BankTransfer from "./BankTransfer";
-import paystackLogo from "../../../../../assets/PaystackImage.svg";
-import flutterwaveLogo from "../../../../../assets/FlutterwaveLogo.png";
+import paystackLogo from "../../../../../assets/Paystack_Logo.png";
+import flutterwaveLogo from "../../../../../assets/Flutterwave_Logo.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,7 +16,7 @@ const DepositContainer = () => {
   const tabNames = ["Card Debit", "Bank Transfer", "Direct Bank USSD"];
 
   return (
-    <div className="bg-[#ECEEF1] flex space-x-8 text-sm md:text-base  rounded-2xl p-6 md:p-16">
+    <div className="bg-[#ECEEF1]  text-sm md:text-base rounded-2xl p-6 md:p-16">
       {/* <ul className="flex space-x-16 font-bold md:mb-3">
         {tabNames.map((tab, index) => (
           <li
@@ -36,20 +36,16 @@ const DepositContainer = () => {
         NB - Minimum deposit amount is NGN 100.00 - you can deposit at least NGN
         100.00 in one transaction.
       </p> */}
-      <div className="flex flex-col space-y-6">
+      <p className="font-bold mb-6">Kindly select the channel for payment below</p>
+      <div className="flex flex-col md:flex-row md:space-y-0 md:space-x-8 space-y-6">
         <Link href="/user-dashboard/deposit/deposit-paystack">
-          <div className=" bg-white p-5 drop-shadow-xl ">
-            <Image width={350} src={paystackLogo} alt="paystack-logo" />
+          <div className=" bg-white w-72 p-8 drop-shadow-xl ">
+            <Image src={paystackLogo} alt="paystack-logo" />
           </div>
         </Link>
-        <div className="drop-shadow-lg bg-white">
+        <div className="drop-shadow-lg p-2 bg-white">
           <Link href="/user-dashboard/deposit/deposit-flutterwave">
-            <Image
-              width={400}
-              height={5}
-              src={flutterwaveLogo}
-              alt="flutterwave-logo"
-            />
+            <Image src={flutterwaveLogo} alt="flutterwave-logo" />
           </Link>
         </div>
       </div>

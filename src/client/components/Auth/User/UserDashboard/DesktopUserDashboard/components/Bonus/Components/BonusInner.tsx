@@ -23,6 +23,8 @@ const BonusInner = () => {
           headers={headers}
           noBetsMessage="No active Bonus"
           placeBetButtonText={undefined}
+          buttonLink=""
+          buttonAction={undefined}
         />
       </div>
     </div>

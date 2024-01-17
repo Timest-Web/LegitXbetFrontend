@@ -11,8 +11,7 @@ import DepositContainer from "../../../DesktopUserDashboard/components/Deposit/C
 import WithdrawPop from "../../../DesktopUserDashboard/components/Withdrawal/Components/WithdrawPop";
 import OverviewWelcomeTab from "../../../DesktopUserDashboard/components/Overview/Components/OverviewWelcomeTab";
 
-
-const renderCarouselItems = () => {
+const MobileOverview = () => {
   const [isDepositModalOpen, setDepositModalOpen] = useState(false);
   const [isWithdrawalModalOpen, setWithdrawalModalOpen] = useState(false);
 
@@ -23,26 +22,27 @@ const renderCarouselItems = () => {
   const handleWithdrawalClick = () => {
     setWithdrawalModalOpen(true);
   };
-  return (
-    <Carousel.Item className="mb-4">
-      
-      <div className="flex space-x-8">
-        <OverviewWelcomeTab/>
-      <BalanceCard
-          buttonState={true}
-          secondButton={true}
-          firstButtonText="Deposit"
-          secondButtonText="Withdrawal"
-          balanceButtonAction={(buttonType) => {
-            if (buttonType === "first") {
-              handleDepositClick();
-            } else if (buttonType === "second") {
-              handleWithdrawalClick();
-            }
-          }}
-        />
-      </div>
-      <Modal
+  const headers = OverViewHeader();
+  const renderCarouselItems = () => {
+    return (
+      <Carousel.Item className="mb-4">
+        <div className="flex space-x-8">
+          <OverviewWelcomeTab />
+          <BalanceCard
+            buttonState={true}
+            secondButton={true}
+            firstButtonText="Deposit"
+            secondButtonText="Withdrawal"
+            balanceButtonAction={(buttonType) => {
+              if (buttonType === "first") {
+                handleDepositClick();
+              } else if (buttonType === "second") {
+                handleWithdrawalClick();
+              }
+            }}
+          />
+        </div>
+        <Modal
           openModal={isDepositModalOpen}
           setOpenModal={setDepositModalOpen}
           className="custom-modal-class"
@@ -54,12 +54,9 @@ const renderCarouselItems = () => {
           className="custom-modal-class"
           modalContent={<WithdrawPop />}
         />
-    </Carousel.Item>
-  );
-};
-
-const MobileOverview = () => {
-  const headers = OverViewHeader();
+      </Carousel.Item>
+    );
+  };
 
   return (
     <div>
@@ -79,11 +76,8 @@ const MobileOverview = () => {
               />
             </div>
           </div>
-          
         }
       />
-    
-      
     </div>
   );
 };

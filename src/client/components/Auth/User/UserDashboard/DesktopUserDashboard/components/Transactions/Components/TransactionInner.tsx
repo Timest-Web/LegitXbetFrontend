@@ -12,6 +12,7 @@ const TransactionInner = () => {
           headers={headers}
           noBetsMessage="No transactions recorded"
           placeBetButtonText={undefined}
+          buttonLink=""
         />
       </div>
     </div>
