@@ -2,7 +2,7 @@ import React from "react";
 import { Carousel } from "@heathmont/moon-core-tw";
 import Link from "next/link";
 import { CustomCarousel } from "@/src/client/shared/Carousel";
-import menuList from "../../DesktopUserDashboard/shared/MenuItems";
+import menuList from "../../DesktopUserDashboard/shared/MenuList";
 import ProfileMenu from "../../DesktopUserDashboard/shared/ProfileMenu";
 import { useRouter } from "next/router";
 

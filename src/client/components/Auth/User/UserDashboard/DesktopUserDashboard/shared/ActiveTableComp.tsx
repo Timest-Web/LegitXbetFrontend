@@ -48,7 +48,7 @@ const TableComp: React.FC<TableProps> = ({
   const renderCarouselItems = () => {
     return (
       <Carousel.Item className="md:hidden">
-        <table className="w-[35rem] ">
+        <table className="w-[50rem] ">
           <tbody>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
@@ -81,13 +81,13 @@ const TableComp: React.FC<TableProps> = ({
   };
 
   return (
-    <div className="mt-6 w-full box-border pb-20 md:pb-0 ">
-      <div className="flex md:justify-between md:px-8">
+    <div className="md:mt-6 w-full pb-20 md:pb-0 ">
+      <div className="flex flex-col md:flex-row md:justify-between md:px-8">
         <section>
           <div className="hidden md:block font-bold mt-2">{tableTitle}</div>
-          {betStatus}
+         <div className="mt-6" >{betStatus}</div> 
         </section>
-        <section className="flex space-x-2">
+        <section className="flex justify-evenly">
           {searchField && (
             <div className="relative">
               <input
@@ -103,7 +103,7 @@ const TableComp: React.FC<TableProps> = ({
         </section>
       </div>
 
-      <div className="bg-white box-border md:w-full md:h-[34rem] h-[28rem] rounded-[20px] text-sm md:text-base p-4 md:p-8 mt-4 relative">
+      <div className="bg-white box-border w-full md:h-[34rem] h-[28rem] rounded-[20px] text-sm md:text-base p-4 md:p-8 mt-4 relative">
         <CustomCarousel renderCarouselItems={renderCarouselItems} />
         <div className="hidden md:flex">
           <table className="w-full">

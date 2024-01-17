@@ -13,7 +13,7 @@ const WithdrawPop = () => {
           <h2 className="font-bold mb-4  ">Bank Transfer</h2>
           <hr></hr>
           <form className=" mt-4 md:mt-8 ">
-            {/* <section className="flex flex-col md:flex-row md:space-x-32">
+            <section className="flex flex-col md:flex-row md:space-x-32">
               <div>
                 <label className="font-bold md:pl-10 ">Bank Name</label>
                 <div className="flex space-x-5 mt-4">
@@ -26,7 +26,7 @@ const WithdrawPop = () => {
                 <h3>Account Number</h3>
                 <h3>****8994</h3>
               </div>
-            </section> */}
+            </section>
             <section className="flex flex-col md:flex-row md:space-x-16 mt-6 md:mt-12">
               <div className="flex flex-col space-y-3 ">
                 <div className="flex space-x-5">
@@ -61,7 +61,7 @@ const WithdrawPop = () => {
             </section>
           </form>
           <p className="font-bold mt-6 md:mt-20">
-            NB - Minimum Withdrawal per day is NGN 10m. | Maximum per
+            NB - Maximum Withdrawal per day is NGN 10m. | Maximum per
             transaction is NGN 1m.
           </p>
         </div>

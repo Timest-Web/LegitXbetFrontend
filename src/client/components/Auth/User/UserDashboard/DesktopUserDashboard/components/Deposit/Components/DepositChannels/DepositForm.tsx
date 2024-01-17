@@ -43,7 +43,7 @@ const DepositForm: React.FC = () => {
   return (
     <form className="flex flex-col" onSubmit={handleSubmit}>
       <div className="flex flex-col">
-        <label className="font-bold">Deposit Amount</label>
+        <label className="font-bold">Deposit Amount in NGN</label>
         <input
           className="bg-[#F5F5F5] w-52 h-10 "
           type="text"

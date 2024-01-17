@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DepositCardForm from "./DepositCardForm";
 import BankTransfer from "./BankTransfer";
 import paystackLogo from "../../../../../assets/PaystackImage.svg";
-import flutterwaveLogo from "../../../../../assets/FlutterwaveLogo.png"
+import flutterwaveLogo from "../../../../../assets/FlutterwaveLogo.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,7 +16,7 @@ const DepositContainer = () => {
   const tabNames = ["Card Debit", "Bank Transfer", "Direct Bank USSD"];
 
   return (
-    <div className="bg-white flex space-x-8 text-sm md:text-base md:w-[36rem] md:h-[15rem] rounded-2xl p-6 md:p-12">
+    <div className="bg-[#ECEEF1] flex space-x-8 text-sm md:text-base  rounded-2xl p-6 md:p-16">
       {/* <ul className="flex space-x-16 font-bold md:mb-3">
         {tabNames.map((tab, index) => (
           <li
@@ -36,11 +36,22 @@ const DepositContainer = () => {
         NB - Minimum deposit amount is NGN 100.00 - you can deposit at least NGN
         100.00 in one transaction.
       </p> */}
-     <Link href="/user-dashboard/deposit/deposit-paystack"><div className="drop-shadow-lg">
-        <Image width={570} height={50} src={paystackLogo} alt="paystack-logo" />
-      </div></Link> 
-      <div className="drop-shadow-lg  ">
-        <Image width={570} height={30} src={flutterwaveLogo} alt="flutterwave-logo" />
+      <div className="flex flex-col space-y-6">
+        <Link href="/user-dashboard/deposit/deposit-paystack">
+          <div className=" bg-white p-5 drop-shadow-xl ">
+            <Image width={350} src={paystackLogo} alt="paystack-logo" />
+          </div>
+        </Link>
+        <div className="drop-shadow-lg bg-white">
+          <Link href="/user-dashboard/deposit/deposit-flutterwave">
+            <Image
+              width={400}
+              height={5}
+              src={flutterwaveLogo}
+              alt="flutterwave-logo"
+            />
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 const BanksDropDown = () => {
   return (
-    <div className="">
+    <div className=" flex flex-col">
       <label>Bank</label>
-      <select className="p-3 bg-[#F5F5F5]" id="bankCode" name="bankCode">
+      <select className="p-3 w-44 bg-[#F5F5F5]" id="bankCode" name="bankCode">
         <option value="">--Select Bank--</option>
 
         <option value="801">Abbey Mortgage Bank</option>

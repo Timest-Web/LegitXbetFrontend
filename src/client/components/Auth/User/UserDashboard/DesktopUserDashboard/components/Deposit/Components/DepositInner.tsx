@@ -34,6 +34,7 @@ const DepositInner = () => {
 					noBetsMessage='No transactions recorded'
 					placeBetButtonText='Deposit'
 					buttonAction={handleClick}
+					buttonLink=''
 				/>
 			</div>
 			<Modal

@@ -10,7 +10,7 @@ import SupportIcon from "@/src/client/shared/Svg/SupportIcon";
 
 const menuList = ()=> [
     { title: "Overview", icon: <Overview />, href: "/user-dashboard" },
-    { title: "Profile", icon: <UserProfile />, href: "/user-dashboard/profile/profile-update" },
+    { title: "Profile", icon: <UserProfile />, href: "/user-dashboard/profile" },
     { title: "Deposit", icon: <Deposit />, href: "/user-dashboard/deposit" },
     { title: "Withdrawal", icon: <WithdrawalIcon />, href: "/user-dashboard/withdrawal" },
     { title: "Bet History", icon: <BetHistory />, href: "/user-dashboard/bet-history" },

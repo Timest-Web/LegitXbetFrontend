@@ -33,7 +33,7 @@ const BalanceCard: React.FC<BalanceCardProps> = ({
 
   return (
     <div className=" bg-white rounded-2xl w-[15.063rem] h-[10rem] md:w-[30.0625rem] md:h-[16.3125rem] p-3 md:p-8 text-xs md:text-base flex justify-between ">
-      <section className="flex flex-col space-y-3 ">
+      <section className="flex flex-col space-y-1 md:space-y-3 ">
         <div className="bg-[#ECEEF1] w-[3.25rem] h-[3.25rem] md:w-[4.375rem] md:h-[4.375rem] rounded-full flex justify-center items-center ">
           <TagIcon />
         </div>

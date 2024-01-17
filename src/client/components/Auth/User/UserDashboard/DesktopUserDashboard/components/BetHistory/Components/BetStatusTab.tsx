@@ -9,15 +9,15 @@ interface BetStatusTabProps{
 
 const BetStatusTab: React.FC<BetStatusTabProps> = ({isAll, isSettled, isUnsettled}) => {
   return (
-    <ul className="flex space-x-3 font-bold">
+    <ul className="flex space-x-2 text-sm md:text-base mb-4 md:mb-0 md:space-x-5 font-bold [&>*:hover]:opacity-70">
       <Link href="/user-dashboard/bet-history">
-        <li className={isAll? "opacity:100":"opacity-50 hover:opacity-100 cursor-pointer"}>All</li>
+        <li className={isAll? "rounded-2xl bg-black text-white px-2 opacity:100":"bg-white px-2 rounded-xl hover:opacity-100 cursor-pointer "}>All</li>
       </Link>
       <Link href="/user-dashboard/bet-history/bet-history-active">
-        <li className={isSettled? "opacity:100":"opacity-50 hover:opacity-100 cursor-pointer "}>Settled</li>
+        <li className={isSettled? " rounded-2xl bg-black text-white px-2 opacity:100":"bg-white px-2 rounded-xl hover:opacity-100 cursor-pointer "}>Settled</li>
       </Link>
       <Link href="/user-dashboard/bet-history/unsettled">
-        <li className={isUnsettled? "opacity:100":"opacity-50 hover:opacity-100 cursor-pointer "}>Unsettled</li>
+        <li className={isUnsettled? " bg-black text-white px-2 rounded-2xl opacity:100":" bg-white px-2 rounded-xl hover:opacity-100 cursor-pointer "}>Unsettled</li>
       </Link>
     </ul>
   );

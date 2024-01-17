@@ -3,6 +3,7 @@ import PlaceBetIcon from "@/src/client/shared/Svg/AllReceipt";
 import { Carousel } from "@heathmont/moon-core-tw";
 import { CustomCarousel } from "@/src/client/shared/Carousel";
 import SearchFilter from "./SearchAndFilter";
+import Link from "next/link";
 
 interface AllBetTableProps {
   title: string;
@@ -10,7 +11,8 @@ interface AllBetTableProps {
   noBetsMessage: string;
   placeBetButtonText: string | undefined;
   buttonAction?: () => void;
-  betStatus?: React.JSX.Element
+  betStatus?: React.JSX.Element;
+  buttonLink: string;
 }
 
 const AllBetTable: React.FC<AllBetTableProps> = ({
@@ -19,7 +21,8 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
   noBetsMessage,
   placeBetButtonText,
   buttonAction,
-  betStatus
+  betStatus,
+  buttonLink
 }) => {
   const renderCarouselItems = () => {
     return headers.map((header, index) => (
@@ -34,7 +37,7 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
       <div className="md:flex md:justify-between md:px-8">
         <section>
           <h2 className="hidden md:block font-bold ">{title}</h2>
-          {betStatus}
+         <div className="mt-6" >{betStatus}</div> 
         </section>
         <SearchFilter />
       </div>
@@ -53,12 +56,12 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
             <PlaceBetIcon />
             <h3>{noBetsMessage}</h3>
             {placeBetButtonText && (
-              <button
+            <Link href={buttonLink}> <button
                 onClick={buttonAction}
                 className="w-[8rem] h-[2.375rem] rounded-md bg-black p-2 text-white"
               >
                 {placeBetButtonText}
-              </button>
+              </button></Link> 
             )}
           </div>
         </div>

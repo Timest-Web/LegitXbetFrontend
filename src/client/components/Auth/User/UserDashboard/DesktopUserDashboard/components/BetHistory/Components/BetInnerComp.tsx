@@ -21,6 +21,7 @@ const BetInnerComp = () => {
           headers={headers}
           noBetsMessage="No Bet found yet"
           placeBetButtonText="Bet Now"
+          buttonLink="/landing"
         />
       </div>
     </div>

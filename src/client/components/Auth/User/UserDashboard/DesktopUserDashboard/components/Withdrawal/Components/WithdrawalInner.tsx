@@ -27,6 +27,7 @@ const WithdrawalInner = () => {
 					noBetsMessage='No transactions recorded'
 					placeBetButtonText='Withdraw'
 					buttonAction={handleClick}
+					buttonLink=""
 				/>
 			</div>
 			<Modal
