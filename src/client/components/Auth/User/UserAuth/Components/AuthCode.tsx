@@ -1,13 +1,28 @@
-import React, { useRef, ChangeEvent, KeyboardEvent, useState } from 'react';
+import React, {
+	useRef,
+	ChangeEvent,
+	KeyboardEvent,
+	useState,
+	SetStateAction,
+} from 'react';
 
-const AuthOtpCodeInput: React.FC = () => {
+
+const AuthOtpCodeInput = ({
+	setInputOtpValue,
+}: {
+	setInputOtpValue: React.Dispatch<SetStateAction<string>>;
+}) => {
 	const [otpValues, setOtpValues] = useState('');
-	const inputRefs = useRef<Array<HTMLInputElement | null>>(Array(6).fill(null).map(() => null));
+	const inputRefs = useRef<Array<HTMLInputElement | null>>(
+		Array(6)
+			.fill(null)
+			.map(() => null)
+	);
 
 	const handleInputChange = (index: number, value: string) => {
-		const newOtpValues =
-			otpValues.slice(0, index) + value + otpValues.slice(index + 1);
+		const newOtpValues = otpValues.slice(0, index) + value + otpValues.slice(index + 1);
 		setOtpValues(newOtpValues);
+		setInputOtpValue(newOtpValues);
 
 		if (value && index < inputRefs.current.length - 1) {
 			inputRefs.current[index + 1]?.focus();

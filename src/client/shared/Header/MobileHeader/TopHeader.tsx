@@ -2,11 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import Logo from '../../../../assets/logo1.png';
 import { Button } from '../../Button';
-import CustomerCareMobile from '../../Drawer/CustomerCareMobile';
 import { useVisibilityControl } from '../../Hooks/useVisibilityControl';
-import DesktopModal from '../../Modal';
-import DesktopModalView from '@/src/client/components/Auth/User/UserAuth/Components/ModalView';
 import { useLink } from '../../Hooks/useLink';
+import MobileTopDrawer from '../../Drawer/MobileTopDrawer';
+import AuthContent from '@/src/client/components/Auth/User/UserAuth/Components/AuthContent';
 
 const TopHeader = () => {
 	const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
@@ -41,10 +40,10 @@ const TopHeader = () => {
 			</div>
 
 			{isOpen && (
-				<CustomerCareMobile
+				<MobileTopDrawer
 					isOpen={isOpen}
 					closeDrawer={setIsOpen}
-					drawerContent={<DesktopModalView selectedButton={click} />}
+					drawerContent={<AuthContent selectedButton={click} />}
 				/>
 			)}
 		</div>

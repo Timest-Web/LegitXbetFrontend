@@ -1,8 +1,9 @@
 import { useLink } from '@/src/client/shared/Hooks/useLink';
-import React, { SetStateAction, useState } from 'react';
-import Form from '../Components/Form/Form';
+import React, { SetStateAction } from 'react';
 import AuthDescription from '../Components/AuthDescription';
 import ModalContainer from '../Components/ModalContainer';
+import Login from '../Components/Form/Login';
+import Register from '../Components/Form/Register';
 
 const buttons = [
 	{ label: 'Register Account', key: 'register' },
@@ -10,16 +11,15 @@ const buttons = [
 ];
 
 const SignUpSignIn = ({
+	setInputPhoneNo,
 	setIsFormSubmit,
-	selectedButton
+	selectedButton,
 }: {
 	setIsFormSubmit: React.Dispatch<SetStateAction<boolean>>;
-	selectedButton: string
+	setInputPhoneNo: React.Dispatch<SetStateAction<string>>;
+	selectedButton: string;
 }) => {
 	const { link, handleClick } = useLink(selectedButton);
-	const [phoneNo, setPhoneNo] = useState('');
-	const [password, setPassword] = useState('');
-
 	return (
 		<ModalContainer>
 			<div className='flex'>
@@ -41,24 +41,16 @@ const SignUpSignIn = ({
 			</div>
 
 			<AuthDescription link={link} />
-
-			<Form
-				authType={link}
-				phoneNo={phoneNo}
-				password={password}
-				setPhoneNo={setPhoneNo}
-				setPassword={setPassword}
-				setIsFormSubmit={setIsFormSubmit}
-			/>
+			{link === 'login' && <Login />}
+			{link === 'register' && (
+				<Register
+					setIsFormSubmit={setIsFormSubmit}
+					setInputPhoneNo={setInputPhoneNo}
+				/>
+			)}
 		</ModalContainer>
 	);
 };
 
 export default SignUpSignIn;
 
-
-// ${
-// 							key === 'login'
-// 								? 'border-l border-l-black  border-t border-t-black'
-// 								: 'border-b border-b-black'
-// 						}

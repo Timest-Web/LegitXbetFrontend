@@ -3,7 +3,7 @@ import { Dropdown, MenuItem } from '@heathmont/moon-core-tw';
 import Link from 'next/link';
 
 
-const DropdownIcon: React.FC<DropDownProps> = ({ arrayData, title, icon}) => {
+const DropdownIcon: React.FC<DropDownProps> = ({ arrayData, title, icon, onClick}) => {
       const [option, setOption] = useState<Data | null>(null);
       // console.log(arrayData[0])
 
@@ -38,6 +38,7 @@ const DropdownIcon: React.FC<DropDownProps> = ({ arrayData, title, icon}) => {
 										{({ selected, active }) => (
 											<MenuItem
 												isActive={active}
+												onClick={onClick}
 												className='flex items-start justify-start w-28'
 												isSelected={selected}>
 												<div className='w-8'>
@@ -68,6 +69,7 @@ type Data = {
 
 type DropDownProps = {
       arrayData: Data[] | undefined;
-      title: string;
+	onClick?: Function;
+	title: string;
       icon: React.ReactNode
 };
