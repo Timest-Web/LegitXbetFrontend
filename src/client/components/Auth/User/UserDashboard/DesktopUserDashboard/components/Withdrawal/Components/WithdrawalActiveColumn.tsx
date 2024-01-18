@@ -4,7 +4,7 @@ const WithdrawalActiveColumn = () => [
     accessorKey: "no",
   },
   {
-    header: "Reference Id",
+    header: "Reference ID",
     accessorKey: "reference_id",
   },
   {

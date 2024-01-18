@@ -13,7 +13,7 @@ const betHistoryColumns = (handleClick: () => void) => [
     accessorKey: "no",
   },
   {
-    header: "Bet Id",
+    header: "Bet ID",
     accessorKey: "reference_id",
   },
   {

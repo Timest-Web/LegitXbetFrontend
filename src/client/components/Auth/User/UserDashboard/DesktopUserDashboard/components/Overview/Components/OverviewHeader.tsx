@@ -2,7 +2,7 @@
 
 const OverViewHeader = ()=> [
     "No",
-    "Bet Id",
+    "Bet ID",
     "Date",
     "Type",
     "Status",

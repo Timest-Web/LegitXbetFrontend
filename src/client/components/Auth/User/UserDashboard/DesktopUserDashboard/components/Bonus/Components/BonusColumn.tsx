@@ -17,7 +17,7 @@ const BonusColumn = () => {
       accessorKey: "no",
     },
     {
-      header: "Bonus Id",
+      header: "Bonus ID",
       accessorKey: "bonus_Id",
     },
     {
