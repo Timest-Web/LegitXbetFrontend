@@ -10,7 +10,7 @@ const DepositInner = () => {
 
 	const headers = [
 		'No',
-		'Reference Id',
+		'Reference ID',
 		'Date',
 		'Status',
 		'Amount',

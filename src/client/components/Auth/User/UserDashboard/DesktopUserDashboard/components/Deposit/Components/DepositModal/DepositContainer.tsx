@@ -39,7 +39,7 @@ const DepositContainer = () => {
       <p className="font-bold mb-6">Kindly select the channel for payment below</p>
       <div className="flex flex-col md:flex-row md:space-y-0 md:space-x-8 space-y-6">
         <Link href="/user-dashboard/deposit/deposit-paystack">
-          <div className=" bg-white w-72 p-8 drop-shadow-xl ">
+          <div className=" bg-white w-72 p-6 md:p-8 drop-shadow-xl ">
             <Image src={paystackLogo} alt="paystack-logo" />
           </div>
         </Link>

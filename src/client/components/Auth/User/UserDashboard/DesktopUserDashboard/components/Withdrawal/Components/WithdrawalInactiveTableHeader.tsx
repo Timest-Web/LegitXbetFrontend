@@ -1,6 +1,6 @@
 const WithdrawalInactiveHeader = () => [
   "No",
-  "Reference Id",
+  "Reference ID",
   "Date",
   "Status",
   "Amount",

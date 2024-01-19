@@ -9,7 +9,7 @@ interface MultiReuseProps {
 
 const MultiReuse: React.FC<MultiReuseProps> = ({isInsideUpdatePassword, isInsideMultiAuth}) => {
   return (
-    <div className="flex space-x-12 font-bold mb-8">
+    <div className="flex space-x-12 text-sm md:text-base font-bold mb-8">
      <Link href="/user-dashboard/profile/update-password"><h2 className={isInsideUpdatePassword ? "opacity-100" : "opacity-50 hover:opacity-100 cursor-pointer"}>Change password</h2></Link> 
     <Link href="/user-dashboard/profile/multifactor"><h2 className={isInsideMultiAuth ? "opacity-100" : "opacity-50 hover:opacity-100 cursor-pointer"}>Multifactor Auth</h2></Link>  
     </div>

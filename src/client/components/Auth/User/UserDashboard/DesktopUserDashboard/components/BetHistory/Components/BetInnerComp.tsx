@@ -5,7 +5,7 @@ import BetStatusTab from "./BetStatusTab";
 const BetInnerComp = () => {
   const headers = [
     "No",
-    "BetId",
+    "Bet ID",
     "Date",
     "Status",
     "Amount",

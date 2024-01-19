@@ -10,10 +10,20 @@ import Modal from "@/src/client/shared/Modal";
 import DepositContainer from "../../../DesktopUserDashboard/components/Deposit/Components/DepositModal/DepositContainer";
 import WithdrawPop from "../../../DesktopUserDashboard/components/Withdrawal/Components/WithdrawPop";
 import OverviewWelcomeTab from "../../../DesktopUserDashboard/components/Overview/Components/OverviewWelcomeTab";
+import { GenericBurgerRegular, ControlsCloseSmall } from '@heathmont/moon-icons-tw';
 
 const MobileOverview = () => {
   const [isDepositModalOpen, setDepositModalOpen] = useState(false);
   const [isWithdrawalModalOpen, setWithdrawalModalOpen] = useState(false);
+  const [hamIcon, setHamIcon] = useState(true);
+  const [closeIcon, setCloseIcon] = useState(false);
+  const [hamburger, setHamburger] = useState(false);
+
+  const handleHamburger = () => {
+    setHamburger(!hamburger);
+    setHamIcon(!hamIcon);
+    setCloseIcon(!closeIcon);
+  };
 
   const handleDepositClick = () => {
     setDepositModalOpen(true);
@@ -26,8 +36,7 @@ const MobileOverview = () => {
   const renderCarouselItems = () => {
     return (
       <Carousel.Item className="mb-4">
-        <div className="flex space-x-8">
-          <OverviewWelcomeTab />
+        <div className="">
           <BalanceCard
             buttonState={true}
             secondButton={true}
@@ -63,7 +72,18 @@ const MobileOverview = () => {
       <MobileDashboardLayout
         mobilelayoutcontent={
           <div>
-            <p className=" font-bold mb-4 ">Welcome, Johnson</p>
+            <div className="flex justify-between">
+              <p className=" font-bold mb-4 ">Welcome, Johnson</p>
+              <div className="relative" onClick={handleHamburger}>
+                {hamIcon && <GenericBurgerRegular className=" text-moon-32 "/>}
+                {closeIcon && <ControlsCloseSmall className=" text-moon-32 "/>}
+                {hamburger && (
+                  <div className="absolute right-[0px]">
+                    <OverviewWelcomeTab />
+                  </div>
+                )}
+              </div>
+            </div>
             <CustomCarousel renderCarouselItems={renderCarouselItems} />
             <div>
               <AllBetTable

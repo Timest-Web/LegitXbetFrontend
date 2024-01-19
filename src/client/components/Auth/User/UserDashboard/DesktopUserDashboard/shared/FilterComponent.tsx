@@ -19,17 +19,17 @@ const FilterComponent = () => {
       <Dropdown className="" value={option} onChange={setOption}>
         {({ open }) => (
           <>
-            <Dropdown.InsetSelect open={open} placeholder="Filter By">
+            <Dropdown.Select open={open} placeholder="Filter By">
               {option?.day}
-            </Dropdown.InsetSelect>
+            </Dropdown.Select>
 
             <Dropdown.Options className=" bg-white rounded-2xl ">
               {dayOption.map((pickedDay, index) => (
                 <Dropdown.Option value={pickedDay} key={index}>
                   {({ selected, active }) => (
-                    <MenuItem isActive={active} isSelected={selected}>
+                    <MenuItem isSelected={selected}>
                       <MenuItem.Checkbox
-                        className="bg-[white] border-black border "
+                        className="border-black border "
                         isSelected={selected}
                       />
                       <MenuItem.Title>{pickedDay.day}</MenuItem.Title>
