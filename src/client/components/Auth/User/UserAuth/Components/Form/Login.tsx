@@ -5,10 +5,10 @@ import SecureText from '../SecureText';
 import { ToastContainer } from 'react-toastify';
 import { signInValidation } from './FormValidation';
 import { useMutation } from '@tanstack/react-query';
-import { signIn } from '@/src/helper/api/auth';
 import { Password, PhoneNumber, ResponseHint } from '../Input';
 import apiMessageHelper from '@/src/helper/apiMessageHelper';
 import AuthButton from '../AuthButton';
+import { signIn } from '@/src/helper/apis/services/auth/login.api';
 
 const Login = () => {
 	const { push } = useRouter();
@@ -28,9 +28,8 @@ const Login = () => {
 			? `+234${phoneNo.slice(1)}`
 			: `+234${phoneNo}`;
 		const data = { phoneNumber: formattedPhoneNo, password };
-
 		if (Object.keys(validationErrors).length === 0) {
-			mutateAsync(data).then((res) => {
+			mutateAsync(data).then((res: any) => {
 				apiMessageHelper({
 					message: res?.message,
 					statusCode: res?.statusCode,
@@ -38,6 +37,11 @@ const Login = () => {
 						push('/user_dashboard');
 					},
 				});
+
+				localStorage.setItem(
+					'access',
+					JSON.stringify({ accessToken: res?.accessToken })
+				);
 			});
 			setErrors({});
 		} else {
@@ -57,7 +61,7 @@ const Login = () => {
 					label='Mobile Number'
 					value={phoneNo}
 					setValue={setPhoneNo}
-					placeHolder='e.g 0818 2175 9384'
+					placeHolder='e.g 08x xxxx xxxx'
 					borderHint={errors.phoneNo ? 'border border-red-600' : ''}
 				/>
 				{errors.phoneNo && <ResponseHint err={errors.phoneNo} />}
@@ -73,9 +77,7 @@ const Login = () => {
 				/>
 				{errors.password && <ResponseHint err={errors.password} />}
 			</div>
-
 			<SecureText />
-
 			<AuthButton
 				isPending={isPending}
 				validationErrors={validationErrors}

@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
+import DesktopModal from '../../../Modal';
 import Logo from '../../../../../assets/logo1.png';
 import Headphone from '../../../Svg/Headphone';
+import UserSection from './UserSection';
+import SupportContent from '../../SupportContent';
 import { Button } from '../../../Button';
 import { useLink } from '../../../Hooks/useLink';
+import { useQuery } from '@tanstack/react-query';
 import { OtherCrown } from '@heathmont/moon-icons-tw';
+import { getUserProfile } from '@/src/helper/apis/services/auth/get-user-profile.api';
 import { useVisibilityControl } from '../../../Hooks/useVisibilityControl';
 import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
-import DesktopModal from '../../../Modal';
-import CustomerCareDrawer from '../../../Modal/components/DesktopCustomerCare';
-import SupportContent from '../../SupportContent';
-import UserSection from './UserSection';
 import { LINK_CATEGORY_TYPES } from '../../constant';
-import useUser from '../../../Context/UserContext/useUser';
+import CustomerCareDrawer from '../../../Modal/components/DesktopCustomerCare';
 import useUrlPathChecker from '../../../Hooks/useUrlPathChecker';
 import AuthContent from '../../../../components/Auth/User/UserAuth/Components/AuthContent';
+import { useGetUser } from '../../../Hooks/useGetUser';
 
 const CategoryBetMenu = () => {
-	const { userId } = useUser();
+	const { user } = useGetUser('access');
+	console.log(user)
 	const { link, handleClick } = useLink('Sports');
 	const { link: click, handleClick: selectedHandle } = useLink('login');
 	const isUrlPathIncluded = useUrlPathChecker({ urlPath: 'user_dashboard' });
@@ -31,6 +34,7 @@ const CategoryBetMenu = () => {
 		setIsOpen: setIsOpenModal,
 		handleClick: onHandleSupportClick,
 	} = useVisibilityControl();
+
 
 	return (
 		<div className='flex items-center justify-center w-full  bg-black'>
@@ -92,7 +96,7 @@ const CategoryBetMenu = () => {
 					</div>
 				</div>
 
-				{!userId && (
+				{!user?.accessToken && (
 					<div className='flex items-center space-x-10'>
 						<button
 							onClick={onHandleSupportClick}
@@ -126,7 +130,7 @@ const CategoryBetMenu = () => {
 						</div>
 					</div>
 				)}
-				{userId && <UserSection />}
+				{user?.accessToken && <UserSection />}
 			</div>
 
 			{openModal && (

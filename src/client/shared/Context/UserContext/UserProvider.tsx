@@ -1,26 +1,17 @@
-import { useEffect, useState } from "react";
-import { UserProviderProps } from "./constant";
-import { UserContext } from "./UserContext";
+import { useRouter } from 'next/navigation';
+import { UserProviderProps } from './constant';
+import { UserContext } from './UserContext';
 
 export const UserProvider: React.FC<UserProviderProps> = ({
 	children,
 }: UserProviderProps) => {
-	const [userId, setUserId] = useState<string>('');
-
-	useEffect(() => {
-		const userFromLocalStorage = JSON.parse(
-			localStorage.getItem('user') || '{}'
-		);
-		const userIdFromLocalStorage = userFromLocalStorage?.id || '';
-		setUserId(userIdFromLocalStorage);
-	}, []);
-
 	const handleUserLogout = () => {
-		localStorage.removeItem('user');
-	}
+		localStorage.removeItem('access');
+		window.location.href = '/';
+	};
 
 	return (
-		<UserContext.Provider value={{ userId, handleUserLogout }}>
+		<UserContext.Provider value={{ handleUserLogout }}>
 			{children}
 		</UserContext.Provider>
 	);
