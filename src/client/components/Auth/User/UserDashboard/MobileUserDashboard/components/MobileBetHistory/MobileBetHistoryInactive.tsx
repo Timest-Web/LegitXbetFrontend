@@ -6,7 +6,7 @@ const MobileBetHistoryInactive = () => {
   return (
     <MobileDashboardLayout
       mobilelayoutcontent={
-        <div>
+        <div className="pb-12">
           <BetInnerComp/>
         </div>
       }

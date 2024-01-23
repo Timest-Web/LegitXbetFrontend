@@ -33,7 +33,7 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
   };
 
   return (
-    <div className="md:w-full pb-1">
+    <div className="md:w-full">
       <div className="md:flex md:justify-between md:px-8">
         <section>
           <h2 className="hidden md:block font-bold ">{title}</h2>
@@ -41,7 +41,7 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
         </section>
         <SearchFilter />
       </div>
-      <div className="bg-white w-full h-[50vh] md:h-[34rem] rounded-[1.25rem] mb-24 p-4 md:p-8 mt-4">
+      <div className="bg-white w-full h-[50vh] md:h-[34rem] rounded-[1.25rem] p-4 md:mb-4 md:p-8 mt-4">
         <div>
           <ul className="hidden font-bold md:flex justify-between px-4">
             {headers.map((header, index) => (

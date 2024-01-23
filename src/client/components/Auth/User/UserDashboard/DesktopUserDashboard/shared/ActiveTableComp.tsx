@@ -81,7 +81,7 @@ const TableComp: React.FC<TableProps> = ({
   };
 
   return (
-    <div className="md:mt-6 w-full pb-20 md:pb-0 ">
+    <div className="md:mt-6 w-full md:pb-0 ">
       <div className="flex flex-col md:flex-row md:justify-between md:px-8">
         <section>
           <div className="hidden md:block font-bold mt-2">{tableTitle}</div>

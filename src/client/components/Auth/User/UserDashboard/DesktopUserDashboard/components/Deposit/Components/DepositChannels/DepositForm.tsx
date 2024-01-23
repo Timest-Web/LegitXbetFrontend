@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { BalanceContext } from "@/src/client/shared/Context/BalanceContext/BalanceContext";
+import { useProfileContext } from "@/src/client/shared/Context/PersonalDetailsContext/ProfileContext";
 
 interface FormData {
   depositAmount: string;
@@ -7,15 +9,17 @@ interface FormData {
 const DepositForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({ depositAmount: "" });
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const {balance, setBalance} = useContext(BalanceContext)!
+  const { totalPersonalDetails, handleInputChange } = useProfileContext()!;
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleDepositInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     const amount = parseInt(value, 10);
 
-    if (isNaN(amount) || amount < 200 || amount > 500000) {
+    if (isNaN(amount) || amount < 100 || amount > 500000) {
       setErrorMessage(
-        "Invalid deposit amount. Please enter an amount between 200 and 500,000 naira."
+        "Invalid deposit amount. Please enter an amount between 100 and 500,000 naira."
       );
     } else {
       setErrorMessage("");
@@ -28,20 +32,24 @@ const DepositForm: React.FC = () => {
     e.preventDefault();
 
     const amount = parseInt(formData.depositAmount, 10);
+    if (Object.values(totalPersonalDetails).some(value => value === "")) {
+      alert('Fill up Details')
+    }
 
-    if (isNaN(amount) || amount < 200 || amount > 500000) {
+    if (isNaN(amount) || amount < 100 || amount > 500000) {
       setErrorMessage(
-        "Invalid deposit amount. Please enter an amount between 200 and 500,000 naira."
+        "Invalid deposit amount. Please enter an amount between 100 and 500,000 naira."
       );
     } else {
       setErrorMessage("");
       console.log("Deposit amount submitted:", amount);
       setFormData({depositAmount:""})
+      setBalance(balance+amount)
     }
   };
 
   return (
-    <form className="flex flex-col" onSubmit={handleSubmit}>
+    <form action="submit" className="flex flex-col" onSubmit={handleSubmit}>
       <div className="flex flex-col">
         <label className="font-bold">Deposit Amount in NGN</label>
         <input
@@ -49,7 +57,7 @@ const DepositForm: React.FC = () => {
           type="text"
           name="depositAmount"
           value={formData.depositAmount}
-          onChange={handleInputChange}
+          onChange={handleDepositInputChange}
           min="200"
           max="500000"
         />

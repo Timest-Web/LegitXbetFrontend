@@ -8,7 +8,7 @@ const MobileDepositInactive = () => {
         
       <MobileDashboardLayout
         mobilelayoutcontent={
-          <div>
+          <div className="pb-12">
             <DepositInner/>
           </div>
         }

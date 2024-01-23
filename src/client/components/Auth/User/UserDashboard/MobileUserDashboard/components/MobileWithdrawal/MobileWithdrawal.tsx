@@ -9,7 +9,7 @@ const MobileWithdrawal = () => {
     <div>
       <MobileDashboardLayout
         mobilelayoutcontent={
-          <div>
+          <div className="pb-12">
             <WithdrawalInner/>
           </div>
         }
