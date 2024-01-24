@@ -10,7 +10,7 @@ export interface VerifiyResponse {
 
 export const otpVerification: (payload: VerifiyUserPayload) => Promise<VerifiyResponse> = async (payload) => {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}auth/verifiy`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/auth/verifiy`, {
             method: 'POST',
             headers: {'Content-type': 'application/json',},
             body: JSON.stringify(payload)

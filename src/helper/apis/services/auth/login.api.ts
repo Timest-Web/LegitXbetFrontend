@@ -9,7 +9,7 @@ export interface LoginResponse {
 
 export const signIn: (payload: LoginUserPayload) => Promise<LoginResponse> = async (payload) => {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}auth/login`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',

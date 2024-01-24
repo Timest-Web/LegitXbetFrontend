@@ -7,7 +7,7 @@ export interface RegisterUserPayload {
 
 export const signUp = async (payload: RegisterUserPayload) => {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}auth/register`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/auth/register`, {
             method: 'POST',
             headers: {'Content-type': 'application/json',},
             body: JSON.stringify(payload)
