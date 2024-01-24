@@ -7,9 +7,9 @@ export interface RegisterUserPayload {
 
 export const signUp = async (payload: RegisterUserPayload) => {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASEURL}/auth/register`, {
+        const response = await fetch('https://legitx.ng/auth/register', {
             method: 'POST',
-            headers: {'Content-type': 'application/json',},
+            headers: {'Content-type': 'application/json'},
             body: JSON.stringify(payload)
         });
         const data = await response.json();
