@@ -5,11 +5,11 @@ import AuthOtpCodeInput from '../Components/AuthCode';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthButton from '../Components/AuthButton';
 import { useMutation } from '@tanstack/react-query';
-import { otpVerification } from '@/src/helper/api/auth';
 import { ToastContainer } from 'react-toastify';
 import apiMessageHelper from '@/src/helper/apiMessageHelper';
 import ModalContainer from '../Components/ModalContainer';
 import useCountdown from '@/src/client/shared/Hooks/useCountDown';
+import { otpVerification } from '@/src/helper/apis/services/auth/verify.api';
 
 const Otp = ({ phoneNo }: { phoneNo: string }) => {
 	const { push } = useRouter();
@@ -22,9 +22,7 @@ const Otp = ({ phoneNo }: { phoneNo: string }) => {
 		initialActive: true,
 	});
 	const code = inputOtpValue;
-	const { mutateAsync, isPending } = useMutation({
-		mutationFn: otpVerification,
-	});
+	const { mutateAsync, isPending } = useMutation({mutationFn: otpVerification});
 	const handleSubmit = () => {
 		const data = { phoneNumber: phoneNo, code };
 		if (inputOtpValue.length === 6) {
