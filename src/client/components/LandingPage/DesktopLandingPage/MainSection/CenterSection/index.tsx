@@ -13,7 +13,7 @@ const CenterSection = () => {
 		<div className='pb-28'>
 			{router.pathname !== '/' && (
 				<p className='font-bold'>
-					{urlPathname.charAt(0).toUpperCase() + urlPathname.slice(1)}
+					{urlPathname?.charAt(0).toUpperCase() + urlPathname?.slice(1)}
 				</p>
 			)}
 

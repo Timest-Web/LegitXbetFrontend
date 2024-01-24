@@ -9,7 +9,7 @@ const Loader = ({height, width}: {height: number, width: number}) => {
 			alt='Loader alt'
 			height={height}
 			width={width}
-		/>
+		/>                              
 	);
 };
 
