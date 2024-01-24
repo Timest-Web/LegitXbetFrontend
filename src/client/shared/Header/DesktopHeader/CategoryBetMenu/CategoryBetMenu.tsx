@@ -20,7 +20,6 @@ import { useGetUser } from '../../../Hooks/useGetUser';
 
 const CategoryBetMenu = () => {
 	const { user } = useGetUser('access');
-	console.log(user)
 	const { link, handleClick } = useLink('Sports');
 	const { link: click, handleClick: selectedHandle } = useLink('login');
 	const isUrlPathIncluded = useUrlPathChecker({ urlPath: 'user_dashboard' });

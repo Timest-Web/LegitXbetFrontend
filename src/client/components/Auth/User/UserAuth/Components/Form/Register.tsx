@@ -9,6 +9,7 @@ import apiMessageHelper from '@/src/helper/apiMessageHelper';
 import { InputField, Password, PhoneNumber, ResponseHint } from '../Input';
 import useDeviceType from '@/src/client/shared/Hooks/useDeviceType';
 import { signUp } from '@/src/helper/apis/services/auth/register.api';
+import { useFormattedPhoneNo } from '@/src/client/shared/Hooks/useFormattedPhoneNo';
 
 type FormProps = {
 	setInputPhoneNo: React.Dispatch<SetStateAction<string>>;
@@ -30,11 +31,8 @@ const Register = ({ setInputPhoneNo, setIsFormSubmit }: FormProps) => {
 	const values = { fullname, email, phoneNo, password };
 	const validationErrors = signUpValidation({ values });
 	const { mutateAsync, isPending } = useMutation({ mutationFn: signUp });
-
+	const { formattedPhoneNo } = useFormattedPhoneNo({ phoneNo });
 	const handleSubmit = () => {
-		const formattedPhoneNo = phoneNo.startsWith('0')
-			? `+234${phoneNo.slice(1)}`
-			: `+234${phoneNo}`;
 		const data = {
 			name: fullname,
 			email,

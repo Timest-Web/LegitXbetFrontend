@@ -9,9 +9,9 @@ export interface VerifiyResponse {
 }
 
 export const otpVerification: (payload: VerifiyUserPayload) => Promise<VerifiyResponse> = async (payload) => {
-    const baseUrl = process.env.NEXT_PUBLIC_BASEURL;
+    
     try {
-        const response = await fetch(`${baseUrl}/auth/verifiy`, {
+        const response = await fetch(`https://legitx.ng/auth/verifiy`, {
             method: 'POST',
             headers: {'Content-type': 'application/json',},
             body: JSON.stringify(payload)

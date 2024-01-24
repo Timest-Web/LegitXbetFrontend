@@ -4,9 +4,9 @@ import React, { SetStateAction, useState } from 'react';
 
 type InputProps = {
 	type: string;
-	label: string;
+	label?: string;
 	value: string;
-	borderHint: string;
+	borderHint?: string;
 	placeHolder: string;
 	setValue: React.Dispatch<SetStateAction<string>>;
 };

@@ -11,10 +11,12 @@ const buttons = [
 ];
 
 const SignUpSignIn = ({
+	setIsForgetPassword,
 	setInputPhoneNo,
 	setIsFormSubmit,
 	selectedButton,
 }: {
+	setIsForgetPassword: React.Dispatch<SetStateAction<boolean>>;
 	setIsFormSubmit: React.Dispatch<SetStateAction<boolean>>;
 	setInputPhoneNo: React.Dispatch<SetStateAction<string>>;
 	selectedButton: string;
@@ -41,7 +43,7 @@ const SignUpSignIn = ({
 			</div>
 
 			<AuthDescription link={link} />
-			{link === 'login' && <Login />}
+			{link === 'login' && <Login setIsForgetPassword={setIsForgetPassword} />}
 			{link === 'register' && (
 				<Register
 					setIsFormSubmit={setIsFormSubmit}
