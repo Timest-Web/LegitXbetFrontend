@@ -81,13 +81,12 @@ const TableComp: React.FC<TableProps> = ({
   };
 
   return (
-    <div className="md:mt-6 w-full md:pb-0 ">
+    <div className="md:mt-6 w-full md:pb-12 ">
       <div className="flex flex-col md:flex-row md:justify-between md:px-8">
         <section>
           <div className="hidden md:block font-bold mt-2">{tableTitle}</div>
-         <div className="mt-6" >{betStatus}</div> 
         </section>
-        <section className="flex justify-evenly">
+        <section className="flex space-x-3">
           {searchField && (
             <div className="relative">
               <input

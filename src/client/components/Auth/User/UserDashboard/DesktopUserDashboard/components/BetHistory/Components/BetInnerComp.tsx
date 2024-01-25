@@ -16,8 +16,14 @@ const BetInnerComp = () => {
   return (
     <div className="">
       <div>
-        <BetHistoryPopUp/>
-        
+      <BetStatusTab isAll/>
+          <div className="mt-8 space-y-3">
+          <BetHistoryPopUp/>
+          <BetHistoryPopUp/>
+          <BetHistoryPopUp/>
+          <BetHistoryPopUp/>
+          </div>
+            
       </div>
     </div>
   );

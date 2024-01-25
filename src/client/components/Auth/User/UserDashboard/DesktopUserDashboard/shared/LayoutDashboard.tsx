@@ -6,7 +6,7 @@ import BannerSection from "./BannerSection";
 
 const LayoutDashboard = ({ content }: { content: React.JSX.Element }) => {
   return (
-      <div className="bg-[#ECEEF1] w-full h-screen pt-[5.5rem]">
+      <div className="bg-[#ECEEF1] w-full h-full pt-24 pb-12">
         <div className=" w-full flex justify-evenly">
           <section>
             <SideBar /> 

@@ -1,6 +1,7 @@
 import React from "react";
 import MobileDashboardLayout from "../../shared/MobileDashboardLayout";
 import BetHistoryActiveInner from "../../../DesktopUserDashboard/components/BetHistory/Components/BetHistoryActiveInner";
+import BetHistoryPopUp from "../../../DesktopUserDashboard/components/BetHistory/Components/BetHistoryPopUp";
 
 const MobileBetHistoryActive = () => {
   return (
@@ -8,6 +9,7 @@ const MobileBetHistoryActive = () => {
       mobilelayoutcontent={
         <div className="pb-16">
           <BetHistoryActiveInner/>
+         
         </div>
       }
     />

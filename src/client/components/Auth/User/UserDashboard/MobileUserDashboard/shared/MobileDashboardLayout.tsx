@@ -12,7 +12,7 @@ const MobileDashboardLayout: React.FC<MobileDashboardLayoutProps> = ({
   mobilelayoutcontent,
 }) => {
   return (
-      <div className="bg-[#ECEEF1] h-max w-full mb-12 px-2">
+      <div className="bg-[#ECEEF1] min-h-screen w-full px-2 landscape:h-full">
         <MobileMenu />
         {mobilelayoutcontent}
         <div>
