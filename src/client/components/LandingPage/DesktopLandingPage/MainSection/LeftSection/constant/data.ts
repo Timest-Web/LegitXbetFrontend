@@ -1,8 +1,20 @@
 export const POPULAR_DATA = [
-    "Favourite Leagues",
-    "Local Leagues",
+    "Live Games",
+    "Today Games",
+    "Upcoming Games",
     "American Football",
-    "Live Matches",
     "All Matches Today",
-    "Tonight Matches"
+    "Tonight Matches",
+]
+
+export const FOOTBALL_DATA = [
+    "Live Games",
+    "Today Games",
+    "Upcoming Games",
+    "All Matches Today",
+    "Tonight Matches",
+    "American Football",
+    "England Football",
+    "African Football",
+    "Local Leagues",
 ]

@@ -41,7 +41,7 @@ const WithdrawalForm = () => {
       );
     } 
     if(amount > balance){
-      setErrorMessage('Your money no reach')
+      setErrorMessage('Insufficient Funds')
       return null
     }
     else {

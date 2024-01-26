@@ -5,12 +5,11 @@ import DeviceDisplay from '@/src/client/shared/Utils/DeviceDisplay';
 import type { NextPage } from 'next';
 
 const TransactionAct: NextPage = (props) => (
-	<Layout>
     <DeviceDisplay
       desktopViewDisplay={<TransactionActive {...props} />}
       mobileViewDisplay={<MobileTransactionActive {...props} />}
     />
-  </Layout>
+
 );
 
 export default TransactionAct;

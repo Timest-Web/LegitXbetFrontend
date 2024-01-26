@@ -5,12 +5,12 @@ import MobileUserDashboard from "./MobileUserDashboard";
 
 const UserDashboard = () => {
 	return (
-		<Layout>
+		
 			<DeviceDisplay
 				mobileViewDisplay={<MobileUserDashboard/>}
 				desktopViewDisplay={<DesktopUserDashboard />}
 			/>
-		</Layout>
+		
 	);
 };
 export default UserDashboard;

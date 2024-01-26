@@ -3,10 +3,11 @@ import SideBar from "./SideBar";
 import HotlineBar from "./HotlineBar";
 import RightSection from "@/src/client/components/LandingPage/DesktopLandingPage/MainSection/RightSection";
 import BannerSection from "./BannerSection";
+import Header from "@/src/client/shared/Header";
 
 const LayoutDashboard = ({ content }: { content: React.JSX.Element }) => {
   return (
-      <div className="bg-[#ECEEF1] w-full h-full pt-24 pb-12">
+    <div> <Header/>    <div className="bg-[#ECEEF1] w-full h-full pt-24 pb-12">
         <div className=" w-full flex justify-evenly">
           <section>
             <SideBar /> 
@@ -17,7 +18,8 @@ const LayoutDashboard = ({ content }: { content: React.JSX.Element }) => {
             <BannerSection/>
           </section>
         </div>
-      </div>
+      </div></div>
+ 
   );
 };
 

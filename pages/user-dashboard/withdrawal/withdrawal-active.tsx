@@ -5,12 +5,10 @@ import DeviceDisplay from '@/src/client/shared/Utils/DeviceDisplay';
 import type { NextPage } from 'next';
 
 const WithdrawalActives: NextPage = (props) => (
-	<Layout>
     <DeviceDisplay
       mobileViewDisplay={<MobileWithdrawalActive {...props} />}
       desktopViewDisplay={<WithdrawalActive {...props} />}
     />
-  </Layout>
 );
 
 export default WithdrawalActives;

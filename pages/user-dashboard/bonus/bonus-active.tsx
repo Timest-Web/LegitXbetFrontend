@@ -5,12 +5,12 @@ import DeviceDisplay from '@/src/client/shared/Utils/DeviceDisplay';
 import type { NextPage } from 'next';
 
 const BonusAct: NextPage = (props) => (
-	<Layout>
+
     <DeviceDisplay
       desktopViewDisplay={<BonusActive {...props} />}
       mobileViewDisplay={<MobileBonusActive {...props} />}
     />
-  </Layout>
+ 
 );
 
 export default BonusAct;

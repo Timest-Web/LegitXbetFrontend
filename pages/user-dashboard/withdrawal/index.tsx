@@ -5,12 +5,10 @@ import MobileWithdrawal from "@/src/client/components/Auth/User/UserDashboard/Mo
 import Layout from "@/src/client/components/Layout";
 
 const Withdrawals: NextPage = (props) => (
-  <Layout>
     <DeviceDisplay
       mobileViewDisplay={<MobileWithdrawal {...props} />}
       desktopViewDisplay={<Withdrawal {...props} />}
     />
-  </Layout>
 );
 
 export default Withdrawals;

@@ -37,12 +37,12 @@ export const USER_HEADER_DATA = [
 			{
 				icon: <User />,
 				title: 'Profile',
-				link: '/user_dashboard/profile/profile_update'
+				link: '/user-dashboard/profile/profile_update'
 			},
 			{
 				icon: <ReceiptSearch />,
 				title: 'Bet History',
-				link: '/user_dashboard/bet_history',
+				link: '/user-dashboard/bet_history',
 			},
 			{
 				icon: <Logout />,

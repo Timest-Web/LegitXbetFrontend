@@ -5,12 +5,10 @@ import DeviceDisplay from "@/src/client/shared/Utils/DeviceDisplay";
 import type { NextPage } from "next";
 
 const UploadedDocument: NextPage = (props) => (
-  <Layout>
     <DeviceDisplay
       desktopViewDisplay={<UploadedDocuments {...props} />}
       mobileViewDisplay={<MobileUploadedDocuments {...props} />}
     />
-  </Layout>
 );
 
 export default UploadedDocument;

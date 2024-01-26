@@ -5,10 +5,11 @@ import SecureText from '../SecureText';
 import { ToastContainer } from 'react-toastify';
 import { signUpValidation } from './FormValidation';
 import { useMutation } from '@tanstack/react-query';
-import { signUp } from '@/src/helper/api/auth';
 import apiMessageHelper from '@/src/helper/apiMessageHelper';
 import { InputField, Password, PhoneNumber, ResponseHint } from '../Input';
 import useDeviceType from '@/src/client/shared/Hooks/useDeviceType';
+import { signUp } from '@/src/helper/apis/services/auth/register.api';
+import { useFormattedPhoneNo } from '@/src/client/shared/Hooks/useFormattedPhoneNo';
 
 type FormProps = {
 	setInputPhoneNo: React.Dispatch<SetStateAction<string>>;
@@ -30,37 +31,44 @@ const Register = ({ setInputPhoneNo, setIsFormSubmit }: FormProps) => {
 	const values = { fullname, email, phoneNo, password };
 	const validationErrors = signUpValidation({ values });
 	const { mutateAsync, isPending } = useMutation({ mutationFn: signUp });
-
+	const { formattedPhoneNo } = useFormattedPhoneNo({ phoneNo });
 	const handleSubmit = () => {
-		const formattedPhoneNo = phoneNo.startsWith('0')
-			? `+234${phoneNo.slice(1)}`
-			: `+234${phoneNo}`;
-		const data = { name: fullname, email, phoneNumber: formattedPhoneNo, password };
+		const data = {
+			name: fullname,
+			email,
+			phoneNumber: formattedPhoneNo,
+			password,
+		};
 
 		if (Object.keys(validationErrors).length === 0) {
-			mutateAsync(data).then((res) => {
+			mutateAsync(data).then((res: any) => {
 				apiMessageHelper({
 					message: res?.message,
 					statusCode: res?.statusCode,
 					onSuccessCallback: () => {
 						setIsFormSubmit(true);
-						setInputPhoneNo(phoneNo)
+						setInputPhoneNo(phoneNo);
 					},
 				});
 			});
 			setErrors({});
 		} else {
-			setErrors(validationErrors)
+			setErrors(validationErrors);
 		}
 	};
 
 	return (
 		<form
 			action='submit'
-			className={`flex flex-col items-center justify-center px-8 ${isMobile ? 'space-y-2' : 'space-y-3'}`}>
+			className={`flex flex-col items-center justify-center px-8 ${
+				isMobile ? 'space-y-2' : 'space-y-3'
+			}`}>
 			<ToastContainer />
 
-			<div className={`flex ${isMobile ? 'flex-col space-y-2' : 'space-x-3'}`}>
+			<div
+				className={`flex ${
+					isMobile ? 'flex-col space-y-2' : 'space-x-3'
+				}`}>
 				<div>
 					<InputField
 						type='text'
@@ -81,21 +89,24 @@ const Register = ({ setInputPhoneNo, setIsFormSubmit }: FormProps) => {
 						label='Email'
 						value={email}
 						setValue={setEmail}
-						placeHolder='abugodwinaj@gmail.com'
+						placeHolder='youremail@gmail.com'
 						borderHint={errors.email ? 'border border-red-600' : ''}
 					/>
 					{errors.email && <ResponseHint err={errors.email} />}
 				</div>
 			</div>
 
-			<div className={`flex ${isMobile ? 'flex-col space-y-2' : 'space-x-3'}`}>
+			<div
+				className={`flex ${
+					isMobile ? 'flex-col space-y-2' : 'space-x-3'
+				}`}>
 				<div>
 					<PhoneNumber
 						type='number'
 						label='Mobile Number'
 						value={phoneNo}
 						setValue={setPhoneNo}
-						placeHolder='e.g 0818 2175 9384'
+						placeHolder='e.g 80x xxxx xxxx'
 						borderHint={
 							errors.phoneNo ? 'border border-red-600' : ''
 						}

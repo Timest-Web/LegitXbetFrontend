@@ -8,13 +8,15 @@ import React, {
 
 
 const AuthOtpCodeInput = ({
+	fieldsNumber,
 	setInputOtpValue,
 }: {
+	fieldsNumber: number,
 	setInputOtpValue: React.Dispatch<SetStateAction<string>>;
 }) => {
 	const [otpValues, setOtpValues] = useState('');
 	const inputRefs = useRef<Array<HTMLInputElement | null>>(
-		Array(6)
+		Array(fieldsNumber)
 			.fill(null)
 			.map(() => null)
 	);

@@ -1,3 +1,10 @@
+type ForgetPasswordProps = {
+  values: {
+    phoneNo: string;
+  };
+};
+
+
 type LoginProps = {
   values: {
     phoneNo: string;
@@ -59,5 +66,19 @@ export const signUpValidation = ({ values }: RegistrationProps) => {
     errors.password = "Password must contain at least one uppercase letter, one lowercase letter, and one number, and password must be at least 8 characters";
   }
 
+  return errors;
+};
+
+
+export const  forgetPasswordValidation = ({ values }: ForgetPasswordProps) => {
+  let errors: { [key: string]: string } = {};
+  const phoneRegex = /^[0-9]{10,11}$/;
+      
+  if (!values.phoneNo) {
+    errors.phoneNo = "Phone Number is Required";
+  } else if (!phoneRegex.test(values.phoneNo)) {
+    errors.phoneNo = "Phone Number must be 10 to 11 numeric value";
+  }
+    
   return errors;
 };

@@ -6,15 +6,22 @@ import DepositContainer from "../../../DesktopUserDashboard/components/Deposit/C
 import WithdrawPop from "../../../DesktopUserDashboard/components/Withdrawal/Components/WithdrawPop";
 import OverviewWelcomeTab from "../../../DesktopUserDashboard/components/Overview/Components/OverviewWelcomeTab";
 import BetHistoryPopUp from "../../../DesktopUserDashboard/components/BetHistory/Components/BetHistoryPopUp";
+import { Accordion } from "@heathmont/moon-core-tw";
+import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
+import {
+  ControlsChevronUp,
+  ControlsChevronDown,
+} from "@heathmont/moon-icons-tw";
+import Link from "next/link";
 
 const MobileOverview = () => {
   const [isDepositModalOpen, setDepositModalOpen] = useState(false);
   const [isWithdrawalModalOpen, setWithdrawalModalOpen] = useState(false);
   const [betHistory, setBetHistory] = useState(false);
 
-  const handleBetHistory = ()=>{
-    setBetHistory(!betHistory)
-  }
+  const handleBetHistory = () => {
+    setBetHistory(!betHistory);
+  };
 
   const handleDepositClick = () => {
     setDepositModalOpen(true);
@@ -28,7 +35,7 @@ const MobileOverview = () => {
     <div>
       <MobileDashboardLayout
         mobilelayoutcontent={
-          <div className="h-full">
+          <div className="h-full overflow-hidden ">
             <div className="flex justify-between">
               <p className=" font-bold mb-4 pt-3 ">Welcome, Johnson</p>
             </div>
@@ -57,16 +64,24 @@ const MobileOverview = () => {
               className="custom-modal-class"
               modalContent={<WithdrawPop />}
             />
-            <div className="bg-white rounded-lg h-12 w-72 p-3 my-4" onClick={handleBetHistory}>
+            <div
+              className="bg-white rounded-lg h-12 w-72 p-3 my-4 flex justify-between"
+              onClick={handleBetHistory}
+            >
               <p>Bet History</p>
+              {betHistory && <ControlsChevronUp />}
+              {!betHistory && <ControlsChevronDown />}
             </div>
-            { betHistory &&
-            <BetHistoryPopUp/>
-            }
-            <div className="bg-white h-12 w-72 p-3 mt-4 mb-16">
-              <p>Deposit History</p>
+            {betHistory && <BetHistoryPopUp />}
+
+            <Link href="/user-dashboard/transaction">
+              <div className="bg-white rounded h-12 w-72 p-3 mt-4 ">
+                <p>Transaction History</p>
+              </div>
+            </Link>
+            <div className="mt-24 ">
+              <OverviewWelcomeTab />
             </div>
-             <div className=""><OverviewWelcomeTab/></div> 
           </div>
         }
       />

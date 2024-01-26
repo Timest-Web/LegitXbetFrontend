@@ -5,12 +5,11 @@ import DeviceDisplay from '@/src/client/shared/Utils/DeviceDisplay';
 import type { NextPage } from 'next';
 
 const BetHistories: NextPage = (props) => (
-	<Layout>
     <DeviceDisplay
       desktopViewDisplay={<BetHistory {...props} />}
       mobileViewDisplay={<MobileBetHistoryInactive {...props} />}
     />
-  </Layout>
+  
 );
 
 export default BetHistories;

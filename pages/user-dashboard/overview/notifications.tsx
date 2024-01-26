@@ -5,12 +5,10 @@ import DeviceDisplay from "@/src/client/shared/Utils/DeviceDisplay";
 import type { NextPage } from "next";
 
 const Notification: NextPage = (props) => (
-  <Layout>
     <DeviceDisplay
       desktopViewDisplay={<Notifications {...props} />}
       mobileViewDisplay={<MobileNotification />}
     />
-  </Layout>
 );
 
 export default Notification;

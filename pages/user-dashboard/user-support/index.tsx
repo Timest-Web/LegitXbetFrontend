@@ -5,12 +5,10 @@ import DeviceDisplay from '@/src/client/shared/Utils/DeviceDisplay';
 import type { NextPage } from 'next';
 
 const Supports: NextPage = (props) => (
-	<Layout>
     <DeviceDisplay
       desktopViewDisplay={<Support {...props} />}
       mobileViewDisplay={<MobileSupportInactive {...props} />}
     />
-  </Layout>
 );
 
 export default Supports;

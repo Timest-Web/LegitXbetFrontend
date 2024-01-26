@@ -6,12 +6,10 @@ import DeviceDisplay from "@/src/client/shared/Utils/DeviceDisplay";
 import type { NextPage } from "next";
 
 const DepositforFlutterwave: NextPage = (props) => (
-	<Layout>
     <DeviceDisplay
       desktopViewDisplay={<DepositFlutterwave {...props} />}
       mobileViewDisplay={<MobileFlutterwave {...props} />}
     />
-  </Layout>
 );
 
 export default DepositforFlutterwave;

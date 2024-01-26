@@ -7,12 +7,10 @@ import DeviceDisplay from '@/src/client/shared/Utils/DeviceDisplay';
 import type { NextPage } from 'next';
 
 const BetUnsettled: NextPage = (props) => (
-	<Layout>
     <DeviceDisplay
       desktopViewDisplay={<LayoutDashboard content={<BetHistoryUnsettled {...props} />}/>}
       mobileViewDisplay={<MobileBetHistoryInactive {...props} />}
     />
-  </Layout>
 );
 
 export default BetUnsettled;

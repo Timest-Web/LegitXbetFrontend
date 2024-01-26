@@ -6,6 +6,7 @@ import { useVisibilityControl } from '../Hooks/useVisibilityControl';
 import Modal from '../Modal';
 import BetSlip from '../BetSlip';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const MobileNavbar = () => {
 	const {
@@ -15,29 +16,17 @@ const MobileNavbar = () => {
 	} = useVisibilityControl();
 	const router = useRouter();
 	const { link, handleClick } = useLink('Home');
-	const onSupportClick = () => {
-		router.push('/user_dashboard/support');
-	};
-	const onDepositClick = () => {
-		router.push('/user_dashboard/deposit');
-	};
 	const { bet } = useBet();
 
 	return (
 		<div className='w-full fixed bottom-0 right-0 left-0'>
 			<div className='flex items-center justify-between px-5 pt-1 border bg-white'>
 				{MOBILE_NAVBAR_DATA.map((value, index) => (
-					<div
+					<Link href={value.href}
 						onClick={() => {
 							handleClick(value.title);
 							{
 								value.title === 'Betslips' && onBetSlipClick();
-							}
-							{
-								value.title === 'Support' && onSupportClick();
-							}
-							{
-								value.title === 'Support' && onSupportClick();
 							}
 						}}
 						className={`flex flex-col items-center justify-center -space-y-1 ${
@@ -63,7 +52,7 @@ const MobileNavbar = () => {
 						) : (
 							<p className='text-white'>•</p>
 						)}
-					</div>
+					</Link>
 				))}
 			</div>
 			{isOpen && (

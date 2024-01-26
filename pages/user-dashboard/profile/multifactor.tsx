@@ -5,12 +5,11 @@ import DeviceDisplay from "@/src/client/shared/Utils/DeviceDisplay";
 import type { NextPage } from "next";
 
 const MultiAuth: NextPage = (props) => (
-  <Layout>
+
     <DeviceDisplay
       desktopViewDisplay={<MultiFactor {...props} />}
       mobileViewDisplay={<MobileMultiFactor {...props} />}
     />
-  </Layout>
 );
 
 export default MultiAuth;

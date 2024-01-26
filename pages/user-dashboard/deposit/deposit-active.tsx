@@ -5,12 +5,12 @@ import DeviceDisplay from '@/src/client/shared/Utils/DeviceDisplay';
 import type { NextPage } from 'next';
 
 const DepositActives: NextPage = (props) => (
-	<Layout>
+	
     <DeviceDisplay
       desktopViewDisplay={<DepositActiveContent {...props} />}
       mobileViewDisplay={<MobileDepositActive {...props} />}
     />
-  </Layout>
+  
 );
 
 export default DepositActives;

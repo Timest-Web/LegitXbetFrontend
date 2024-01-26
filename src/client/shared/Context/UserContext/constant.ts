@@ -3,6 +3,5 @@ export type UserProviderProps = {
 };
 
 export type UserContextType = {
-	userId: string;
 	handleUserLogout: () => void;
 };

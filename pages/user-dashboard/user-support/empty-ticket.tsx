@@ -5,12 +5,12 @@ import DeviceDisplay from "@/src/client/shared/Utils/DeviceDisplay";
 import type { NextPage } from "next";
 
 const EmptyTicket: NextPage = (props) => (
-  <Layout>
+
     <DeviceDisplay
       desktopViewDisplay={<EmptySupportTicket {...props} />}
       mobileViewDisplay={<MobileSupportEmpty {...props} />}
     />
-  </Layout>
+
 );
 
 export default EmptyTicket;

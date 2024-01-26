@@ -5,12 +5,10 @@ import DeviceDisplay from "@/src/client/shared/Utils/DeviceDisplay";
 import type { NextPage } from "next";
 
 const ProfilePassword: NextPage = (props) => (
-  <Layout>
     <DeviceDisplay
       desktopViewDisplay={<UpdatePassword {...props} />}
       mobileViewDisplay={<MobileUpdatePassword {...props} />}
     />
-  </Layout>
 );
 
 export default ProfilePassword;

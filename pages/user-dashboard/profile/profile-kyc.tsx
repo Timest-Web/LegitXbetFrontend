@@ -5,12 +5,10 @@ import DeviceDisplay from "@/src/client/shared/Utils/DeviceDisplay";
 import type { NextPage } from "next";
 
 const ProfileKycComp: NextPage = (props) => (
-  <Layout>
     <DeviceDisplay
       desktopViewDisplay={<ProfileKyc {...props} />}
       mobileViewDisplay={<MobileKycComp />}
     />
-  </Layout>
 );
 
 export default ProfileKycComp;

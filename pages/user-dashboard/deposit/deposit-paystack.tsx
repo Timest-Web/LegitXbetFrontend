@@ -6,12 +6,11 @@ import DeviceDisplay from "@/src/client/shared/Utils/DeviceDisplay";
 import type { NextPage } from "next";
 
 const DepositforPaystack: NextPage = (props) => (
-	<Layout>
     <DeviceDisplay
       desktopViewDisplay={<DepositPaystack {...props} />}
       mobileViewDisplay={<MobilePaystack {...props} />}
     />
-  </Layout>
+ 
 );
 
 export default DepositforPaystack;
