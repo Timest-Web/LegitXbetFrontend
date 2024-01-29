@@ -10,7 +10,7 @@ const CenterSection = () => {
 	const router = useRouter();
 	const urlPathname = router.pathname.split('/')[2];
 	return (
-		<div className='pb-28'>
+		<div className='pb-28 w-full'>
 			{router.pathname !== '/' && (
 				<p className='font-bold'>
 					{urlPathname?.charAt(0).toUpperCase() + urlPathname?.slice(1)}

@@ -6,6 +6,7 @@ import { useVisibilityControl } from '../../Hooks/useVisibilityControl';
 import { useLink } from '../../Hooks/useLink';
 import MobileTopDrawer from '../../Drawer/MobileTopDrawer';
 import AuthContent from '@/src/client/components/Auth/User/UserAuth/Components/AuthContent';
+import Link from 'next/link';
 
 const TopHeader = () => {
 	const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
@@ -13,11 +14,14 @@ const TopHeader = () => {
 
 	return (
 		<div className='flex items-center justify-between px-4 h-12 w-full bg-black'>
-			<Image
-				src={Logo}
-				alt='Logo alt'
-				className='h-4 w-24'
-			/>
+			<Link href='/'>
+				<Image
+					src={Logo}
+					alt='Logo alt'
+					className='h-4 w-24'
+				/>
+			</Link>
+
 			<div className='flex text-white text-xs space-x-2'>
 				<Button
 					text='Log In'

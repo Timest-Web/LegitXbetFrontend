@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import DesktopModal from '../../../Modal';
 import Logo from '../../../../../assets/logo1.png';
@@ -7,9 +7,7 @@ import UserSection from './UserSection';
 import SupportContent from '../../SupportContent';
 import { Button } from '../../../Button';
 import { useLink } from '../../../Hooks/useLink';
-import { useQuery } from '@tanstack/react-query';
 import { OtherCrown } from '@heathmont/moon-icons-tw';
-import { getUserProfile } from '@/src/helper/apis/services/auth/get-user-profile.api';
 import { useVisibilityControl } from '../../../Hooks/useVisibilityControl';
 import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
 import { LINK_CATEGORY_TYPES } from '../../constant';
@@ -17,6 +15,7 @@ import CustomerCareDrawer from '../../../Modal/components/DesktopCustomerCare';
 import useUrlPathChecker from '../../../Hooks/useUrlPathChecker';
 import AuthContent from '../../../../components/Auth/User/UserAuth/Components/AuthContent';
 import { useGetUser } from '../../../Hooks/useGetUser';
+import Link from 'next/link';
 
 const CategoryBetMenu = () => {
 	const { user } = useGetUser('access');
@@ -39,11 +38,13 @@ const CategoryBetMenu = () => {
 		<div className='flex items-center justify-center w-full  bg-black'>
 			<div className='flex items-center justify-between w-[1512px] h-20 px-6'>
 				<div className='flex items-center space-x-24 '>
-					<Image
-						src={Logo}
-						alt='logo alt'
-						className='h-[22px] w-[123px] cursor-pointer'
-					/>
+					<Link href='/'>
+						<Image
+							src={Logo}
+							alt='logo alt'
+							className='h-[22px] w-[123px] cursor-pointer'
+						/>
+					</Link>
 
 					<div className='flex space-x-12 h-20'>
 						{LINK_CATEGORY_TYPES.map((value, index) => (
