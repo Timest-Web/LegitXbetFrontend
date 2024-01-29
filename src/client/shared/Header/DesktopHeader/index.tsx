@@ -8,7 +8,6 @@ const DesktopHeader = () => {
 	return (
 		<div className='w-full fixed z-50 top-0'>
 			<CategoryBetMenu />
-
 			{!isUrlPathIncluded && <SportBetMenu />}
 		</div>
 	);
