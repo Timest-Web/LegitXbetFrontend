@@ -10,7 +10,7 @@ const MobileMenu = () => {
   const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
   const router = useRouter();
   return (
-    <div>
+    <div className="my-2">
       <GenericBurgerRegular onClick={handleClick} className=" text-moon-32 " />
       <MobileLeftDrawer
       closeDrawer={setIsOpen}

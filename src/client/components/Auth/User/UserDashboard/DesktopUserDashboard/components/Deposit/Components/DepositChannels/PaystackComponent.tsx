@@ -1,4 +1,3 @@
-// PaystackButton.tsx
 
 import React from "react";
 import { PaystackButton as Paystack } from "react-paystack";
@@ -16,7 +15,7 @@ const PaystackButton: React.FC<PaystackButtonProps> = ({
   onSuccess,
   onClose,
 }) => {
-  const publicKey = "pk_test_f04f09365862d4c3779d52c1d06c2cf3e283c9e1"; 
+  const publicKey = "pk_test_99abab4cad76e6560d0d1c60a45b5aead67a11f2"; 
 
   const config = {
     reference: new Date().getTime().toString(),

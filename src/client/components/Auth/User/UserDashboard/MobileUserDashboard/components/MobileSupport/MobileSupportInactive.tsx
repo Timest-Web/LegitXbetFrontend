@@ -9,7 +9,7 @@ const MobileSupportInactive = () => {
     <div>
       <MobileDashboardLayout
         mobilelayoutcontent={
-          <div className="pb-16"><SupportInactive/></div>  
+          <div className=""><SupportInactive/></div>  
         }
       />
     </div>

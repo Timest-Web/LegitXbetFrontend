@@ -35,7 +35,7 @@ const MobileOverview = () => {
     <div>
       <MobileDashboardLayout
         mobilelayoutcontent={
-          <div className="h-full overflow-hidden ">
+          <div className="">
             <div className="flex justify-between">
               <p className=" font-bold mb-4 pt-3 ">Welcome, Johnson</p>
             </div>
@@ -65,7 +65,7 @@ const MobileOverview = () => {
               modalContent={<WithdrawPop />}
             />
             <div
-              className="bg-white rounded-lg h-12 w-72 p-3 my-4 flex justify-between"
+              className="bg-white rounded-lg h-12 w-[99.5%] p-3 my-4 flex justify-between"
               onClick={handleBetHistory}
             >
               <p>Bet History</p>
@@ -75,11 +75,11 @@ const MobileOverview = () => {
             {betHistory && <BetHistoryPopUp />}
 
             <Link href="/user-dashboard/transaction">
-              <div className="bg-white rounded h-12 w-72 p-3 mt-4 ">
+              <div className="bg-white rounded h-12 w-[99.5%] p-3 mt-4 ">
                 <p>Transaction History</p>
               </div>
             </Link>
-            <div className="mt-24 ">
+            <div className="mt-24">
               <OverviewWelcomeTab />
             </div>
           </div>

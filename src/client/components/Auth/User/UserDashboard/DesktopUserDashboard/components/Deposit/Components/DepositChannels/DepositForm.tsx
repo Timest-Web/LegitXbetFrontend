@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { BalanceContext } from "@/src/client/shared/Context/BalanceContext/BalanceContext";
 import { useProfileContext } from "@/src/client/shared/Context/PersonalDetailsContext/ProfileContext";
 import PaystackButton from "./PaystackComponent";
@@ -13,10 +13,47 @@ const DepositForm = () => {
   const { balance, setBalance } = useContext(BalanceContext)!;
   const { totalPersonalDetails, handleInputChange } = useProfileContext()!;
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [transactionReference, setTransactionReference] = useState<string | null>(null);
 
   const handlePaymentSuccess = (response: any) => {
     console.log("Payment successful! Transaction ID:", response.reference);
+    setTransactionReference(response.reference);
   };
+
+  useEffect(() => {
+    const apiUrl = 'https://legitx.ng/wallet/deposit';
+
+    const fetchData = async () => {
+      try {
+        if (transactionReference) {
+          const postData = {
+            merchantType: 'paystack',
+            transactionReference: transactionReference,
+          };
+
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Accept': '*/*',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(postData),
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+
+          const data = await response.json();
+          console.log('Response:', data);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchData();
+  }, [transactionReference]);
 
   const handleDepositInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -74,27 +111,21 @@ const DepositForm = () => {
         )}
       </div>
 
-      {/* <button
-        type="submit"
-        className="bg-black text-white text-xs md:text-sm font-medium w-[5.813rem] h-[1.688rem] md:w-32 md:h-10 rounded md:p-2 mt-4 "
-      >
-        Top Up
-      </button> */}
-        <div
+      <div
         aria-disabled={isButtonDisabled}
-          className={
-            isButtonDisabled
-              ? "opacity-50 bg-black text-white text-center text-xs md:text-sm w-20 font-medium p-2 pt-3 md:w-32 md:h-10 rounded mt-4 cursor-pointer"
-              : "bg-black text-white text-center text-xs md:text-sm w-20 font-medium p-2 md:w-32 md:h-10 rounded md:p-2 mt-4"
-          }
-        >
-          <PaystackButton
-            amount={parseInt(formData.depositAmount, 10)}
-            email={"pabloalabanza9@gmail.com"}
-            onSuccess={handlePaymentSuccess}
-            onClose={() => console.log("Payment closed.")}
-          />
-        </div>
+        className={
+          isButtonDisabled
+            ? "opacity-50 bg-black text-white text-center text-xs md:text-sm w-20 font-medium p-2 pt-3 md:w-32 md:h-10 rounded mt-4 cursor-pointer"
+            : "bg-black text-white text-center text-xs md:text-sm w-20 font-medium p-2 md:w-32 md:h-10 rounded md:p-2 mt-4"
+        }
+      >
+        <PaystackButton
+          amount={parseInt(formData.depositAmount, 10)}
+          email={"pabloalabanza9@gmail.com"}
+          onSuccess={handlePaymentSuccess}
+          onClose={() => console.log("Payment closed.")}
+        />
+      </div>
     </form>
   );
 };

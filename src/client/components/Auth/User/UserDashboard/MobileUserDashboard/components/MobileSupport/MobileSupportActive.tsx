@@ -7,7 +7,7 @@ const MobileSupportActive = () => {
     <div>
       <MobileDashboardLayout
         mobilelayoutcontent={
-          <div className="pb-16">
+          <div className="">
             <SupportActiveInner />
           </div>
         }

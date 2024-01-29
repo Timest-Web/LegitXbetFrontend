@@ -14,17 +14,16 @@ const MobileDashboardLayout: React.FC<MobileDashboardLayoutProps> = ({
   mobilelayoutcontent,
 }) => {
   return (
-    <div className="pb-4">
-      <TopHeader/>
-            <div className="bg-[#ECEEF1] min-h-screen w-full px-2 landscape:h-full">
+    <div className="pb-4 min-h-screen bg-[#ECEEF1]">
+      <TopHeader />
+      <div className=" w-full px-2 landscape:h-full">
         <MobileMenu />
-        {mobilelayoutcontent}
+        <div>{mobilelayoutcontent}</div>
         <div>
           <MobileNavbar />
         </div>
       </div>
     </div>
-
   );
 };
 
