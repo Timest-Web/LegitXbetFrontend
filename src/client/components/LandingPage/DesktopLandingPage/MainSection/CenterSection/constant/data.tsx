@@ -25,7 +25,7 @@ export const SPORTS_TYPES = [
 	// { icon: SportHandball, title: 'Handball' },
 ];
 
-export const LINK_GAME_TYPES: { name: string; data?: string[] }[] = [
+export const LINK_ODDS_TYPES: { name: string; data?: string[] }[] = [
 	{ name: '3 Way & O/U' },
 	{ name: 'Over/Under' },
 	{ name: 'Total Goals' },

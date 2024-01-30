@@ -5,7 +5,7 @@ import { useLink } from '@/src/client/shared/Hooks/useLink';
 import { CustomCarousel } from '@/src/client/shared/Carousel';
 import ViewMore from '../../../DesktopLandingPage/MainSection/components/ViewMore';
 import {
-	LINK_GAME_TYPES,
+	LINK_ODDS_TYPES,
 	ODDS_VALUE,
 	SPORTS_TYPES,
 } from '../../../DesktopLandingPage/MainSection/CenterSection/constant/data';
@@ -64,7 +64,7 @@ const renderGameTypes = ({
 	link: string;
 	handleClick: Function;
 }) => {
-	return LINK_GAME_TYPES.map((value, index) => (
+	return LINK_ODDS_TYPES.map((value, index) => (
 		<div
 			key={index}
 			onClick={() => handleClick(value.name)}
@@ -95,8 +95,9 @@ const BetTable = ({
 			<div>
 				<ViewMore
 					icon={icon}
-					contentTitle={contentTitle}
 					collapse={collapse}
+					isLiveTable={isLiveTable}
+					contentTitle={contentTitle}
 					setCollapse={setCollapse}
 				/>
 			</div>
@@ -127,7 +128,8 @@ const BetTable = ({
 						/>
 					</div>
 
-					<div className={`flex items-center pt-3 justify-start text-xs  px-1 border-y border-y-lightAsh bg-darkAsh w-full h-8`}>
+					<div
+						className={`flex items-center pt-3 justify-start text-xs  px-1 border-y border-y-lightAsh bg-darkAsh w-full h-8`}>
 						<CustomCarousel
 							className='flex items-start justify-start w-full'
 							renderCarouselItems={() =>
