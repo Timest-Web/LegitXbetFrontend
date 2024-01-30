@@ -18,17 +18,16 @@ const DepositForm = () => {
   const handlePaymentSuccess = (response: any) => {
     console.log("Payment successful! Transaction ID:", response.reference);
     setTransactionReference(response.reference);
+    fetchData(response.reference)
   };
 
-  useEffect(() => {
     const apiUrl = 'https://legitx.ng/wallet/deposit';
 
-    const fetchData = async () => {
+    const fetchData = async (reference:any) => {
       try {
-        if (transactionReference) {
           const postData = {
             merchantType: 'paystack',
-            transactionReference: transactionReference,
+            transactionReference: reference,
           };
 
           const response = await fetch(apiUrl, {
@@ -46,14 +45,12 @@ const DepositForm = () => {
 
           const data = await response.json();
           console.log('Response:', data);
-        }
+       
       } catch (error) {
         console.error('Error:', error);
       }
     };
 
-    fetchData();
-  }, [transactionReference]);
 
   const handleDepositInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

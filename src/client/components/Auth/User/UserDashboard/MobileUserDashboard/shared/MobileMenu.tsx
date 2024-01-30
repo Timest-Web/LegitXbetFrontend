@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { GenericBurgerRegular } from "@heathmont/moon-icons-tw";
 import SideBar from "../../DesktopUserDashboard/shared/SideBar";
 import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
-import Modal from "@/src/client/shared/Modal";
 import MobileLeftDrawer from "@/src/client/shared/Drawer/MobileLeftDrawer";
 
 const MobileMenu = () => {

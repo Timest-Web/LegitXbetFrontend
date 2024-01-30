@@ -8,7 +8,7 @@ const MobileSupportEmpty = () => {
     <div>
       <MobileDashboardLayout
         mobilelayoutcontent={
-          <div className=""><EmptySupportInner/></div>  
+          <EmptySupportInner/>
         }
       />
     </div>

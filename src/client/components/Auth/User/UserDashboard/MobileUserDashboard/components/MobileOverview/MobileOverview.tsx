@@ -6,8 +6,6 @@ import DepositContainer from "../../../DesktopUserDashboard/components/Deposit/C
 import WithdrawPop from "../../../DesktopUserDashboard/components/Withdrawal/Components/WithdrawPop";
 import OverviewWelcomeTab from "../../../DesktopUserDashboard/components/Overview/Components/OverviewWelcomeTab";
 import BetHistoryPopUp from "../../../DesktopUserDashboard/components/BetHistory/Components/BetHistoryPopUp";
-import { Accordion } from "@heathmont/moon-core-tw";
-import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 import {
   ControlsChevronUp,
   ControlsChevronDown,

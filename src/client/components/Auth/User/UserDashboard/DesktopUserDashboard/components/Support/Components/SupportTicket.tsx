@@ -1,7 +1,9 @@
 import ReceivedIcon from "@/src/client/shared/Svg/ReceivedIcon";
 import ExportIcon from "@/src/client/shared/Svg/ExportIcon";
+import { useState } from "react";
 
 const SupportTicket = () => {
+     
   return (
     <div className="bg-white  rounded-3xl p-8 ">
       <div>
