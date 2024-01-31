@@ -8,7 +8,7 @@ const ProfileUpdate: React.FC = () => {
   const { totalPersonalDetails, handleInputChange } = useProfileContext()!;
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-  // Check localStorage for the form submission flag on mount
+ 
   useEffect(() => {
     const storedFormStatus = localStorage.getItem("isFormSubmitted");
     if (storedFormStatus) {
@@ -21,7 +21,7 @@ const ProfileUpdate: React.FC = () => {
     setIsFormSubmitted(true);
     console.log(totalPersonalDetails);
 
-    // Save the form submission flag to localStorage
+   
     localStorage.setItem("isFormSubmitted", "true");
   };
 
@@ -38,7 +38,7 @@ const ProfileUpdate: React.FC = () => {
                 className=" grid md:grid-cols-2 grid-cols-1 gap-8 "
               >
                 <InputField
-                  label="Firstname"
+                  label="First Name"
                   type="text"
                   placeholder="e.g bayo ojo"
                   value={totalPersonalDetails.firstName}
@@ -47,7 +47,7 @@ const ProfileUpdate: React.FC = () => {
                   }
                 />
                 <InputField
-                  label="Lastname"
+                  label="Last Name"
                   type="text"
                   placeholder="e.g bayo ojo"
                   value={totalPersonalDetails.lastName}
@@ -56,7 +56,7 @@ const ProfileUpdate: React.FC = () => {
                   }
                 />
                 <InputField
-                  label="Date of birth"
+                  label="Date of Birth"
                   type="text"
                   placeholder="23/04/1997"
                   value={totalPersonalDetails.dob}
