@@ -10,12 +10,13 @@ import {
 	ODDS_VALUE,
 	SPORTS_TYPES,
 } from '../constant/data';
-import { LEAGUES_TYPES } from '../../../../constant/data';
+// import { LEAGUES_TYPES } from '../../../../constant/data';
 import { Carousel } from '@heathmont/moon-core-tw';
 import {
 	ControlsChevronLeftSmall,
 	ControlsChevronRightSmall,
 } from '@heathmont/moon-icons-tw';
+import { getNextThreeDates } from '@/src/client/shared/Utils/GetSportsDate';
 
 type DateItemProps = {
 	value: string;
@@ -29,31 +30,79 @@ const TopMatches = () => (
 	</div>
 );
 
-const DateItem: React.FC<DateItemProps> = ({ value, isToday }) => (
-	<div
-		className={`${
-			isToday ? 'text-gray-200' : 'text-gray-400'
-		} text-xs cursor-default`}>
-		{value === 'All Matches' ? <TopMatches /> : <p>{value}</p>}
-	</div>
-);
+const DateItem: React.FC<DateItemProps> = ({ value, isToday }) => {
+	function formatDate(inputDate: any) {
+		const currentDate = new Date();
+		const inputDateObject = new Date(inputDate);
+	
+		if (
+			inputDateObject.getDate() === currentDate.getDate() &&
+			inputDateObject.getMonth() === currentDate.getMonth() &&
+			inputDateObject.getFullYear() === currentDate.getFullYear()
+		) {
+			return "Today";
+		} else {
+			const day = inputDateObject.getDate();
+			const monthNames = [
+				"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+				"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+			];
+			const month = monthNames[inputDateObject.getMonth()];
+			return `${day} ${month}`;
+		}
+	}
+	
+	
+	return (
+		<div
+			className={`${
+				isToday ? 'text-gray-200' : 'text-gray-400'
+			} text-[10px] cursor-pointer`}>
+			{value === 'All Matches' ? <TopMatches /> : <p>{value}</p>}
+		</div>
+	)
+
+};
+
 
 const BetTable = ({
+	odds,
 	icon,
+	leagues,
 	contentTitle,
 	isLiveTable,
+	sportData,
+	sportsType,
 }: {
+	odds: string[],
+	leagues: string[],
+	sportData: any,
+	sportsType: any,
 	icon?: ReactElement;
 	contentTitle: string;
 	isLiveTable: boolean;
 }) => {
+    const nextThreeDates = getNextThreeDates();
 	const [collapse, setCollapse] = useState(false);
 	const { link, handleClick } = useLink('3 Way & O/U');
-	const { link: sportTypeLink, handleClick: sportTypeHandleClick } =
-		useLink('Football');
-	const { link: oddsTypeLink, handleClick: oddsTypeHandleClick } = useLink(
-		'International Africa Cup of Nations'
-	);
+	const { link: sportTypeLink, handleClick: sportTypeHandleClick } = useLink('Football');
+	const { link: oddsTypeLink, handleClick: oddsTypeHandleClick } = useLink('International Africa Cup of Nations');
+
+
+	// console.log(sportData);
+	// let extractedArray = [];
+	// extractedArray = sportData.map((item: any) => ({
+	// 		leagues: item.leagues,
+	// 		price: item.odds,
+	// 		medicationSize: item.sportType,
+	// 		manufacturerName: item.sportsLeagues,
+	// 	})).reverse();
+
+	// console.log(extractedArray);
+	// console.log(odds);
+	// console.log(sportsType);
+	const filteredSports = SPORTS_TYPES.filter(sport => sportsType.includes(sport.title));
+	
 
 	return (
 		<>
@@ -67,26 +116,33 @@ const BetTable = ({
 				/>
 			</div>
 
-			<div className='w-full  rounded-xl mt-2'>
-				<div className='flex items-center justify-between h-10 rounded-t-lg bg-lightAsh  w-full py-3 px-5'>
-					<div className='flex items-center space-x-8'>
-						{BETDATES.map((value, index) => (
-							<DateItem
-								key={index}
-								value={value}
-								isToday={value === 'Today'}
-							/>
-						))}
+			<div className='w-full rounded-xl mt-2'>
+				<div className='flex items-center justify-between h-10 rounded-t-lg bg-lightAsh w-full py-3 px-5'>
+					<div className='flex space-x-2'>
+						<div className='flex items-center justify-center space-x-1 text-white text-[12px]'>
+							<p className='text-gray-400'>All Matches</p>
+							<RightArrow />
+						</div>
+                    	<div className='flex items-center space-x-8'>
+							{nextThreeDates.map((value, index) => (
+								<DateItem
+									key={index}
+									value={value}
+									isToday={value === 'Today'}
+								/>
+							))}
+					    </div>
 					</div>
+
 					{collapse && (
-						<p className='text-gray-300 text-[10px]'>
+						<p className='text-white text-[10px]'>
 							Expand to view game odds
 						</p>
 					)}
 				</div>
 
-				<div className='flex items-center space-x-2 border-t border-t-gray-800  w-full py-2 px-4 bg-lightAsh text-sm'>
-					{SPORTS_TYPES.map((value, index) => (
+				<div className='flex items-center space-x-2 border-t border-t-gray-800 py-2 px-4 bg-lightAsh text-sm'>
+					{filteredSports.map((value, index) => (
 						<div
 							key={index}
 							onClick={() => sportTypeHandleClick(value.title)}
@@ -109,8 +165,8 @@ const BetTable = ({
 						<ControlsChevronLeftSmall />
 					</Carousel.LeftArrow>
 					<Carousel.Reel
-						className={`flex items-center justify-start  w-full border-t border-t-gray-800 bg-lightAsh text-sm px-4 py-2`}>
-						{LEAGUES_TYPES.map((title, index) => (
+						className={`flex items-center justify-start w-full border-t border-t-gray-800 bg-lightAsh text-sm px-4 py-2`}>
+						{leagues.map((title, index) => (
 							<Carousel.Item key={index}>
 								<div
 									onClick={() => oddsTypeHandleClick(title)}
@@ -134,16 +190,17 @@ const BetTable = ({
 						className={`flex items-center space-x-4 text-xs  px-3 ${
 							!collapse && 'border-b border-b-gray-800'
 						} h-10`}>
-						{LINK_ODDS_TYPES.map((value, index) => (
+						{odds.map((value:string, index: number) => (
 							<div
 								key={index}
-								onClick={() => handleClick(value.name)}
+								onClick={() => handleClick(value)}
 								className={`${
-									value.name === link
+									value === link
 										? 'text-gray-200'
 										: 'text-gray-600'
 								} p-2 cursor-pointer hover:text-gray-200`}>
-								{value.data
+									{value}
+								{/* {value.data
 									? value.data && (
 											<DropDown
 												title={value.name}
@@ -151,7 +208,7 @@ const BetTable = ({
 												hoverBgColor='hover:bg-lightAsh'
 											/>
 									  )
-									: value.name}
+									: value.name} */}
 							</div>
 						))}
 					</div>
