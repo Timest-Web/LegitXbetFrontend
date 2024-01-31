@@ -1,6 +1,7 @@
 import React from "react";
-import KycComp from "./InnerComps/KycComp";
 import LayoutDashboard from "../../../shared/LayoutDashboard";
+import KycComp from "./InnerComps/KycComp";
+
 
 
 const ProfileKyc = () => {

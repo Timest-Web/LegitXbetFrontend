@@ -1,13 +1,15 @@
 import ReceivedIcon from "@/src/client/shared/Svg/ReceivedIcon";
 import ExportIcon from "@/src/client/shared/Svg/ExportIcon";
+import { useState } from "react";
 
 const SupportTicket = () => {
+     
   return (
-    <div className="bg-white w-[54.8125rem] h-full rounded-3xl p-12 ">
+    <div className="bg-white  rounded-3xl p-8 ">
       <div>
         <h2 className="font-bold">Support/tickets</h2>
         <hr className="mt-6 mb-6"></hr>
-        <table className="w-full">
+        <table className="w-full hidden md:block">
           <tr className=" text-left ">
             <th>Username</th>
             <th>Email</th>
@@ -45,7 +47,7 @@ const SupportTicket = () => {
            <div className="p-1"><ExportIcon /></div> 
           </div>
         </div>
-        <textarea className="bg-[#F5F5F5] w-[49.3125rem] h-[13.8125rem] mt-6 mb-6 "></textarea>
+        <textarea className="bg-[#F5F5F5] w-[80vw] h-[18vh] md:w-[50vw] md:h-[20vh] mt-6 mb-6 p-2 "></textarea>
         <div className="flex justify-end items-end">
           <button className="text-[#5D5D5D]  w-[8.25rem] h-[2.1875rem] border border-solid rounded-sm">
             Open a ticket

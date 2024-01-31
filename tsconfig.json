@@ -17,6 +17,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/client/components/Auth/User/UserDashboard/BetHistory/Constant/data"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/client/components/Auth/User/UserDashboard/BetHistory/Constant/data", "src/client/components/Auth/User/UserDashboard/DesktopUserDashboard/components/Overview/Components/NotificationsLayout"],
   "exclude": ["node_modules"]
 }

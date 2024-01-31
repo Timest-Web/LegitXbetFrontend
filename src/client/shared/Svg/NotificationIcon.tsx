@@ -1,8 +1,7 @@
 const NotificationIcon = () => {
   return (
     <svg
-      width="30"
-      height="30"
+      className="w-[24px] h-[24px] "
       viewBox="0 0 30 30"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

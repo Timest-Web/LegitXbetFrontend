@@ -37,7 +37,7 @@ const Login = ({
 					message: res?.message,
 					statusCode: res?.statusCode,
 					onSuccessCallback: () => {
-						push('/user_dashboard');
+						push('/user-dashboard');
 					},
 				});
 

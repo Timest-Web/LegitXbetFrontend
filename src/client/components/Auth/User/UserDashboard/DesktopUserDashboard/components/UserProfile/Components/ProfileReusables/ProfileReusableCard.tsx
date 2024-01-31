@@ -7,7 +7,7 @@ interface ProfileReusableProps {
 const ProfileReusableCard: React.FC<ProfileReusableProps> = ({ profileContent }) => {
     
   return (
-    <div className="bg-white w-[full] h-[40.5rem] rounded-2xl p-12 mt-4">
+    <div className="bg-white w-[full] md:h-[32rem] rounded-2xl py-6 px-8 md:p-12 mt-4">
       {profileContent}
     </div>
   );

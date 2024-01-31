@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import BetWC from "../../../assets/BonusWC.png";
+import BetWC from "../../../../assets/BonusWC.png";
 import AllBetTable from "../../../shared/InactiveTable";
 
 const BonusInner = () => {
@@ -16,12 +16,15 @@ const BonusInner = () => {
   return (
     <div className="flex flex-col space-y-7 ">
         <Image src={BetWC} alt="betwc"/>
+
       <div>
         <AllBetTable
           title="Bonus & Promotions"
           headers={headers}
           noBetsMessage="No active Bonus"
           placeBetButtonText={undefined}
+          buttonLink=""
+          buttonAction={undefined}
         />
       </div>
     </div>

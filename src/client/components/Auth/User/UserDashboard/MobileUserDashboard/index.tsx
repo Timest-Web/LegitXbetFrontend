@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import MobileOverview from "./components/MobileOverview/MobileOverview";
 
-const MobileUserDeshboard = () => {
+
+
+
+const MobileUserDashboard = () => {
   return (
-    <div>
-      This mobile userdashboard
+    <div className="  " >
+      <MobileOverview/>
     </div>
-  )
-}
+  );
+};
 
-export default MobileUserDeshboard
+export default MobileUserDashboard;

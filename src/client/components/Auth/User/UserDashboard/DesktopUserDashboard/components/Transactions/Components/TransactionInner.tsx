@@ -1,5 +1,5 @@
 import React from "react";
-import TransactionInactiveHeader from "../Constants/TransactionInactiveHeaders";
+import TransactionInactiveHeader from "./TransactionInactiveHeaders";
 import AllBetTable from "../../../shared/InactiveTable";
 
 const TransactionInner = () => {
@@ -12,6 +12,7 @@ const TransactionInner = () => {
           headers={headers}
           noBetsMessage="No transactions recorded"
           placeBetButtonText={undefined}
+          buttonLink=""
         />
       </div>
     </div>

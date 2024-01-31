@@ -1,10 +1,12 @@
 import React from "react";
 import AllBetTable from "../../../shared/InactiveTable";
+import BetStatusTab from "./BetStatusTab";
+import BetHistoryPopUp from "./BetHistoryPopUp";
 
 const BetInnerComp = () => {
   const headers = [
     "No",
-    "BetId",
+    "Bet ID",
     "Date",
     "Status",
     "Amount",
@@ -14,12 +16,14 @@ const BetInnerComp = () => {
   return (
     <div className="">
       <div>
-        <AllBetTable
-          title="Bet History"
-          headers={headers}
-          noBetsMessage="No Bet found yet"
-          placeBetButtonText="Bet Now"
-        />
+      <BetStatusTab isAll/>
+          <div className="mt-8 space-y-3">
+          <BetHistoryPopUp/>
+          <BetHistoryPopUp/>
+          <BetHistoryPopUp/>
+          <BetHistoryPopUp/>
+          </div>
+            
       </div>
     </div>
   );

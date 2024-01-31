@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import WithdrawPop from './WithdrawPop';
-import { useVisibilityControl } from '@/src/client/shared/Hooks/useVisibilityControl';
-import WithdrawalInactiveHeader from '../Constants/WithdrawalInactiveTableWeather';
-import BalanceCard from '../../../shared/BalanceCard';
-import AllBetTable from '../../../shared/InactiveTable';
-import DesktopModal from '@/src/client/shared/Modal';
+import React, { useState } from "react";
+import WithdrawPop from "./WithdrawPop";
+import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
+import WithdrawalInactiveHeader from "./WithdrawalInactiveTableHeader";
+import BalanceCard from "../../../shared/BalanceCard";
+import AllBetTable from "../../../shared/InactiveTable";
+import Modal from '@/src/client/shared/Modal';
 
 const WithdrawalInner = () => {
 	const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
@@ -14,7 +14,9 @@ const WithdrawalInner = () => {
 			<div className=' flex space-x-4'>
 				<BalanceCard
 					buttonState={true}
-					buttonText='Withdraw'
+					secondButton={false}
+					firstButtonText="Withdraw"
+					secondButtonText=""
 					balanceButtonAction={handleClick}
 				/>
 			</div>
@@ -25,9 +27,10 @@ const WithdrawalInner = () => {
 					noBetsMessage='No transactions recorded'
 					placeBetButtonText='Withdraw'
 					buttonAction={handleClick}
+					buttonLink=""
 				/>
 			</div>
-			<DesktopModal
+			<Modal
 				openModal={isOpen}
 				setOpenModal={setIsOpen}
 				className='custom-modal-class'

@@ -23,12 +23,12 @@ export const MOBILE_NAVBAR_DATA = [
 		title: 'Betslips',
 	},
 	{
-		href: 'user_dashboard/deposit',
+		href: 'user-dashboard/deposit',
 		icon: SoftwareLogin,
 		title: 'Deposit',
 	},
 	{
-		href: 'user_dashboard',
+		href: 'user-dashboard',
 		icon: GenericUser,
 		title: 'Account'
 	}

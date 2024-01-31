@@ -6,12 +6,12 @@ import ProfileReusableCard from "../ProfileReusables/ProfileReusableCard";
 
 const MultiFactorInner = () => {
   return (
-    <div>
+    <div className="pb-24 md:pb-0">
       <ProfileVeriReuse isInsideSecurityComp />
       <ProfileReusableCard
         profileContent={
           <div>
-            <MultiReuse />
+            <MultiReuse isInsideMultiAuth />
             <form className="flex flex-col space-y-16">
               <section className="flex space-x-8">
                 <div className="flex space-x-5">
@@ -38,7 +38,7 @@ const MultiFactorInner = () => {
                 </div>
               </section>
 
-              <div className="flex space-x-10">
+              <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-10">
                 <input
                   type="text"
                   className="bg-[#ECEEF1] w-[19.0625rem] h-[2.8125rem] p-2 rounded"

@@ -3,14 +3,14 @@ import DepositContainer from './DepositModal/DepositContainer';
 import { useVisibilityControl } from '@/src/client/shared/Hooks/useVisibilityControl';
 import BalanceCard from '../../../shared/BalanceCard';
 import AllBetTable from '../../../shared/InactiveTable';
-import DesktopModal from '@/src/client/shared/Modal';
+import Modal from '@/src/client/shared/Modal';
 
 const DepositInner = () => {
 	const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
 
 	const headers = [
 		'No',
-		'Reference Id',
+		'Reference ID',
 		'Date',
 		'Status',
 		'Amount',
@@ -21,7 +21,9 @@ const DepositInner = () => {
 			<div className=' flex space-x-4'>
 				<BalanceCard
 					buttonState={true}
-					buttonText='Deposit'
+					secondButton={false}
+					firstButtonText='Deposit'
+					secondButtonText=''
 					balanceButtonAction={handleClick}
 				/>
 			</div>
@@ -32,9 +34,10 @@ const DepositInner = () => {
 					noBetsMessage='No transactions recorded'
 					placeBetButtonText='Deposit'
 					buttonAction={handleClick}
+					buttonLink=''
 				/>
 			</div>
-			<DesktopModal
+			<Modal
 				openModal={isOpen}
 				setOpenModal={setIsOpen}
 				className='custom-modal-class'

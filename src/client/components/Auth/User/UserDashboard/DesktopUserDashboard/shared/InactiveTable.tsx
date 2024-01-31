@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import PlaceBetIcon from "@/src/client/shared/Svg/AllReceipt";
-import SearchIcon from "@/src/client/shared/Svg/SearchIcon";
-import FilterSearch from "@/src/client/shared/Svg/FilterSearch";
-import ArrowDownIcon from "@/src/client/shared/Svg/ArrowDownIcon";
+import { Carousel } from "@heathmont/moon-core-tw";
+import { CustomCarousel } from "@/src/client/shared/Carousel";
+import SearchFilter from "./SearchAndFilter";
+import Link from "next/link";
 
 interface AllBetTableProps {
   title: string;
@@ -10,6 +11,8 @@ interface AllBetTableProps {
   noBetsMessage: string;
   placeBetButtonText: string | undefined;
   buttonAction?: () => void;
+  betStatus?: React.JSX.Element;
+  buttonLink: string;
 }
 
 const AllBetTable: React.FC<AllBetTableProps> = ({
@@ -18,45 +21,47 @@ const AllBetTable: React.FC<AllBetTableProps> = ({
   noBetsMessage,
   placeBetButtonText,
   buttonAction,
+  betStatus,
+  buttonLink
 }) => {
+  const renderCarouselItems = () => {
+    return headers.map((header, index) => (
+      <Carousel.Item key={index}>
+        <div>{header}</div>
+      </Carousel.Item>
+    ));
+  };
+
   return (
-    <div className="w-full">
-      <div className="flex justify-between px-8">
-        <h2 className="font-bold">{title}</h2>
-        <div className="flex space-x-2 relative">
-          <input
-            type="text"
-            placeholder="Search"
-            className=" bg-searchIcon bg-no-repeat bg-[center_left_1rem] border-[#292D32] border w-[14.0625rem] h-[2.5625rem] rounded-[2.1875rem] pl-12 bg-[#ECEEF1]"
-          />
-          <input
-            className=" border-[#292D32] border w-[8.4375rem] h-[2.1875rem] bg-[#ECEEF1] p-2 mt-[0.15rem]"
-          />
-          <div className="absolute top-2 right-4 flex space-x-2">
-            <FilterSearch />
-            <h2>Filter By</h2>
-            <ArrowDownIcon />
-          </div>
-        </div>
+    <div className="md:w-full">
+      <div className="md:flex md:justify-between md:px-8">
+        <section>
+          <h2 className="hidden md:block font-bold ">{title}</h2>
+         <div className="mt-6" >{betStatus}</div> 
+        </section>
+        <SearchFilter />
       </div>
-      <div className="bg-white w-full h-[34rem] rounded-[1.25rem] p-8 mt-4">
+      <div className="bg-white w-full h-[50vh] md:h-[34rem] rounded-[1.25rem] p-4 md:mb-4 md:p-8 mt-4">
         <div>
-          <ul className="font-bold flex justify-between px-4">
+          <ul className="hidden font-bold md:flex justify-between px-4">
             {headers.map((header, index) => (
               <li key={index}>{header}</li>
             ))}
           </ul>
+          <div className="md:hidden font-bold">
+            <CustomCarousel renderCarouselItems={renderCarouselItems} />
+          </div>
           <hr />
-          <div className="flex flex-col justify-center items-center mt-36 space-y-4">
+          <div className="flex flex-col place-items-center h-72 md:h-96 justify-center items-center space-y-4">
             <PlaceBetIcon />
             <h3>{noBetsMessage}</h3>
             {placeBetButtonText && (
-              <button
+            <Link href={buttonLink}> <button
                 onClick={buttonAction}
                 className="w-[8rem] h-[2.375rem] rounded-md bg-black p-2 text-white"
               >
                 {placeBetButtonText}
-              </button>
+              </button></Link> 
             )}
           </div>
         </div>
