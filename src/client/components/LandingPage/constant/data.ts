@@ -14,19 +14,19 @@ export const SPORTS_DATA = {
             {
                   sportType: 'Football',
                   leagues: [
-                        "International Clubs UEFA Champions League",
                         "England Premier League",
                         "England EFL Cup",
+                        "International Clubs UEFA Champions League",
                         "International Africa Cup of Nations",
                         "International Euro Cup",
-                        "Spain LaLiga",
-                        "Italy Serie A",
+                        "Spain Laliga",
+                        "Italy Series A",
                   ],
-                  odds: ['3 Way & O/U', 'Over/Under', 'Total Goals', 'Draw No Bet', 'Double Chance', 'Handicapped'],
-                  sportsLeagues: {
-                        iacn: [
+                  odds: ['Over/Under', 'Draw No Bet', '3 Way & O/U', 'Total Goals', 'Double Chance', 'Handicapped'],
+                  sportsLeagues: [
                               {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Web Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -51,7 +51,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Web Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -66,7 +67,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '08:00',
@@ -101,7 +103,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Fri Jan 2 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Fri Feb 4 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -125,10 +128,9 @@ export const SPORTS_DATA = {
                                           },
                                     ]
                               },
-                        ],
-                        iec: [
                               {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
+                                    leagueName:  "International Euro Cup",
+                                    date: 'Web Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -153,7 +155,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
+                                    leagueName:  "International Euro Cup",
+                                    date: 'Web Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -168,7 +171,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName:  "International Euro Cup",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '08:00',
@@ -202,10 +206,9 @@ export const SPORTS_DATA = {
                                           },
                                     ]
                               },
-                        ],
-                        epl: [
                               {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
+                                    leagueName:  "England Premier League",
+                                    date: 'Web Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -230,7 +233,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
+                                    leagueName:  "England Premier League",
+                                    date: 'Web Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -245,7 +249,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName:  "England Premier League",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '08:00',
@@ -279,10 +284,9 @@ export const SPORTS_DATA = {
                                           },
                                     ]
                               },
-                        ],
-                        icucl: [
                               {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Web Feb 4 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '13:00',
@@ -347,7 +351,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Web Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:00',
@@ -372,7 +377,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '08:00',
@@ -397,7 +403,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '07:00',
@@ -431,9 +438,8 @@ export const SPORTS_DATA = {
                                           },
                                     ]
                               },
-                        ],
-                        eflCup: [
                               {
+                                    leagueName: "England EFL Cup",
                                     date: 'Fri Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
@@ -457,10 +463,9 @@ export const SPORTS_DATA = {
                                                 loseType: '3.2'
                                           },
                                     ]
-                              }
-                        ],
-                        laLiga: [
+                              },
                               {
+                                    leagueName: 'Spain Laliga',
                                     date: 'Fri Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
@@ -484,10 +489,9 @@ export const SPORTS_DATA = {
                                                 loseType: '3.5'
                                           },
                                     ]
-                              }
-                        ],
-                        serieA: [
+                              },
                               {
+                                    leagueName: "Italy Series A",
                                     date: 'Fri Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
@@ -511,9 +515,10 @@ export const SPORTS_DATA = {
                                                 loseType: '3.5'
                                           },
                                     ]
-                              }
-                        ]
-                  },
+                              }  
+                        ],
+
+
             },
 
 
@@ -521,433 +526,439 @@ export const SPORTS_DATA = {
                   sportType: 'Basketball',
                   leagues: ["NBA", "WNBA", "NBA G League", "NBA 2K League", "Basketball Africa League"],
                   odds: ['Over/Under', 'Draw No Bet', 'Double Chance', 'Handicapped'],
-                  sportsLeagues: {
-                  nba: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Caltics',
-                                                teamTwo: 'Bucks',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                          {
-                                                time: '00:24',
-                                                teamOne: '76ers',
-                                                teamTwo: 'Knicks',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '3',
-                                                winType: '2',
-                                                drawType: '1.7',
-                                                loseType: '2.1'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Cavailiers',
-                                                teamTwo: 'Pacers',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '08:00',
-                                                teamOne: 'Heat',
-                                                teamTwo: 'Magic',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '3',
-                                                drawType: '1.4',
-                                                loseType: '2.2'
-                                          },
-                                          {
-                                                time: '06:00',
-                                                teamOne: 'Bulls',
-                                                teamTwo: 'Hawks',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '1.0',
-                                                drawType: '2',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '11:23',
-                                                teamOne: 'Raptors',
-                                                teamTwo: 'Hormets',
-                                                teamOneScore: '4',
-                                                teamTwoScore: '0',
-                                                winType: '3',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Fri Jan 2 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Parces',
-                                                teamTwo: 'Cavailiers',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                          {
-                                                time: '15:23',
-                                                teamOne: 'Magic',
-                                                teamTwo: 'Heat',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '0',
-                                                winType: '3.0',
-                                                drawType: '1.0',
-                                                loseType: '2.23'
-                                          },
-                                          {
-                                                time: '15:23',
-                                                teamOne: 'Wizards',
-                                                teamTwo: 'Pistons',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '0',
-                                                winType: '3.0',
-                                                drawType: '1.0',
-                                                loseType: '2.23'
-                                          },
-                                    ]
-                              },
-                        ],
+                  sportsLeagues: [
+                        {
+                              leagueName: 'NBA',
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Caltics',
+                                          teamTwo: 'Bucks',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                                    {
+                                          time: '00:24',
+                                          teamOne: '76ers',
+                                          teamTwo: 'Knicks',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '3',
+                                          winType: '2',
+                                          drawType: '1.7',
+                                          loseType: '2.1'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: 'NBA',
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Cavailiers',
+                                          teamTwo: 'Pacers',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: 'NBA',
+                              date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '08:00',
+                                          teamOne: 'Heat',
+                                          teamTwo: 'Magic',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '3',
+                                          drawType: '1.4',
+                                          loseType: '2.2'
+                                    },
+                                    {
+                                          time: '06:00',
+                                          teamOne: 'Bulls',
+                                          teamTwo: 'Hawks',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '1.0',
+                                          drawType: '2',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '11:23',
+                                          teamOne: 'Raptors',
+                                          teamTwo: 'Hormets',
+                                          teamOneScore: '4',
+                                          teamTwoScore: '0',
+                                          winType: '3',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: 'NBA',
+                              date: 'Fri Jan 4 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Parces',
+                                          teamTwo: 'Cavailiers',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                                    {
+                                          time: '15:23',
+                                          teamOne: 'Magic',
+                                          teamTwo: 'Heat',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '0',
+                                          winType: '3.0',
+                                          drawType: '1.0',
+                                          loseType: '2.23'
+                                    },
+                                    {
+                                          time: '15:23',
+                                          teamOne: 'Wizards',
+                                          teamTwo: 'Pistons',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '0',
+                                          winType: '3.0',
+                                          drawType: '1.0',
+                                          loseType: '2.23'
+                                    },
+                                    
+                              ],
+                              
+                        },
+                        {
+                              leagueName:'WNBA',
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '15:05',
+                                          teamOne: 'Washington Mystics',
+                                          teamTwo: 'New York Liberty W',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '3',
+                                          drawType: '3.4',
+                                          loseType: '5.23'
+                                    },
+                                    {
+                                          time: '15:24',
+                                          teamOne: 'Connecticut Sun W',
+                                          teamTwo: 'Indiana Fever W',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '2.0',
+                                          drawType: '0.0',
+                                          loseType: '1.9'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName:'WNBA',
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Cape Verde',
+                                          teamTwo: 'Senegal',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName:'WNBA',
+                              date: 'Thu Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '08:00',
+                                          teamOne: 'Las Vegas Aces W',
+                                          teamTwo: 'Phonenix Mercury W',
+                                          teamOneScore: '1',
+                                          teamTwoScore: '0',
+                                          winType: '4.0',
+                                          drawType: '1.4',
+                                          loseType: '3.5'
+                                    },
+                                    {
+                                          time: '06:00',
+                                          teamOne: 'Seattle Storm W',
+                                          teamTwo: 'Minnesota Lynx W',
+                                          teamOneScore: '4',
+                                          teamTwoScore: '2',
+                                          winType: '1.0',
+                                          drawType: '2',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '11:23',
+                                          teamOne: 'Dallas Wings W',
+                                          teamTwo: 'Chicago Sky W',
+                                          teamOneScore: '4',
+                                          teamTwoScore: '0',
+                                          winType: '2.0',
+                                          drawType: '1.6',
+                                          loseType: '1.43'
+                                    },
+                              ]
+                        },
+ 
+                        {
+                              leagueName: "NBA G League", 
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Minnesota Lynx W',
+                                          teamTwo: 'Seatle Storm',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '3',
+                                          drawType: '3.4',
+                                          loseType: '5.23'
+                                    },
+                                    {
+                                          time: '00:24',
+                                          teamOne: 'Atlanta Dream',
+                                          teamTwo: 'Dallas Wing',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '2.0',
+                                          drawType: '0.0',
+                                          loseType: '1.9'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: "NBA G League", 
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Grand Rapids Gold',
+                                          teamTwo: 'Motor City Cruise',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: "NBA G League", 
+                              date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '08:00',
+                                          teamOne: 'Wisconsin Herd',
+                                          teamTwo: 'Windy City Bulls',
+                                          teamOneScore: '22',
+                                          teamTwoScore: '20',
+                                          winType: '4.0',
+                                          drawType: '1.4',
+                                          loseType: '3.5'
+                                    },
+                                    {
+                                          time: '06:00',
+                                          teamOne: 'Motor City Cruise',
+                                          teamTwo: 'Lowa Wolves',
+                                          teamOneScore: '12',
+                                          teamTwoScore: '10',
+                                          winType: '1.0',
+                                          drawType: '2',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '11:23',
+                                          teamOne: 'College Park Skyhawks',
+                                          teamTwo: 'Delaware Blue Coats',
+                                          teamOneScore: '32',
+                                          teamTwoScore: '11',
+                                          winType: '2.0',
+                                          drawType: '1.6',
+                                          loseType: '1.43'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName:  "NBA 2K League",
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '13:00',
+                                          teamOne: 'Warriors Gamming Squad',
+                                          teamTwo: 'T-Wolves Gaming',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '0',
+                                          winType: '1.1',
+                                          drawType: '2.0',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '17:30',
+                                          teamOne: 'Arsenal',
+                                          teamTwo: 'Pistons GT',
+                                          teamOneScore: '1',
+                                          teamTwoScore: '2',
+                                          winType: '1.2',
+                                          drawType: '0.0',
+                                          loseType: '1.0'
+                                    },
+                                    {
+                                          time: '19:30',
+                                          teamOne: 'Pacers Gaming',
+                                          teamTwo: 'Gizz Gaming',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '2',
+                                          winType: '1.14',
+                                          drawType: '5.0',
+                                          loseType: '4.5'
+                                    },
+                                    {
+                                          time: '17:30',
+                                          teamOne: 'Dux Infinitos',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '1.2',
+                                          drawType: '0.0',
+                                          loseType: '1.0'
+                                    },
+                                    {
+                                          time: '20:00',
+                                          teamOne: 'Lakers Gaming',
+                                          teamTwo: 'Kings Guard Gaming',
+                                          teamOneScore: '7',
+                                          teamTwoScore: '0',
+                                          winType: '2.3',
+                                          drawType: '4.0',
+                                          loseType: '3.5'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName:  "NBA 2K League",
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:00',
+                                          teamOne: 'Galatasaray',
+                                          teamTwo: 'BSC Young Boys',
+                                          teamOneScore: '8',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                                    {
+                                          time: '00:00',
+                                          teamOne: 'SSC Napoli',
+                                          teamTwo: 'Braga',
+                                          teamOneScore: '8',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
 
-                              wnba: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '15:05',
-                                                teamOne: 'Washington Mystics',
-                                                teamTwo: 'New York Liberty W',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '3',
-                                                drawType: '3.4',
-                                                loseType: '5.23'
-                                          },
-                                          {
-                                                time: '15:24',
-                                                teamOne: 'Connecticut Sun W',
-                                                teamTwo: 'Indiana Fever W',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '2.0',
-                                                drawType: '0.0',
-                                                loseType: '1.9'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Cape Verde',
-                                                teamTwo: 'Senegal',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Thu Feb 2 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '08:00',
-                                                teamOne: 'Las Vegas Aces W',
-                                                teamTwo: 'Phonenix Mercury W',
-                                                teamOneScore: '1',
-                                                teamTwoScore: '0',
-                                                winType: '4.0',
-                                                drawType: '1.4',
-                                                loseType: '3.5'
-                                          },
-                                          {
-                                                time: '06:00',
-                                                teamOne: 'Seattle Storm W',
-                                                teamTwo: 'Minnesota Lynx W',
-                                                teamOneScore: '4',
-                                                teamTwoScore: '2',
-                                                winType: '1.0',
-                                                drawType: '2',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '11:23',
-                                                teamOne: 'Dallas Wings W',
-                                                teamTwo: 'Chicago Sky W',
-                                                teamOneScore: '4',
-                                                teamTwoScore: '0',
-                                                winType: '2.0',
-                                                drawType: '1.6',
-                                                loseType: '1.43'
-                                          },
-                                    ]
-                              },
-                        ],
-                        nbagl: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Minnesota Lynx W',
-                                                teamTwo: 'Seatle Storm',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '3',
-                                                drawType: '3.4',
-                                                loseType: '5.23'
-                                          },
-                                          {
-                                                time: '00:24',
-                                                teamOne: 'Atlanta Dream',
-                                                teamTwo: 'Dallas Wing',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '2.0',
-                                                drawType: '0.0',
-                                                loseType: '1.9'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Grand Rapids Gold',
-                                                teamTwo: 'Motor City Cruise',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '08:00',
-                                                teamOne: 'Wisconsin Herd',
-                                                teamTwo: 'Windy City Bulls',
-                                                teamOneScore: '22',
-                                                teamTwoScore: '20',
-                                                winType: '4.0',
-                                                drawType: '1.4',
-                                                loseType: '3.5'
-                                          },
-                                          {
-                                                time: '06:00',
-                                                teamOne: 'Motor City Cruise',
-                                                teamTwo: 'Lowa Wolves',
-                                                teamOneScore: '12',
-                                                teamTwoScore: '10',
-                                                winType: '1.0',
-                                                drawType: '2',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '11:23',
-                                                teamOne: 'College Park Skyhawks',
-                                                teamTwo: 'Delaware Blue Coats',
-                                                teamOneScore: '32',
-                                                teamTwoScore: '11',
-                                                winType: '2.0',
-                                                drawType: '1.6',
-                                                loseType: '1.43'
-                                          },
-                                    ]
-                              },
-                        ],
-
-                        nba2kl: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '13:00',
-                                                teamOne: 'Warriors Gamming Squad',
-                                                teamTwo: 'T-Wolves Gaming',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '0',
-                                                winType: '1.1',
-                                                drawType: '2.0',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '17:30',
-                                                teamOne: 'Arsenal',
-                                                teamTwo: 'Pistons GT',
-                                                teamOneScore: '1',
-                                                teamTwoScore: '2',
-                                                winType: '1.2',
-                                                drawType: '0.0',
-                                                loseType: '1.0'
-                                          },
-                                          {
-                                                time: '19:30',
-                                                teamOne: 'Pacers Gaming',
-                                                teamTwo: 'Gizz Gaming',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '2',
-                                                winType: '1.14',
-                                                drawType: '5.0',
-                                                loseType: '4.5'
-                                          },
-                                          {
-                                                time: '17:30',
-                                                teamOne: 'Dux Infinitos',
-                                                teamTwo: 'Jazz Gaming',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '1.2',
-                                                drawType: '0.0',
-                                                loseType: '1.0'
-                                          },
-                                          {
-                                                time: '20:00',
-                                                teamOne: 'Lakers Gaming',
-                                                teamTwo: 'Kings Guard Gaming',
-                                                teamOneScore: '7',
-                                                teamTwoScore: '0',
-                                                winType: '2.3',
-                                                drawType: '4.0',
-                                                loseType: '3.5'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:00',
-                                                teamOne: 'Galatasaray',
-                                                teamTwo: 'BSC Young Boys',
-                                                teamOneScore: '8',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                          {
-                                                time: '00:00',
-                                                teamOne: 'SSC Napoli',
-                                                teamTwo: 'Braga',
-                                                teamOneScore: '8',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                        ],
-                        
-                        nbaa: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '13:00',
-                                                teamOne: 'Petro Atletico',
-                                                teamTwo: 'Al Ahly',
-                                                teamOneScore: '28',
-                                                teamTwoScore: '12',
-                                                winType: '1.1',
-                                                drawType: '2.0',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '17:30',
-                                                teamOne: 'SLAC',
-                                                teamTwo: 'City Oiler',
-                                                teamOneScore: '1',
-                                                teamTwoScore: '2',
-                                                winType: '1.2',
-                                                drawType: '0.0',
-                                                loseType: '1.0'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:00',
-                                                teamOne: 'Douanes',
-                                                teamTwo: 'RES',
-                                                teamOneScore: '8',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                          {
-                                                time: '00:00',
-                                                teamOne: 'Abidjan',
-                                                teamTwo: 'Monastir',
-                                                teamOneScore: '8',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                        ],
-                  }
+                        {
+                              leagueName: "Basketball Africa League",
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '13:00',
+                                          teamOne: 'Petro Atletico',
+                                          teamTwo: 'Al Ahly',
+                                          teamOneScore: '28',
+                                          teamTwoScore: '12',
+                                          winType: '1.1',
+                                          drawType: '2.0',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '17:30',
+                                          teamOne: 'SLAC',
+                                          teamTwo: 'City Oiler',
+                                          teamOneScore: '1',
+                                          teamTwoScore: '2',
+                                          winType: '1.2',
+                                          drawType: '0.0',
+                                          loseType: '1.0'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: "Basketball Africa League",
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:00',
+                                          teamOne: 'Douanes',
+                                          teamTwo: 'RES',
+                                          teamOneScore: '8',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                                    {
+                                          time: '00:00',
+                                          teamOne: 'Abidjan',
+                                          teamTwo: 'Monastir',
+                                          teamOneScore: '8',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                  ]
             }
 
       ],
+
+
 
       TopMatches: [
 
             {
                   sportType: 'Football',
                   leagues: [
-                        "England Premier League",
-                        "International Euro Cup",
-                        "International Clubs UEFA Champions League",
-                        "International Africa Cup of Nations",
-                        "England EFL Cup",
-                        "Spain LaLiga",
                         "Italy Serie A",
+                        "International Clubs UEFA Champions League",
+                        "International Euro Cup",
+                        "England Premier League",
+                        "England EFL Cup",
+                        "International Africa Cup of Nations",
+                        "Spain LaLiga",
                   ],
-                  odds: ['Over/Under', 'Total Goals', 'Draw No Bet', 'Double Chance', 'Handicapped'],
-                  sportsLeagues: {
-                        iacn: [
+                  odds: ['Draw No Bet', '3 Way & O/U', 'Over/Under', 'Total Goals', 'Double Chance', 'Handicapped'],
+                  sportsLeagues: [
                               {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Web Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -972,7 +983,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Web Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -987,7 +999,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '08:00',
@@ -1022,7 +1035,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Fri Jan 2 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Fri Jan 4 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -1046,10 +1060,9 @@ export const SPORTS_DATA = {
                                           },
                                     ]
                               },
-                        ],
-                        iec: [
                               {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
+                                    leagueName:  "International Euro Cup",
+                                    date: 'Web Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -1074,7 +1087,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
+                                    leagueName:  "International Euro Cup",
+                                    date: 'Web Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -1089,7 +1103,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName:  "International Euro Cup",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '08:00',
@@ -1123,10 +1138,9 @@ export const SPORTS_DATA = {
                                           },
                                     ]
                               },
-                        ],
-                        epl: [
                               {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
+                                    leagueName:  "England Premier League",
+                                    date: 'Web Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -1151,7 +1165,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
+                                    leagueName:  "England Premier League",
+                                    date: 'Web Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -1166,7 +1181,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName:  "England Premier League",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '08:00',
@@ -1200,10 +1216,9 @@ export const SPORTS_DATA = {
                                           },
                                     ]
                               },
-                        ],
-                        icucl: [
                               {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Web Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '13:00',
@@ -1268,7 +1283,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Web Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:00',
@@ -1293,7 +1309,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '08:00',
@@ -1318,7 +1335,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '07:00',
@@ -1352,9 +1370,8 @@ export const SPORTS_DATA = {
                                           },
                                     ]
                               },
-                        ],
-                        eflCup: [
                               {
+                                    leagueName: "England EFL Cup",
                                     date: 'Fri Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
@@ -1378,10 +1395,9 @@ export const SPORTS_DATA = {
                                                 loseType: '3.2'
                                           },
                                     ]
-                              }
-                        ],
-                        laLiga: [
+                              },
                               {
+                                    leagueName: 'Spain Laliga',
                                     date: 'Fri Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
@@ -1405,10 +1421,9 @@ export const SPORTS_DATA = {
                                                 loseType: '3.5'
                                           },
                                     ]
-                              }
-                        ],
-                        serieA: [
+                              },
                               {
+                                    leagueName: "Italy Series A",
                                     date: 'Fri Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
@@ -1432,421 +1447,426 @@ export const SPORTS_DATA = {
                                                 loseType: '3.5'
                                           },
                                     ]
-                              }
-                        ]
-                  },
+                              }  
+                        ],
+
+
             },
 
 
             {
                   sportType: 'Basketball',
-                  leagues: ["NBA", "WNBA", "NBA G League", "NBA 2K League", "Basketball Africa League"],
-                  odds: ['Over/Under', 'Draw No Bet', 'Double Chance', 'Handicapped'],
-                  sportsLeagues: {
-                  nba: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Caltics',
-                                                teamTwo: 'Bucks',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                          {
-                                                time: '00:24',
-                                                teamOne: '76ers',
-                                                teamTwo: 'Knicks',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '3',
-                                                winType: '2',
-                                                drawType: '1.7',
-                                                loseType: '2.1'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Cavailiers',
-                                                teamTwo: 'Pacers',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '08:00',
-                                                teamOne: 'Heat',
-                                                teamTwo: 'Magic',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '3',
-                                                drawType: '1.4',
-                                                loseType: '2.2'
-                                          },
-                                          {
-                                                time: '06:00',
-                                                teamOne: 'Bulls',
-                                                teamTwo: 'Hawks',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '1.0',
-                                                drawType: '2',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '11:23',
-                                                teamOne: 'Raptors',
-                                                teamTwo: 'Hormets',
-                                                teamOneScore: '4',
-                                                teamTwoScore: '0',
-                                                winType: '3',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Fri Jan 2 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Parces',
-                                                teamTwo: 'Cavailiers',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                          {
-                                                time: '15:23',
-                                                teamOne: 'Magic',
-                                                teamTwo: 'Heat',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '0',
-                                                winType: '3.0',
-                                                drawType: '1.0',
-                                                loseType: '2.23'
-                                          },
-                                          {
-                                                time: '15:23',
-                                                teamOne: 'Wizards',
-                                                teamTwo: 'Pistons',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '0',
-                                                winType: '3.0',
-                                                drawType: '1.0',
-                                                loseType: '2.23'
-                                          },
-                                    ]
-                              },
-                        ],
+                  leagues: ["NBA 2K League", "Basketball Africa League", "NBA", "WNBA", "NBA G League"],
+                  odds: ['Double Chance', 'Double Chance','Over/Under', 'Draw No Bet', 'Handicapped'],
+                  sportsLeagues: [
+                        {
+                              leagueName: 'NBA',
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Caltics',
+                                          teamTwo: 'Bucks',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                                    {
+                                          time: '00:24',
+                                          teamOne: '76ers',
+                                          teamTwo: 'Knicks',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '3',
+                                          winType: '2',
+                                          drawType: '1.7',
+                                          loseType: '2.1'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: 'NBA',
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Cavailiers',
+                                          teamTwo: 'Pacers',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: 'NBA',
+                              date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '08:00',
+                                          teamOne: 'Heat',
+                                          teamTwo: 'Magic',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '3',
+                                          drawType: '1.4',
+                                          loseType: '2.2'
+                                    },
+                                    {
+                                          time: '06:00',
+                                          teamOne: 'Bulls',
+                                          teamTwo: 'Hawks',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '1.0',
+                                          drawType: '2',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '11:23',
+                                          teamOne: 'Raptors',
+                                          teamTwo: 'Hormets',
+                                          teamOneScore: '4',
+                                          teamTwoScore: '0',
+                                          winType: '3',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: 'NBA',
+                              date: 'Fri Jan 4 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Parces',
+                                          teamTwo: 'Cavailiers',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                                    {
+                                          time: '15:23',
+                                          teamOne: 'Magic',
+                                          teamTwo: 'Heat',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '0',
+                                          winType: '3.0',
+                                          drawType: '1.0',
+                                          loseType: '2.23'
+                                    },
+                                    {
+                                          time: '15:23',
+                                          teamOne: 'Wizards',
+                                          teamTwo: 'Pistons',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '0',
+                                          winType: '3.0',
+                                          drawType: '1.0',
+                                          loseType: '2.23'
+                                    },
+                                    
+                              ],
+                              
+                        },
+                        {
+                              leagueName:'WNBA',
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '15:05',
+                                          teamOne: 'Washington Mystics',
+                                          teamTwo: 'New York Liberty W',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '3',
+                                          drawType: '3.4',
+                                          loseType: '5.23'
+                                    },
+                                    {
+                                          time: '15:24',
+                                          teamOne: 'Connecticut Sun W',
+                                          teamTwo: 'Indiana Fever W',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '2.0',
+                                          drawType: '0.0',
+                                          loseType: '1.9'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName:'WNBA',
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Cape Verde',
+                                          teamTwo: 'Senegal',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName:'WNBA',
+                              date: 'Thu Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '08:00',
+                                          teamOne: 'Las Vegas Aces W',
+                                          teamTwo: 'Phonenix Mercury W',
+                                          teamOneScore: '1',
+                                          teamTwoScore: '0',
+                                          winType: '4.0',
+                                          drawType: '1.4',
+                                          loseType: '3.5'
+                                    },
+                                    {
+                                          time: '06:00',
+                                          teamOne: 'Seattle Storm W',
+                                          teamTwo: 'Minnesota Lynx W',
+                                          teamOneScore: '4',
+                                          teamTwoScore: '2',
+                                          winType: '1.0',
+                                          drawType: '2',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '11:23',
+                                          teamOne: 'Dallas Wings W',
+                                          teamTwo: 'Chicago Sky W',
+                                          teamOneScore: '4',
+                                          teamTwoScore: '0',
+                                          winType: '2.0',
+                                          drawType: '1.6',
+                                          loseType: '1.43'
+                                    },
+                              ]
+                        },
+ 
+                        {
+                              leagueName: "NBA G League", 
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Minnesota Lynx W',
+                                          teamTwo: 'Seatle Storm',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '3',
+                                          drawType: '3.4',
+                                          loseType: '5.23'
+                                    },
+                                    {
+                                          time: '00:24',
+                                          teamOne: 'Atlanta Dream',
+                                          teamTwo: 'Dallas Wing',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '2.0',
+                                          drawType: '0.0',
+                                          loseType: '1.9'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: "NBA G League", 
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Grand Rapids Gold',
+                                          teamTwo: 'Motor City Cruise',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: "NBA G League", 
+                              date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '08:00',
+                                          teamOne: 'Wisconsin Herd',
+                                          teamTwo: 'Windy City Bulls',
+                                          teamOneScore: '22',
+                                          teamTwoScore: '20',
+                                          winType: '4.0',
+                                          drawType: '1.4',
+                                          loseType: '3.5'
+                                    },
+                                    {
+                                          time: '06:00',
+                                          teamOne: 'Motor City Cruise',
+                                          teamTwo: 'Lowa Wolves',
+                                          teamOneScore: '12',
+                                          teamTwoScore: '10',
+                                          winType: '1.0',
+                                          drawType: '2',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '11:23',
+                                          teamOne: 'College Park Skyhawks',
+                                          teamTwo: 'Delaware Blue Coats',
+                                          teamOneScore: '32',
+                                          teamTwoScore: '11',
+                                          winType: '2.0',
+                                          drawType: '1.6',
+                                          loseType: '1.43'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName:  "NBA 2K League",
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '13:00',
+                                          teamOne: 'Warriors Gamming Squad',
+                                          teamTwo: 'T-Wolves Gaming',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '0',
+                                          winType: '1.1',
+                                          drawType: '2.0',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '17:30',
+                                          teamOne: 'Arsenal',
+                                          teamTwo: 'Pistons GT',
+                                          teamOneScore: '1',
+                                          teamTwoScore: '2',
+                                          winType: '1.2',
+                                          drawType: '0.0',
+                                          loseType: '1.0'
+                                    },
+                                    {
+                                          time: '19:30',
+                                          teamOne: 'Pacers Gaming',
+                                          teamTwo: 'Gizz Gaming',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '2',
+                                          winType: '1.14',
+                                          drawType: '5.0',
+                                          loseType: '4.5'
+                                    },
+                                    {
+                                          time: '17:30',
+                                          teamOne: 'Dux Infinitos',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '1.2',
+                                          drawType: '0.0',
+                                          loseType: '1.0'
+                                    },
+                                    {
+                                          time: '20:00',
+                                          teamOne: 'Lakers Gaming',
+                                          teamTwo: 'Kings Guard Gaming',
+                                          teamOneScore: '7',
+                                          teamTwoScore: '0',
+                                          winType: '2.3',
+                                          drawType: '4.0',
+                                          loseType: '3.5'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName:  "NBA 2K League",
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:00',
+                                          teamOne: 'Galatasaray',
+                                          teamTwo: 'BSC Young Boys',
+                                          teamOneScore: '8',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                                    {
+                                          time: '00:00',
+                                          teamOne: 'SSC Napoli',
+                                          teamTwo: 'Braga',
+                                          teamOneScore: '8',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
 
-                              wnba: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '15:05',
-                                                teamOne: 'Washington Mystics',
-                                                teamTwo: 'New York Liberty W',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '3',
-                                                drawType: '3.4',
-                                                loseType: '5.23'
-                                          },
-                                          {
-                                                time: '15:24',
-                                                teamOne: 'Connecticut Sun W',
-                                                teamTwo: 'Indiana Fever W',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '2.0',
-                                                drawType: '0.0',
-                                                loseType: '1.9'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Cape Verde',
-                                                teamTwo: 'Senegal',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Thu Feb 2 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '08:00',
-                                                teamOne: 'Las Vegas Aces W',
-                                                teamTwo: 'Phonenix Mercury W',
-                                                teamOneScore: '1',
-                                                teamTwoScore: '0',
-                                                winType: '4.0',
-                                                drawType: '1.4',
-                                                loseType: '3.5'
-                                          },
-                                          {
-                                                time: '06:00',
-                                                teamOne: 'Seattle Storm W',
-                                                teamTwo: 'Minnesota Lynx W',
-                                                teamOneScore: '4',
-                                                teamTwoScore: '2',
-                                                winType: '1.0',
-                                                drawType: '2',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '11:23',
-                                                teamOne: 'Dallas Wings W',
-                                                teamTwo: 'Chicago Sky W',
-                                                teamOneScore: '4',
-                                                teamTwoScore: '0',
-                                                winType: '2.0',
-                                                drawType: '1.6',
-                                                loseType: '1.43'
-                                          },
-                                    ]
-                              },
-                        ],
-                        nbagl: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Minnesota Lynx W',
-                                                teamTwo: 'Seatle Storm',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '3',
-                                                drawType: '3.4',
-                                                loseType: '5.23'
-                                          },
-                                          {
-                                                time: '00:24',
-                                                teamOne: 'Atlanta Dream',
-                                                teamTwo: 'Dallas Wing',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '2.0',
-                                                drawType: '0.0',
-                                                loseType: '1.9'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Grand Rapids Gold',
-                                                teamTwo: 'Motor City Cruise',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '08:00',
-                                                teamOne: 'Wisconsin Herd',
-                                                teamTwo: 'Windy City Bulls',
-                                                teamOneScore: '22',
-                                                teamTwoScore: '20',
-                                                winType: '4.0',
-                                                drawType: '1.4',
-                                                loseType: '3.5'
-                                          },
-                                          {
-                                                time: '06:00',
-                                                teamOne: 'Motor City Cruise',
-                                                teamTwo: 'Lowa Wolves',
-                                                teamOneScore: '12',
-                                                teamTwoScore: '10',
-                                                winType: '1.0',
-                                                drawType: '2',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '11:23',
-                                                teamOne: 'College Park Skyhawks',
-                                                teamTwo: 'Delaware Blue Coats',
-                                                teamOneScore: '32',
-                                                teamTwoScore: '11',
-                                                winType: '2.0',
-                                                drawType: '1.6',
-                                                loseType: '1.43'
-                                          },
-                                    ]
-                              },
-                        ],
-
-                        nba2kl: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '13:00',
-                                                teamOne: 'Warriors Gamming Squad',
-                                                teamTwo: 'T-Wolves Gaming',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '0',
-                                                winType: '1.1',
-                                                drawType: '2.0',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '17:30',
-                                                teamOne: 'Arsenal',
-                                                teamTwo: 'Pistons GT',
-                                                teamOneScore: '1',
-                                                teamTwoScore: '2',
-                                                winType: '1.2',
-                                                drawType: '0.0',
-                                                loseType: '1.0'
-                                          },
-                                          {
-                                                time: '19:30',
-                                                teamOne: 'Pacers Gaming',
-                                                teamTwo: 'Gizz Gaming',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '2',
-                                                winType: '1.14',
-                                                drawType: '5.0',
-                                                loseType: '4.5'
-                                          },
-                                          {
-                                                time: '17:30',
-                                                teamOne: 'Dux Infinitos',
-                                                teamTwo: 'Jazz Gaming',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '1.2',
-                                                drawType: '0.0',
-                                                loseType: '1.0'
-                                          },
-                                          {
-                                                time: '20:00',
-                                                teamOne: 'Lakers Gaming',
-                                                teamTwo: 'Kings Guard Gaming',
-                                                teamOneScore: '7',
-                                                teamTwoScore: '0',
-                                                winType: '2.3',
-                                                drawType: '4.0',
-                                                loseType: '3.5'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:00',
-                                                teamOne: 'Galatasaray',
-                                                teamTwo: 'BSC Young Boys',
-                                                teamOneScore: '8',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                          {
-                                                time: '00:00',
-                                                teamOne: 'SSC Napoli',
-                                                teamTwo: 'Braga',
-                                                teamOneScore: '8',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                        ],
-                        
-                        nbaa: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '13:00',
-                                                teamOne: 'Petro Atletico',
-                                                teamTwo: 'Al Ahly',
-                                                teamOneScore: '28',
-                                                teamTwoScore: '12',
-                                                winType: '1.1',
-                                                drawType: '2.0',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '17:30',
-                                                teamOne: 'SLAC',
-                                                teamTwo: 'City Oiler',
-                                                teamOneScore: '1',
-                                                teamTwoScore: '2',
-                                                winType: '1.2',
-                                                drawType: '0.0',
-                                                loseType: '1.0'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:00',
-                                                teamOne: 'Douanes',
-                                                teamTwo: 'RES',
-                                                teamOneScore: '8',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                          {
-                                                time: '00:00',
-                                                teamOne: 'Abidjan',
-                                                teamTwo: 'Monastir',
-                                                teamOneScore: '8',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                        ],
-                  }
+                        {
+                              leagueName: "Basketball Africa League",
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '13:00',
+                                          teamOne: 'Petro Atletico',
+                                          teamTwo: 'Al Ahly',
+                                          teamOneScore: '28',
+                                          teamTwoScore: '12',
+                                          winType: '1.1',
+                                          drawType: '2.0',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '17:30',
+                                          teamOne: 'SLAC',
+                                          teamTwo: 'City Oiler',
+                                          teamOneScore: '1',
+                                          teamTwoScore: '2',
+                                          winType: '1.2',
+                                          drawType: '0.0',
+                                          loseType: '1.0'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: "Basketball Africa League",
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:00',
+                                          teamOne: 'Douanes',
+                                          teamTwo: 'RES',
+                                          teamOneScore: '8',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                                    {
+                                          time: '00:00',
+                                          teamOne: 'Abidjan',
+                                          teamTwo: 'Monastir',
+                                          teamOneScore: '8',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                  ]
             }
 
       ],
@@ -1856,19 +1876,19 @@ export const SPORTS_DATA = {
             {
                   sportType: 'Football',
                   leagues: [
-                        "Spain LaLiga",
-                        "Italy Serie A",
-                        "England EFL Cup",
+                        "International Clubs UEFA Champions League",
                         "International Africa Cup of Nations",
                         "International Euro Cup",
+                        "Italy Serie A",
                         "England Premier League",
-                        "International Clubs UEFA Champions League",
+                        "England EFL Cup",
+                        "Spain LaLiga",
                   ],
-                  odds: ['Total Goals', 'Draw No Bet', 'Double Chance', 'Handicapped', '3 Way & O/U'],
-                  sportsLeagues: {
-                        iacn: [
+                  odds: ['3 Way & O/U', 'Over/Under', 'Total Goals', 'Draw No Bet', 'Double Chance', 'Handicapped'],
+                  sportsLeagues: [
                               {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Web Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -1893,7 +1913,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Web Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -1908,7 +1929,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '08:00',
@@ -1943,7 +1965,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Fri Jan 2 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Fri Jan 4 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -1967,10 +1990,9 @@ export const SPORTS_DATA = {
                                           },
                                     ]
                               },
-                        ],
-                        iec: [
                               {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
+                                    leagueName:  "International Euro Cup",
+                                    date: 'Web Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -1995,7 +2017,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
+                                    leagueName:  "International Euro Cup",
+                                    date: 'Web Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -2010,7 +2033,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName:  "International Euro Cup",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '08:00',
@@ -2044,10 +2068,9 @@ export const SPORTS_DATA = {
                                           },
                                     ]
                               },
-                        ],
-                        epl: [
                               {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
+                                    leagueName:  "England Premier League",
+                                    date: 'Web Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -2072,7 +2095,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
+                                    leagueName:  "England Premier League",
+                                    date: 'Web Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:23',
@@ -2087,7 +2111,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName:  "England Premier League",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '08:00',
@@ -2121,10 +2146,9 @@ export const SPORTS_DATA = {
                                           },
                                     ]
                               },
-                        ],
-                        icucl: [
                               {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Web Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '13:00',
@@ -2189,7 +2213,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Web Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '00:00',
@@ -2214,7 +2239,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '08:00',
@@ -2239,7 +2265,8 @@ export const SPORTS_DATA = {
                                     ]
                               },
                               {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
+                                    leagueName: "International Clubs UEFA Champions League",
+                                    date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
                                                 time: '07:00',
@@ -2273,9 +2300,8 @@ export const SPORTS_DATA = {
                                           },
                                     ]
                               },
-                        ],
-                        eflCup: [
                               {
+                                    leagueName: "England EFL Cup",
                                     date: 'Fri Feb 1 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
@@ -2299,10 +2325,9 @@ export const SPORTS_DATA = {
                                                 loseType: '3.2'
                                           },
                                     ]
-                              }
-                        ],
-                        laLiga: [
+                              },
                               {
+                                    leagueName: 'Spain Laliga',
                                     date: 'Fri Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
@@ -2326,10 +2351,9 @@ export const SPORTS_DATA = {
                                                 loseType: '3.5'
                                           },
                                     ]
-                              }
-                        ],
-                        serieA: [
+                              },
                               {
+                                    leagueName: "Italy Series A",
                                     date: 'Fri Feb 2 2024 23:05:49 GMT+0100',
                                     availableMatch: [
                                           {
@@ -2353,428 +2377,404 @@ export const SPORTS_DATA = {
                                                 loseType: '3.5'
                                           },
                                     ]
-                              }
-                        ]
-                  },
+                              }  
+                        ],
+
+
             },
 
 
             {
                   sportType: 'Basketball',
-                  leagues: ["NBA", "WNBA", "NBA G League", "NBA 2K League", "Basketball Africa League"],
+                  leagues: ["NBA G League", "NBA", "WNBA", "NBA 2K League", "Basketball Africa League"],
                   odds: ['Over/Under', 'Draw No Bet', 'Double Chance', 'Handicapped'],
-                  sportsLeagues: {
-                  nba: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Caltics',
-                                                teamTwo: 'Bucks',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                          {
-                                                time: '00:24',
-                                                teamOne: '76ers',
-                                                teamTwo: 'Knicks',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '3',
-                                                winType: '2',
-                                                drawType: '1.7',
-                                                loseType: '2.1'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Cavailiers',
-                                                teamTwo: 'Pacers',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '08:00',
-                                                teamOne: 'Heat',
-                                                teamTwo: 'Magic',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '3',
-                                                drawType: '1.4',
-                                                loseType: '2.2'
-                                          },
-                                          {
-                                                time: '06:00',
-                                                teamOne: 'Bulls',
-                                                teamTwo: 'Hawks',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '1.0',
-                                                drawType: '2',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '11:23',
-                                                teamOne: 'Raptors',
-                                                teamTwo: 'Hormets',
-                                                teamOneScore: '4',
-                                                teamTwoScore: '0',
-                                                winType: '3',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Fri Jan 2 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Parces',
-                                                teamTwo: 'Cavailiers',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                          {
-                                                time: '15:23',
-                                                teamOne: 'Magic',
-                                                teamTwo: 'Heat',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '0',
-                                                winType: '3.0',
-                                                drawType: '1.0',
-                                                loseType: '2.23'
-                                          },
-                                          {
-                                                time: '15:23',
-                                                teamOne: 'Wizards',
-                                                teamTwo: 'Pistons',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '0',
-                                                winType: '3.0',
-                                                drawType: '1.0',
-                                                loseType: '2.23'
-                                          },
-                                    ]
-                              },
-                        ],
+                  sportsLeagues: [
+                        {
+                              leagueName: 'NBA',
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Caltics',
+                                          teamTwo: 'Bucks',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                                    {
+                                          time: '00:24',
+                                          teamOne: '76ers',
+                                          teamTwo: 'Knicks',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '3',
+                                          winType: '2',
+                                          drawType: '1.7',
+                                          loseType: '2.1'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: 'NBA',
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Cavailiers',
+                                          teamTwo: 'Pacers',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: 'NBA',
+                              date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '08:00',
+                                          teamOne: 'Heat',
+                                          teamTwo: 'Magic',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '3',
+                                          drawType: '1.4',
+                                          loseType: '2.2'
+                                    },
+                                    {
+                                          time: '06:00',
+                                          teamOne: 'Bulls',
+                                          teamTwo: 'Hawks',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '1.0',
+                                          drawType: '2',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '11:23',
+                                          teamOne: 'Raptors',
+                                          teamTwo: 'Hormets',
+                                          teamOneScore: '4',
+                                          teamTwoScore: '0',
+                                          winType: '3',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: 'NBA',
+                              date: 'Fri Jan 4 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Parces',
+                                          teamTwo: 'Cavailiers',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                                    {
+                                          time: '15:23',
+                                          teamOne: 'Magic',
+                                          teamTwo: 'Heat',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '0',
+                                          winType: '3.0',
+                                          drawType: '1.0',
+                                          loseType: '2.23'
+                                    },
+                                    {
+                                          time: '15:23',
+                                          teamOne: 'Wizards',
+                                          teamTwo: 'Pistons',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '0',
+                                          winType: '3.0',
+                                          drawType: '1.0',
+                                          loseType: '2.23'
+                                    },
+                                    
+                              ],
+                              
+                        },
+                        {
+                              leagueName:'WNBA',
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '15:05',
+                                          teamOne: 'Washington Mystics',
+                                          teamTwo: 'New York Liberty W',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '3',
+                                          drawType: '3.4',
+                                          loseType: '5.23'
+                                    },
+                                    {
+                                          time: '15:24',
+                                          teamOne: 'Connecticut Sun W',
+                                          teamTwo: 'Indiana Fever W',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '2.0',
+                                          drawType: '0.0',
+                                          loseType: '1.9'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName:'WNBA',
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Cape Verde',
+                                          teamTwo: 'Senegal',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName:'WNBA',
+                              date: 'Thu Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '08:00',
+                                          teamOne: 'Las Vegas Aces W',
+                                          teamTwo: 'Phonenix Mercury W',
+                                          teamOneScore: '1',
+                                          teamTwoScore: '0',
+                                          winType: '4.0',
+                                          drawType: '1.4',
+                                          loseType: '3.5'
+                                    },
+                                    {
+                                          time: '06:00',
+                                          teamOne: 'Seattle Storm W',
+                                          teamTwo: 'Minnesota Lynx W',
+                                          teamOneScore: '4',
+                                          teamTwoScore: '2',
+                                          winType: '1.0',
+                                          drawType: '2',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '11:23',
+                                          teamOne: 'Dallas Wings W',
+                                          teamTwo: 'Chicago Sky W',
+                                          teamOneScore: '4',
+                                          teamTwoScore: '0',
+                                          winType: '2.0',
+                                          drawType: '1.6',
+                                          loseType: '1.43'
+                                    },
+                              ]
+                        },
+ 
+                        {
+                              leagueName: "NBA G League", 
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Minnesota Lynx W',
+                                          teamTwo: 'Seatle Storm',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '3',
+                                          drawType: '3.4',
+                                          loseType: '5.23'
+                                    },
+                                    {
+                                          time: '00:24',
+                                          teamOne: 'Atlanta Dream',
+                                          teamTwo: 'Dallas Wing',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '2.0',
+                                          drawType: '0.0',
+                                          loseType: '1.9'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: "NBA G League", 
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:23',
+                                          teamOne: 'Grand Rapids Gold',
+                                          teamTwo: 'Motor City Cruise',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName: "NBA G League", 
+                              date: 'Thu Feb 3 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '08:00',
+                                          teamOne: 'Wisconsin Herd',
+                                          teamTwo: 'Windy City Bulls',
+                                          teamOneScore: '22',
+                                          teamTwoScore: '20',
+                                          winType: '4.0',
+                                          drawType: '1.4',
+                                          loseType: '3.5'
+                                    },
+                                    {
+                                          time: '06:00',
+                                          teamOne: 'Motor City Cruise',
+                                          teamTwo: 'Lowa Wolves',
+                                          teamOneScore: '12',
+                                          teamTwoScore: '10',
+                                          winType: '1.0',
+                                          drawType: '2',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '11:23',
+                                          teamOne: 'College Park Skyhawks',
+                                          teamTwo: 'Delaware Blue Coats',
+                                          teamOneScore: '32',
+                                          teamTwoScore: '11',
+                                          winType: '2.0',
+                                          drawType: '1.6',
+                                          loseType: '1.43'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName:  "NBA 2K League",
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '13:00',
+                                          teamOne: 'Warriors Gamming Squad',
+                                          teamTwo: 'T-Wolves Gaming',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '0',
+                                          winType: '1.1',
+                                          drawType: '2.0',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '17:30',
+                                          teamOne: 'Arsenal',
+                                          teamTwo: 'Pistons GT',
+                                          teamOneScore: '1',
+                                          teamTwoScore: '2',
+                                          winType: '1.2',
+                                          drawType: '0.0',
+                                          loseType: '1.0'
+                                    },
+                                    {
+                                          time: '19:30',
+                                          teamOne: 'Pacers Gaming',
+                                          teamTwo: 'Gizz Gaming',
+                                          teamOneScore: '2',
+                                          teamTwoScore: '2',
+                                          winType: '1.14',
+                                          drawType: '5.0',
+                                          loseType: '4.5'
+                                    },
+                                    {
+                                          time: '17:30',
+                                          teamOne: 'Dux Infinitos',
+                                          teamOneScore: '0',
+                                          teamTwoScore: '0',
+                                          winType: '1.2',
+                                          drawType: '0.0',
+                                          loseType: '1.0'
+                                    },
+                                    {
+                                          time: '20:00',
+                                          teamOne: 'Lakers Gaming',
+                                          teamTwo: 'Kings Guard Gaming',
+                                          teamOneScore: '7',
+                                          teamTwoScore: '0',
+                                          winType: '2.3',
+                                          drawType: '4.0',
+                                          loseType: '3.5'
+                                    },
+                              ]
+                        },
+                        {
+                              leagueName:  "NBA 2K League",
+                              date: 'Web Feb 2 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '00:00',
+                                          teamOne: 'Galatasaray',
+                                          teamTwo: 'BSC Young Boys',
+                                          teamOneScore: '8',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                                    {
+                                          time: '00:00',
+                                          teamOne: 'SSC Napoli',
+                                          teamTwo: 'Braga',
+                                          teamOneScore: '8',
+                                          teamTwoScore: '3',
+                                          winType: '1',
+                                          drawType: '1.4',
+                                          loseType: '1.23'
+                                    },
+                              ]
+                        },
 
-                              wnba: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '15:05',
-                                                teamOne: 'Washington Mystics',
-                                                teamTwo: 'New York Liberty W',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '3',
-                                                drawType: '3.4',
-                                                loseType: '5.23'
-                                          },
-                                          {
-                                                time: '15:24',
-                                                teamOne: 'Connecticut Sun W',
-                                                teamTwo: 'Indiana Fever W',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '2.0',
-                                                drawType: '0.0',
-                                                loseType: '1.9'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Cape Verde',
-                                                teamTwo: 'Senegal',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Thu Feb 2 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '08:00',
-                                                teamOne: 'Las Vegas Aces W',
-                                                teamTwo: 'Phonenix Mercury W',
-                                                teamOneScore: '1',
-                                                teamTwoScore: '0',
-                                                winType: '4.0',
-                                                drawType: '1.4',
-                                                loseType: '3.5'
-                                          },
-                                          {
-                                                time: '06:00',
-                                                teamOne: 'Seattle Storm W',
-                                                teamTwo: 'Minnesota Lynx W',
-                                                teamOneScore: '4',
-                                                teamTwoScore: '2',
-                                                winType: '1.0',
-                                                drawType: '2',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '11:23',
-                                                teamOne: 'Dallas Wings W',
-                                                teamTwo: 'Chicago Sky W',
-                                                teamOneScore: '4',
-                                                teamTwoScore: '0',
-                                                winType: '2.0',
-                                                drawType: '1.6',
-                                                loseType: '1.43'
-                                          },
-                                    ]
-                              },
-                        ],
-                        nbagl: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Minnesota Lynx W',
-                                                teamTwo: 'Seatle Storm',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '3',
-                                                drawType: '3.4',
-                                                loseType: '5.23'
-                                          },
-                                          {
-                                                time: '00:24',
-                                                teamOne: 'Atlanta Dream',
-                                                teamTwo: 'Dallas Wing',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '2.0',
-                                                drawType: '0.0',
-                                                loseType: '1.9'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:23',
-                                                teamOne: 'Grand Rapids Gold',
-                                                teamTwo: 'Motor City Cruise',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Thu Feb 1 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '08:00',
-                                                teamOne: 'Wisconsin Herd',
-                                                teamTwo: 'Windy City Bulls',
-                                                teamOneScore: '22',
-                                                teamTwoScore: '20',
-                                                winType: '4.0',
-                                                drawType: '1.4',
-                                                loseType: '3.5'
-                                          },
-                                          {
-                                                time: '06:00',
-                                                teamOne: 'Motor City Cruise',
-                                                teamTwo: 'Lowa Wolves',
-                                                teamOneScore: '12',
-                                                teamTwoScore: '10',
-                                                winType: '1.0',
-                                                drawType: '2',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '11:23',
-                                                teamOne: 'College Park Skyhawks',
-                                                teamTwo: 'Delaware Blue Coats',
-                                                teamOneScore: '32',
-                                                teamTwoScore: '11',
-                                                winType: '2.0',
-                                                drawType: '1.6',
-                                                loseType: '1.43'
-                                          },
-                                    ]
-                              },
-                        ],
+                        {
+                              leagueName: "Basketball Africa League",
+                              date: 'Web Feb 1 2024 23:05:49 GMT+0100',
+                              availableMatch: [
+                                    {
+                                          time: '13:00',
+                                          teamOne: 'Petro Atletico',
+                                          teamTwo: 'Al Ahly',
+                                          teamOneScore: '28',
+                                          teamTwoScore: '12',
+                                          winType: '1.1',
+                                          drawType: '2.0',
+                                          loseType: '1.5'
+                                    },
+                                    {
+                                          time: '17:30',
+                                          teamOne: 'SLAC',
+                                          teamTwo: 'City Oiler',
+                                          teamOneScore: '1',
+                                          teamTwoScore: '2',
+                                          winType: '1.2',
+                                          drawType: '0.0',
+                                          loseType: '1.0'
+                                    },
+                              ]
+                        },
 
-                        nba2kl: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '13:00',
-                                                teamOne: 'Warriors Gamming Squad',
-                                                teamTwo: 'T-Wolves Gaming',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '0',
-                                                winType: '1.1',
-                                                drawType: '2.0',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '17:30',
-                                                teamOne: 'Arsenal',
-                                                teamTwo: 'Pistons GT',
-                                                teamOneScore: '1',
-                                                teamTwoScore: '2',
-                                                winType: '1.2',
-                                                drawType: '0.0',
-                                                loseType: '1.0'
-                                          },
-                                          {
-                                                time: '19:30',
-                                                teamOne: 'Pacers Gaming',
-                                                teamTwo: 'Gizz Gaming',
-                                                teamOneScore: '2',
-                                                teamTwoScore: '2',
-                                                winType: '1.14',
-                                                drawType: '5.0',
-                                                loseType: '4.5'
-                                          },
-                                          {
-                                                time: '17:30',
-                                                teamOne: 'Dux Infinitos',
-                                                teamTwo: 'Jazz Gaming',
-                                                teamOneScore: '0',
-                                                teamTwoScore: '0',
-                                                winType: '1.2',
-                                                drawType: '0.0',
-                                                loseType: '1.0'
-                                          },
-                                          {
-                                                time: '20:00',
-                                                teamOne: 'Lakers Gaming',
-                                                teamTwo: 'Kings Guard Gaming',
-                                                teamOneScore: '7',
-                                                teamTwoScore: '0',
-                                                winType: '2.3',
-                                                drawType: '4.0',
-                                                loseType: '3.5'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:00',
-                                                teamOne: 'Galatasaray',
-                                                teamTwo: 'BSC Young Boys',
-                                                teamOneScore: '8',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                          {
-                                                time: '00:00',
-                                                teamOne: 'SSC Napoli',
-                                                teamTwo: 'Braga',
-                                                teamOneScore: '8',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                        ],
-                        
-                        nbaa: [
-                              {
-                                    date: 'Tue Jan 30 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '13:00',
-                                                teamOne: 'Petro Atletico',
-                                                teamTwo: 'Al Ahly',
-                                                teamOneScore: '28',
-                                                teamTwoScore: '12',
-                                                winType: '1.1',
-                                                drawType: '2.0',
-                                                loseType: '1.5'
-                                          },
-                                          {
-                                                time: '17:30',
-                                                teamOne: 'SLAC',
-                                                teamTwo: 'City Oiler',
-                                                teamOneScore: '1',
-                                                teamTwoScore: '2',
-                                                winType: '1.2',
-                                                drawType: '0.0',
-                                                loseType: '1.0'
-                                          },
-                                    ]
-                              },
-                              {
-                                    date: 'Web Jan 31 2024 23:05:49 GMT+0100',
-                                    availableMatch: [
-                                          {
-                                                time: '00:00',
-                                                teamOne: 'Douanes',
-                                                teamTwo: 'RES',
-                                                teamOneScore: '8',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                          {
-                                                time: '00:00',
-                                                teamOne: 'Abidjan',
-                                                teamTwo: 'Monastir',
-                                                teamOneScore: '8',
-                                                teamTwoScore: '3',
-                                                winType: '1',
-                                                drawType: '1.4',
-                                                loseType: '1.23'
-                                          },
-                                    ]
-                              },
-                        ],
-                  }
-            },
-            // {
-            //       sportType: 'Table Tennis',
-            //       leagues: ["NBA", "WNBA", "NBA G League", "NBA 2K League", "Basketball Africa League"],
-            //       odds: ['Over/Under', 'Draw No Bet', 'Double Chance', 'Handicapped'],
-            //       sportsLeagues:{}
-            // }
+                  ]
+            }
 
-      ]
+      ],
+
+      
 }

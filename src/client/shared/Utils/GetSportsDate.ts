@@ -1,3 +1,8 @@
+const monthNames = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+];
+
 export const getNextThreeDates = () => {
     const today = new Date();
     const todayString = 'Today';
@@ -18,10 +23,23 @@ export const getNextThreeDates = () => {
 function formatDate(date: any) {
     const day = date.getDate();
     const monthIndex = date.getMonth();
-    const monthNames = [
-        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-    ];
-
     return day + ' ' + monthNames[monthIndex];
+}
+
+
+export const getSingleDate = (inputDate: string) => {
+	const currentDate = new Date();
+	const inputDateObject = new Date(inputDate);
+
+	if (
+		inputDateObject.getDate() === currentDate.getDate() &&
+		inputDateObject.getMonth() === currentDate.getMonth() &&
+		inputDateObject.getFullYear() === currentDate.getFullYear()
+	) {
+		return "Today";
+	} else {
+		const day = inputDateObject.getDate();
+		const month = monthNames[inputDateObject.getMonth()];
+		return `${day} ${month}`;
+	}
 }

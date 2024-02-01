@@ -1,4 +1,4 @@
-import React, { useState, ReactElement } from 'react';
+import React, { useState, ReactElement, useEffect, SetStateAction } from 'react';
 import TableRow from './TableRow';
 import ViewMore from '../../components/ViewMore';
 import DropDown from '@/src/client/shared/Dropdown';
@@ -18,89 +18,47 @@ import {
 } from '@heathmont/moon-icons-tw';
 import { getNextThreeDates } from '@/src/client/shared/Utils/GetSportsDate';
 
-type DateItemProps = {
-	value: string;
-	isToday: boolean;
-};
 
-const TopMatches = () => (
-	<div className='flex items-center justify-center space-x-1'>
-		<p>All Matches</p>
-		<RightArrow />
-	</div>
-);
-
-const DateItem: React.FC<DateItemProps> = ({ value, isToday }) => {
-	function formatDate(inputDate: any) {
-		const currentDate = new Date();
-		const inputDateObject = new Date(inputDate);
-	
-		if (
-			inputDateObject.getDate() === currentDate.getDate() &&
-			inputDateObject.getMonth() === currentDate.getMonth() &&
-			inputDateObject.getFullYear() === currentDate.getFullYear()
-		) {
-			return "Today";
-		} else {
-			const day = inputDateObject.getDate();
-			const monthNames = [
-				"Jan", "Feb", "Mar", "Apr", "May", "Jun",
-				"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-			];
-			const month = monthNames[inputDateObject.getMonth()];
-			return `${day} ${month}`;
-		}
-	}
-	
-	
-	return (
-		<div
-			className={`${
-				isToday ? 'text-gray-200' : 'text-gray-400'
-			} text-[10px] cursor-pointer`}>
-			{value === 'All Matches' ? <TopMatches /> : <p>{value}</p>}
-		</div>
-	)
-
-};
 
 
 const BetTable = ({
 	odds,
 	icon,
 	leagues,
+	setSelectedDate,
+	setSelectedSport,
+	setSelectedLeague,
 	contentTitle,
 	isLiveTable,
 	sportData,
 	sportsType,
 }: {
 	odds: string[],
-	leagues: string[],
 	sportData: any,
+	leagues: string[],
 	sportsType: any,
-	icon?: ReactElement;
+	icon?: ReactElement,
 	contentTitle: string;
 	isLiveTable: boolean;
+	setSelectedDate: React.Dispatch<SetStateAction<string>>,
+	setSelectedLeague: React.Dispatch<SetStateAction<string>>,
+	setSelectedSport: React.Dispatch<SetStateAction<string>>,
 }) => {
     const nextThreeDates = getNextThreeDates();
 	const [collapse, setCollapse] = useState(false);
-	const { link, handleClick } = useLink('3 Way & O/U');
-	const { link: sportTypeLink, handleClick: sportTypeHandleClick } = useLink('Football');
-	const { link: oddsTypeLink, handleClick: oddsTypeHandleClick } = useLink('International Africa Cup of Nations');
+	const { link, handleClick } = useLink(odds[0]);
+	const { link: dateClick, handleClick: dateHandleClick } = useLink(nextThreeDates[0])
+	const { link: sportClick, handleClick: sportHandleClick } = useLink(sportsType[0]);
+	const { link: leagueClick, handleClick: leagueHandleClick } = useLink(leagues[0]);
 
 
-	// console.log(sportData);
-	// let extractedArray = [];
-	// extractedArray = sportData.map((item: any) => ({
-	// 		leagues: item.leagues,
-	// 		price: item.odds,
-	// 		medicationSize: item.sportType,
-	// 		manufacturerName: item.sportsLeagues,
-	// 	})).reverse();
+	useEffect(() => {
+		setSelectedDate(dateClick);
+		setSelectedSport(sportClick);
+		setSelectedLeague(leagueClick);
+	  }, [dateClick, sportClick, leagueClick, setSelectedDate, setSelectedSport, setSelectedLeague]);
+	  
 
-	// console.log(extractedArray);
-	// console.log(odds);
-	// console.log(sportsType);
 	const filteredSports = SPORTS_TYPES.filter(sport => sportsType.includes(sport.title));
 	
 
@@ -125,11 +83,13 @@ const BetTable = ({
 						</div>
                     	<div className='flex items-center space-x-8'>
 							{nextThreeDates.map((value, index) => (
-								<DateItem
-									key={index}
-									value={value}
-									isToday={value === 'Today'}
-								/>
+								<p 
+									key={index} 
+									onClick={() => dateHandleClick(value)} 
+									className={`${
+										dateClick === value ? 'font-bold text-gray-200' : 'text-gray-400'} text-[10px] cursor-pointer`}>
+											{value}
+								</p>
 							))}
 					    </div>
 					</div>
@@ -145,10 +105,10 @@ const BetTable = ({
 					{filteredSports.map((value, index) => (
 						<div
 							key={index}
-							onClick={() => sportTypeHandleClick(value.title)}
+							onClick={() => sportHandleClick(value.title)}
 							className={`${
-								value.title === sportTypeLink
-									? 'text-gold bg-gray-700'
+								value.title === sportClick
+									? 'text-gold bg-gray-700 font-bold'
 									: 'text-gray-500'
 							} flex items-center justify-center text-center text-xs hover:bg-gray-700 hover:text-gold cursor-pointer pr-3 pl-1 rounded-lg`}>
 							<value.icon
@@ -169,10 +129,10 @@ const BetTable = ({
 						{leagues.map((title, index) => (
 							<Carousel.Item key={index}>
 								<div
-									onClick={() => oddsTypeHandleClick(title)}
+									onClick={() => leagueHandleClick(title)}
 									className={`${
-										title === oddsTypeLink
-											? 'text-gold bg-gray-700'
+										title === leagueClick
+											? 'text-gold bg-gray-700 font-bold'
 											: 'text-gray-500'
 									} flex items-center justify-center text-center text-xs hover:bg-gray-700 hover:text-gold cursor-pointer rounded-lg py-1 px-3`}>
 									{title}
@@ -196,7 +156,7 @@ const BetTable = ({
 								onClick={() => handleClick(value)}
 								className={`${
 									value === link
-										? 'text-gray-200'
+										? 'text-gray-200 font-bold'
 										: 'text-gray-600'
 								} p-2 cursor-pointer hover:text-gray-200`}>
 									{value}
