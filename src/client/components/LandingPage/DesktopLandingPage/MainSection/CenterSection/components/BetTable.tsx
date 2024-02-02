@@ -59,6 +59,7 @@ const BetTable = ({
 	  }, [dateClick, sportClick, leagueClick, setSelectedDate, setSelectedSport, setSelectedLeague]);
 	  
 
+
 	const filteredSports = SPORTS_TYPES.filter(sport => sportsType.includes(sport.title));
 	
 
@@ -85,7 +86,7 @@ const BetTable = ({
 							{nextThreeDates.map((value, index) => (
 								<p 
 									key={index} 
-									onClick={() => dateHandleClick(value)} 
+									onClick={() => {dateHandleClick(value); setSelectedDate(value)}} 
 									className={`${
 										dateClick === value ? 'font-bold text-gray-200' : 'text-gray-400'} text-[10px] cursor-pointer`}>
 											{value}
@@ -105,7 +106,7 @@ const BetTable = ({
 					{filteredSports.map((value, index) => (
 						<div
 							key={index}
-							onClick={() => sportHandleClick(value.title)}
+							onClick={() => {sportHandleClick(value.title); setSelectedSport(value.title)}}
 							className={`${
 								value.title === sportClick
 									? 'text-gold bg-gray-700 font-bold'
@@ -132,7 +133,7 @@ const BetTable = ({
 							{leagues.map((title, index) => (
 								<Carousel.Item key={index}>
 									<div
-										onClick={() => leagueHandleClick(title)}
+										onClick={() => {leagueHandleClick(title); setSelectedLeague(title)}}
 										className={`${
 											title === leagueClick
 												? 'text-gold bg-gray-700 font-bold'

@@ -8,14 +8,12 @@ export const getNextThreeDates = () => {
     const todayString = 'Today';
     const nextDate = new Date(today);
     nextDate.setDate(today.getDate() + 1);
-  
     const resultDates = [];
     for (let i = 0; i < 3; i++) {
         const formattedDate = formatDate(nextDate);
         resultDates.push(formattedDate);
         nextDate.setDate(nextDate.getDate() + 1);
     }
-
     resultDates.unshift(todayString); 
     return resultDates;
 }
