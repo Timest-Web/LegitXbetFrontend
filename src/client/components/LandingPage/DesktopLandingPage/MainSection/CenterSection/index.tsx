@@ -17,8 +17,8 @@ const CenterSection = () => {
 
 
 	const extractedLiveMatchesSportType = SPORTS_DATA?.LiveMatches?.map((value) => value.sportType);
-	const extractedTopMatchesSportType = SPORTS_DATA?.TopMatches?.map((value) => value.sportType);
-	const extractedUpcomingMatchesSportType = SPORTS_DATA?.UpcomingMatches?.map((value) => value.sportType);
+	// const extractedTopMatchesSportType = SPORTS_DATA?.TopMatches?.map((value) => value.sportType);
+	// const extractedUpcomingMatchesSportType = SPORTS_DATA?.UpcomingMatches?.map((value) => value.sportType);
 
 	const liveData = SPORTS_DATA?.LiveMatches?.filter(value => value.sportType === selectedSport);
 	let getAvailableLiveOdds: string[] = [];
@@ -28,30 +28,27 @@ const CenterSection = () => {
 	  getAvailableLiveLeagues = liveData[0].leagues;
 	}
 	
-	const topData = SPORTS_DATA?.TopMatches?.filter(value => value.sportType === selectedSport);
-	let getAvailableTopOdds: string[] = [];
-	let getAvailableTopLeagues: string[] = [];
-	if (topData && topData.length > 0) {
-	  getAvailableTopOdds = topData[0].odds;
-	  getAvailableTopLeagues = topData[0].leagues;
-	}
+	// const topData = SPORTS_DATA?.TopMatches?.filter(value => value.sportType === selectedSport);
+	// let getAvailableTopOdds: string[] = [];
+	// let getAvailableTopLeagues: string[] = [];
+	// if (topData && topData.length > 0) {
+	//   getAvailableTopOdds = topData[0].odds;
+	//   getAvailableTopLeagues = topData[0].leagues;
+	// }
 
-	const upcomingData = SPORTS_DATA?.UpcomingMatches?.filter(value => value.sportType === selectedSport);
-	let getAvailableUpcomingOdds: string[] = [];
-	let getAvailableUpcomingLeagues: string[] = [];
-	if (upcomingData && upcomingData.length > 0) {
-	  getAvailableUpcomingOdds = upcomingData[0].odds;
-	  getAvailableUpcomingLeagues = upcomingData[0].leagues;
-	}
+	// const upcomingData = SPORTS_DATA?.UpcomingMatches?.filter(value => value.sportType === selectedSport);
+	// let getAvailableUpcomingOdds: string[] = [];
+	// let getAvailableUpcomingLeagues: string[] = [];
+	// if (upcomingData && upcomingData.length > 0) {
+	//   getAvailableUpcomingOdds = upcomingData[0].odds;
+	//   getAvailableUpcomingLeagues = upcomingData[0].leagues;
+	// }
      
 
 
 
 	const sportType = SPORTS_DATA.LiveMatches?.filter(value => value.sportType === selectedSport);
-
 	const extractedSports = sportType[0]?.sportsLeagues.filter(value => value.leagueName === selectedLeague && getSingleDate(value.date) === selectedDate);
-
-	console.log(extractedSports);
 
 
 	return (
@@ -81,10 +78,10 @@ const CenterSection = () => {
 					setSelectedLeague={setSelectedLeague}
 					odds={getAvailableLiveOdds}
 					leagues={getAvailableLiveLeagues}
-					sportData={SPORTS_DATA.LiveMatches}
+					sportData={extractedSports}
 					sportsType={extractedLiveMatchesSportType}
 				/>
-				<BetTable
+				{/* <BetTable
 					icon={<MatchStar />}
 					contentTitle='Upcoming Matches'
 					isLiveTable={false}
@@ -93,7 +90,7 @@ const CenterSection = () => {
 					setSelectedLeague={setSelectedLeague}
 					odds={getAvailableUpcomingOdds}
 					leagues={getAvailableUpcomingLeagues}
-					sportData={SPORTS_DATA.UpcomingMatches}
+					sportData={extractedSports}
 					sportsType={extractedUpcomingMatchesSportType}
 				/>
 				<BetTable
@@ -105,9 +102,9 @@ const CenterSection = () => {
 					setSelectedLeague={setSelectedLeague}
 					odds={getAvailableTopOdds}
 					leagues={getAvailableTopLeagues}
-					sportData={SPORTS_DATA.TopMatches}
+					sportData={extractedSports}
 					sportsType={extractedTopMatchesSportType}
-				/>
+				/> */}
 			</>
 		</div>
 	);

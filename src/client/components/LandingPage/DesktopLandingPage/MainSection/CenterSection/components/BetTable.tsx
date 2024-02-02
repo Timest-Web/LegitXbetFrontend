@@ -120,30 +120,35 @@ const BetTable = ({
 					))}
 				</div>
 
-				<Carousel>
-					<Carousel.LeftArrow className='ml-4 w-5 bg-gold h-full'>
-						<ControlsChevronLeftSmall />
-					</Carousel.LeftArrow>
-					<Carousel.Reel
-						className={`flex items-center justify-start w-full border-t border-t-gray-800 bg-lightAsh text-sm px-4 py-2`}>
-						{leagues.map((title, index) => (
-							<Carousel.Item key={index}>
-								<div
-									onClick={() => leagueHandleClick(title)}
-									className={`${
-										title === leagueClick
-											? 'text-gold bg-gray-700 font-bold'
-											: 'text-gray-500'
-									} flex items-center justify-center text-center text-xs hover:bg-gray-700 hover:text-gold cursor-pointer rounded-lg py-1 px-3`}>
-									{title}
-								</div>
-							</Carousel.Item>
-						))}
-					</Carousel.Reel>
-					<Carousel.RightArrow className='mr-4 w-5 bg-gold opacity-25 h-full'>
-						<ControlsChevronRightSmall />
-					</Carousel.RightArrow>
-				</Carousel>
+
+				{
+					sportClick &&
+					<Carousel>
+						<Carousel.LeftArrow className='ml-4 w-5 bg-gold h-full'>
+							<ControlsChevronLeftSmall />
+						</Carousel.LeftArrow>
+						<Carousel.Reel
+							className={`flex items-center justify-start w-full border-t border-t-gray-800 bg-lightAsh text-sm px-4 py-2`}>
+							{leagues.map((title, index) => (
+								<Carousel.Item key={index}>
+									<div
+										onClick={() => leagueHandleClick(title)}
+										className={`${
+											title === leagueClick
+												? 'text-gold bg-gray-700 font-bold'
+												: 'text-gray-500'
+										} flex items-center justify-center text-center text-xs hover:bg-gray-700 hover:text-gold cursor-pointer rounded-lg py-1 px-3`}>
+										{title}
+									</div>
+								</Carousel.Item>
+							))}
+						</Carousel.Reel>
+						<Carousel.RightArrow className='mr-4 w-5 bg-gold opacity-25 h-full'>
+							<ControlsChevronRightSmall />
+						</Carousel.RightArrow>
+			    	</Carousel>
+				}
+
 
 				<div className='bg-darkAsh w-full rounded-b-lg'>
 					<div
@@ -160,30 +165,21 @@ const BetTable = ({
 										: 'text-gray-600'
 								} p-2 cursor-pointer hover:text-gray-200`}>
 									{value}
-								{/* {value.data
-									? value.data && (
-											<DropDown
-												title={value.name}
-												arrayTitle={value.data}
-												hoverBgColor='hover:bg-lightAsh'
-											/>
-									  )
-									: value.name} */}
 							</div>
 						))}
 					</div>
-
 					{!collapse && (
 						<>
-							{ODDS_VALUE.map((value, index) => (
-								<TableRow
-									key={index}
-									{...value}
-									isLiveTable={isLiveTable}
-								/>
+							{Array.isArray(sportData) && sportData.length > 0 && sportData[0]?.availableMatch.map((value: any, index: number) => (
+							<TableRow
+								key={index}
+								{...value}
+								isLiveTable={isLiveTable}
+							/>
 							))}
 						</>
-					)}
+						)}
+
 				</div>
 			</div>
 		</>
