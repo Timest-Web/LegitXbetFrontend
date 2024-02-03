@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { BetContext } from './BetContext';
 import { OddsValuesProps } from './constant';
-import { ODDS_VALUE } from '@/src/client/components/LandingPage/DesktopLandingPage/MainSection/CenterSection/constant/data';
+import { ODDS_VALUE } from '@/src/client/components/components/MainSection/CenterSection/constant/data';
 
 
 type BetProviderProps = {
@@ -14,6 +14,8 @@ export const BetProvider: React.FC<BetProviderProps> = ({
 	const initialRender = useRef(true);
 	const [bet, setBet] = useState<OddsValuesProps[]>([]);
 
+	console.log(bet);
+
 	useEffect(() => {
 		const betFromLocalStorage = JSON.parse(
 			localStorage.getItem('bet') || '[]'
@@ -21,6 +23,7 @@ export const BetProvider: React.FC<BetProviderProps> = ({
 		setBet(betFromLocalStorage);
 	}, []);
 
+	
 	const addToBetSlip = (id: number, odd: number) => {
 		if (id) {
 			const selectedOddsValue = ODDS_VALUE.find(

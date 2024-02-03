@@ -11,6 +11,7 @@ type ProfileContextProps = {
   totalPersonalDetails: TotalPersonalDetails;
   handleInputChange: (fieldName: string, value: string) => void;
 }
+
 const ProfileContext = createContext<ProfileContextProps | undefined>(undefined);
 
 export const useProfileContext = () => {

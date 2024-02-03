@@ -9,7 +9,7 @@ const OddsButton = ({
 }: {
 	id: number;
 	onextwo: string;
-	onextwoValue: number;
+	onextwoValue: string;
 }) => {
 	const { click, handleClick } = useButtonEventClick();
 	const { bet, addToBetSlip, handleDelete } = useBet();
@@ -23,9 +23,11 @@ const OddsButton = ({
 		}
 	};
 
+	console.log(id, onextwo, onextwoValue);
+
 	useEffect(() => {
 		const isObjectExist = bet.some(
-			(item) => item.id === id && item.odd === onextwoValue
+			(item) => item.id === id && item.odd === parseFloat(onextwoValue)
 		);
 		setIsBet(isObjectExist);
 	}, [bet, id, onextwoValue]);
@@ -34,7 +36,7 @@ const OddsButton = ({
 		<button
 			onClick={() => {
 				handleClick();
-				onHandleClick(id, onextwoValue);
+				onHandleClick(id, parseFloat(onextwoValue));
 			}}
 			type='submit'
 			className={`flex items-center justify-between transition-all transform ${
@@ -42,7 +44,7 @@ const OddsButton = ({
 			} text-xs w-20 px-2 h-6 rounded-md ${click ? 'scale-75' : ''}`}>
 			<p>{onextwo}</p>
 			<p className={`${isBet ? 'text-black' : 'text-gold '}`}>
-				{onextwoValue}
+				{parseFloat(onextwoValue)}
 			</p>
 		</button>
 	);

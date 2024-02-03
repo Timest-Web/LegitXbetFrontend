@@ -3,12 +3,12 @@ import { BETDATES } from '../../constant/data';
 import RightArrow from '@/src/client/shared/Svg/RightArrow';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
 import { CustomCarousel } from '@/src/client/shared/Carousel';
-import ViewMore from '../../../DesktopLandingPage/MainSection/components/ViewMore';
+import ViewMore from '../../../../components/MainSection/components/ViewMore';
 import {
 	LINK_ODDS_TYPES,
 	ODDS_VALUE,
 	SPORTS_TYPES,
-} from '../../../DesktopLandingPage/MainSection/CenterSection/constant/data';
+} from '../../../../components/MainSection/CenterSection/constant/data';
 import TableRow from './TableRow';
 
 type DateItemProps = {
@@ -87,8 +87,7 @@ const BetTable = ({
 }) => {
 	const [collapse, setCollapse] = useState(false);
 	const { link, handleClick } = useLink('3 Way & O/U');
-	const { link: sportTypeLink, handleClick: sportTypeHandleClick } =
-		useLink('Football');
+	const { link: sportTypeLink, handleClick: sportTypeHandleClick } = useLink('Football');
 
 	return (
 		<div>

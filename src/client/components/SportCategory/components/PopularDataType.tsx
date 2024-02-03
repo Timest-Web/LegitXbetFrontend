@@ -1,5 +1,5 @@
 import React from 'react'
-import { FOOTBALL_DATA } from '../../LandingPage/DesktopLandingPage/MainSection/LeftSection/constant/data';
+import { FOOTBALL_DATA } from '../../LandingPage/DesktopLandingPage/LeftSection/constant/data';
 import RenderLeagueItem from '../../components/RenderLeagueItem';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
 

@@ -2,19 +2,19 @@ import React from 'react';
 import Time from '@/src/client/shared/Svg/Time';
 import Ranking from '@/src/client/shared/Svg/Ranking';
 import { truncateText } from '@/src/client/shared/Utils/TruncateText';
-import ScoreView from '../../../DesktopLandingPage/MainSection/CenterSection/components/ScoreView';
-import { MoreOdds } from '../../../DesktopLandingPage/MainSection/CenterSection/components/MoreOdds';
-import { OddsButtons } from '../../../DesktopLandingPage/MainSection/CenterSection/components/OddsButtons';
+import ScoreView from '../../../../components/Tables/components/ScoreView';
+import { MoreOdds } from '../../../../components/Tables/components/MoreOdds';
+import { OddsButtons } from '../../../../components/Tables/components/OddsButtons';
 
 type Props = {
-      index?: number;
+    index?: number;
 	id: number;
 	time: string;
 	teamOne: string;
 	teamTwo: string;
-	winType: number;
-	drawType: number;
-	loseType: number;
+	winType: string;
+	drawType: string;
+	loseType: string;
 	isLiveTable?: boolean;
 };
 
@@ -23,7 +23,7 @@ type TableRowProps = Props & {
 };
 
 const TableRow = ({
-      index,
+    index,
 	id,
 	time,
 	teamOne,
@@ -35,7 +35,8 @@ const TableRow = ({
 	oddArray,
 }: TableRowProps) => {
 	const truncatedTeamOne = truncateText(teamOne, 10);
-      const truncatedTeamTwo = truncateText(teamTwo, 10);
+    const truncatedTeamTwo = truncateText(teamTwo, 10);
+	
 	return (
 		<div className={`bg-darkAsh w-full`}>
 			<div className='flex flex-row w-full h-11'>

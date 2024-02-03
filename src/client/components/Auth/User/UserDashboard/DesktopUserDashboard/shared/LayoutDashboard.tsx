@@ -1,7 +1,7 @@
 import React from "react";
 import SideBar from "./SideBar";
 import HotlineBar from "./HotlineBar";
-import RightSection from "@/src/client/components/LandingPage/DesktopLandingPage/MainSection/RightSection";
+import RightSection from "@/src/client/components/components/RightSection";
 import BannerSection from "./BannerSection";
 import Header from "@/src/client/shared/Header";
 

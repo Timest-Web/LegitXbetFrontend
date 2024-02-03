@@ -1,6 +1,6 @@
 import LiveMatch from "@/src/client/shared/Svg/LiveMatch"
-import BetTable from "../components/BetTable"
-import { SPORTS_DATA } from "../../../../constant/data";
+import BetTable from "./components/BetTable"
+import { SPORTS_DATA } from "../../LandingPage/constant/data";
 import { useState } from "react";
 import { getSingleDate } from "@/src/client/shared/Utils/GetSportsDate";
 import MatchStar from "@/src/client/shared/Svg/MatchStar";

@@ -7,9 +7,9 @@ export const OddsButtons = ({
 	lose,
 }: {
 	id: number;
-	win: number;
-	draw: number;
-	lose: number;
+	win: string;
+	draw: string;
+	lose: string;
 }) => (
 	<div className='flex flex-row space-x-2'>
 		<OddsButton

@@ -1,16 +1,11 @@
 import React, { useState, ReactElement, useEffect, SetStateAction } from 'react';
 import TableRow from './TableRow';
-import ViewMore from '../../components/ViewMore';
-import DropDown from '@/src/client/shared/Dropdown';
+import ViewMore from '../../MainSection/components/ViewMore';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
 import RightArrow from '@/src/client/shared/Svg/RightArrow';
 import {
-	BETDATES,
-	LINK_ODDS_TYPES,
-	ODDS_VALUE,
 	SPORTS_TYPES,
-} from '../constant/data';
-// import { LEAGUES_TYPES } from '../../../../constant/data';
+} from '../../MainSection/CenterSection/constant/data';
 import { Carousel } from '@heathmont/moon-core-tw';
 import {
 	ControlsChevronLeftSmall,
@@ -58,7 +53,6 @@ const BetTable = ({
 		setSelectedLeague(leagueClick);
 	  }, [dateClick, sportClick, leagueClick, setSelectedDate, setSelectedSport, setSelectedLeague]);
 	  
-
 
 	const filteredSports = SPORTS_TYPES.filter(sport => sportsType.includes(sport.title));
 	

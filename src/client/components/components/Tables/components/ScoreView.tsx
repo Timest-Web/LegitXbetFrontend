@@ -8,8 +8,7 @@ const ScoreView = ({
 	teamTwoScore: number;
 }) => {
 	return (
-		<div
-			className={`flex items-center justify-between transition-all transform text-xs bg-lightAsh w-20 px-2 h-6 rounded-md`}>
+		<div className={`flex items-center justify-between transition-all transform text-xs bg-lightAsh w-20 px-2 h-6 rounded-md`}>
 			<p>Score</p>
 			<p>{teamOneScore}</p>
 			<p>{teamTwoScore}</p>

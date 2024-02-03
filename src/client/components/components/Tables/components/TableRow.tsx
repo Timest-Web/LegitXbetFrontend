@@ -20,9 +20,9 @@ const TableRow = ({
 	time: string;
 	teamOne: string;
 	teamTwo: string;
-	winType: number;
-	drawType: number;
-	loseType: number;
+	winType: string;
+	drawType: string;
+	loseType: string;
 	isLiveTable?: boolean;
 }) => {
 	const truncatedTeamOne = truncateText(teamOne, 10);
