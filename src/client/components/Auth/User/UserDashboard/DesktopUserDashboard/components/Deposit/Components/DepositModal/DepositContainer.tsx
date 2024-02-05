@@ -16,7 +16,7 @@ const DepositContainer = () => {
   const tabNames = ["Card Debit", "Bank Transfer", "Direct Bank USSD"];
 
   return (
-    <div className="bg-[#ECEEF1]  text-sm md:text-base rounded-2xl p-10">
+    <div className="bg-[#ECEEF1] text-sm md:text-base rounded-2xl p-6 md:p-10">
       {/* <ul className="flex space-x-16 font-bold md:mb-3">
         {tabNames.map((tab, index) => (
           <li
@@ -36,8 +36,8 @@ const DepositContainer = () => {
         NB - Minimum deposit amount is NGN 100.00 - you can deposit at least NGN
         100.00 in one transaction.
       </p> */}
-      <p className="font-bold mb-6">Kindly select the channel for payment below</p>
-      <div className="flex flex-col justify-center items-center space-y-6">
+      {/* <p className="font-bold mb-6">Kindly select the channel for payment below</p> */}
+      <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-6">
         <Link href="/user-dashboard/deposit/deposit-paystack">
           <div className=" bg-white w-64 p-4 drop-shadow-xl ">
             <Image src={paystackLogo} alt="paystack-logo" />

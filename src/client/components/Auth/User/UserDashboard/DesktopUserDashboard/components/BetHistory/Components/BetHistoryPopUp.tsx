@@ -2,8 +2,23 @@ import SubmitButton from "../../../shared/SubmitButton";
 import { Accordion } from "@heathmont/moon-core-tw";
 import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 import Link from "next/link";
+import React from "react";
 
-const BetHistoryPopUp = () => {
+interface BetHistoryPopUpProps{
+  date: string;
+  status:string;
+  stake: number;
+  returnStake: number;
+  team1: string;
+  team2: string;
+  oddsPlayed: number;
+  oddsResult: number;
+  scoreTeam1: number;
+  scoreTeam2: number;
+}
+
+
+const BetHistoryPopUp: React.FC<BetHistoryPopUpProps> = ({date, status, stake, returnStake, team1, team2, oddsPlayed, scoreTeam1, scoreTeam2}) => {
   return (
     // <div className="bg-white rounded-[1.25rem] p-3 text-xs md:text-sm">
     //   <table className="w-full ">
@@ -69,6 +84,7 @@ const BetHistoryPopUp = () => {
       <section className="flex flex-col">
         <p className=" font-bold ">14</p>
         <p>Aug</p>
+        <p>{date}</p>
       </section>
       <section className=" w-9/12 space-y-2 ">
         <div className="flex justify-between bg-green-600 px-3 rounded-lg text-white">

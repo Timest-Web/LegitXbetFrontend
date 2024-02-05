@@ -17,32 +17,28 @@ const DepositInner = () => {
 		'Channel',
 	];
 	return (
-		<div className='flex flex-col space-y-7 '>
+		<div className='flex '>
 			<div className=' flex space-x-4'>
-				<BalanceCard
+				{/* <BalanceCard
 					buttonState={true}
 					secondButton={false}
 					firstButtonText='Deposit'
 					secondButtonText=''
 					balanceButtonAction={handleClick}
-				/>
+				/> */}
 			</div>
 			<div>
-				<AllBetTable
+				{/* <AllBetTable
 					title='Transaction History'
 					headers={headers}
 					noBetsMessage='No transactions recorded'
 					placeBetButtonText='Deposit'
 					buttonAction={handleClick}
 					buttonLink=''
-				/>
+				/> */}
 			</div>
-			<Modal
-				openModal={isOpen}
-				setOpenModal={setIsOpen}
-				className='custom-modal-class'
-				modalContent={<DepositContainer />}
-			/>
+			<DepositContainer />
+		
 		</div>
 	);
 };

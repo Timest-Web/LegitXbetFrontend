@@ -1,4 +1,3 @@
-
 import React from "react";
 import { PaystackButton as Paystack } from "react-paystack";
 
