@@ -15,7 +15,6 @@ import { getNextThreeDates } from '@/src/client/shared/Utils/GetSportsDate';
 
 
 
-
 const BetTable = ({
 	odds,
 	icon,
@@ -46,7 +45,7 @@ const BetTable = ({
 	const { link: sportClick, handleClick: sportHandleClick } = useLink(sportsType[0]);
 	const { link: leagueClick, handleClick: leagueHandleClick } = useLink(leagues[0]);
 
-
+	
 	useEffect(() => {
 		setSelectedDate(dateClick);
 		setSelectedSport(sportClick);

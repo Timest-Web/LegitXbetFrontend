@@ -1,31 +1,34 @@
 import OddsButton from '@/src/client/shared/Button/OddsButton/OddsButton';
 
-export const OddsButtons = ({
-	id,
-	win,
-	draw,
-	lose,
-}: {
+type OddsButtonProps = {
 	id: number;
-	win: string;
-	draw: string;
-	lose: string;
-}) => (
+	time: string;
+	teamOne: string;
+	teamTwo: string;
+	winType: number;
+	drawType: number;
+	loseType: number;
+}
+
+export const OddsButtons = ({selectedOddObj}: {selectedOddObj: OddsButtonProps}) => (
 	<div className='flex flex-row space-x-2'>
 		<OddsButton
-			id={id}
+			id={selectedOddObj.id}
 			onextwo='1'
-			onextwoValue={win}
+			selectedOddObj={selectedOddObj}
+			onextwoValue={selectedOddObj.winType}
 		/>
 		<OddsButton
-			id={id}
+			id={selectedOddObj.id}
 			onextwo='X'
-			onextwoValue={draw}
+			selectedOddObj={selectedOddObj}
+			onextwoValue={selectedOddObj.drawType}
 		/>
 		<OddsButton
-			id={id}
+			id={selectedOddObj.id}
 			onextwo='2'
-			onextwoValue={lose}
+			selectedOddObj={selectedOddObj}
+			onextwoValue={selectedOddObj.loseType}
 		/>
 	</div>
 );

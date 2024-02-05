@@ -8,6 +8,7 @@ import { UpcomingBetTable } from '../../components/Tables/UpcomingBetTable';
 
 
 const DesktopLandingPage = () => {
+
 	return (
 		<Layout
 		   leftSection={<LeftSection />}

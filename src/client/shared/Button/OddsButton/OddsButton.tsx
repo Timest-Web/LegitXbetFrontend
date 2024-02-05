@@ -1,33 +1,48 @@
 import React, { useEffect, useState } from 'react';
-import { useButtonEventClick } from '../../Hooks/useButtonEventClick';
 import useBet from '../../Context/BetContext/useBet';
+import { useButtonEventClick } from '../../Hooks/useButtonEventClick';
+
+type SelectedOddsObjectProps = {
+	id: number;
+	time: string;
+	teamOne: string;
+	teamTwo: string;
+	winType: number;
+	drawType: number;
+	loseType: number;
+}
 
 const OddsButton = ({
 	id,
 	onextwo,
 	onextwoValue,
+	selectedOddObj
 }: {
 	id: number;
 	onextwo: string;
-	onextwoValue: string;
+	onextwoValue: number;
+	selectedOddObj: SelectedOddsObjectProps
 }) => {
 	const { click, handleClick } = useButtonEventClick();
 	const { bet, addToBetSlip, handleDelete } = useBet();
 	const [color, setColor] = useState(false);
 	const [isBet, setIsBet] = useState(false);
-	const onHandleClick = (id: number, odd: number) => {
+
+
+	const onHandleClick = (id: number, odd: number, selectedOddObj: SelectedOddsObjectProps) => {
 		setColor(!color);
-		addToBetSlip(id, odd);
+		addToBetSlip(id, odd, selectedOddObj);
+
+		console.log(selectedOddObj.winType, selectedOddObj.loseType);
+
 		if (color) {
 			handleDelete({ id, odd });
 		}
 	};
 
-	console.log(id, onextwo, onextwoValue);
-
 	useEffect(() => {
 		const isObjectExist = bet.some(
-			(item) => item.id === id && item.odd === parseFloat(onextwoValue)
+			(item) => item.id === id && item.odd === onextwoValue
 		);
 		setIsBet(isObjectExist);
 	}, [bet, id, onextwoValue]);
@@ -36,7 +51,7 @@ const OddsButton = ({
 		<button
 			onClick={() => {
 				handleClick();
-				onHandleClick(id, parseFloat(onextwoValue));
+				onHandleClick(id, onextwoValue, selectedOddObj);
 			}}
 			type='submit'
 			className={`flex items-center justify-between transition-all transform ${
@@ -44,7 +59,7 @@ const OddsButton = ({
 			} text-xs w-20 px-2 h-6 rounded-md ${click ? 'scale-75' : ''}`}>
 			<p>{onextwo}</p>
 			<p className={`${isBet ? 'text-black' : 'text-gold '}`}>
-				{parseFloat(onextwoValue)}
+				{onextwoValue}
 			</p>
 		</button>
 	);

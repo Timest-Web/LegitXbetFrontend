@@ -15,6 +15,8 @@ const TableRow = ({
 	drawType,
 	loseType,
 	isLiveTable,
+	teamOneScore,
+	teamTwoScore,
 }: {
 	id: number;
 	time: string;
@@ -23,10 +25,27 @@ const TableRow = ({
 	winType: string;
 	drawType: string;
 	loseType: string;
+	teamOneScore: string;
+	teamTwoScore: string;
 	isLiveTable?: boolean;
 }) => {
 	const truncatedTeamOne = truncateText(teamOne, 10);
 	const truncatedTeamTwo = truncateText(teamTwo, 10);
+
+	const winInt = parseFloat(winType);
+	const drawInt = parseFloat(drawType);
+	const loseInt = parseFloat(loseType);
+
+	const selectedOddObj = {
+		id, 
+		time, 
+		teamOne, 
+		teamTwo, 
+		winType: winInt, 
+		drawType: drawInt, 
+		loseType: loseInt
+	}
+
 	return (
 		<div className='bg-darkAsh w-full rounded-b-xl'>
 			<div className='flex flex-row w-full'>
@@ -44,15 +63,12 @@ const TableRow = ({
 					<div className='flex space-x-4'>
 						{isLiveTable === true && (
 							<ScoreView
-								teamOneScore={2}
-								teamTwoScore={0}
+								teamOneScore={teamOneScore}
+								teamTwoScore={teamTwoScore}
 							/>
 						)}
 						<OddsButtons
-							draw={drawType}
-							win={winType}
-							lose={loseType}
-							id={id}
+						    selectedOddObj={selectedOddObj}
 						/>
 					</div>
 					<MoreOdds />
