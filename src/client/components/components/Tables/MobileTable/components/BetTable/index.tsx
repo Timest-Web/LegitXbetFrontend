@@ -96,9 +96,9 @@ const BetTable = ({
 										onClick={() => sportHandleClick(value.title)}
 										className={`${
 											value.title === sportClick
-												? 'text-gold bg-lightAsh'
+												? 'text-gold bg-gray-700'
 												: 'text-gray-400'
-										} flex items-center justify-center text-center font-bold hover:bg-lightAsh hover:text-gold cursor-pointer pr-3 pl-1 rounded-lg`}>
+										} flex items-center justify-center text-center font-bold hover:bg-gray-700 hover:text-gold cursor-pointer pr-3 pl-1 rounded-lg`}>
 										<value.icon
 											height={25}
 											width={25}
@@ -143,7 +143,7 @@ const BetTable = ({
 									className={`${
 										value === link
 											? 'text-gray-200 font-bold'
-											: 'text-gray-600'
+											: 'text-gray-700'
 									} p-2 cursor-pointer hover:text-gray-200`}>
 										{value}
 								</div>
@@ -169,7 +169,7 @@ const BetTable = ({
 							</div>
                             {Array.isArray(sportData) && sportData.length > 0 && sportData[0]?.availableMatch.length > 3 && 
 								<div className='h-12 w-full py-2 px-3'>
-									<button className='w-full h-8 rounded-lg bg-lightAsh text-white text-xs'>
+									<button className='w-full h-8 rounded-lg bg-gray-700 text-white text-xs'>
 										View All
 									</button>
 								</div>

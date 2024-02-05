@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import MenuIcon from '../../Svg/MenuIcon';
 import { Carousel } from '@heathmont/moon-core-tw';
 import { CustomCarousel } from '../../Carousel';
 import { POPULAR_DATA } from '@/src/client/components/LandingPage/DesktopLandingPage/LeftSection/constant/data';
