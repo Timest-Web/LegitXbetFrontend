@@ -20,10 +20,7 @@ const renderCarouselItems = () => {
 const CategoryBetHeader = () => {
 	return (
 		<div className='flex items-center justify-start h-10 space-x-1 w-full bg-brown-600 bg-[#313130]'>
-			<div className='flex items-center justify-center pr-5  w-2/12'>
-				<MenuIcon />
-			</div>
-			<div className='flex items-center pt-3 w-10/12'>
+			<div className='flex items-center px-2'>
 				<CustomCarousel
 					renderCarouselItems={renderCarouselItems}
 				/>
