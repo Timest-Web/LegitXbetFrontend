@@ -33,16 +33,6 @@ export const BetProvider: React.FC<BetProviderProps> = ({children}: BetProviderP
 	
 	const addToBetSlip = (id: number, odd: number, selectedOddObj: SelectedOddsObjectProps) => {
 		if (id) {
-			// const selectedOddsValue = ODDS_VALUE.find(
-			// 	(obj) =>
-			// 		obj.id === id &&
-			// 		(obj.winType === odd ||
-			// 			obj.drawType === odd ||
-			// 			obj.loseType === odd)
-			// );
-
-			console.log(selectedOddObj);
-
 			if (selectedOddObj) {
 				const checkSelected = bet.find(
 					(obj: OddsValuesProps) => obj.id === id && obj.odd === odd

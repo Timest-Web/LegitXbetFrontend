@@ -1,32 +1,32 @@
 import BetTable from "./components/BetTable";
-import { SPORTS_DATA } from "../../LandingPage/constant/data";
+import { SPORTS_DATA } from "../../../LandingPage/constant/data";
 import MatchStar from "@/src/client/shared/Svg/MatchStar";
 import { useBetTable } from "@/src/client/shared/Hooks/useBetTable";
 
 
 export const TopBetTable = () => {
   const {
+    odds,
+    leagues,
+    sportData,
     setSelectedDate,
     setSelectedSport,
     setSelectedLeague,
     extractedSportType,
-    odds,
-    leagues,
-    sportData,
   } = useBetTable(SPORTS_DATA?.TopMatches);
 
   return (
     <BetTable
       icon={<MatchStar />}
-      contentTitle="Top Matches"
+      odds={odds}
+      leagues={leagues}
       isLiveTable={false}
+      sportData={sportData}
+      contentTitle="Top Matches"
+      sportsType={extractedSportType}
       setSelectedDate={setSelectedDate}
       setSelectedSport={setSelectedSport}
       setSelectedLeague={setSelectedLeague}
-      odds={odds}
-      leagues={leagues}
-      sportData={sportData}
-      sportsType={extractedSportType}
     />
   );
 };

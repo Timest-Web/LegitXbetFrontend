@@ -1,32 +1,33 @@
 import LiveMatch from "@/src/client/shared/Svg/LiveMatch";
 import BetTable from "./components/BetTable";
-import { SPORTS_DATA } from "../../LandingPage/constant/data";
+import { SPORTS_DATA } from "../../../LandingPage/constant/data";
 import { useBetTable } from "@/src/client/shared/Hooks/useBetTable";
 
 
 export const LiveBetTable = () => {
   const {
+    odds,
+    leagues,
+    sportData,
     setSelectedDate,
     setSelectedSport,
     setSelectedLeague,
     extractedSportType,
-    odds,
-    leagues,
-    sportData,
   } = useBetTable(SPORTS_DATA?.LiveMatches);
+
   
   return (
     <BetTable
       icon={<LiveMatch />}
-      contentTitle="LIVE"
+      odds={odds}
+      leagues={leagues}
       isLiveTable={true}
+      contentTitle="LIVE"
+      sportData={sportData}
+      sportsType={extractedSportType}
       setSelectedDate={setSelectedDate}
       setSelectedSport={setSelectedSport}
       setSelectedLeague={setSelectedLeague}
-      odds={odds}
-      leagues={leagues}
-      sportData={sportData}
-      sportsType={extractedSportType}
     />
   );
 };

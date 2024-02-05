@@ -1,9 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import LandScaleImageCarousel from '@/src/client/shared/Carousel/LandScaleImageCarousel';
-import { LiveBetTable } from '../../Tables/LiveBetTable';
-import { UpcomingBetTable } from '../../Tables/UpcomingBetTable';
-import { TopBetTable } from '../../Tables/TopBetTable';
+import { LiveBetTable } from '../../Tables/DesktopTable/LiveBetTable';
+import { UpcomingBetTable } from '../../Tables/DesktopTable/UpcomingBetTable';
+import { TopBetTable } from '../../Tables/DesktopTable/TopBetTable';
 
 
 const CenterSection = ({children}: {children: React.ReactNode}) => {

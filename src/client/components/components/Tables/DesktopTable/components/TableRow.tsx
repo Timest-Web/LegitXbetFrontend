@@ -5,6 +5,7 @@ import { OddsButtons } from './OddsButtons';
 import { MoreOdds } from './MoreOdds';
 import ScoreView from './ScoreView';
 import { truncateText } from '@/src/client/shared/Utils/TruncateText';
+import Link from 'next/link';
 
 const TableRow = ({
 	id,
@@ -47,18 +48,17 @@ const TableRow = ({
 	}
 
 	return (
-		<div className='bg-darkAsh w-full rounded-b-xl'>
-			<div className='flex flex-row w-full'>
+		<div className='flex bg-darkAsh w-full rounded-b-xl'>
 				<div className='flex items-center justify-center border-r border-r-gray-800 w-20 h-12 text-[10px] space-x-1'>
 					<Time color='#E6EAEE' />
 					<p className='text-gray-400 '>{time}</p>
 				</div>
 				<div className='flex items-center justify-between border-b border-b-gray-800 w-full text-gray-200 px-4 text-xs'>
-					<div className='flex items-center justify-between space-x-4 text-[10px] w-40'>
+					<Link href='#' className='flex items-center justify-between space-x-4 text-[10px] w-40'>
 						<p>{truncatedTeamOne}</p>
 						<p>v</p>
 						<p>{truncatedTeamTwo}</p>
-					</div>
+					</Link>
 					<Ranking />
 					<div className='flex space-x-4'>
 						{isLiveTable === true && (
@@ -73,7 +73,6 @@ const TableRow = ({
 					</div>
 					<MoreOdds />
 				</div>
-			</div>
 		</div>
 	);
 };

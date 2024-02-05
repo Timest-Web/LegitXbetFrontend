@@ -27,15 +27,15 @@ const ViewMore = ({
 			<div className='flex items-center space-x-1'>
 				{isLiveTable === true ? (
 					<span className='relative flex'>
-						<span className='animate-ping absolute inline-flex h-10 border-4 border-black w-10 rounded-full bg-gray-800 opacity-75'></span>
-						<span className='relative inline-flex rounded-full'>
+						<span className='animate-ping absolute inline-flex h-5 border-4 border-black w-5 rounded-full bg-gray-800 opacity-75'></span>
+						<span className='relative inline-flex rounded-full font-bold'>
 							{icon && icon}
 						</span>
 					</span>
 				) : (
 					<>{icon && icon}</>
 				)}
-				<p>{contentTitle}</p>
+				<p className='font-bold text-[17px]'>{contentTitle}</p>
 			</div>
 
 			<div className='flex space-x-1'>
@@ -44,14 +44,14 @@ const ViewMore = ({
 						onClick={() => setCollapse(!collapse)}
 						className='flex items-center space-x-1 cursor-pointer'>
 						<AddSquare />
-						<p className='cursor-pointer'>Expand</p>
+						<p className='cursor-pointer font-bold text-[17px]'>Expand</p>
 					</div>
 				) : (
 					<div
 						onClick={() => setCollapse(!collapse)}
 						className='flex items-center space-x-1 cursor-pointer'>
 						<MinusSqure />
-						<p>Collapse</p>
+						<p className='font-bold text-[17px]'>Collapse</p>
 					</div>
 				)}
 			</div>

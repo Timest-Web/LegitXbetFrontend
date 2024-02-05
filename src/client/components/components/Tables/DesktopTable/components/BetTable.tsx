@@ -1,11 +1,11 @@
 import React, { useState, ReactElement, useEffect, SetStateAction } from 'react';
 import TableRow from './TableRow';
-import ViewMore from '../../MainSection/components/ViewMore';
+import ViewMore from '../../../MainSection/components/ViewMore';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
 import RightArrow from '@/src/client/shared/Svg/RightArrow';
 import {
 	SPORTS_TYPES,
-} from '../../MainSection/CenterSection/constant/data';
+} from '../../../MainSection/CenterSection/constant/data';
 import { Carousel } from '@heathmont/moon-core-tw';
 import {
 	ControlsChevronLeftSmall,
@@ -50,11 +50,16 @@ const BetTable = ({
 		setSelectedDate(dateClick);
 		setSelectedSport(sportClick);
 		setSelectedLeague(leagueClick);
-	  }, [dateClick, sportClick, leagueClick, setSelectedDate, setSelectedSport, setSelectedLeague]);
-	  
+	  }, [
+		dateClick, 
+		sportClick, 
+		leagueClick, 
+		setSelectedDate, 
+		setSelectedSport, 
+		setSelectedLeague
+	]);
 
 	const filteredSports = SPORTS_TYPES.filter(sport => sportsType.includes(sport.title));
-	
 
 	return (
 		<>
@@ -143,7 +148,6 @@ const BetTable = ({
 			    	</Carousel>
 				}
 
-
 				<div className='bg-darkAsh w-full rounded-b-lg'>
 					<div
 						className={`flex items-center space-x-4 text-xs  px-3 ${
@@ -174,6 +178,13 @@ const BetTable = ({
 						</>
 						)}
 
+						{Array.isArray(sportData) && sportData.length > 0 && sportData[0]?.availableMatch.length > 3 && 
+							<div className='h-12 w-full py-2 px-3'>
+								<button className='w-full h-8 rounded-lg bg-lightAsh text-white text-xs'>
+									View All
+								</button>
+							</div>
+						}
 				</div>
 			</div>
 		</>

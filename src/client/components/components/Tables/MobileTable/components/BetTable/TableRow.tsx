@@ -2,28 +2,12 @@ import React from 'react';
 import Time from '@/src/client/shared/Svg/Time';
 import Ranking from '@/src/client/shared/Svg/Ranking';
 import { truncateText } from '@/src/client/shared/Utils/TruncateText';
-import ScoreView from '../../../../components/Tables/components/ScoreView';
-import { MoreOdds } from '../../../../components/Tables/components/MoreOdds';
-import { OddsButtons } from '../../../../components/Tables/components/OddsButtons';
+import ScoreView from '../../../DesktopTable/components/ScoreView';
+import { MoreOdds } from '../../../DesktopTable/components/MoreOdds';
+import { OddsButtons } from '../../../DesktopTable/components/OddsButtons';
 
-type Props = {
-    index?: number;
-	id: number;
-	time: string;
-	teamOne: string;
-	teamTwo: string;
-	winType: string;
-	drawType: string;
-	loseType: string;
-	isLiveTable?: boolean;
-};
-
-type TableRowProps = Props & { 
-	oddArray: Props[];
-};
 
 const TableRow = ({
-    index,
 	id,
 	time,
 	teamOne,
@@ -32,10 +16,35 @@ const TableRow = ({
 	drawType,
 	loseType,
 	isLiveTable,
-	oddArray,
-}: TableRowProps) => {
+	teamOneScore,
+	teamTwoScore,
+}: {
+	id: number;
+	time: string;
+	teamOne: string;
+	teamTwo: string;
+	winType: string;
+	drawType: string;
+	loseType: string;
+	teamOneScore: string;
+	teamTwoScore: string;
+	isLiveTable?: boolean;
+}) => {
 	const truncatedTeamOne = truncateText(teamOne, 10);
-    const truncatedTeamTwo = truncateText(teamTwo, 10);
+	const truncatedTeamTwo = truncateText(teamTwo, 10);
+	const winInt = parseFloat(winType);
+	const drawInt = parseFloat(drawType);
+	const loseInt = parseFloat(loseType);
+
+	const selectedOddObj = {
+		id, 
+		time, 
+		teamOne, 
+		teamTwo, 
+		winType: winInt, 
+		drawType: drawInt, 
+		loseType: loseInt
+	}
 	
 	return (
 		<div className={`bg-darkAsh w-full`}>
@@ -60,15 +69,12 @@ const TableRow = ({
 					<div className='flex space-x-6'>
 						{isLiveTable === true && (
 							<ScoreView
-								teamOneScore={2}
-								teamTwoScore={0}
+								teamOneScore={teamOneScore}
+								teamTwoScore={teamTwoScore}
 							/>
 						)}
 						<OddsButtons
-							draw={drawType}
-							win={winType}
-							lose={loseType}
-							id={id}
+						    selectedOddObj={selectedOddObj}
 						/>
 					</div>
 					<MoreOdds />

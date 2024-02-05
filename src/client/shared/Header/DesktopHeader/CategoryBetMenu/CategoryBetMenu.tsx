@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import DesktopModal from '../../../Modal';
 import Logo from '../../../../../assets/logo1.png';
@@ -7,15 +8,14 @@ import UserSection from './UserSection';
 import SupportContent from '../../SupportContent';
 import { Button } from '../../../Button';
 import { useLink } from '../../../Hooks/useLink';
+import { useGetUser } from '../../../Hooks/useGetUser';
 import { OtherCrown } from '@heathmont/moon-icons-tw';
-import { useVisibilityControl } from '../../../Hooks/useVisibilityControl';
 import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
 import { LINK_CATEGORY_TYPES } from '../../constant';
+import { useVisibilityControl } from '../../../Hooks/useVisibilityControl';
 import CustomerCareDrawer from '../../../Modal/components/DesktopCustomerCare';
 import useUrlPathChecker from '../../../Hooks/useUrlPathChecker';
 import AuthContent from '../../../../components/Auth/User/UserAuth/Components/AuthContent';
-import { useGetUser } from '../../../Hooks/useGetUser';
-import Link from 'next/link';
 
 const CategoryBetMenu = () => {
 	const { user } = useGetUser('access');

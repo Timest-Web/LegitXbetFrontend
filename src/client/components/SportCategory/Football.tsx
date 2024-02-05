@@ -5,7 +5,7 @@ import FilterByTime from './components/FilterByTime';
 import PopularDataType from './components/PopularDataType';
 import CenterSection from '../components/MainSection/CenterSection';
 import LeftSection from '../LandingPage/DesktopLandingPage/LeftSection';
-import { LiveBetTable } from '../components/Tables/LiveBetTable';
+import { LiveBetTable } from '../components/Tables/DesktopTable/LiveBetTable';
 
 const Football = () => {
 	return (

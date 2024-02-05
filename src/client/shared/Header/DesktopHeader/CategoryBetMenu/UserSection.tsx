@@ -5,12 +5,6 @@ import { USER_HEADER_DATA } from '../../constant';
 import useUser from '../../../Context/UserContext/useUser';
 
 const UserSection = () => {
-	const handleUserLogout = () => {
-		// if (clickedIndex === 2) {
-			console.log('This logout button');
-		// }
-	};
-
 
 	return (
 		<div className={`flex items-center`}>

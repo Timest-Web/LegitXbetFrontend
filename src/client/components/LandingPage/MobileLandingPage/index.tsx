@@ -10,7 +10,7 @@ const MobileLandingPage = () => {
 	return (
 		<Layout 
 		  mobileComponents={
-			<div className='h-max w-full -mt-32 pb-28'>
+			<div className='h-max w-full -mt-20'>
 			    <LandScaleImageCarousel
 					height='h-[134.36px]'
 					width='w-full'
