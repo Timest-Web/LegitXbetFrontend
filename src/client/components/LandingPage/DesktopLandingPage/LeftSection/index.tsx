@@ -9,6 +9,7 @@ import RenderLeagueItem from '@/src/client/components/components/RenderLeagueIte
 const LeftSection = () => {
 	const { link, handleClick } = useLink('Live Matches');
 
+
 	return (
 		<div className='flex flex-col'>
 			<div className='flex flex-col space-y-[1px]'>
@@ -16,7 +17,8 @@ const LeftSection = () => {
 					<RenderLeagueItem
 						key={index}
 						link={link}
-						value={value}
+						href={value.link}
+						value={value.title}
 						handleClick={handleClick}
 					/>
 				))}

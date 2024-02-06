@@ -9,6 +9,7 @@ import { getNextThreeDates } from '@/src/client/shared/Utils/GetSportsDate';
 
 
 const BetTable = ({
+	href,
 	odds,
 	icon,
 	leagues,
@@ -20,6 +21,7 @@ const BetTable = ({
 	sportData,
 	sportsType,
 }: {
+	href: string,
 	odds: string[],
 	sportData: any,
 	leagues: string[],
@@ -56,7 +58,7 @@ const BetTable = ({
 	
 	return (
 		<div>
-			<div>
+			<div id={href}>
 				<ViewMore
 					icon={icon}
 					collapse={collapse}

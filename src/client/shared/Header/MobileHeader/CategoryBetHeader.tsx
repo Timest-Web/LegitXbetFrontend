@@ -8,9 +8,9 @@ const renderCarouselItems = () => {
 	return POPULAR_DATA?.map((value, index) => (
 		<Carousel.Item  key={index} className='flex items-center justify-start'>
 			<Link
-				href='#'
+				href={value.link}
 				className='text-[11px] text-white text-xs'>
-				{value}
+				{value.title}
 			</Link>
 		</Carousel.Item>
 	));

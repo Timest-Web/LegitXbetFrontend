@@ -1,10 +1,10 @@
 import BetTable from "./components/BetTable";
 import { SPORTS_DATA } from "../../../LandingPage/constant/data";
-import { useBetTable } from "@/src/client/shared/Hooks/useBetTable";
 import MatchStar from "@/src/client/shared/Svg/MatchStar";
+import { useBetTable } from "@/src/client/shared/Hooks/useBetTable";
 
 
-export const UpcomingBetTable = () => {
+export const AllTodayBetTable = () => {
   const {
     odds,
     leagues,
@@ -13,18 +13,18 @@ export const UpcomingBetTable = () => {
     setSelectedSport,
     setSelectedLeague,
     extractedSportType,
-  } = useBetTable(SPORTS_DATA?.UpcomingMatches);
+  } = useBetTable(SPORTS_DATA?.TopMatches);
 
   return (
     <BetTable
-      href="upcominggames"
+      href="allmatchestoday"
       icon={<MatchStar />}
       odds={odds}
       leagues={leagues}
       isLiveTable={false}
       sportData={sportData}
+      contentTitle="All Matches Today"
       sportsType={extractedSportType}
-      contentTitle="Upcoming Matches"
       setSelectedDate={setSelectedDate}
       setSelectedSport={setSelectedSport}
       setSelectedLeague={setSelectedLeague}

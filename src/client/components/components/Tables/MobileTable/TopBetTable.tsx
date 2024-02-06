@@ -1,7 +1,8 @@
-import BetTable from "./components/BetTable";
+
 import { SPORTS_DATA } from "../../../LandingPage/constant/data";
 import MatchStar from "@/src/client/shared/Svg/MatchStar";
 import { useBetTable } from "@/src/client/shared/Hooks/useBetTable";
+import BetTable from "./components/BetTable";
 
 
 export const TopBetTable = () => {
@@ -17,6 +18,7 @@ export const TopBetTable = () => {
 
   return (
     <BetTable
+      href="topgames"
       icon={<MatchStar />}
       odds={odds}
       leagues={leagues}

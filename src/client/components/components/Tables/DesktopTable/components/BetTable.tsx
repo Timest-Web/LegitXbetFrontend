@@ -16,6 +16,7 @@ import { getNextThreeDates } from '@/src/client/shared/Utils/GetSportsDate';
 
 
 const BetTable = ({
+	href,
 	odds,
 	icon,
 	leagues,
@@ -27,6 +28,7 @@ const BetTable = ({
 	sportData,
 	sportsType,
 }: {
+	href: string,
 	odds: string[],
 	sportData: any,
 	leagues: string[],
@@ -59,11 +61,12 @@ const BetTable = ({
 		setSelectedLeague
 	]);
 
+
 	const filteredSports = SPORTS_TYPES.filter(sport => sportsType.includes(sport.title));
 
 	return (
 		<>
-			<div className='mt-5'>
+			<div className='mt-5' id={href}>
 				<ViewMore
 					icon={icon}
 					collapse={collapse}

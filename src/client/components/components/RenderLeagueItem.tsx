@@ -1,7 +1,10 @@
+import Link from 'next/link';
+import { Link as Href } from 'react-scroll';
 import { ControlsChevronRightSmall, MailFlag } from '@heathmont/moon-icons-tw';
 
 type RenderLeagueItemProps = {
 	link: string;
+	href: string;
 	value: string;
 	handleClick: Function;
 };
@@ -9,10 +12,14 @@ type RenderLeagueItemProps = {
 const RenderLeagueItem = ({
 	link,
 	value,
+	href,
 	handleClick,
 }: RenderLeagueItemProps) => {
+
+	  
 	return (
-		<div
+		<Link
+		    href={href}
 			onClick={() => handleClick(value)}
 			className={`${
 				link === value ? 'text-gray-200' : 'text-gray-400'
@@ -26,7 +33,7 @@ const RenderLeagueItem = ({
 				height={30}
 				width={30}
 			/>
-		</div>
+		</Link>
 	);
 };
 

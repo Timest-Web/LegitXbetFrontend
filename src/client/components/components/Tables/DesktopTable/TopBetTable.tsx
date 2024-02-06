@@ -17,6 +17,7 @@ export const TopBetTable = () => {
 
   return (
     <BetTable
+      href="topgames"
       icon={<MatchStar />}
       odds={odds}
       leagues={leagues}

@@ -7,16 +7,17 @@ const PopularDataType = () => {
 	const { link, handleClick } = useLink('Live Matches');
 
       return (
-                  <div className='flex flex-col space-y-[1px]'>
-                        {FOOTBALL_DATA.map((value, index) => (
-                              <RenderLeagueItem
-                                    key={index}
-                                    link={link}
-                                    value={value}
-                                    handleClick={handleClick}
-                              />
-                        ))}
-                  </div>
+            <div className='flex flex-col space-y-[1px]'>
+                  {FOOTBALL_DATA.map((value, index) => (
+                        <RenderLeagueItem
+                              key={index}
+                              link={link}
+                              href='football'
+                              value={value}
+                              handleClick={handleClick}
+                        />
+                  ))}
+            </div>
       );
 }
 

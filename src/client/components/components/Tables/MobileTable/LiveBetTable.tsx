@@ -17,6 +17,7 @@ export const LiveBetTable = () => {
   
   return (
     <BetTable
+      href="livegame"
       icon={<LiveMatch />}
       odds={odds}
       leagues={leagues}
