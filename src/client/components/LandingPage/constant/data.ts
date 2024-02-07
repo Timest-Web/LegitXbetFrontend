@@ -1,16 +1,5 @@
-// export const LEAGUES_TYPES = [
-//       "International Africa Cup of Nations",
-//       "International Euro Cup",
-//       "England Premier League",
-//       // "International Clubs UEFA Champions League",
-//       // "England EFL Cup",
-//       // "Spain LaLiga",
-//       // "Italy Serie A",
-// ]
-
 export const SPORTS_DATA = {
       LiveMatches: [
-
             {
                   sportType: 'Football',
                   leagues: [
@@ -822,8 +811,42 @@ export const SPORTS_DATA = {
                               ]
                         },
                   ]
-            }
+            },
 
+            {
+                  sportType: 'Table Tennis',
+                  leagues: [],
+                  odds: [],
+                  sportsLeagues:[]
+            },
+
+            {
+                  sportType: 'Basketball',
+                  leagues: [],
+                  odds: [],
+                  sportsLeagues:[]
+            },
+
+            {
+                  sportType: 'Rugby',
+                  leagues: [],
+                  odds: [],
+                  sportsLeagues:[]
+            },
+
+            {
+                  sportType: 'Ice Hockey',
+                  leagues: [],
+                  odds: [],
+                  sportsLeagues:[]
+            },
+
+            {
+                  sportType: 'Volleyball',
+                  leagues: [],
+                  odds: [],
+                  sportsLeagues:[]
+            },
       ],
 
 

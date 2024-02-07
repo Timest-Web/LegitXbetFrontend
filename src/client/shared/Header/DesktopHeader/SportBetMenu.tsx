@@ -16,8 +16,8 @@ const SportBetMenu = () => {
 						value === 'Home'
 							? '/'
 							: `/sports/${value
-									.toLowerCase()
-									.replace(/ /g, '-')}`
+								.toLowerCase()
+								.replace(/ /g, '-')}`
 					}`}
 					key={index}
 					className={`${

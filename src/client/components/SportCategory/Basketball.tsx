@@ -5,14 +5,14 @@ import FilterByTime from './components/FilterByTime';
 import PopularDataType from './components/PopularDataType';
 import CenterSection from '../components/MainSection/CenterSection';
 import { LiveBetTable } from '../components/Tables/DesktopTable/LiveBetTable';
-import { FOOTBALL_DATA } from '../LandingPage/DesktopLandingPage/LeftSection/constant/data';
+import { BASKETBALL_DATA } from '../LandingPage/DesktopLandingPage/LeftSection/constant/data';
 
-const Football = () => {
+const Basketball = () => {
 	return (
 		<Layout 
 		    leftSection={
 				<div className='space-y-5'>
-					<PopularDataType data={FOOTBALL_DATA} />
+					<PopularDataType data={BASKETBALL_DATA} />
 					<FilterByTime />
 					<OddsFilter />
 				</div>
@@ -26,4 +26,4 @@ const Football = () => {
 	);
 };
 
-export default Football;
+export default Basketball;

@@ -5,6 +5,7 @@ import { useLink } from '@/src/client/shared/Hooks/useLink';
 import FifaCup from '../../../../../assets/fifaworldcup.png';
 import LeagueType from '../../../../../assets/LeagueType.png';
 import RenderLeagueItem from '@/src/client/components/components/RenderLeagueItem';
+import Carousel from '../../../components/Tables/DesktopTable/components/Carousel';
 
 const LeftSection = () => {
 	const { link, handleClick } = useLink('Live Matches');
@@ -12,6 +13,9 @@ const LeftSection = () => {
 
 	return (
 		<div className='flex flex-col'>
+			{/* <div className='h-12 w-[200px]'>
+     			<Carousel />
+			</div> */}
 			<div className='flex flex-col space-y-[1px]'>
 				{POPULAR_DATA.map((value, index) => (
 					<RenderLeagueItem

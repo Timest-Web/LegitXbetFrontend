@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Link as Href } from 'react-scroll';
 import { ControlsChevronRightSmall, MailFlag } from '@heathmont/moon-icons-tw';
 
 type RenderLeagueItemProps = {
