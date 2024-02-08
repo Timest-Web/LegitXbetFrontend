@@ -42,7 +42,7 @@ const BonusInner = () => {
             </button>
           </section>
           <table className="w-full">
-            {headers.map((header)=><th>{header}</th>)}
+            {headers.map((header, index)=><th key={index}>{header}</th>)}
           </table>
         </div>
       </div>

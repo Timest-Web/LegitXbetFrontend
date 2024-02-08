@@ -11,6 +11,7 @@ import {
   ControlsChevronDown,
 } from "@heathmont/moon-icons-tw";
 import Link from "next/link";
+import Receipt from "@/src/client/shared/Svg/Receipt";
 
 const MobileOverview = () => {
   const [isDepositModalOpen, setDepositModalOpen] = useState(false);
@@ -34,35 +35,21 @@ const MobileOverview = () => {
       <MobileDashboardLayout
         mobilelayoutcontent={
           <div className="">
-            <div className="flex justify-between">
-              <p className=" font-bold mb-4 pt-3 ">Welcome, Johnson</p>
-            </div>
+            <OverviewWelcomeTab />
             <BalanceCard
               buttonState={true}
               secondButton={true}
               firstButtonText="Deposit"
               secondButtonText="Withdrawal"
-              balanceButtonAction={(buttonType) => {
-                if (buttonType === "first") {
-                  handleDepositClick();
-                } else if (buttonType === "second") {
-                  handleWithdrawalClick();
-                }
-              }}
+              balanceButtonAction={undefined}
             />
-            <Modal
-              openModal={isDepositModalOpen}
-              setOpenModal={setDepositModalOpen}
-              className="custom-modal-class"
-              modalContent={<DepositContainer />}
-            />
-            <Modal
-              openModal={isWithdrawalModalOpen}
-              setOpenModal={setWithdrawalModalOpen}
-              className="custom-modal-class"
-              modalContent={<WithdrawPop />}
-            />
-            <div
+            <div className="w-[99%] m-auto md:ml-9 h-44 p-2 mt-6 cursor-pointer flex flex-col justify-center items-center space-y-2 rounded-xl bg-white">
+              <Link href="/landing">
+                <p className="font-bold text-lg text-center ">Place a Bet</p>
+              </Link>
+              <Receipt />
+            </div>
+            {/* <div
               className="bg-white rounded-lg h-12 w-[99.5%] p-3 my-4 flex justify-between"
               onClick={handleBetHistory}
             >
@@ -70,16 +57,16 @@ const MobileOverview = () => {
               {betHistory && <ControlsChevronUp />}
               {!betHistory && <ControlsChevronDown />}
             </div>
-            {betHistory && <BetHistoryPopUp />}
+            {betHistory && <BetHistoryPopUp />} */}
 
-            <Link href="/user-dashboard/transaction">
+            {/* <Link href="/user-dashboard/transaction">
               <div className="bg-white rounded h-12 w-[99.5%] p-3 mt-4 ">
                 <p>Transaction History</p>
               </div>
-            </Link>
-            <div className="mt-24">
+            </Link> */}
+            {/* <div className="mt-24">
               <OverviewWelcomeTab />
-            </div>
+            </div> */}
           </div>
         }
       />

@@ -18,43 +18,46 @@ const DepositForm = () => {
   const handlePaymentSuccess = (response: any) => {
     console.log("Payment successful! Transaction ID:", response.reference);
     setTransactionReference(response.reference);
-    fetchData(response.reference)
   };
 
-    const apiUrl = 'https://legitx.ng/wallet/deposit';
+  const apiUrl = 'https://legitx.ng/wallet/deposit';
 
-    const fetchData = async (reference:any) => {
+  useEffect(() => {
+    const fetchData = async (reference: any) => {
       try {
-          const postData = {
-            merchantType: 'paystack',
-            transactionReference: reference,
-          };
+        const postData = {
+          merchantType: 'paystack',
+          transactionReference: reference,
+        };
 
-          const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-              'Accept': '*/*',
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(postData),
-          });
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Accept': '*/*',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(postData),
+        });
 
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
 
-          const data = await response.json();
-          console.log('Response:', data);
+        const data = await response.json();
+        console.log('Response:', data);
        
       } catch (error) {
-        console.error('Error:', error);
+        console.error('This is the error:', error);
       }
     };
 
+    if (transactionReference) {
+      fetchData(transactionReference);
+    }
+  }, [transactionReference]);
 
   const handleDepositInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
     const amount = parseInt(value, 10);
 
     if (isNaN(amount) || amount < 100 || amount > 500000) {

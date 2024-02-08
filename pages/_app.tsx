@@ -6,22 +6,25 @@ import { BetProvider } from "@/src/client/shared/Context/BetContext/BetProvider"
 import { UserProvider } from "@/src/client/shared/Context/UserContext/UserProvider";
 import BalanceProvider from "@/src/client/shared/Context/BalanceContext/BalanceContext";
 import { ProfileProvider } from "@/src/client/shared/Context/PersonalDetailsContext/ProfileContext";
+import { InfoProvider } from "@/src/client/shared/Context/PersonalDetailsContext/GetUserInfoContext";
 
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ProfileProvider>
-      <BalanceProvider>
-        <UserProvider>
-          <BetProvider>
-            <QueryClientProvider client={queryClient}>
-              <Component {...pageProps} />
-              {/* <ReactQueryDevtools /> */}
-            </QueryClientProvider>
-          </BetProvider>
-        </UserProvider>
-      </BalanceProvider>
-    </ProfileProvider>
+    <QueryClientProvider client={queryClient}>
+      {/* <InfoProvider> */}
+        <ProfileProvider>
+          <BalanceProvider>
+            <UserProvider>
+              <BetProvider>
+                <Component {...pageProps} />
+                {/* <ReactQueryDevtools /> */}
+              </BetProvider>
+            </UserProvider>
+          </BalanceProvider>
+        </ProfileProvider>
+      {/* </InfoProvider> */}
+    </QueryClientProvider>
   );
 }

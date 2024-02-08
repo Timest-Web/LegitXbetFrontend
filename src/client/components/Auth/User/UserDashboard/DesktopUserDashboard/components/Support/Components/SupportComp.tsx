@@ -16,10 +16,6 @@ supportContent
        <Link href='/user-dashboard/user-support'><h3 className={isLiveChat? "opacity:100":"opacity-50 hover:opacity-100 cursor-pointer "}>Live Chat</h3></Link> 
        <Link href='/user-dashboard/user-support/empty-ticket' ><h3 className={isOpenTicket? "opacity:100":"opacity-50 hover:opacity-100 cursor-pointer "}>Open a Ticket</h3></Link> 
       </div>
-      <div>
-        {supportContent}
-      </div> 
-
     </div>
   );
 };

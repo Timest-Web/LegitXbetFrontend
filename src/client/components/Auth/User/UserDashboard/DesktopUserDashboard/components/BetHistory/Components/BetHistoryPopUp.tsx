@@ -18,7 +18,7 @@ interface BetHistoryPopUpProps{
 }
 
 
-const BetHistoryPopUp: React.FC<BetHistoryPopUpProps> = ({date, status, stake, returnStake, team1, team2, oddsPlayed, scoreTeam1, scoreTeam2}) => {
+const BetHistoryPopUp = () => {
   return (
     // <div className="bg-white rounded-[1.25rem] p-3 text-xs md:text-sm">
     //   <table className="w-full ">
@@ -84,7 +84,6 @@ const BetHistoryPopUp: React.FC<BetHistoryPopUpProps> = ({date, status, stake, r
       <section className="flex flex-col">
         <p className=" font-bold ">14</p>
         <p>Aug</p>
-        <p>{date}</p>
       </section>
       <section className=" w-9/12 space-y-2 ">
         <div className="flex justify-between bg-green-600 px-3 rounded-lg text-white">

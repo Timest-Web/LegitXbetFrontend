@@ -6,6 +6,7 @@ import SubmitButton from "./SubmitButton";
 import BalanceProvider from "@/src/client/shared/Context/BalanceContext/BalanceContext";
 import { BalanceContext } from "@/src/client/shared/Context/BalanceContext/BalanceContext";
 import { useProfileContext } from "@/src/client/shared/Context/PersonalDetailsContext/ProfileContext";
+import Link from "next/link";
 
 interface BalanceCardProps {
   firstButtonText: string;
@@ -59,12 +60,12 @@ const BalanceCard: React.FC<BalanceCardProps> = ({
         <div className="flex space-x-3 hover:[&>*]:opacity-70">
           {buttonState && (
             <div onClick={handleFirstButtonClick}>
-              <SubmitButton buttonContent={firstButtonText} />
+            <Link href='/user-dashboard/deposit'><SubmitButton buttonContent={firstButtonText} /></Link>  
             </div>
           )}
           {secondButton && (
             <div onClick={handleSecondButtonClick}>
-              <SubmitButton buttonContent={secondButtonText} />
+            <Link href='/user-dashboard/withdrawal'><SubmitButton buttonContent={secondButtonText} /></Link>  
             </div>
           )}
         </div>

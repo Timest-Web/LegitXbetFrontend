@@ -7,6 +7,7 @@ interface InputFieldProps {
   placeholder: string;
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  disabled?:boolean
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -15,6 +16,7 @@ const InputField: React.FC<InputFieldProps> = ({
   placeholder,
   value,
   onChange,
+  disabled=false
 }) => {
   return (
     <div className="flex flex-col space-y-2">
@@ -28,6 +30,7 @@ const InputField: React.FC<InputFieldProps> = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        disabled={disabled}
       />
     </div>
   );
