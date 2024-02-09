@@ -12,11 +12,10 @@ type SelectedOddsObjectProps = {
 	time: string;
 	teamOne: string;
 	teamTwo: string;
-	winType: number;
+	winType?: number | undefined;
 	drawType: number;
-	loseType: number;
+	loseType?: number | undefined;
 }
-
 
 export const BetProvider: React.FC<BetProviderProps> = ({children}: BetProviderProps) => {
 	const initialRender = useRef(true);
@@ -31,7 +30,7 @@ export const BetProvider: React.FC<BetProviderProps> = ({children}: BetProviderP
 	}, []);
 
 	
-	const addToBetSlip = (id: number, odd: number, selectedOddObj: SelectedOddsObjectProps) => {
+	const addToBetSlip = (id: number,oddName: string, odd: number, selectedOddObj: SelectedOddsObjectProps) => {
 		if (id) {
 			if (selectedOddObj) {
 				const checkSelected = bet.find(
@@ -50,7 +49,7 @@ export const BetProvider: React.FC<BetProviderProps> = ({children}: BetProviderP
 								teamOne: selectedOddObj.teamOne,
 								teamTwo: selectedOddObj.teamTwo,
 								odd: odd,
-								oddType: oddType[0],
+								oddType: oddName,
 							},
 						]);
 					} else {

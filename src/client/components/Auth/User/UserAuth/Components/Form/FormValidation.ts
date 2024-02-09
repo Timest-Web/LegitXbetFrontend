@@ -4,7 +4,6 @@ type ForgetPasswordProps = {
   };
 };
 
-
 type LoginProps = {
   values: {
     phoneNo: string;

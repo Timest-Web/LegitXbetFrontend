@@ -15,8 +15,8 @@ const DesktopLandingPage = () => {
 
 	return (
 		<Layout
-		   leftSection={<LeftSection />}
-		   centerSection={
+			leftSection={<LeftSection />}
+			centerSection={
 				<CenterSection>
 					<LiveBetTable/>
 					<UpcomingBetTable/>

@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <BetProvider>
               <QueryClientProvider client={queryClient}>
                 <Component {...pageProps} />
-                <ReactQueryDevtools />
+                {/* <ReactQueryDevtools /> */}
               </QueryClientProvider>
             </BetProvider>
           </UserProvider>

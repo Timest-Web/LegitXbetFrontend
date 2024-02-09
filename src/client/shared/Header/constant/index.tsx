@@ -14,10 +14,9 @@ export const LINK_CATEGORY_TYPES = [
 
 export const LINK_GAME_TYPES = [
      'Home',
-    'Football',
+     'Football',
      'Basketball',
      'Table Tennis',
-     'Baseball',
      'Rugby',
      'Ice Hockey',
      'Volleyball',
