@@ -3,14 +3,10 @@ import TableRow from './TableRow';
 import ViewMore from '../../../MainSection/components/ViewMore';
 import RightArrow from '@/src/client/shared/Svg/RightArrow';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
-import { Carousel } from '@heathmont/moon-core-tw';
 import {SPORTS_TYPES,} from '../../../MainSection/CenterSection/constant/data';
 import { getNextThreeDates } from '@/src/client/shared/Utils/GetSportsDate';
-import {ControlsChevronLeftSmall,ControlsChevronRightSmall,} from '@heathmont/moon-icons-tw';
 import { useRouter } from 'next/router';
-import GameTypeSlider from './Carousel';
-import MyCarousel from './Carousel';
-import { truncateText } from '@/src/client/shared/Utils/TruncateText';
+import MyCarousel from '../../../../../shared/Slider/CustomSlider';
 
 const BetTable = ({
 	href,
@@ -64,7 +60,7 @@ const BetTable = ({
 	const filteredSports = SPORTS_TYPES.filter(sport => sportsType.includes(sport.title));
 
 	return (
-		<div className='w-[800]'>
+		<div className='w-[720px]'>
 			<div className='mt-5' id={href}>
 				<ViewMore
 					icon={icon}
@@ -123,7 +119,7 @@ const BetTable = ({
 					</div>
 				}
 
-				<div className='w-[760px] py-1 bg-lightAsh border-t border-t-gray-800 px-6'>
+				<div className='w-[720px] py-1 bg-lightAsh border-t border-t-gray-800 px-6'>
 				    <MyCarousel
 					    customItem={leagues.map((title, index) => (
 							<div key={index} className='px-1'>
@@ -138,40 +134,8 @@ const BetTable = ({
 								</div>
 							</div>
 						))}
-
 					/>
 				</div>
-
-
-				{/* <div className='w-[800px]'>
-					<Carousel 
-						scrollTo={1}
-						step={1}					
-						className='w-[800px]'
-					>
-						<Carousel.LeftArrow className='ml-4 bg-gold w-[24px]'>
-							<ControlsChevronLeftSmall height={50} width={50}/>
-						</Carousel.LeftArrow>
-						<Carousel.Reel className={`flex items-center justify-start w-full border-t border-t-gray-800 bg-lightAsh text-sm px-4 py-2`}>
-							{leagues.map((title, index) => (
-								<Carousel.Item key={index}>
-									<div
-										onClick={() => {leagueHandleClick(title); setSelectedLeague(title)}}
-										className={`${
-											title === leagueClick
-												? 'text-gold bg-gray-700 font-bold'
-												: 'text-gray-500'
-										} flex items-center justify-center text-center text-xs hover:bg-gray-700 hover:text-gold cursor-pointer rounded-lg py-1 px-3`}>
-										{title}
-									</div>
-								</Carousel.Item>
-							))}
-						</Carousel.Reel>
-						<Carousel.RightArrow className='mr-4 bg-gold w-[24px]'>
-							<ControlsChevronRightSmall width={80} height={80}/>
-						</Carousel.RightArrow>
-					</Carousel>
-				</div> */}
 
 
 				<div className='bg-darkAsh w-full rounded-b-lg'>

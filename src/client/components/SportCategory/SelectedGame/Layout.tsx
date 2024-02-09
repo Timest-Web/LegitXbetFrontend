@@ -2,11 +2,11 @@ import React from 'react';
 import Footer from '@/src/client/shared/Footer';
 import Header from '@/src/client/shared/Header';
 import useDeviceType from '@/src/client/shared/Hooks/useDeviceType';
-import LeftSection from '../../LandingPage/DesktopLandingPage/LeftSection';
 import RightSection from '../../components/RightSection';
 import PopularDataType from '../components/PopularDataType';
 import FilterByTime from '../components/FilterByTime';
 import OddsFilter from '../components/OddsFilter';
+import { FOOTBALL_DATA } from '../../LandingPage/DesktopLandingPage/LeftSection/constant/data';
 
 
 const Layout = ({ children }: { children: React.JSX.Element }) => {
@@ -18,7 +18,7 @@ const Layout = ({ children }: { children: React.JSX.Element }) => {
 				{!isMobile && (
 					<div className='flex flex-row items-start justify-center py-2 px-1 space-x-2 h-max '>
 						<div className='w-[243px] space-y-5'>
-							<PopularDataType/>
+							<PopularDataType data={FOOTBALL_DATA}/>
 							<FilterByTime/>
 							<OddsFilter/>
 						</div>

@@ -29,16 +29,21 @@ const OddsButton = ({
 	const [isBet, setIsBet] = useState(false);
 
 
-	const onHandleClick = (id: number, odd: number, selectedOddObj: SelectedOddsObjectProps) => {
-		setColor(!color);
-		addToBetSlip(id, odd, selectedOddObj);
+	const onHandleClick = (
+    id: number,
+    oddName: string,
+    odd: number,
+    selectedOddObj: SelectedOddsObjectProps
+  ) => {
+    setColor(!color);
+    addToBetSlip(id, oddName, odd, selectedOddObj);
 
-		console.log(selectedOddObj.winType, selectedOddObj.loseType);
+    console.log(selectedOddObj.winType, selectedOddObj.loseType);
 
-		if (color) {
-			handleDelete({ id, odd });
-		}
-	};
+    if (color) {
+      handleDelete({ id, odd });
+    }
+  };
 
 	useEffect(() => {
 		const isObjectExist = bet.some(
@@ -51,7 +56,7 @@ const OddsButton = ({
 		<button
 			onClick={() => {
 				handleClick();
-				onHandleClick(id, onextwoValue, selectedOddObj);
+				onHandleClick(id, onextwo, onextwoValue, selectedOddObj);
 			}}
 			type='submit'
 			className={`flex items-center justify-between transition-all transform ${

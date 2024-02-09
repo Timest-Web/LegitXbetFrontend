@@ -1,11 +1,11 @@
 import React from 'react';
+import Link from "next/link";
+import ScoreView from "./ScoreView";
+import { MoreOdds } from "./MoreOdds";
+import { OddsButtons } from "./OddsButtons";
 import Time from '@/src/client/shared/Svg/Time';
 import Ranking from '@/src/client/shared/Svg/Ranking';
-import { OddsButtons } from './OddsButtons';
-import { MoreOdds } from './MoreOdds';
-import ScoreView from './ScoreView';
 import { truncateText } from '@/src/client/shared/Utils/TruncateText';
-import Link from 'next/link';
 
 const TableRow = ({
 	id,
@@ -53,7 +53,7 @@ const TableRow = ({
 				<p className='text-gray-400 '>{time}</p>
 			</div>
 			<div className='flex items-center justify-between border-b border-b-gray-800 w-full text-gray-200 px-4 text-xs'>
-				<Link href='#' className='flex items-center justify-between space-x-4 text-[10px] w-40'>
+				<Link href={`/sports/football/40`} className='flex items-center justify-between text-[10px] w-32'>
 					<p>{truncatedTeamOne}</p>
 					<p>v</p>
 					<p>{truncatedTeamTwo}</p>

@@ -1,7 +1,6 @@
 import React from 'react'
-import { FOOTBALL_DATA } from '../../LandingPage/DesktopLandingPage/LeftSection/constant/data';
-import RenderLeagueItem from '../../components/RenderLeagueItem';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
+import RenderLeagueItem from '../../components/RenderLeagueItem';
 
 type PopularDataTypeProps = {
       link: string,
@@ -14,7 +13,7 @@ const PopularDataType = ({data}: {data: PopularDataTypeProps}) => {
 
       return (
             <div className='flex flex-col space-y-[1px]'>
-                  {data.map((value, index) => (
+                  {data?.map((value, index) => (
                         <RenderLeagueItem
                               key={index}
                               link={link}

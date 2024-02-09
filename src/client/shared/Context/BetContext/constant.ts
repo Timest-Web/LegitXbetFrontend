@@ -12,15 +12,15 @@ type SelectedOddsObjectProps = {
 	time: string;
 	teamOne: string;
 	teamTwo: string;
-	winType: number;
+	winType?: number | undefined;
 	drawType: number;
-	loseType: number;
+	loseType?: number | undefined;
 }
 
 export type BetContextType = {
 	bet: OddsValuesProps[];
 	handleDeleteAll: () => void;
-	addToBetSlip: (id: number, odd: number, selectedOddObj: SelectedOddsObjectProps) => void;
+	addToBetSlip: (id: number, oddName: string, odd: number, selectedOddObj: SelectedOddsObjectProps) => void;
 	handleDelete: (params: { id: number; odd: number }) => void  | boolean;
 };
 

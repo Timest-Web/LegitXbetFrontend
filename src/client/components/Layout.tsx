@@ -3,7 +3,7 @@ import Footer from '../shared/Footer';
 import Header from '../shared/Header';
 import RightSection from './components/RightSection';
 import useDeviceType from '../shared/Hooks/useDeviceType';
-import Carousel from './components/Tables/DesktopTable/components/Carousel';
+import Carousel from '../shared/Slider/CustomSlider';
 
 type LayoutProps = { 
 	leftSection?: React.ReactNode; 
