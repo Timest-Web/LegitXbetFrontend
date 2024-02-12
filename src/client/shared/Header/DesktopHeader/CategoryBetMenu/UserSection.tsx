@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import DropdownIcon from '../../components/DropdonIcon';
 import { USER_HEADER_DATA } from '../../constant';
-import useUser from '../../../Context/UserContext/useUser';
 
 const UserSection = () => {
 

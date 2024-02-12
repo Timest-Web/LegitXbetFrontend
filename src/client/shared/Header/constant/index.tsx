@@ -13,15 +13,38 @@ export const LINK_CATEGORY_TYPES = [
 ]
 
 export const LINK_GAME_TYPES = [
-     'Home',
-     'Football',
-     'Basketball',
-     'Table Tennis',
-     'Rugby',
-     'Ice Hockey',
-     'Volleyball',
-     'Darts',
-     'Handball',
+	{
+       page: 'Home',
+	   href: '/' 
+	},
+	{
+	   page: 'Football',
+	   href: '/football',
+	},
+	{
+	   page: 'Basketball',
+	   href: '/basketball'
+	},
+	{
+		page: 'Table Tennis',
+		href: '/table-tennis'
+	},
+	{
+		page: 'Ice Hockey',
+		href: '/icehockey'
+	},
+	{
+		page: 'Volleyball',
+		href: '/volleyball'
+	},
+	{
+		page: 'Darts',
+		href: '/darts'
+	},
+	{
+		page: 'Handball',
+		href: '/handball'
+	}
 ]
 
 export const USER_HEADER_DATA = [

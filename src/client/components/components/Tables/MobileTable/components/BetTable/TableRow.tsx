@@ -5,6 +5,7 @@ import { truncateText } from '@/src/client/shared/Utils/TruncateText';
 import ScoreView from '../../../DesktopTable/components/ScoreView';
 import { MoreOdds } from '../../../DesktopTable/components/MoreOdds';
 import { OddsButtons } from '../../../DesktopTable/components/OddsButtons';
+import Link from 'next/link';
 
 
 const TableRow = ({
@@ -55,13 +56,13 @@ const TableRow = ({
 				</div>
 
 				<div className='flex items-center justify-between space-x-6  overflow-x-scroll border-t tablerow border-t-lightAsh w-screen text-gray-200 px-4 text-xs'>
-					<div className='flex items-center space-x-4 justify-start text-[10px]'>
+					<Link href={`/sports/football/40`} className='flex items-center space-x-4 justify-start text-[10px]'>
 						<p>v</p>
 						<div className='w-16'>
 							<p>{truncatedTeamOne}</p>
 							<p>{truncatedTeamTwo}</p>
 						</div>
-					</div>
+					</Link>
 
 					<div className='w-8'>
 						<Ranking />

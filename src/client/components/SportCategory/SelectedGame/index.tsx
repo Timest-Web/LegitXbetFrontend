@@ -7,10 +7,14 @@ import ChelseaLogo from './../constant/assets/cheasea.png';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
 import { OddsButtons } from './components/OddsButtons';
 import { GAME_ODDS } from '../constant/data';
+import { CustomCarousel } from '@/src/client/shared/Carousel';
+import MobileNavbar from '@/src/client/shared/MobileNavbar';
+import useDeviceType from '@/src/client/shared/Hooks/useDeviceType';
 
 
 const SelectedGame = () => {
 	const { link, handleClick } = useLink('All');
+  const {isMobile} = useDeviceType()
 	const values = [
 		'All',
 		'Main',
@@ -25,7 +29,7 @@ const SelectedGame = () => {
 
 	return (
     <Layout>
-      <div className="w-full rounded-xl bg-white p-12 space-y-5">
+      <div className="w-full rounded-xl bg-white lg:p-12 p-3 space-y-5">
         <div className="flex items-start justify-between">
           <div className="space-y-5">
             <p className="text-black font-bold text-xl">Game Odds</p>
@@ -68,30 +72,42 @@ const SelectedGame = () => {
           ))}
         </div>
 
-        <div className="space-y-4 w-full">
-          {GAME_ODDS.map((value, index) => (
-            <div
-              key={index}
-              className="flex items-center space-x-3 justify-between py-2 px-4 bg-lightGray rounded-lg"
-            >
-              <p className="text-sm w-4/12">{value.title}</p>
-              <div className="flex space-x-2 w-full">
-                <OddsButtons
-                  id={value.id}
-                  time={value.time}
-                  teamOne={value.teamOne}
-                  teamTwo={value.teamTwo}
-                  winOdd={value.winOdd}
-                  winType={value.winType}
-                  drawOdd={value.drawOdd}
-                  drawType={value.drawType}
-                  loseOdd={value.loseOdd}
-                  loseType={value.loseType}
-                />
+        {!isMobile && (
+          <div className="space-y-4 w-full">
+            {GAME_ODDS.map((value, index) => (
+              <div
+                key={index}
+                className="flex flex-row items-center space-x-3 justify-between py-2 px-4 bg-lightGray rounded-lg"
+              >
+                <p className="text-sm w-4/12">{value.title}</p>
+                <div className="flex space-x-2 lg:w-full w-full">
+                  <OddsButtons
+                    {...value}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
+
+        {isMobile && (
+          <div className="space-y-4 w-full">
+            {GAME_ODDS.map((value, index) => (
+              <div key={index} className='space-y-1'>
+                <p className="text-sm">{`${value.title}:`}</p>
+                <div className="flex flex-row items-center space-x-3 justify-between py-2 px-4 bg-lightGray">
+                  <div className="flex space-x-2 w-full">
+                    <OddsButtons
+                      {...value}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {isMobile && <MobileNavbar />}
       </div>
     </Layout>
   );

@@ -65,7 +65,7 @@ const OddButton = ({
           type="submit"
           className={`flex items-center justify-between transition-all transform ${
             isBet ? " text-black bg-gold" : "text-white bg-lightAsh "
-          } text-xs w-full px-2 h-8 rounded-md ${
+          } lg:text-xs text-[10px] w-full px-2 h-8 rounded-md ${
             click ? "scale-75" : ""
           } font-bold`}
         >
