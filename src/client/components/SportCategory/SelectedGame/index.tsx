@@ -29,10 +29,10 @@ const SelectedGame = () => {
 
 	return (
     <Layout>
-      <div className="w-full rounded-xl bg-white lg:p-12 p-3 space-y-5">
+      <div className="w-full rounded-xl bg-white lg:p-12 p-3 space-y-2">
         <div className="flex items-start justify-between">
           <div className="space-y-5">
-            <p className="text-black font-bold text-xl">Game Odds</p>
+            <p className="text-black font-bold lg:text-xl text-sm">Game Odds</p>
             <div className="flex items-center justify-start text-[10px] space-x-1 start-0">
               <TimeClock
                 color="black"
@@ -46,25 +46,25 @@ const SelectedGame = () => {
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
               <Image src={ManULogo} alt="club logo" />
-              <p>Man U F.C</p>
+              <p>Man U</p>
             </div>
             <p>-</p>
             <div className="flex items-center space-x-2">
               <Image src={ChelseaLogo} alt="club logo" />
-              <p>Chelsea F.C</p>
+              <p>Chelsea</p>
             </div>
           </div>
         </div>
 
         <hr />
 
-        <div className="flex items-start justify-start flex-wrap text-xs">
+        <div className="flex items-start justify-start flex-wrap text-xs border-y-lightGray">
           {values.map((value, index) => (
             <p
               key={index}
               className={`${
                 link === value ? "text-black font-bold" : "text-gray-500"
-              } cursor-pointer text-[14px] p-3`}
+              } cursor-pointer lg:text-[14px] text-[12px] p-3`}
               onClick={() => handleClick(value)}
             >
               {value}
@@ -91,10 +91,10 @@ const SelectedGame = () => {
         )}
 
         {isMobile && (
-          <div className="space-y-4 w-full">
+          <div className="space-y-4 w-full lg:mt-0 -mt-5">
             {GAME_ODDS.map((value, index) => (
               <div key={index} className='space-y-1'>
-                <p className="text-sm">{`${value.title}:`}</p>
+                <p className="lg:text-sm text-[10px]">{`${value.title}:`}</p>
                 <div className="flex flex-row items-center space-x-3 justify-between py-2 px-4 bg-lightGray">
                   <div className="flex space-x-2 w-full">
                     <OddsButtons
