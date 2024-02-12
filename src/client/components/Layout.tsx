@@ -3,7 +3,6 @@ import Footer from '../shared/Footer';
 import Header from '../shared/Header';
 import RightSection from './components/RightSection';
 import useDeviceType from '../shared/Hooks/useDeviceType';
-import Carousel from '../shared/Slider/CustomSlider';
 
 type LayoutProps = { 
 	leftSection?: React.ReactNode; 
@@ -14,21 +13,22 @@ type LayoutProps = {
 const Layout = ({ leftSection, centerSection, mobileComponents }: LayoutProps) => {
 	const { isMobile } = useDeviceType();
 	return (
-		<>
-			<Header />
-			<div className='flex justify-center pt-[120px] bg-gray-200'>
-				{!isMobile && (
-					<div className='flex flex-row items-start justify-center py-2 px-1 space-x-2 h-max '>
-						{leftSection}
-						{centerSection}
-						<RightSection />
-					</div>
-				)}
-			</div>
-			{isMobile && mobileComponents}
-			<Footer />
-		</>
-	);
+    <>
+      <Header />
+      {!isMobile && (
+        <div className="flex justify-center pt-[120px] bg-gray-200">
+          <div className="flex flex-row items-start justify-center py-2 px-1 space-x-2 h-max ">
+            {leftSection}
+            {centerSection}
+            <RightSection />
+          </div>
+        </div>
+      )}
+
+      {isMobile && mobileComponents}
+      <Footer />
+    </>
+  );
 };
 
 export default Layout;

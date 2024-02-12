@@ -8,7 +8,6 @@ export const POPULAR_DATA = [
     {title: "American Football", link: "#americanfootball"}
 ]
 
-
 export const FOOTBALL_DATA = [
     {title: "Live Games", link: "#live-games"},
     {title: "Upcoming Games", link: "#upcoming-games"},
@@ -21,7 +20,6 @@ export const FOOTBALL_DATA = [
     {title: "African Football", link: "#african-football"},
     {title: "Local Leagues", link: "#local-leagues"},
 ]
-
 
 export const BASKETBALL_DATA = [
     {title: "Live Games", link: "#live-games"},

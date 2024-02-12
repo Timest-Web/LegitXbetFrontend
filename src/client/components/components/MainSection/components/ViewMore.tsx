@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import AddSquare from '@/src/client/shared/Svg/AddSquare';
 import MinusSqure from '@/src/client/shared/Svg/MinusSqure';
 import useDeviceType from '@/src/client/shared/Hooks/useDeviceType';
-import { url } from 'inspector';
 
 type ViewMoreProps = {
 	collapse: boolean;
@@ -24,7 +23,6 @@ const ViewMore = ({
 	const router = useRouter();
 	const urlPathname = router.asPath.split('#')[1]?.split('-')[0];
 	const urlPathname2 = router.asPath.split('#')[1]?.split('-')[1];
-
 	const TableTitle = ({tableTitle}:{tableTitle: string}) => (
 		<p className='font-bold text-[17px]'>{tableTitle?.charAt(0).toUpperCase() + tableTitle?.slice(1)}</p>
 	)
@@ -46,7 +44,7 @@ const ViewMore = ({
 					<>{icon && icon}</>
 				)}
 				{
-					urlPathname ?
+					router.pathname !== '/' ?                                          
 					<>
 					   {
 						urlPathname === undefined ?
@@ -61,22 +59,6 @@ const ViewMore = ({
 					:
 					<p className='font-bold text-[17px]'>{contentTitle}</p>
 				}
-
-				{/* {
-					urlPathname === undefined ? 
-						<>
-							<p className='font-bold text-[17px]'>Live</p>
-						: 
-							<>
-								<TableTitle tableTitle={urlPathname}/>
-								<TableTitle tableTitle={urlPathname2}/>
-						    </> 
-						</>
-						: 
-						<p>
-							{contentTitle}
-						</p>
-				} */}
 			</div>
 
 			<div className='flex space-x-1'>
