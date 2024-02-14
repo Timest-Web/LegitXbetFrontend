@@ -38,7 +38,6 @@ const OddsButton = ({
     setColor(!color);
     addToBetSlip(id, oddName, odd, selectedOddObj);
 
-    console.log(selectedOddObj.winType, selectedOddObj.loseType);
 
     if (color) {
       handleDelete({ id, odd });
@@ -63,7 +62,7 @@ const OddsButton = ({
 				isBet ? ' text-black bg-gold' : 'bg-lightAsh '
 			} text-xs w-20 px-2 h-6 rounded-md ${click ? 'scale-75' : ''}`}>
 			<p>{onextwo}</p>
-			<p className={`${isBet ? 'text-black' : 'text-gold '}`}>
+			<p className={`${isBet ? 'text-black' : 'text-gold '} font-bold`}>
 				{onextwoValue}
 			</p>
 		</button>

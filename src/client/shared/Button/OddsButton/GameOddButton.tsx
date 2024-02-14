@@ -67,7 +67,7 @@ const OddButton = ({
             isBet ? " text-black bg-gold" : "text-white bg-lightAsh "
           } lg:text-xs text-[10px] w-full px-2 h-8 rounded-md ${
             click ? "scale-75" : ""
-          } font-bold`}
+          }`}
         >
           <p>{onextwo}</p>
           <p className={`${isBet ? "text-black" : "text-gold "} font-bold`}>
