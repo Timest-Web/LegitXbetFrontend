@@ -7,7 +7,6 @@ import ChelseaLogo from './../constant/assets/cheasea.png';
 import { useLink } from '@/src/client/shared/Hooks/useLink';
 import { OddsButtons } from './components/OddsButtons';
 import { GAME_ODDS } from '../constant/data';
-import { CustomCarousel } from '@/src/client/shared/Carousel';
 import MobileNavbar from '@/src/client/shared/MobileNavbar';
 import useDeviceType from '@/src/client/shared/Hooks/useDeviceType';
 
