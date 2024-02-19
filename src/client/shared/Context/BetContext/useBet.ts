@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-
 import { BetContextType } from './constant';
 import { BetContext } from './BetContext';
 

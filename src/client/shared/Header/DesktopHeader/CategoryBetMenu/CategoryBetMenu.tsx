@@ -8,17 +8,17 @@ import UserSection from './UserSection';
 import SupportContent from '../../SupportContent';
 import { Button } from '../../../Button';
 import { useLink } from '../../../Hooks/useLink';
-import { useGetUser } from '../../../Hooks/useGetUser';
 import { OtherCrown } from '@heathmont/moon-icons-tw';
-import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
 import { LINK_CATEGORY_TYPES } from '../../constant';
+import useUser from "../../../Context/UserContext/useUser";
+import { ControlsChevronDown } from "@heathmont/moon-icons-tw";
+import useUrlPathChecker from "../../../Hooks/useUrlPathChecker";
 import { useVisibilityControl } from '../../../Hooks/useVisibilityControl';
 import CustomerCareDrawer from '../../../Modal/components/DesktopCustomerCare';
-import useUrlPathChecker from '../../../Hooks/useUrlPathChecker';
 import AuthContent from '../../../../components/Auth/User/UserAuth/Components/AuthContent';
 
 const CategoryBetMenu = () => {
-	const { user } = useGetUser('access');
+	const { user } = useUser();
 	const { link, handleClick } = useLink('Sports');
 	const { link: click, handleClick: selectedHandle } = useLink('login');
 	const isUrlPathIncluded = useUrlPathChecker({ urlPath: 'user-dashboard' });
@@ -96,7 +96,7 @@ const CategoryBetMenu = () => {
 					</div>
 				</div>
 
-				{!user?.accessToken && (
+				{!user?.name && (
 					<div className='flex items-center space-x-10'>
 						<button
 							onClick={onHandleSupportClick}
@@ -130,7 +130,7 @@ const CategoryBetMenu = () => {
 						</div>
 					</div>
 				)}
-				{user?.accessToken && <UserSection />}
+				{user?.name && <UserSection userName={user?.name} />}
 			</div>
 
 			{openModal && (
