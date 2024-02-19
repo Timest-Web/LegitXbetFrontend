@@ -8,19 +8,20 @@ import BalanceProvider from "@/src/client/shared/Context/BalanceContext/BalanceC
 import { ProfileProvider } from "@/src/client/shared/Context/PersonalDetailsContext/ProfileContext";
 
 const queryClient = new QueryClient();
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
+    <QueryClientProvider client={queryClient}>
       <ProfileProvider>
         <BalanceProvider>
           <UserProvider>
             <BetProvider>
-              <QueryClientProvider client={queryClient}>
-                <Component {...pageProps} />
-                {/* <ReactQueryDevtools /> */}
-              </QueryClientProvider>
+              <Component {...pageProps} />
             </BetProvider>
           </UserProvider>
         </BalanceProvider>
       </ProfileProvider>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 }

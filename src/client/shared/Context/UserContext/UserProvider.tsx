@@ -1,18 +1,33 @@
-import { useRouter } from 'next/navigation';
-import { UserProviderProps } from './constant';
-import { UserContext } from './UserContext';
+import { UserProps, UserProviderProps } from "./constant";
+import { UserContext } from "./UserContext";
+import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.api";
+
 
 export const UserProvider: React.FC<UserProviderProps> = ({
-	children,
+  children,
 }: UserProviderProps) => {
-	const handleUserLogout = () => {
-		localStorage.removeItem('access');
-		window.location.href = '/';
-	};
+  const { data, isLoading, error } = useGetUserProfile();
 
-	return (
-		<UserContext.Provider value={{ handleUserLogout }}>
-			{children}
-		</UserContext.Provider>
-	);
+  const user: UserProps = data ?? {
+    id: 0,
+    name: "",
+    email: "",
+    amount: 0,
+    phoneNumber: "",
+    verificationCode: "",
+    bankDetail: null,
+  };
+
+  const handleUserLogout = () => {
+    localStorage.removeItem("access");
+    window.location.href = "/";
+  };
+
+  return (
+    <UserContext.Provider value={{ user, handleUserLogout }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
+
+
