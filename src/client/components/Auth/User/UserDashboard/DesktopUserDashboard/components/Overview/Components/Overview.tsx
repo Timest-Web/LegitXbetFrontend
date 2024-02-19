@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import BalanceCard from "../../../shared/BalanceCard";
 import AllBetTable from "../../../shared/InactiveTable";
 import OverViewHeader from "./OverviewHeader";
@@ -7,18 +7,28 @@ import { useInfoContext } from "@/src/client/shared/Context/PersonalDetailsConte
 import BetHistory from "@/src/client/shared/Svg/BetHistory";
 import Receipt from "@/src/client/shared/Svg/Receipt";
 import Link from "next/link";
+import ReuseTab from "../../../shared/ReuseTab";
+import WalletIcon from "@mui/icons-material/Wallet";
+import TableComp from "../../../shared/ActiveTableComp";
+import TransactionData from "../../Transactions/Constants/TransactionData";
+import TransactionColumn from "../../Transactions/Components/TransactionColumn";
+import mData from "../../../../constant/MOCK_DATA (4).json";
+import PaymentIcon from "@mui/icons-material/Payment";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import RotateLeftIcon from "@mui/icons-material/RotateLeft";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import LiveHelpIcon from "@mui/icons-material/LiveHelp";
+import TransactionInner from "../../Transactions/Components/TransactionInner";
 
 const Overview = () => {
+  const data = useMemo(() => mData, []);
+  const columns: any = TransactionColumn();
+  const info = useInfoContext()!;
+
+  const referenceValue = "https://script.viserlab.com/betlab?reference=";
   return (
     <div className="flex flex-col space-y-7 ">
-      <div className="flex justify-between">
-        <div>
-          <OverviewWelcomeTab />
-          <div className="w-44 m-auto md:ml-9 h-24 p-2 mt-6 cursor-pointer flex flex-col justify-center items-center space-y-2 rounded-xl bg-white">
-           <Link href='/landing'><p className="font-bold text-lg text-center ">Place a Bet</p></Link> 
-            <Receipt />
-          </div>
-        </div>
+      <div className="flex flex-col space-y-5 md:flex-row md:space-x-12 md:space-y-0">
         <BalanceCard
           buttonState={true}
           secondButton={true}
@@ -26,6 +36,85 @@ const Overview = () => {
           secondButtonText="Withdrawal"
           balanceButtonAction={undefined}
         />
+        <div className="flex flex-col space-y-2">
+          <label className="font-bold text-lg">Referral Link</label>
+          <div className="w-[99.5%] md:w-[32rem] p-3 bg-white rounded-md flex justify-between">
+            <span>{referenceValue}</span>
+            <button
+              className="bg-black text-white text-center text-sm rounded-md p-2"
+              onClick={() => navigator.clipboard.writeText(referenceValue)}
+            >
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+      <section onClick={()=>console.log(info)}  className="grid grid-rows-6 gap-3 md:grid-cols-3 md:grid-rows-2 md:gap-x-2 ">
+        <ReuseTab
+          icon={
+            <div className="bg-white p-4 rounded-md">
+              <WalletIcon fontSize="medium" />
+            </div>
+          }
+          figure="5000"
+          description="Total Deposits"
+        />
+        <ReuseTab
+          icon={
+            <div className="bg-white p-4 rounded-md">
+              <PaymentIcon fontSize="medium" />
+            </div>
+          }
+          figure="2000"
+          description="Total Withdrawal"
+        />
+        <ReuseTab
+          icon={
+            <div className="bg-white p-4 rounded-md">
+              <SportsEsportsIcon fontSize="medium" />
+            </div>
+          }
+          figure="119"
+          description="Total Bets"
+        />
+        <ReuseTab
+          icon={
+            <div className="bg-white p-4 rounded-md">
+              <RotateLeftIcon fontSize="medium" />
+            </div>
+          }
+          figure="50"
+          description="Pending Bets"
+        />
+        <ReuseTab
+          icon={
+            <div className="bg-white p-4 rounded-md">
+              <ReceiptLongIcon fontSize="medium" />
+            </div>
+          }
+          figure="30"
+          description="Transactions"
+        />
+        <ReuseTab
+          icon={
+            <div className="bg-white p-4 rounded-md">
+              <LiveHelpIcon fontSize="medium" />
+            </div>
+          }
+          figure="2"
+          description="Support Ticket"
+        />
+      </section>
+
+      <div className="hidden md:block">
+        <TableComp
+          data={data}
+          columns={columns}
+          tableTitle="Transaction History"
+        />
+      </div>
+      <div className="md:hidden">
+        <TransactionInner />
       </div>
     </div>
   );

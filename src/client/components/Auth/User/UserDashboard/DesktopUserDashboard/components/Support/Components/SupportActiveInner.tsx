@@ -1,102 +1,40 @@
-import SupportComp from "./SupportComp";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import {
   useReactTable,
   getCoreRowModel,
-  flexRender,
   getPaginationRowModel,
-  getFilteredRowModel,
 } from "@tanstack/react-table";
 import SupportTicketData from "../Constants/SupportTicketData";
 import SupportActiveColumn from "./SupportActiveColumn";
-import { Carousel } from "@heathmont/moon-core-tw";
-import { CustomCarousel } from "@/src/client/shared/Carousel";
+import { ticketList } from "./SupportInactive";
+import TableComp from "../../../shared/ActiveTableComp";
 
 const SupportActiveInner = () => {
-  const data = useMemo(() => SupportTicketData, []);
+  const data = useMemo(() => ticketList, []);
 
-  const columns: any = SupportActiveColumn();
-  const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-  });
+  const columns = SupportActiveColumn();
 
-  const renderCarouselItems = () => {
-    return (
-      <Carousel.Item className="md:hidden">
-        <table className="w-[60rem] ">
-          <tbody>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <th className=" text-center " key={header.id}>
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
-                  </th>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-
-          <tbody className="mt-4">
-            {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <td className=" text-center h-11" key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </Carousel.Item>
-    );
-  };
   return (
-    <SupportComp
-      isOpenTicket
-      supportContent={
-        <div className="mt-3 relative ">
-        <CustomCarousel renderCarouselItems={renderCarouselItems}/>
-         <div className="hidden md:flex"><table className="w-full">
-            <tbody>
-              {table.getHeaderGroups().map((headerGroup) => (
-                <tr key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => (
-                    <th className="  " key={header.id}>
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                    </th>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-
-            <tbody className="mt-4">
-              {table.getRowModel().rows.map((row) => (
-                <tr key={row.id}>
-                  {row.getVisibleCells().map((cell) => (
-                    <td className=" text-center h-11" key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table></div> 
-        </div>
-      }
-    />
+    <div>
+      <div className="hidden md:block">
+        <TableComp data={data} columns={columns} tableTitle="" />
+      </div>
+      <div className="md:hidden">
+        {data.map((ticket, index) => (
+          <div className="bg-white rounded-lg space-y-3 p-3 mb-3" key={index}>
+            <p className="flex justify-between font-bold">
+              Subject <span>{ticket.subject}</span>
+            </p>
+            <p className="flex justify-between font-bold">
+              Message<span>{ticket.message}</span>
+            </p>
+            <p className="flex justify-between font-bold">
+              Priority<span>{ticket.priority}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

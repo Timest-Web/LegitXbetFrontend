@@ -4,8 +4,10 @@ import AllBetTable from "../../../shared/InactiveTable";
 import TransactionCard from "./TransactionCard";
 import transactionData from "../../../../MobileUserDashboard/constant/MOCK_DATA (7).json";
 
+const ITEMS_PER_PAGE = 5; 
+
 const TransactionInner = () => {
-  const headers = TransactionInactiveHeader();
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [filterType, setFilterType] = useState<string>("");
   const [filterDate, setFilterDate] = useState<string>("");
@@ -18,9 +20,18 @@ const TransactionInner = () => {
 
     return typeCondition && dateCondition;
   });
+  const totalPages = Math.ceil(filteredTransactions.length / ITEMS_PER_PAGE);
 
+  const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
+  const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
+
+  const currentItems = filteredTransactions.slice(indexOfFirstItem, indexOfLastItem);
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
   return (
-    <div className="">
+    <div className="w-full">
       <section className="flex  md:space-x-4 mb-4">
         <div className="text-sm">
           <label htmlFor="filterType">Filter by Type: </label>
@@ -50,7 +61,7 @@ const TransactionInner = () => {
 
       <>
         <p className="font-bold text-xl mb-4">Transaction List</p>
-        {filteredTransactions.map((transaction, index) => (
+        {currentItems.map((transaction, index) => (
           <TransactionCard key={index} {...transaction} />
         ))}
       </>

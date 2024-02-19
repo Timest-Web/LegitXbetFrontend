@@ -9,9 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coreui/react": "^4.11.1",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@heathmont/moon-core-tw": "^10.11.2",
     "@heathmont/moon-icons-tw": "^9.28.6",
     "@heathmont/moon-themes-tw": "^10.11.2",
+    "@mui/icons-material": "^5.15.9",
+    "@mui/material": "^5.15.9",
+    "@mui/styles": "^5.15.9",
     "@paystack/inline-js": "^2.14.0",
     "@tanstack/react-query": "^5.17.15",
     "@tanstack/react-query-devtools": "^5.12.2",

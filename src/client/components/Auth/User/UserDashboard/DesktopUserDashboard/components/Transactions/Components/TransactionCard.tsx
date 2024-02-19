@@ -42,7 +42,7 @@ const TransactionCard: React.FC<TransactionCardProps> = ({
         query: queryParams,
       }}
     >
-      <div className="bg-white w-[99.5%] flex justify-between mb-1 p-3">
+      <div className="bg-white w-[99.5%] md:w-full flex justify-between mb-1 p-3">
         <div>
           <p className="font-bold">{type}</p>
           <div className="text-xs flex space-x-3">

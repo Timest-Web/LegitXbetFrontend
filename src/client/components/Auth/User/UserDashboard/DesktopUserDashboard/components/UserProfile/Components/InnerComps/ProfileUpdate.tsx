@@ -90,7 +90,7 @@ const ProfileUpdate: React.FC = () => {
               />
               <InputField
                 label="Date of Birth"
-                type="text"
+                type="date"
                 placeholder="23/04/1997"
                 value={persistedValues.dob}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -110,7 +110,7 @@ const ProfileUpdate: React.FC = () => {
               />
               <InputField
                 label="BVN"
-                type="text"
+                type="password"
                 placeholder="226643828"
                 value={persistedValues.bvn}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>

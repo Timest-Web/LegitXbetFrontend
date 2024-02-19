@@ -10,6 +10,7 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({
   title,
   children,
   isActive,
+
 }) => {
   return (
     <div
