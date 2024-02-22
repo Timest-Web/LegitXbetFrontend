@@ -6,11 +6,11 @@ type OddsButtonProps = {
   teamOne: string;
   teamTwo: string;
   winOdd?: string;
-  winType?: number;
+  home?: number;
   drawOdd: string;
-  drawType: number;
+  draw: number;
   loseOdd?: string;
-  loseType?: number;
+  away?: number;
 };
 
 export const OddsButtons = ({
@@ -19,42 +19,42 @@ export const OddsButtons = ({
   teamOne,
   teamTwo,
   winOdd,
-  winType,
+  home,
   drawOdd,
-  drawType,
+  draw,
   loseOdd,
-  loseType,
+  away,
 }: OddsButtonProps) => {
   const extratedSelectedOddObj = {
     id,
     time,
     teamOne,
     teamTwo,
-    winType,
-    drawType,
-    loseType,
+    home,
+    draw,
+    away,
   };
 
   return (
     <div className="flex flex-row space-x-2 w-full">
-		<OddButton
-			id={id}
-			onextwo={winOdd}
-			onextwoValue={winType}
-			selectedOddObj={extratedSelectedOddObj}
-		/>
-		<OddButton
-			id={id}
-			onextwo={drawOdd}
-			onextwoValue={drawType}
-			selectedOddObj={extratedSelectedOddObj}
-		/>
-		<OddButton
-			id={id}
-			onextwo={loseOdd}
-			onextwoValue={loseType}
-			selectedOddObj={extratedSelectedOddObj}
-		/>
+      <OddButton
+        id={id}
+        onextwo={winOdd}
+        onextwoValue={home}
+        selectedOddObj={extratedSelectedOddObj}
+      />
+      <OddButton
+        id={id}
+        onextwo={drawOdd}
+        onextwoValue={draw}
+        selectedOddObj={extratedSelectedOddObj}
+      />
+      <OddButton
+        id={id}
+        onextwo={loseOdd}
+        onextwoValue={away}
+        selectedOddObj={extratedSelectedOddObj}
+      />
     </div>
   );
 };

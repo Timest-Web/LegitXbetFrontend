@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SportBetMenu from "./SportBetMenu";
 import useUrlPathChecker from "../../Hooks/useUrlPathChecker";
 import CategoryBetMenu from "./CategoryBetMenu/CategoryBetMenu";

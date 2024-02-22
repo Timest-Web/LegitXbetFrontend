@@ -7,7 +7,6 @@ import { useBetTable } from "@/src/client/shared/Hooks/useBetTable";
 export const AmericanFootballBetTable = () => {
   const {
     odds,
-    leagues,
     sportData,
     setSelectedDate,
     setSelectedSport,
@@ -16,19 +15,20 @@ export const AmericanFootballBetTable = () => {
   } = useBetTable(SPORTS_DATA?.TopMatches);
 
   return (
-    <BetTable
-      href="americanfootball"
-      icon={<MatchStar />}
-      odds={odds}
-      leagues={leagues}
-      isLiveTable={false}
-      sportData={sportData}
-      contentTitle="American Matches"
-      sportsType={extractedSportType}
-      setSelectedDate={setSelectedDate}
-      setSelectedSport={setSelectedSport}
-      setSelectedLeague={setSelectedLeague}
-    />
+    <></>
+    // <BetTable
+    //   href="americanfootball"
+    //   icon={<MatchStar />}
+    //   odds={odds}
+    //   leagues={leagues}
+    //   isLiveTable={false}
+    //   sportData={sportData}
+    //   contentTitle="American Matches"
+    //   sportsType={extractedSportType}
+    //   setSelectedDate={setSelectedDate}
+    //   setSelectedSport={setSelectedSport}
+    //   setSelectedLeague={setSelectedLeague}
+    // />
   );
 };
 

@@ -20,7 +20,7 @@ interface BetTableHook {
   setSelectedLeague: React.Dispatch<React.SetStateAction<string>>;
   extractedSportType: string[] | undefined;
   odds: string[];
-  leagues: string[];
+  // leagues: string[];
   sportData: {
     leagueName: string;
     date: string;
@@ -42,10 +42,10 @@ export const useBetTable = (initialData: SportsData[] | undefined): BetTableHook
 
   const data = initialData?.filter((value) => value.sportType === selectedSport);
   let getAvailableOdds: string[] = [];
-  let getAvailableLeagues: string[] = [];
+  // let getAvailableLeagues: string[] = [];
   if (data && data.length > 0) {
     getAvailableOdds = data[0].odds;
-    getAvailableLeagues = data[0].leagues;
+    // getAvailableLeagues = data[0].leagues;
   }
 
   return {
@@ -57,7 +57,7 @@ export const useBetTable = (initialData: SportsData[] | undefined): BetTableHook
     setSelectedLeague,
     extractedSportType,
     odds: getAvailableOdds,
-    leagues: getAvailableLeagues,
+    // leagues: getAvailableLeagues,
     sportData: extractedSports,
   };
 };

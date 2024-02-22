@@ -8,7 +8,6 @@ import BetTable from "./components/BetTable";
 export const TopBetTable = () => {
   const {
     odds,
-    leagues,
     sportData,
     setSelectedDate,
     setSelectedSport,
@@ -17,19 +16,20 @@ export const TopBetTable = () => {
   } = useBetTable(SPORTS_DATA?.TopMatches);
 
   return (
-    <BetTable
-      href="topgames"
-      icon={<MatchStar />}
-      odds={odds}
-      leagues={leagues}
-      isLiveTable={false}
-      sportData={sportData}
-      contentTitle="Top Matches"
-      sportsType={extractedSportType}
-      setSelectedDate={setSelectedDate}
-      setSelectedSport={setSelectedSport}
-      setSelectedLeague={setSelectedLeague}
-    />
+    <></>
+    // <BetTable
+    //   href="topgames"
+    //   icon={<MatchStar />}
+    //   odds={odds}
+    //   leagues={leagues}
+    //   isLiveTable={false}
+    //   sportData={sportData}
+    //   contentTitle="Top Matches"
+    //   sportsType={extractedSportType}
+    //   setSelectedDate={setSelectedDate}
+    //   setSelectedSport={setSelectedSport}
+    //   setSelectedLeague={setSelectedLeague}
+    // />
   );
 };
 
