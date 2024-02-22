@@ -1,62 +1,42 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useProfileContext } from "@/src/client/shared/Context/PersonalDetailsContext/ProfileContext";
 import ProfileVeriReuse from "../ProfileReusables/ProfileVeriReuse";
 import InputField from "../ProfileReusables/InputField";
 import ProfileReusableCard from "../ProfileReusables/ProfileReusableCard";
+import useUser from "@/src/client/shared/Context/UserContext/useUser";
+import axios from "axios";
 
-interface TotalPersonalDetails {
-  firstName: string;
-  lastName: string;
-  dob: string;
-  address: string;
-  bvn: string;
-}
+const ProfileUpdate = () => {
+  const { totalPersonalDetails, setTotalPersonalDetails } = useProfileContext()!;
 
-const ProfileUpdate: React.FC = () => {
-  const { totalPersonalDetails, handleInputChange } = useProfileContext()!;
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [persistedValues, setPersistedValues] = useState<TotalPersonalDetails>({
-    firstName: "",
-    lastName: "",
-    dob: "",
-    address: "",
-    bvn: "",
+  const user = useUser();
+
+  const [isFormEditable, setIsFormEditable] = useState(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const storedValue = window.localStorage.getItem("isFormEditable");
+      return storedValue ? JSON.parse(storedValue) : true;
+    }
+    return true;
   });
 
   useEffect(() => {
-    const storedFormStatus = localStorage.getItem("isFormSubmitted");
-    if (storedFormStatus) {
-      setIsFormSubmitted(true);
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const storedFormValues = JSON.parse(window.localStorage.getItem("formValues") || "{}");
+      setTotalPersonalDetails(storedFormValues);
     }
+  }, [setTotalPersonalDetails]);
 
-    const storedValues = localStorage.getItem("persistedValues");
-    if (storedValues) {
-      setPersistedValues(JSON.parse(storedValues));
-    } else {
-      setPersistedValues(totalPersonalDetails);
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      window.localStorage.setItem("formValues", JSON.stringify(totalPersonalDetails));
     }
   }, [totalPersonalDetails]);
 
-  const handleSaveUpdate = (e: React.FormEvent) => {
+  const handleSaveUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsFormSubmitted(true);
-    localStorage.setItem("isFormSubmitted", "true");
+    setIsFormEditable(false);
   };
 
-  const handleInputChangePersist = (
-    field: keyof TotalPersonalDetails,
-    value: string
-  ) => {
-    handleInputChange(field, value);
-    setPersistedValues((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-    localStorage.setItem(
-      "persistedValues",
-      JSON.stringify({ ...persistedValues, [field]: value })
-    );
-  };
 
   return (
     <div className="pb-24 md:pb-0">
@@ -71,57 +51,69 @@ const ProfileUpdate: React.FC = () => {
               <InputField
                 label="First Name"
                 type="text"
-                placeholder="e.g bayo ojo"
-                value={persistedValues.firstName}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  handleInputChangePersist("firstName", e.target.value)
+                placeholder="e.g. Bayo"
+                value={totalPersonalDetails.firstName}
+                onChange={(e) =>
+                  setTotalPersonalDetails((prevValues) => ({
+                    ...prevValues,
+                    firstName: e.target.value,
+                  }))
                 }
-                disabled={isFormSubmitted}
+                disabled={!isFormEditable}
               />
               <InputField
                 label="Last Name"
                 type="text"
                 placeholder="e.g bayo ojo"
-                value={persistedValues.lastName}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  handleInputChangePersist("lastName", e.target.value)
+                value={totalPersonalDetails.lastName}
+                onChange={(e) =>
+                  setTotalPersonalDetails((prevValues) => ({
+                    ...prevValues,
+                    lastName: e.target.value,
+                  }))
                 }
-                disabled={isFormSubmitted}
               />
               <InputField
                 label="Date of Birth"
                 type="date"
                 placeholder="23/04/1997"
-                value={persistedValues.dob}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  handleInputChangePersist("dob", e.target.value)
+                value={totalPersonalDetails.dob}
+                onChange={(e) =>
+                  setTotalPersonalDetails((prevValues) => ({
+                    ...prevValues,
+                    dob: e.target.value,
+                  }))
                 }
-                disabled={isFormSubmitted}
               />
               <InputField
                 label="Address"
                 type="text"
                 placeholder="23, Bourdillon"
-                value={persistedValues.address}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  handleInputChangePersist("address", e.target.value)
+                value={totalPersonalDetails.address}
+                onChange={(e) =>
+                  setTotalPersonalDetails((prevValues) => ({
+                    ...prevValues,
+                    address: e.target.value,
+                  }))
                 }
-                disabled={isFormSubmitted}
               />
               <InputField
                 label="BVN"
                 type="password"
                 placeholder="226643828"
-                value={persistedValues.bvn}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  handleInputChangePersist("bvn", e.target.value)
+                value={totalPersonalDetails.bvn}
+                onChange={(e) =>
+                  setTotalPersonalDetails((prevValues) => ({
+                    ...prevValues,
+                    bvn: e.target.value,
+                  }))
                 }
-                disabled={isFormSubmitted}
               />
+
               <button
                 type="submit"
                 className="bg-black text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"
-                disabled={isFormSubmitted}
+                disabled={!isFormEditable}
               >
                 Save & Update
               </button>

@@ -5,7 +5,7 @@ import ClubCollage from "../../assets/ClubCollage.png";
 import WorldCup from "../../assets/FIFAWorldCup2022.png";
 import BetWC from "../../assets/BonusWC.png";
 import AddSquare from "@/src/client/shared/Svg/AddSquare";
-import RightSection from "@/src/client/components/LandingPage/DesktopLandingPage/MainSection/RightSection";
+import RightSection from "@/src/client/components/components/RightSection";
 import { useRouter } from "next/router";
 
 const BannerSection = () => {

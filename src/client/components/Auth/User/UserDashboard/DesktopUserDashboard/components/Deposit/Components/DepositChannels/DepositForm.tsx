@@ -1,20 +1,15 @@
 import React, { useState, useContext, useEffect, useCallback } from "react";
 import { BalanceContext } from "@/src/client/shared/Context/BalanceContext/BalanceContext";
 import PaystackButton from "./PaystackComponent";
-import { useInfoContext } from "@/src/client/shared/Context/PersonalDetailsContext/GetUserInfoContext";
-
-interface FormData {
-  depositAmount: string;
-}
 
 const DepositForm = () => {
-  const [formData, setFormData] = useState<FormData>({ depositAmount: "" });
+  const [depositAmount, setDepositAmount] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
-  const { balance, setBalance } = useContext(BalanceContext)!;
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [transactionReference, setTransactionReference] = useState<
-    string | null
-  >(null);
+  const { setBalance } = useContext(BalanceContext)!;
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+  const [transactionReference, setTransactionReference] = useState<string | null>(null);
+
+  const apiUrl = "https://legitx.ng/wallet/deposit";
 
   const handlePaymentSuccess = (response: any) => {
     console.log("Payment successful! Transaction ID:", response.reference);
@@ -22,10 +17,10 @@ const DepositForm = () => {
     setErrorMessage("");
   };
 
-  const apiUrl = "https://legitx.ng/wallet/deposit";
-
-  const fetchData = useCallback(async (reference: string) => {
+  const fetchData = useCallback(async (reference: string, amount: number) => {
     try {
+      const userDetails = localStorage.getItem("access") || "{}";
+      const parsedDetails = JSON.parse(userDetails);
       const postData = {
         merchantType: "paystack",
         transactionReference: reference,
@@ -34,10 +29,9 @@ const DepositForm = () => {
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
-          "Accept": "application/json",
+          Accept: "application/json",
           "Content-Type": "application/json",
-          "Authorization":
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTcwODI4ODAwMywiZXhwIjoxNzA4Mzc0NDAzfQ.UDHaUokNtx-XJJO9yP2o0aBk1DU5wCbwumOOvWNCXLw",
+          Authorization: `Bearer ${parsedDetails?.accessToken}`,
         },
         body: JSON.stringify(postData),
       });
@@ -46,7 +40,10 @@ const DepositForm = () => {
         throw new Error(`Server Error: ${response.statusText}`);
       }
 
+      setBalance((prevBalance: number) => prevBalance + amount);
+
       const data = await response.json();
+
       console.log("Response:", data);
     } catch (error: any) {
       console.error("Fetch Error:", error.message);
@@ -55,14 +52,15 @@ const DepositForm = () => {
 
   useEffect(() => {
     if (transactionReference) {
-      fetchData(transactionReference);
+      fetchData(transactionReference, +depositAmount);
     }
-  }, [fetchData, transactionReference]);
+  }, [fetchData, transactionReference, depositAmount]);
 
   const handleDepositInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setFormData({ depositAmount: value });
-    const amount = parseFloat(value);
+    const inputValue = e.target.value;
+    setDepositAmount(inputValue); // Always update the input value as a string
+
+    const amount = parseFloat(inputValue);
 
     if (isNaN(amount) || amount < 100 || amount > 500000) {
       setErrorMessage(
@@ -77,7 +75,8 @@ const DepositForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const amount = parseFloat(formData.depositAmount);
+
+    const amount = parseFloat(depositAmount);
 
     if (isNaN(amount) || amount < 100 || amount > 500000) {
       setErrorMessage(
@@ -86,9 +85,9 @@ const DepositForm = () => {
     } else {
       setErrorMessage("");
       console.log("Deposit amount submitted:", amount);
-      setFormData({ depositAmount: "" });
-      setBalance(balance + amount);
+      
     }
+    
   };
 
   return (
@@ -97,12 +96,10 @@ const DepositForm = () => {
         <label className="font-bold">Deposit Amount in NGN</label>
         <input
           className="bg-[#F5F5F5] w-52 h-10"
-          type="number"
+          type="text" // Change type to text
           name="depositAmount"
-          value={formData.depositAmount}
+          value={depositAmount}
           onChange={handleDepositInputChange}
-          min="100"
-          max="500000"
         />
         {errorMessage && (
           <p className="text-red-500 my-1 text-sm">{errorMessage}</p>
@@ -115,7 +112,7 @@ const DepositForm = () => {
         }`}
       >
         <PaystackButton
-          amount={parseFloat(formData.depositAmount)}
+          amount={parseFloat(depositAmount)} // Ensure you pass a number
           email={"pabloalabanza9@gmail.com"}
           onSuccess={handlePaymentSuccess}
           onClose={() => console.log("Payment closed.")}

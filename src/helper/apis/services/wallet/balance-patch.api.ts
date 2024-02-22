@@ -1,27 +1,20 @@
-import { BalanceContext } from "@/src/client/shared/Context/BalanceContext/BalanceContext";
-import { useInfoContext } from "@/src/client/shared/Context/PersonalDetailsContext/GetUserInfoContext";
-import { useContext } from "react";
-
 export interface BalancePayload {
-    id: number;
-    amount: number;
-  }
-  
+  id: number;
+  amount: number;
+}
 
 export const updateBalance = async (payload: BalancePayload) => {
-
-
-
   const url = `https://legitx.ng/users/${payload.id}`;
 
   try {
+    const userDetails = localStorage.getItem("access") || "{}";
+    const parsedDetails = JSON.parse(userDetails);
     const response = await fetch(url, {
       method: "PATCH",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        "Authorization":
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTcwODI4ODAwMywiZXhwIjoxNzA4Mzc0NDAzfQ.UDHaUokNtx-XJJO9yP2o0aBk1DU5wCbwumOOvWNCXLw",
+        Authorization: `Bearer ${parsedDetails?.accessToken}`,
       },
       body: JSON.stringify(payload),
     });

@@ -6,12 +6,10 @@ import Layout from '../Layout';
 
 const LandingPage = () => {
 	return (
-		<Layout>
-			<DeviceDisplay
-				mobileViewDisplay={<MobileLandingPage />}
-				desktopViewDisplay={<DesktopLandingPage />}
-			/>
-		</Layout>
+		<DeviceDisplay
+			mobileViewDisplay={<MobileLandingPage />}
+			desktopViewDisplay={<DesktopLandingPage />}
+		/>
 	);
 };
 export default LandingPage;

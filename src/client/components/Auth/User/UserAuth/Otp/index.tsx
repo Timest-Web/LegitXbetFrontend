@@ -42,8 +42,7 @@ const Otp = ({ title, phoneNo, msgValue, fieldsValue, mutationFunction }: OtpPro
 	const { mutateAsync, isPending } = useMutation({mutationFn: mutationFunction});
 	const handleSubmit = () => {
 		const data = { phoneNumber: phoneNo, code };
-		if (inputOtpValue.length === 6) {
-			console.log('request sent', data);
+		if (inputOtpValue.length === fieldsValue) {
 			mutateAsync(data).then((res) => {
 				apiMessageHelper({
 					message: res?.message,

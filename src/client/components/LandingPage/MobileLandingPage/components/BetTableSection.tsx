@@ -1,27 +1,22 @@
 import React from 'react'
-import BetTable from './BetTable'
-import Star from '@/src/client/shared/Svg/Star';
-import MatchStar from '@/src/client/shared/Svg/MatchStar';
-import LiveMatch from '@/src/client/shared/Svg/LiveMatch';
+import { LiveBetTable } from '../../../components/Tables/MobileTable/LiveBetTable';
+import { TopBetTable } from '../../../components/Tables/MobileTable/TopBetTable';
+import { UpcomingBetTable } from '../../../components/Tables/MobileTable/UpcomingBetTable';
+import { AllTodayBetTable } from '../../../components/Tables/MobileTable/AllMatchesToday';
+import { TodayBetTable } from '../../../components/Tables/MobileTable/TodayGames';
+import { TonightTable } from '../../../components/Tables/MobileTable/TonightMatches';
+import { AmericanFootballBetTable } from '../../../components/Tables/MobileTable/AmericanFootball';
 
 const BetTableSection = () => {
   return (
-		<div className='mt-2 space-y-8'>
-				<BetTable
-					icon={<LiveMatch />}
-					contentTitle='LIVE'
-					isLiveTable={true}
-				/>
-				<BetTable
-					icon={<MatchStar />}
-					contentTitle='Upcoming Matches'
-					isLiveTable={false}
-				/>
-				<BetTable
-					icon={<Star />}
-					contentTitle='Top Matches'
-					isLiveTable={false}
-				/>
+		<div className='mt-2 -mb-6 space-y-8'>
+				<LiveBetTable/>
+				<UpcomingBetTable/>
+				<TopBetTable/>
+				<AllTodayBetTable/>
+				<TodayBetTable/>
+				<TonightTable/>
+				<AmericanFootballBetTable/>
 		</div>
   );
 }

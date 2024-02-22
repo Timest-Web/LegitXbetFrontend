@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import DesktopModal from '../../../Modal';
 import Logo from '../../../../../assets/logo1.png';
@@ -7,19 +8,17 @@ import UserSection from './UserSection';
 import SupportContent from '../../SupportContent';
 import { Button } from '../../../Button';
 import { useLink } from '../../../Hooks/useLink';
-import { useQuery } from '@tanstack/react-query';
 import { OtherCrown } from '@heathmont/moon-icons-tw';
-import { getUserProfile } from '@/src/helper/apis/services/auth/get-user-profile.api';
-import { useVisibilityControl } from '../../../Hooks/useVisibilityControl';
-import { ControlsChevronDown } from '@heathmont/moon-icons-tw';
 import { LINK_CATEGORY_TYPES } from '../../constant';
+import useUser from "../../../Context/UserContext/useUser";
+import { ControlsChevronDown } from "@heathmont/moon-icons-tw";
+import useUrlPathChecker from "../../../Hooks/useUrlPathChecker";
+import { useVisibilityControl } from '../../../Hooks/useVisibilityControl';
 import CustomerCareDrawer from '../../../Modal/components/DesktopCustomerCare';
-import useUrlPathChecker from '../../../Hooks/useUrlPathChecker';
 import AuthContent from '../../../../components/Auth/User/UserAuth/Components/AuthContent';
-import { useGetUser } from '../../../Hooks/useGetUser';
 
 const CategoryBetMenu = () => {
-	const { user } = useGetUser('access');
+	const { user } = useUser();
 	const { link, handleClick } = useLink('Sports');
 	const { link: click, handleClick: selectedHandle } = useLink('login');
 	const isUrlPathIncluded = useUrlPathChecker({ urlPath: 'user-dashboard' });
@@ -39,11 +38,13 @@ const CategoryBetMenu = () => {
 		<div className='flex items-center justify-center w-full  bg-black'>
 			<div className='flex items-center justify-between w-[1512px] h-20 px-6'>
 				<div className='flex items-center space-x-24 '>
-					<Image
-						src={Logo}
-						alt='logo alt'
-						className='h-[22px] w-[123px] cursor-pointer'
-					/>
+					<Link href='/'>
+						<Image
+							src={Logo}
+							alt='logo alt'
+							className='h-[22px] w-[123px] cursor-pointer'
+						/>
+					</Link>
 
 					<div className='flex space-x-12 h-20'>
 						{LINK_CATEGORY_TYPES.map((value, index) => (
@@ -95,7 +96,7 @@ const CategoryBetMenu = () => {
 					</div>
 				</div>
 
-				{!user?.accessToken && (
+				{!user?.name && (
 					<div className='flex items-center space-x-10'>
 						<button
 							onClick={onHandleSupportClick}
@@ -129,7 +130,7 @@ const CategoryBetMenu = () => {
 						</div>
 					</div>
 				)}
-				{user?.accessToken && <UserSection />}
+				{user?.name && <UserSection userName={user?.name} />}
 			</div>
 
 			{openModal && (

@@ -3,7 +3,6 @@ import BalanceCard from "../../../shared/BalanceCard";
 import AllBetTable from "../../../shared/InactiveTable";
 import OverViewHeader from "./OverviewHeader";
 import OverviewWelcomeTab from "./OverviewWelcomeTab";
-import { useInfoContext } from "@/src/client/shared/Context/PersonalDetailsContext/GetUserInfoContext";
 import BetHistory from "@/src/client/shared/Svg/BetHistory";
 import Receipt from "@/src/client/shared/Svg/Receipt";
 import Link from "next/link";
@@ -19,11 +18,12 @@ import RotateLeftIcon from "@mui/icons-material/RotateLeft";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import TransactionInner from "../../Transactions/Components/TransactionInner";
+import useUser from "@/src/client/shared/Context/UserContext/useUser";
 
 const Overview = () => {
   const data = useMemo(() => mData, []);
   const columns: any = TransactionColumn();
-  const info = useInfoContext()!;
+  const user = useUser();
 
   const referenceValue = "https://script.viserlab.com/betlab?reference=";
   return (
@@ -49,7 +49,7 @@ const Overview = () => {
           </div>
         </div>
       </div>
-      <section onClick={()=>console.log(info)}  className="grid grid-rows-6 gap-3 md:grid-cols-3 md:grid-rows-2 md:gap-x-2 ">
+      <section onClick={()=>console.log(user)}  className="grid grid-rows-6 gap-3 md:grid-cols-3 md:grid-rows-2 md:gap-x-2 ">
         <ReuseTab
           icon={
             <div className="bg-white p-4 rounded-md">

@@ -17,7 +17,6 @@ export const signIn: (payload: LoginUserPayload) => Promise<LoginResponse> = asy
             body: JSON.stringify(payload)
         });
         const data = await response.json();
-        console.log(data)
         data.statusCode = response.status;
         return data;
     } catch (error) {

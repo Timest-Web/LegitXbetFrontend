@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
+
 interface TotalPersonalDetails {
   firstName: string;
   lastName: string;
@@ -9,43 +10,39 @@ interface TotalPersonalDetails {
 
 type ProfileContextProps = {
   totalPersonalDetails: TotalPersonalDetails;
-  handleInputChange: (fieldName: string, value: string) => void;
-}
-const ProfileContext = createContext<ProfileContextProps | undefined>(undefined);
+  setTotalPersonalDetails: React.Dispatch<React.SetStateAction<TotalPersonalDetails>>; // Add setter function
+};
+
+const ProfileContext = createContext<ProfileContextProps | undefined>(
+  undefined
+);
 
 export const useProfileContext = () => {
-  return useContext(ProfileContext);
+  const context = useContext(ProfileContext);
+  if (!context) {
+    throw new Error("useProfileContext must be used within a ProfileProvider");
+  }
+  return context;
 };
 
 type ProfileProviderProps = {
-  children: React.JSX.Element;
+  children: React.ReactNode;
 };
 
-export const ProfileProvider: React.FC<ProfileProviderProps> = ({ children }) => {
-  const [totalPersonalDetails, setTotalPersonalDetails] = useState({
-    firstName: '',
-    lastName: '',
-    dob: '',
-    address: '',
-    bvn: '',
+export const ProfileProvider: React.FC<ProfileProviderProps> = ({
+  children,
+}) => {
+  const [totalPersonalDetails, setTotalPersonalDetails] = useState<TotalPersonalDetails>({
+    firstName: "",
+    lastName: "",
+    dob: "",
+    address: "",
+    bvn: "",
   });
 
-  const handleInputChange = (fieldName:string, value:string) => {
-    setTotalPersonalDetails((prevValues) => ({
-      ...prevValues,
-      [fieldName]: value,
-    }));
-  };
-
-  const contextValue = {
-    totalPersonalDetails,
-    handleInputChange,
-  };
-
   return (
-    <ProfileContext.Provider value={contextValue}>
+    <ProfileContext.Provider value={{ totalPersonalDetails, setTotalPersonalDetails }}>
       {children}
     </ProfileContext.Provider>
   );
 };
-

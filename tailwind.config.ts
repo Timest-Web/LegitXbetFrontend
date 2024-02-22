@@ -15,7 +15,6 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['"SpaceGrotesk"', 'sans-serif'],
-
       },
       colors: {
         gold: '#DFB511',

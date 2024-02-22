@@ -1,18 +1,26 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { BetContext } from './BetContext';
 import { OddsValuesProps } from './constant';
-import { ODDS_VALUE } from '@/src/client/components/LandingPage/DesktopLandingPage/MainSection/CenterSection/constant/data';
 
 
 type BetProviderProps = {
 	children: React.ReactNode;
 };
 
-export const BetProvider: React.FC<BetProviderProps> = ({
-	children,
-}: BetProviderProps) => {
+type SelectedOddsObjectProps = {
+	id: number;
+	time: string;
+	teamOne: string;
+	teamTwo: string;
+	winType?: number | undefined;
+	drawType: number;
+	loseType?: number | undefined;
+}
+
+export const BetProvider: React.FC<BetProviderProps> = ({children}: BetProviderProps) => {
 	const initialRender = useRef(true);
 	const [bet, setBet] = useState<OddsValuesProps[]>([]);
+
 
 	useEffect(() => {
 		const betFromLocalStorage = JSON.parse(
@@ -21,34 +29,27 @@ export const BetProvider: React.FC<BetProviderProps> = ({
 		setBet(betFromLocalStorage);
 	}, []);
 
-	const addToBetSlip = (id: number, odd: number) => {
+	
+	const addToBetSlip = (id: number,oddName: string, odd: number, selectedOddObj: SelectedOddsObjectProps) => {
 		if (id) {
-			const selectedOddsValue = ODDS_VALUE.find(
-				(obj) =>
-					obj.id === id &&
-					(obj.winType === odd ||
-						obj.drawType === odd ||
-						obj.loseType === odd)
-			);
-
-			if (selectedOddsValue) {
+			if (selectedOddObj) {
 				const checkSelected = bet.find(
 					(obj: OddsValuesProps) => obj.id === id && obj.odd === odd
 				);
 				if (!checkSelected) {
-					const oddType = Object.entries(selectedOddsValue).find(
+					const oddType = Object.entries(selectedOddObj).find(
 						([key, value]) => value === odd && key.endsWith('Type')
 					);
 					if (oddType) {
 						setBet([
 							...bet,
 							{
-								id: selectedOddsValue.id,
-								time: selectedOddsValue.time,
-								teamOne: selectedOddsValue.teamOne,
-								teamTwo: selectedOddsValue.teamTwo,
+								id: selectedOddObj.id,
+								time: selectedOddObj.time,
+								teamOne: selectedOddObj.teamOne,
+								teamTwo: selectedOddObj.teamTwo,
 								odd: odd,
-								oddType: oddType[0],
+								oddType: oddName,
 							},
 						]);
 					} else {

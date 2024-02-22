@@ -1,9 +1,7 @@
-
-
 import React, { createContext, useEffect, useState } from "react";
-import { useInfoContext } from "../PersonalDetailsContext/GetUserInfoContext";
 import { updateBalance } from "@/src/helper/apis/services/wallet/balance-patch.api";
 import { useMutation } from "@tanstack/react-query";
+import useUser from "../UserContext/useUser";
 
 type BalanceContextType = {
   balance: number;
@@ -19,8 +17,8 @@ export const BalanceContext = createContext<BalanceContextType | undefined>(
 );
 
 const BalanceProvider: React.FC<BalanceProviderProps> = ({ children }) => {
-  const info = useInfoContext()!;
-  const [balance, setBalance] = useState(info ? info.amount : 0);
+  const user = useUser();
+  const [balance, setBalance] = useState(user.user.amount);
 
   const { mutateAsync: balanceUpdate } = useMutation({
     mutationFn: updateBalance,
@@ -30,10 +28,11 @@ const BalanceProvider: React.FC<BalanceProviderProps> = ({ children }) => {
   });
 
   useEffect(() => {
-    if (info) {
-      balanceUpdate({ amount: balance, id: info.id }); // This will trigger the updateBalance function
+    if (user) {
+      console.log(user.user.id)
+      balanceUpdate({ amount: balance, id: user.user.id }); 
     }
-  }, [balance, balanceUpdate, info]);
+  }, [balance, balanceUpdate, user]);
 
 
 

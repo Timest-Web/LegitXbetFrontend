@@ -1,28 +1,34 @@
 import React from 'react';
 import Footer from '../shared/Footer';
 import Header from '../shared/Header';
-import CenterSection from './LandingPage/DesktopLandingPage/MainSection/CenterSection';
-import RightSection from './LandingPage/DesktopLandingPage/MainSection/RightSection';
+import RightSection from './components/RightSection';
 import useDeviceType from '../shared/Hooks/useDeviceType';
 
-const Layout = ({ children }: { children: React.JSX.Element }) => {
+type LayoutProps = { 
+	leftSection?: React.ReactNode; 
+	centerSection?: React.ReactNode; 
+	mobileComponents?: React.ReactNode 
+}
+
+const Layout = ({ leftSection, centerSection, mobileComponents }: LayoutProps) => {
 	const { isMobile } = useDeviceType();
 	return (
-		<div>
-			<Header />
-			<div className='pt-[120px] bg-gray-200'>
-				{!isMobile && (
-					<div className='flex flex-row items-start justify-center py-2 px-1 space-x-2 h-max '>
-						{children}
-						<CenterSection />
-						<RightSection />
-					</div>
-				)}
-			</div>
-			{isMobile &&  children}
-			<Footer />
-		</div>
-	);
+    <>
+      <Header />
+      {!isMobile && (
+        <div className="flex justify-center pt-[120px] bg-gray-200">
+          <div className="flex flex-row items-start justify-center py-2 px-1 space-x-2 h-max ">
+            {leftSection}
+            {centerSection}
+            <RightSection />
+          </div>
+        </div>
+      )}
+
+      {isMobile && mobileComponents}
+      <Footer />
+    </>
+  );
 };
 
 export default Layout;

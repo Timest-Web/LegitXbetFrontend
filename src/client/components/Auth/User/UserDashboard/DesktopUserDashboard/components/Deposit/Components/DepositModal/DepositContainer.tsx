@@ -7,7 +7,7 @@ import { useProfileContext } from "@/src/client/shared/Context/PersonalDetailsCo
 import { useRouter } from "next/router";
 
 const DepositContainer = () => {
-  const { totalPersonalDetails, handleInputChange } = useProfileContext()!;
+  const { totalPersonalDetails, setTotalPersonalDetails } = useProfileContext()!;
   const router = useRouter();
 
   const handleProfileDetails = () => {
@@ -41,6 +41,7 @@ const DepositContainer = () => {
           </Link>
         </div>
       </div>
+
     </div>
   );
 };
