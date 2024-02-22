@@ -4,8 +4,8 @@ import OddsFilter from "./components/OddsFilter";
 import FilterByTime from "./components/FilterByTime";
 import PopularDataType from "./components/PopularDataType";
 import CenterSection from "../components/MainSection/CenterSection";
-import { LiveBetTable } from "../components/Tables/MobileTable/LiveBetTable";
-import { LiveBetTable as DesktopLiveBetTable } from "../components/Tables/DesktopTable/LiveBetTable";
+import { UpcomingBetTable } from "../components/Tables/MobileTable/UpcomingBetTable";
+import { UpcomingBetTable as DesktopUpcomingBetTable } from "../components/Tables/DesktopTable/UpcomingBetTable";
 import { FOOTBALL_DATA } from "../LandingPage/DesktopLandingPage/LeftSection/constant/data";
 import MobileNavbar from "../../shared/MobileNavbar";
 
@@ -21,12 +21,12 @@ const Football = () => {
       }
       centerSection={
         <CenterSection>
-          <DesktopLiveBetTable />
+          <DesktopUpcomingBetTable />
         </CenterSection>
       }
       mobileComponents={
         <div className="pt-4 -mb-6">
-          <LiveBetTable />
+          <UpcomingBetTable />
           <MobileNavbar/>
         </div>
       }
