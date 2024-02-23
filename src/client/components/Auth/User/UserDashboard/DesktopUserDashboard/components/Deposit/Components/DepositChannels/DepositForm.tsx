@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect, useCallback } from "react";
 import { BalanceContext } from "@/src/client/shared/Context/BalanceContext/BalanceContext";
 import PaystackButton from "./PaystackComponent";
 import { useRouter } from "next/router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DepositForm = () => {
   const [depositAmount, setDepositAmount] = useState<string>("");
@@ -10,6 +12,7 @@ const DepositForm = () => {
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
   const [transactionReference, setTransactionReference] = useState<string | null>(null);
   const router = useRouter()
+  const notify = () => toast.success("Deposit Succesful");
   const apiUrl = "https://legitx.ng/wallet/deposit";
 
   const handlePaymentSuccess = (response: any) => {
@@ -43,8 +46,11 @@ const DepositForm = () => {
         }
   
         setBalance((prevBalance: number) => prevBalance + amount);
-        router.push('/user-dashboard');
+        setTimeout(() => {
+          router.push('/user-dashboard');
+        }, 5000);
   
+        notify()
         const data = await response.json();
   
         console.log("Response:", data);
@@ -95,11 +101,12 @@ const DepositForm = () => {
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit}>
+    <ToastContainer/>
       <div className="flex flex-col">
         <label className="font-bold">Deposit Amount in NGN</label>
         <input
           className="bg-[#F5F5F5] w-52 h-10"
-          type="text" // Change type to text
+          type="text" 
           name="depositAmount"
           value={depositAmount}
           onChange={handleDepositInputChange}
