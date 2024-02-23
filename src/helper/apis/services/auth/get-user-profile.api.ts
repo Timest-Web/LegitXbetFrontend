@@ -14,7 +14,6 @@ const useGetUserProfile = () => {
             });
             const responseData = await response.json();
             responseData.statusCode = responseData.status;
-
             console.log(parsedDetails?.accessToken);
             return responseData;
         } catch (error) {

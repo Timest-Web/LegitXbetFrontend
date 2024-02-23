@@ -22,7 +22,10 @@ const ProfileUpdate = () => {
   useEffect(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
       const storedFormValues = JSON.parse(window.localStorage.getItem("formValues") || "{}");
-      setTotalPersonalDetails(storedFormValues);
+      setTotalPersonalDetails(prevValues => ({
+        ...prevValues,
+        ...storedFormValues
+      }));
     }
   }, [setTotalPersonalDetails]);
 

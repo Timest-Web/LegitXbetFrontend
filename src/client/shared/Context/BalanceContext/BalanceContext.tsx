@@ -18,21 +18,24 @@ export const BalanceContext = createContext<BalanceContextType | undefined>(
 
 const BalanceProvider: React.FC<BalanceProviderProps> = ({ children }) => {
   const user = useUser();
-  const [balance, setBalance] = useState(user.user.amount);
+  const userBalance = user.user.amount
+  const [balance, setBalance] = useState(userBalance);
+  console.log("This is the balance coming fom server:", balance, "I mean", user.user.amount)
 
-  const { mutateAsync: balanceUpdate } = useMutation({
-    mutationFn: updateBalance,
-    onSuccess: () => {
-      console.log("Balance updated successfully");
-    }
-  });
+  // const { mutate: balanceUpdate } = useMutation({
+  //   mutationFn: updateBalance,
+  //   onSuccess: () => {
+  //     console.log("Balance updated successfully");
+  //   }
+  // });
 
-  useEffect(() => {
-    if (user) {
-      console.log(user.user.id)
-      balanceUpdate({ amount: balance, id: user.user.id }); 
-    }
-  }, [balance, balanceUpdate, user]);
+  // useEffect(() => {
+  //   if (user) {
+  //     console.log(user.user.id)
+      
+  //     balanceUpdate({ amount: balance, id: user.user.id }); 
+  //   }
+  // }, [balance,updateBalance, user]);
 
 
 

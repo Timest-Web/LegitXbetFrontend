@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect, useCallback } from "react";
 import { BalanceContext } from "@/src/client/shared/Context/BalanceContext/BalanceContext";
 import PaystackButton from "./PaystackComponent";
+import { useRouter } from "next/router";
 
 const DepositForm = () => {
   const [depositAmount, setDepositAmount] = useState<string>("");
@@ -8,7 +9,7 @@ const DepositForm = () => {
   const { setBalance } = useContext(BalanceContext)!;
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
   const [transactionReference, setTransactionReference] = useState<string | null>(null);
-
+  const router = useRouter()
   const apiUrl = "https://legitx.ng/wallet/deposit";
 
   const handlePaymentSuccess = (response: any) => {
@@ -17,48 +18,50 @@ const DepositForm = () => {
     setErrorMessage("");
   };
 
-  const fetchData = useCallback(async (reference: string, amount: number) => {
-    try {
-      const userDetails = localStorage.getItem("access") || "{}";
-      const parsedDetails = JSON.parse(userDetails);
-      const postData = {
-        merchantType: "paystack",
-        transactionReference: reference,
-      };
-
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${parsedDetails?.accessToken}`,
-        },
-        body: JSON.stringify(postData),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Server Error: ${response.statusText}`);
-      }
-
-      setBalance((prevBalance: number) => prevBalance + amount);
-
-      const data = await response.json();
-
-      console.log("Response:", data);
-    } catch (error: any) {
-      console.error("Fetch Error:", error.message);
-    }
-  }, []);
-
   useEffect(() => {
+    const fetchData = async (reference: string, amount: number) => {
+      try {
+        const userDetails = localStorage.getItem("access") || "{}";
+        const parsedDetails = JSON.parse(userDetails);
+        const postData = {
+          merchantType: "paystack",
+          transactionReference: reference,
+        };
+  
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${parsedDetails?.accessToken}`,
+          },
+          body: JSON.stringify(postData),
+        });
+  
+        if (!response.ok) {
+          throw new Error(`Server Error: ${response.statusText}`);
+        }
+  
+        setBalance((prevBalance: number) => prevBalance + amount);
+        router.push('/user-dashboard');
+  
+        const data = await response.json();
+  
+        console.log("Response:", data);
+      } catch (error: any) {
+        console.error("Fetch Error:", error.message);
+      }
+    };
+  
     if (transactionReference) {
       fetchData(transactionReference, +depositAmount);
     }
-  }, [fetchData, transactionReference, depositAmount]);
+  }, [transactionReference, depositAmount, setBalance, router, apiUrl]);
+  
 
   const handleDepositInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
-    setDepositAmount(inputValue); // Always update the input value as a string
+    setDepositAmount(inputValue); 
 
     const amount = parseFloat(inputValue);
 
@@ -112,7 +115,7 @@ const DepositForm = () => {
         }`}
       >
         <PaystackButton
-          amount={parseFloat(depositAmount)} // Ensure you pass a number
+          amount={parseFloat(depositAmount)} 
           email={"pabloalabanza9@gmail.com"}
           onSuccess={handlePaymentSuccess}
           onClose={() => console.log("Payment closed.")}

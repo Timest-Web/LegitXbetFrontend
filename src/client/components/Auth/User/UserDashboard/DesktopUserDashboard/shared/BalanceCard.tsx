@@ -37,7 +37,7 @@ const BalanceCard: React.FC<BalanceCardProps> = ({
 
   const { balance, setBalance } = useContext(BalanceContext)!;
   const { totalPersonalDetails, setTotalPersonalDetails } = useProfileContext()!;
-  console.log("totalPersonalDetails:", totalPersonalDetails);
+
 
   const emptyPersonalDetails = Object.values(totalPersonalDetails).every(
     (value) => value === ""
@@ -46,9 +46,7 @@ const BalanceCard: React.FC<BalanceCardProps> = ({
   return (
     <div className=" bg-white rounded-2xl w-[99.5%]  md:w-[18.0625rem]  p-4 md:p-8 text-xs md:text-base flex justify-between ">
       <section className="flex flex-col space-y-2 md:space-y-3 ">
-        {/* <div className="bg-[#ECEEF1] w-[4.25rem] h-[4.25rem] md:w-[4.375rem] md:h-[4.375rem] rounded-full flex justify-center items-center ">
-          <TagIcon />
-        </div> */}
+
         <div className="flex space-x-2 ml-1 md:ml-0 md:mt-6 md:mb-2 font-bold">
           <RepeatIcon />
           <h3 className="text-base md:text-sm">
@@ -64,11 +62,6 @@ const BalanceCard: React.FC<BalanceCardProps> = ({
             <Link href='/user-dashboard/deposit'><SubmitButton buttonContent={firstButtonText} /></Link>  
             </div>
           )}
-          {/* {secondButton && (
-            <div onClick={handleSecondButtonClick}>
-            <Link href='/user-dashboard/withdrawal'><SubmitButton buttonContent={secondButtonText} /></Link>  
-            </div>
-          )} */}
         </div>
       </section>
       <div>

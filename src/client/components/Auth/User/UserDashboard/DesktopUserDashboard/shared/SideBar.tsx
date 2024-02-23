@@ -66,6 +66,12 @@ const SideBar = () => {
                 router.pathname.includes(
                   `/user-dashboard/${item.title.toLowerCase()}/${item.title.toLowerCase()}-history`
                 ) ||
+                (item.title === "Withdrawal" &&
+                  (router.pathname === "/user-dashboard/withdrawal" ||
+                    router.pathname ===
+                      "/user-dashboard/withdrawal/withrawal-history" ||
+                    router.pathname ===
+                      "/user-dashboard/withdrawal/send-to-friend")) ||
                 (item.title === "Referral" &&
                   (router.pathname ===
                     "/user-dashboard/referral/referred-users" ||
@@ -82,6 +88,46 @@ const SideBar = () => {
                     router.pathname === "/user-dashboard/profile/multifactor"))
               }
             >
+              {item.title === "Withdrawal" && (
+                <>
+                  <Link
+                    className={`${
+                      router.pathname ===
+                      `/user-dashboard/user-support/referral/referred-users`
+                        ? "bg-black opacity-100 text-white py-1 px-2 rounded-3xl"
+                        : "opacity-50 hover:opacity-100"
+                    }`}
+                    href="/user-dashboard/withdrawal"
+                    passHref
+                  >
+                    <div className="hover:opacity-100">Withdraw Now</div>
+                  </Link>
+                  <Link
+                    className={`${
+                      router.pathname ===
+                      `/user-dashboard/user-support/referral/referred-commisions`
+                        ? "bg-black opacity-100 text-white py-1 px-2 rounded-3xl"
+                        : "opacity-50 hover:opacity-100"
+                    }`}
+                    href="/user-dashboard/withdrawal/withdrawal-history"
+                    passHref
+                  >
+                    <div className=" hover:opacity-100">Withdrawal History</div>
+                  </Link>
+                  <Link
+                    className={`${
+                      router.pathname ===
+                      `/user-dashboard/user-support/referral/referred-commisions`
+                        ? "bg-black opacity-100 text-white py-1 px-2 rounded-3xl"
+                        : "opacity-50 hover:opacity-100"
+                    }`}
+                    href="/user-dashboard/withdrawal/send-to-friend"
+                    passHref
+                  >
+                    <div className=" hover:opacity-100">Send to Friend</div>
+                  </Link>
+                </>
+              )}
               {item.title === "Referral" && (
                 <>
                   <Link
@@ -106,7 +152,7 @@ const SideBar = () => {
                     href="/user-dashboard/referral/referred-commisions"
                     passHref
                   >
-                    <div className="opacity-50 hover:opacity-100">
+                    <div className=" hover:opacity-100">
                       Referred Commission
                     </div>
                   </Link>
@@ -177,7 +223,8 @@ const SideBar = () => {
                   </Link>
                 </div>
               )}
-              {item.title !== "Referral" &&
+              {item.title !== "Withdrawal" &&
+                item.title !== "Referral" &&
                 item.title !== "Support Ticket" &&
                 item.title !== "Account Setting" && (
                   <>

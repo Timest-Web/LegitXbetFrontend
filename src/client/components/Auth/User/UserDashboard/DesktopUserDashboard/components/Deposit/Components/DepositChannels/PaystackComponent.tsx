@@ -1,4 +1,3 @@
-import { useInfoContext } from "@/src/client/shared/Context/PersonalDetailsContext/GetUserInfoContext";
 import React from "react";
 import { PaystackButton as Paystack } from "react-paystack";
 
