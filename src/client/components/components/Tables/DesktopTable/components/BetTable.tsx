@@ -16,7 +16,6 @@ import { SPORTS_TYPES } from "../../../MainSection/CenterSection/constant/data";
 import { footballFixture } from "@/src/helper/apis/services/bookmaking/football/get-football-feature";
 import { getNextThreeDates } from "@/src/client/shared/Utils/GetSportsDate";
 
-
 type LeaguesDataProps = {
   id: number;
   sport: string;
@@ -90,7 +89,6 @@ const BetTable = ({
     mutateAsync({ leagueId: leagueIdClick });
   }, [leagueIdClick, mutateAsync]);
 
-
   return (
     <div className="w-[720px]">
       <div className="mt-5" id={href}>
@@ -125,7 +123,7 @@ const BetTable = ({
                         : "text-gray-400"
                     } text-[10px] cursor-pointer`}
                   >
-                    {value}
+                    {index === 0 ? "Today" : value}
                   </p>
                 ))}
               </div>
@@ -202,24 +200,26 @@ const BetTable = ({
             {!collapse && (
               <>
                 {Array.isArray(data) &&
-                  data.map((value: any, index: number) => (
-                    <TableRow
-                      key={index}
-                      id={value.fix_id}
-                      time={value.time}
-                      teamOne={value.home?.name}
-                      teamTwo={value.away?.name}
-                      home={value.odds[0]?.value}
-                      homeName={value.odds[0]?.name}
-                      draw={value.odds[1]?.value}
-                      drawName={value.odds[1]?.name}
-                      away={value.odds[2]?.value}
-                      awayName={value.odds[2]?.name}
-                      teamOneScore={value.home?.goals}
-                      teamTwoScore={value.away?.goals}
-                      isLiveTable={isLiveTable}
-                    />
-                  ))}
+                  data
+                    .filter((value) => value.date === dateClick)
+                    .map((value: any, index: number) => (
+                      <TableRow
+                        key={index}
+                        id={value.fix_id}
+                        time={value.time}
+                        teamOne={value.home?.name}
+                        teamTwo={value.away?.name}
+                        home={value.odds[0]?.value}
+                        homeName={value.odds[0]?.name}
+                        draw={value.odds[1]?.value}
+                        drawName={value.odds[1]?.name}
+                        away={value.odds[2]?.value}
+                        awayName={value.odds[2]?.name}
+                        teamOneScore={value.home?.goals}
+                        teamTwoScore={value.away?.goals}
+                        isLiveTable={isLiveTable}
+                      />
+                    ))}
               </>
             )}
 

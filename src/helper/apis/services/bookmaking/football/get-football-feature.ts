@@ -36,7 +36,6 @@ type LeagueIdPayload = {
 
 
 export const footballFixture: (payload: LeagueIdPayload) => Promise<FootballData> = async (payload) => {
-    console.log(payload)
   try {
     const response = await fetch(
       `https://legitx.ng/bookmaking/football/fixtures/${payload.leagueId}`,
