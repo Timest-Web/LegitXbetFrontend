@@ -8,7 +8,7 @@ export const getNextThreeDates = () => {
     const nextDate = new Date(today);
 
     const resultDates = [];
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 2; i++) {
         const formattedDate = formatDate(nextDate);
         resultDates.push(formattedDate);
         nextDate.setDate(nextDate.getDate() + 1);

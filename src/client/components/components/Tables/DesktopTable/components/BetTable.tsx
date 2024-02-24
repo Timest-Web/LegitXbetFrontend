@@ -1,7 +1,7 @@
 import React, {
   useState,
-  ReactElement,
   useEffect,
+  ReactElement,
   SetStateAction,
 } from "react";
 import { useRouter } from "next/router";
@@ -83,8 +83,8 @@ const BetTable = ({
   const filteredSports = SPORTS_TYPES.filter((sport) =>
     sportsType.includes(sport.title)
   );
-
   const { mutateAsync, data } = useMutation({ mutationFn: footballFixture });
+  
   useEffect(() => {
     mutateAsync({ leagueId: leagueIdClick });
   }, [leagueIdClick, mutateAsync]);
@@ -123,7 +123,7 @@ const BetTable = ({
                         : "text-gray-400"
                     } text-[10px] cursor-pointer`}
                   >
-                    {index === 0 ? "Today" : value}
+                    {index === 0 ? "Today" : index === 1 ? "Tomorrow" : value}
                   </p>
                 ))}
               </div>
@@ -197,11 +197,12 @@ const BetTable = ({
                 </div>
               ))}
             </div>
+
             {!collapse && (
               <>
                 {Array.isArray(data) &&
                   data
-                    .filter((value) => value.date === dateClick)
+                    // .filter((value) => value.date === dateClick)
                     .map((value: any, index: number) => (
                       <TableRow
                         key={index}

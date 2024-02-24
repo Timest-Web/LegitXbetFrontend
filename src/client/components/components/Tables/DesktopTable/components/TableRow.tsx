@@ -6,6 +6,7 @@ import { OddsButtons } from "./OddsButtons";
 import Time from "@/src/client/shared/Svg/Time";
 import Ranking from "@/src/client/shared/Svg/Ranking";
 import { truncateText } from "@/src/client/shared/Utils/TruncateText";
+import { Chip, Tooltip } from "@heathmont/moon-core-tw";
 
 const TableRow = ({
   id,
@@ -41,7 +42,6 @@ const TableRow = ({
   const winInt = parseFloat(home);
   const drawInt = parseFloat(draw);
   const loseInt = parseFloat(away);
-
   const selectedOddObj = {
     id,
     time,
@@ -59,20 +59,42 @@ const TableRow = ({
     <div className="flex bg-darkAsh w-full rounded-b-xl">
       <div className="flex items-center justify-center border-r border-r-gray-800 w-20 h-12 text-[10px] space-x-1">
         <Time color="#E6EAEE" />
-        <p className="text-gray-400 ">{time}</p>
+        <p className="text-white ">{time}</p>
       </div>
       <div className="flex items-center justify-between border-b border-b-gray-800 w-full text-gray-200 px-4 text-xs">
-        <Link
+        {/* <Link
           href={`/sports/football/40`}
           className="flex items-center justify-between text-[10px] w-32"
         >
           <p>{truncatedTeamOne}</p>
           <p>v</p>
           <p>{truncatedTeamTwo}</p>
-        </Link>
+        </Link> */}
+        <Tooltip>
+          <Tooltip.Trigger>
+            {/* <Chip>Trigger</Chip> */}
+            <Chip>
+              <Link
+                href={`/sports/football/40`}
+                className="flex items-center justify-between text-[10px] w-32"
+              >
+                <p>{truncatedTeamOne}</p>
+                <p>v</p>
+                <p>{truncatedTeamTwo}</p>
+              </Link>
+            </Chip>
+          </Tooltip.Trigger>
+          <Tooltip.Content
+            className="flex justify-start items-start bg-white text-black text-[12px] border -mt-6 rounded-3xl "
+            position="bottom-start"
+          >
+            {`${teamOne} V ${teamTwo}`}
+          </Tooltip.Content>
+        </Tooltip>
         <div className="px-3">
           <Ranking />
         </div>
+
         <div className="flex space-x-4">
           {isLiveTable === true && (
             <ScoreView
