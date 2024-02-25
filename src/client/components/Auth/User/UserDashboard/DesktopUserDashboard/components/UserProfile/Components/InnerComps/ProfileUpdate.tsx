@@ -27,7 +27,7 @@ const ProfileUpdate = () => {
         address: userDetails.address,
         bvn: userDetails.bvn,
       });
-      setIsEditable(false); // Set isEditable to false when userDetails is available
+      setIsEditable(false); 
     }
   }, [userDetails, setTotalPersonalDetails, firstName, lastName]);
 
