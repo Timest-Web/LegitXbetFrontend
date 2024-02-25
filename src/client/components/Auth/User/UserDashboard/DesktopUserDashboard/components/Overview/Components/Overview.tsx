@@ -19,6 +19,7 @@ import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import LiveHelpIcon from "@mui/icons-material/LiveHelp";
 import TransactionInner from "../../Transactions/Components/TransactionInner";
 import useUser from "@/src/client/shared/Context/UserContext/useUser";
+import { ShopWallet, ShopCashback, SportEsportGeneric, TimeSandglass, GenericBookmark, GenericTicket, GenericMultiBet } from '@heathmont/moon-icons-tw';
 
 const Overview = () => {
   const data = useMemo(() => mData, []);
@@ -53,7 +54,7 @@ const Overview = () => {
         <ReuseTab
           icon={
             <div className="bg-white p-4 rounded-md">
-              <WalletIcon fontSize="medium" />
+             <ShopWallet className="text-moon-32"/>
             </div>
           }
           figure="5000"
@@ -62,7 +63,7 @@ const Overview = () => {
         <ReuseTab
           icon={
             <div className="bg-white p-4 rounded-md">
-              <PaymentIcon fontSize="medium" />
+             <ShopCashback className="text-moon-32"/>
             </div>
           }
           figure="2000"
@@ -71,7 +72,7 @@ const Overview = () => {
         <ReuseTab
           icon={
             <div className="bg-white p-4 rounded-md">
-              <SportsEsportsIcon fontSize="medium" />
+              <GenericMultiBet className="text-moon-32"/>
             </div>
           }
           figure="119"
@@ -80,7 +81,7 @@ const Overview = () => {
         <ReuseTab
           icon={
             <div className="bg-white p-4 rounded-md">
-              <RotateLeftIcon fontSize="medium" />
+             <TimeSandglass className="text-moon-32"/>
             </div>
           }
           figure="50"
@@ -89,7 +90,7 @@ const Overview = () => {
         <ReuseTab
           icon={
             <div className="bg-white p-4 rounded-md">
-              <ReceiptLongIcon fontSize="medium" />
+              <GenericBookmark className="text-moon-32" />
             </div>
           }
           figure="30"
@@ -98,7 +99,7 @@ const Overview = () => {
         <ReuseTab
           icon={
             <div className="bg-white p-4 rounded-md">
-              <LiveHelpIcon fontSize="medium" />
+              <GenericTicket className="text-moon-32"/>
             </div>
           }
           figure="2"
