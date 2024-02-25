@@ -12,16 +12,16 @@ const queryClient = new QueryClient();
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <ProfileProvider>
-        <BalanceProvider>
-          <UserProvider>
+      <UserProvider>
+        <ProfileProvider>
+          <BalanceProvider>
             <BetProvider>
               <Component {...pageProps} />
+              {/* <ReactQueryDevtools /> */}
             </BetProvider>
-          </UserProvider>
-        </BalanceProvider>
-      </ProfileProvider>
-      <ReactQueryDevtools />
+          </BalanceProvider>
+        </ProfileProvider>
+      </UserProvider>
     </QueryClientProvider>
   );
 }

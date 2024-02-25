@@ -1,11 +1,10 @@
-
 import React from "react";
 import { PaystackButton as Paystack } from "react-paystack";
 
 interface PaystackButtonProps {
   amount: number;
   email: string;
-  onSuccess: (response: any) => void; 
+  onSuccess: (response: any) => void;
   onClose: () => void;
 }
 
@@ -15,17 +14,26 @@ const PaystackButton: React.FC<PaystackButtonProps> = ({
   onSuccess,
   onClose,
 }) => {
-  const publicKey = "pk_test_99abab4cad76e6560d0d1c60a45b5aead67a11f2"; 
+  const publicKey = "pk_test_99abab4cad76e6560d0d1c60a45b5aead67a11f2";
+
 
   const config = {
     reference: new Date().getTime().toString(),
     email,
-    amount: amount * 100, 
+    amount: amount * 100,
     publicKey,
+    // metadata: {
+    //   custom_fields: [
+    //     {
+    //       display_name: "User ID",
+    //       variable_name: "user_id",
+    //       value: info.id
+    //     }
+    //   ]
+    // }
   };
 
   const handleSuccess = (response: any) => {
-    console.log("Payment successful! Transaction ID:", response.reference);
     onSuccess(response);
   };
 

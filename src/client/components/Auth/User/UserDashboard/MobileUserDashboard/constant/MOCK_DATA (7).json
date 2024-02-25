@@ -1,0 +1,902 @@
+[
+    {
+        "type": "Winnings",
+        "date": "4/13/2023",
+        "time": "9:08 PM",
+        "amount": 74097,
+        "transaction_id": "REC-433-YJ",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "1/16/2024",
+        "time": "1:45 PM",
+        "amount": 37503,
+        "transaction_id": "SGA-634-PP",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "1/26/2024",
+        "time": "11:00 PM",
+        "amount": 26225,
+        "transaction_id": "HFA-774-MO",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "1/25/2024",
+        "time": "10:34 PM",
+        "amount": 98211,
+        "transaction_id": "JGS-351-FE",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "6/7/2023",
+        "time": "7:10 AM",
+        "amount": 77108,
+        "transaction_id": "GSX-498-CV",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "7/15/2023",
+        "time": "1:37 AM",
+        "amount": 95642,
+        "transaction_id": "XRY-534-JB",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "12/6/2023",
+        "time": "12:18 PM",
+        "amount": 95259,
+        "transaction_id": "SYO-152-YJ",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "10/5/2023",
+        "time": "4:09 PM",
+        "amount": 10892,
+        "transaction_id": "BFJ-657-IX",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "7/26/2023",
+        "time": "11:32 PM",
+        "amount": 128258,
+        "transaction_id": "NFH-265-QQ",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "11/24/2023",
+        "time": "9:48 AM",
+        "amount": 102680,
+        "transaction_id": "IIN-568-GZ",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "11/1/2023",
+        "time": "1:33 AM",
+        "amount": 196727,
+        "transaction_id": "VTL-159-NM",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "11/4/2023",
+        "time": "12:18 PM",
+        "amount": 148464,
+        "transaction_id": "LVE-756-CS",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "1/24/2024",
+        "time": "6:13 AM",
+        "amount": 76437,
+        "transaction_id": "GTQ-228-LN",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "4/8/2023",
+        "time": "7:49 PM",
+        "amount": 62693,
+        "transaction_id": "GUD-554-LX",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "4/12/2023",
+        "time": "8:07 AM",
+        "amount": 36445,
+        "transaction_id": "FPX-149-KL",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "11/17/2023",
+        "time": "1:20 AM",
+        "amount": 87518,
+        "transaction_id": "QVJ-538-JL",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "1/27/2024",
+        "time": "10:37 AM",
+        "amount": 91735,
+        "transaction_id": "GWM-508-YP",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "3/29/2023",
+        "time": "3:48 AM",
+        "amount": 169467,
+        "transaction_id": "PSN-865-CC",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "1/25/2024",
+        "time": "12:53 AM",
+        "amount": 110816,
+        "transaction_id": "DQY-602-NP",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "12/3/2023",
+        "time": "8:37 AM",
+        "amount": 65740,
+        "transaction_id": "WLV-362-NC",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "8/22/2023",
+        "time": "2:55 AM",
+        "amount": 191371,
+        "transaction_id": "POZ-531-PZ",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "3/25/2023",
+        "time": "7:10 AM",
+        "amount": 198998,
+        "transaction_id": "UJJ-019-EW",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "8/17/2023",
+        "time": "6:01 PM",
+        "amount": 134335,
+        "transaction_id": "HFW-640-IV",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "8/11/2023",
+        "time": "10:08 PM",
+        "amount": 190153,
+        "transaction_id": "TIN-647-EY",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "8/15/2023",
+        "time": "4:48 PM",
+        "amount": 50419,
+        "transaction_id": "OON-420-WA",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "4/12/2023",
+        "time": "5:07 AM",
+        "amount": 20301,
+        "transaction_id": "PFY-699-TF",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "2/7/2023",
+        "time": "1:25 AM",
+        "amount": 111240,
+        "transaction_id": "JIR-952-CA",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "7/3/2023",
+        "time": "5:07 PM",
+        "amount": 118132,
+        "transaction_id": "TXL-257-AL",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "11/19/2023",
+        "time": "9:48 AM",
+        "amount": 50017,
+        "transaction_id": "EBM-749-CH",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "1/13/2024",
+        "time": "1:21 AM",
+        "amount": 136576,
+        "transaction_id": "YSE-993-MM",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "2/16/2023",
+        "time": "6:49 AM",
+        "amount": 5609,
+        "transaction_id": "REV-497-CX",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "12/13/2023",
+        "time": "5:15 AM",
+        "amount": 76552,
+        "transaction_id": "MCX-181-NK",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "3/16/2023",
+        "time": "3:53 PM",
+        "amount": 52643,
+        "transaction_id": "YRS-261-PQ",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "7/3/2023",
+        "time": "9:51 AM",
+        "amount": 176874,
+        "transaction_id": "YAP-896-YW",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "2/4/2023",
+        "time": "4:10 PM",
+        "amount": 33340,
+        "transaction_id": "TAN-874-OH",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "9/16/2023",
+        "time": "12:36 PM",
+        "amount": 166487,
+        "transaction_id": "PTV-033-TY",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "9/14/2023",
+        "time": "9:52 PM",
+        "amount": 165533,
+        "transaction_id": "JLR-803-QO",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "10/5/2023",
+        "time": "6:39 PM",
+        "amount": 47926,
+        "transaction_id": "AOX-743-SM",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "2/11/2023",
+        "time": "4:37 AM",
+        "amount": 126921,
+        "transaction_id": "NXN-272-YV",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "11/29/2023",
+        "time": "6:53 PM",
+        "amount": 124749,
+        "transaction_id": "BFK-760-RW",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "6/17/2023",
+        "time": "12:35 AM",
+        "amount": 120770,
+        "transaction_id": "CEB-847-ET",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "11/9/2023",
+        "time": "8:53 PM",
+        "amount": 126597,
+        "transaction_id": "GGC-887-MP",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "4/16/2023",
+        "time": "5:17 PM",
+        "amount": 68096,
+        "transaction_id": "CYA-413-JY",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "1/24/2024",
+        "time": "11:27 PM",
+        "amount": 4325,
+        "transaction_id": "QQQ-189-CE",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "5/24/2023",
+        "time": "10:33 AM",
+        "amount": 106127,
+        "transaction_id": "FFV-037-CI",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "1/23/2024",
+        "time": "3:00 PM",
+        "amount": 156629,
+        "transaction_id": "IVT-166-CL",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "11/7/2023",
+        "time": "7:43 AM",
+        "amount": 124474,
+        "transaction_id": "FCY-908-MA",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "10/21/2023",
+        "time": "12:39 PM",
+        "amount": 133812,
+        "transaction_id": "XWJ-610-KE",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "5/2/2023",
+        "time": "10:02 PM",
+        "amount": 198371,
+        "transaction_id": "NBD-943-HR",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "3/14/2023",
+        "time": "12:38 AM",
+        "amount": 6511,
+        "transaction_id": "LUO-595-NL",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "4/24/2023",
+        "time": "1:26 PM",
+        "amount": 103185,
+        "transaction_id": "NZZ-066-VJ",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "2/23/2023",
+        "time": "7:26 AM",
+        "amount": 117356,
+        "transaction_id": "KDI-286-HW",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "2/20/2023",
+        "time": "7:58 PM",
+        "amount": 121804,
+        "transaction_id": "DJH-873-WL",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "8/1/2023",
+        "time": "1:06 PM",
+        "amount": 13148,
+        "transaction_id": "EYL-274-VB",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "8/29/2023",
+        "time": "12:09 AM",
+        "amount": 146739,
+        "transaction_id": "ONW-783-YU",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "2/3/2023",
+        "time": "8:22 AM",
+        "amount": 197247,
+        "transaction_id": "XVA-147-VO",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "2/13/2023",
+        "time": "11:21 AM",
+        "amount": 62263,
+        "transaction_id": "OWR-082-MB",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "5/12/2023",
+        "time": "12:28 PM",
+        "amount": 72433,
+        "transaction_id": "NLG-931-PU",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "4/6/2023",
+        "time": "12:54 PM",
+        "amount": 145299,
+        "transaction_id": "TFQ-196-RQ",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "6/25/2023",
+        "time": "4:09 AM",
+        "amount": 38610,
+        "transaction_id": "YNN-548-QO",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "12/26/2023",
+        "time": "10:52 PM",
+        "amount": 9852,
+        "transaction_id": "OBY-607-VG",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "7/15/2023",
+        "time": "9:03 PM",
+        "amount": 50983,
+        "transaction_id": "JAQ-677-GW",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "5/1/2023",
+        "time": "5:20 PM",
+        "amount": 36346,
+        "transaction_id": "TDH-216-XW",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "7/22/2023",
+        "time": "5:11 PM",
+        "amount": 168478,
+        "transaction_id": "EEV-206-PB",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "7/21/2023",
+        "time": "12:50 PM",
+        "amount": 119292,
+        "transaction_id": "BWR-864-KV",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "6/3/2023",
+        "time": "9:26 PM",
+        "amount": 136427,
+        "transaction_id": "HIV-109-CO",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "3/25/2023",
+        "time": "12:50 AM",
+        "amount": 67816,
+        "transaction_id": "BJL-732-NV",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "8/28/2023",
+        "time": "4:19 AM",
+        "amount": 91610,
+        "transaction_id": "WDR-864-HE",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "5/29/2023",
+        "time": "7:00 PM",
+        "amount": 128289,
+        "transaction_id": "ZKS-869-GM",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "1/26/2024",
+        "time": "11:17 AM",
+        "amount": 62318,
+        "transaction_id": "LCA-754-TY",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "5/25/2023",
+        "time": "1:26 AM",
+        "amount": 110477,
+        "transaction_id": "YQV-844-XV",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "8/12/2023",
+        "time": "1:40 AM",
+        "amount": 51245,
+        "transaction_id": "UGW-284-US",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "1/11/2024",
+        "time": "1:30 PM",
+        "amount": 118955,
+        "transaction_id": "WBX-326-KI",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "1/11/2024",
+        "time": "9:57 AM",
+        "amount": 86844,
+        "transaction_id": "SUM-726-UQ",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "7/12/2023",
+        "time": "2:12 AM",
+        "amount": 1189,
+        "transaction_id": "FRC-008-GB",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "5/1/2023",
+        "time": "9:28 AM",
+        "amount": 89778,
+        "transaction_id": "UBR-022-NX",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "5/8/2023",
+        "time": "8:14 PM",
+        "amount": 75941,
+        "transaction_id": "YJI-028-BC",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "4/1/2023",
+        "time": "1:55 AM",
+        "amount": 197505,
+        "transaction_id": "UZB-422-AR",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "10/20/2023",
+        "time": "8:46 PM",
+        "amount": 58435,
+        "transaction_id": "PQH-910-DO",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "6/28/2023",
+        "time": "6:33 AM",
+        "amount": 171915,
+        "transaction_id": "OTU-453-QH",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "2/12/2023",
+        "time": "8:29 PM",
+        "amount": 7562,
+        "transaction_id": "XZO-035-AA",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "4/12/2023",
+        "time": "5:42 PM",
+        "amount": 135035,
+        "transaction_id": "WCA-384-UI",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "8/12/2023",
+        "time": "5:35 AM",
+        "amount": 195475,
+        "transaction_id": "BOJ-025-NG",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "5/23/2023",
+        "time": "3:22 PM",
+        "amount": 70414,
+        "transaction_id": "ZCV-131-SK",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "4/26/2023",
+        "time": "2:49 PM",
+        "amount": 106864,
+        "transaction_id": "JXE-013-KL",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "8/12/2023",
+        "time": "9:54 AM",
+        "amount": 68067,
+        "transaction_id": "HIF-083-NV",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "7/13/2023",
+        "time": "12:29 PM",
+        "amount": 44243,
+        "transaction_id": "VOY-159-TZ",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "11/27/2023",
+        "time": "3:45 AM",
+        "amount": 21687,
+        "transaction_id": "FMV-909-YF",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "8/10/2023",
+        "time": "10:38 PM",
+        "amount": 2524,
+        "transaction_id": "ORL-490-LA",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "9/4/2023",
+        "time": "2:44 PM",
+        "amount": 32428,
+        "transaction_id": "BNV-640-GY",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "1/5/2024",
+        "time": "10:51 AM",
+        "amount": 49760,
+        "transaction_id": "ZNM-484-DD",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "10/31/2023",
+        "time": "7:29 AM",
+        "amount": 155258,
+        "transaction_id": "XFA-377-NM",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "12/30/2023",
+        "time": "1:47 PM",
+        "amount": 147277,
+        "transaction_id": "ENR-892-HR",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "1/18/2024",
+        "time": "3:51 PM",
+        "amount": 194845,
+        "transaction_id": "OUX-987-FC",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "4/20/2023",
+        "time": "2:17 PM",
+        "amount": 32852,
+        "transaction_id": "QKL-859-AY",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "2/19/2023",
+        "time": "12:13 AM",
+        "amount": 138422,
+        "transaction_id": "NHD-790-IY",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Withdrawal",
+        "date": "12/21/2023",
+        "time": "2:48 PM",
+        "amount": 108493,
+        "transaction_id": "CAL-952-SU",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Deposit",
+        "date": "11/6/2023",
+        "time": "10:40 AM",
+        "amount": 32822,
+        "transaction_id": "WET-229-PR",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "8/31/2023",
+        "time": "2:53 AM",
+        "amount": 117185,
+        "transaction_id": "GUZ-402-PH",
+        "status": "Settled",
+        "channel": "Paystack"
+    },
+    {
+        "type": "Winnings",
+        "date": "1/30/2024",
+        "time": "2:41 AM",
+        "amount": 64379,
+        "transaction_id": "UEN-187-ES",
+        "status": "Unsettled",
+        "channel": "Paystack"
+    }
+]

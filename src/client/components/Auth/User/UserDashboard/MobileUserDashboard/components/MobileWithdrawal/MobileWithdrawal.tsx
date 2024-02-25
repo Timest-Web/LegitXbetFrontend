@@ -6,12 +6,10 @@ import WithdrawalInner from "../../../DesktopUserDashboard/components/Withdrawal
 const MobileWithdrawal = () => {
 
   return (
-    <div>
+    <div className="mb-12">
       <MobileDashboardLayout
         mobilelayoutcontent={
-          <div className="pb-12">
             <WithdrawalInner/>
-          </div>
         }
       />
     </div>

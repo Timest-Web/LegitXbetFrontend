@@ -38,7 +38,7 @@ const EmptySupportInner = () => {
         isOpenTicket
         supportContent={
           <div>
-            <table className="w-full mt-4">
+            {/* <table className="w-full mt-4">
               <tbody>
                 <tr className="text-center hidden md:flex md:justify-evenly ">
                   {headers.map((header, index) => (
@@ -46,7 +46,7 @@ const EmptySupportInner = () => {
                   ))}
                 </tr>
               </tbody>
-            </table>
+            </table> */}
             <div className="flex flex-col space-y-3 justify-center items-center h-[50vh] ">
               <PlaceBetIcon />
               <h2 className=" opacity-60 ">No tickets yet</h2>

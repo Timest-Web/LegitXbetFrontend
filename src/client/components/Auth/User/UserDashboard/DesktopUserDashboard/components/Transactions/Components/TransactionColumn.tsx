@@ -16,28 +16,25 @@ const TransactionColumn = () => [
     accessorKey: "no",
   },
   {
-    header: "Bet ID",
+    header: "Reference ID",
     accessorKey: "reference_id",
   },
   {
-    header: "Date Placed",
+    header: "Date",
     accessorKey: "date",
   },
   {
     header: "Status",
     accessorKey: "status",
   },
-  { header: "Amount", accessorKey: "amount" },
   {
-    header: "Pot. Win",
-    accessorKey: "pot_win",
+    header: "Amount",
+    accessorKey: "amount",
   },
-  columnHelper.accessor("action", {
-    header: "Action",
-    cell: ({ row }: { row: Row<TableProps> }) => (
-      <ActionColumn row={row} popUpElement={<TransactionView />} />
-    ),
-  }),
+  {
+    header: "Channel",
+    accessorKey: "channel",
+  },
 ];
 
 export default TransactionColumn;

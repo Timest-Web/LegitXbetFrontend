@@ -16,7 +16,7 @@ const MobileLeftDrawer = ({ isOpen, closeDrawer, drawerContent }: Props) => {
 				setOpen={closeDrawer}>
 				<Drawer.Panel
 					position='start'
-					className='bg-white w-52'>
+					className='bg-white w-64'>
 					<div className='flex justify-end p-2'>
 						<div className='flex items-center justify-center h-8 w-8 rounded-full bg-gray-200'>
 							<ControlsClose onClick={() => closeDrawer(false)} />

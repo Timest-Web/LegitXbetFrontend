@@ -7,15 +7,15 @@ import Header from "@/src/client/shared/Header";
 
 const LayoutDashboard = ({ content }: { content: React.JSX.Element }) => {
   return (
-    <div> <Header/>    <div className="bg-[#ECEEF1] w-full h-full pt-24 pb-12">
+    <div> <Header/>    <div className="bg-[#ECEEF1] w-full h-full pt-24 pb-24">
         <div className=" w-full flex justify-evenly">
           <section>
             <SideBar /> 
             <HotlineBar />
           </section>
-          <section className=" w-[63%]" >{content}</section>
+          <section className="w-[70%]" >{content}</section>
           <section >
-            <BannerSection/>
+            {/* <BannerSection/> */}
           </section>
         </div>
       </div></div>

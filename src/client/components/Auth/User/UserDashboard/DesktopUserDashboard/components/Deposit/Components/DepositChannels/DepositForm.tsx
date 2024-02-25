@@ -1,61 +1,75 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import { BalanceContext } from "@/src/client/shared/Context/BalanceContext/BalanceContext";
-import { useProfileContext } from "@/src/client/shared/Context/PersonalDetailsContext/ProfileContext";
 import PaystackButton from "./PaystackComponent";
-
-interface FormData {
-  depositAmount: string;
-}
+import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const DepositForm = () => {
-  const [formData, setFormData] = useState<FormData>({ depositAmount: "" });
+  const [depositAmount, setDepositAmount] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const { balance, setBalance } = useContext(BalanceContext)!;
-  const { totalPersonalDetails, handleInputChange } = useProfileContext()!;
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [transactionReference, setTransactionReference] = useState<string | null>(null);
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+  const [transactionReference, setTransactionReference] = useState<
+    string | null
+  >(null);
+  const router = useRouter();
+  const notify = () => toast.success("Deposit Succesful");
+  const apiUrl = "https://legitx.ng/wallet/deposit";
 
   const handlePaymentSuccess = (response: any) => {
     console.log("Payment successful! Transaction ID:", response.reference);
     setTransactionReference(response.reference);
-    fetchData(response.reference)
+    setErrorMessage("");
   };
 
-    const apiUrl = 'https://legitx.ng/wallet/deposit';
-
-    const fetchData = async (reference:any) => {
+  useEffect(() => {
+    const fetchData = async (reference: string, amount: number) => {
       try {
-          const postData = {
-            merchantType: 'paystack',
-            transactionReference: reference,
-          };
+        const userDetails = localStorage.getItem("access") || "{}";
+        const parsedDetails = JSON.parse(userDetails);
+        const postData = {
+          merchantType: "paystack",
+          transactionReference: reference,
+        };
 
-          const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-              'Accept': '*/*',
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(postData),
-          });
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${parsedDetails?.accessToken}`,
+          },
+          body: JSON.stringify(postData),
+        });
 
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
+        if (!response.ok) {
+          throw new Error(`Server Error: ${response.statusText}`);
+        }
 
-          const data = await response.json();
-          console.log('Response:', data);
-       
-      } catch (error) {
-        console.error('Error:', error);
+        setTimeout(() => {
+          router.push("/user-dashboard");
+        }, 5000);
+
+        notify();
+        const data = await response.json();
+        setBalance(balance + amount)
+        console.log("Response:", data);
+      } catch (error: any) {
+        console.error("Fetch Error:", error.message);
       }
     };
 
+    if (transactionReference) {
+      fetchData(transactionReference, +depositAmount);
+    }
+  }, [transactionReference, depositAmount, setBalance, balance, router, apiUrl]);
 
   const handleDepositInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    const amount = parseInt(value, 10);
+    const inputValue = e.target.value;
+    setDepositAmount(inputValue);
+
+    const amount = parseFloat(inputValue);
 
     if (isNaN(amount) || amount < 100 || amount > 500000) {
       setErrorMessage(
@@ -66,58 +80,47 @@ const DepositForm = () => {
       setErrorMessage("");
       setIsButtonDisabled(false);
     }
-
-    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const amount = parseInt(formData.depositAmount, 10);
-    if (Object.values(totalPersonalDetails).some((value) => value === "")) {
-      alert("Fill up Details");
-    }
+    const amount = parseFloat(depositAmount);
 
     if (isNaN(amount) || amount < 100 || amount > 500000) {
       setErrorMessage(
-        "Invalid deposit amount. Please enter an amount between 100 and 500,000 naira."
+        "Invalid deposit amount. Please enter a valid amount between 100 and 500,000 naira."
       );
     } else {
       setErrorMessage("");
       console.log("Deposit amount submitted:", amount);
-      setFormData({ depositAmount: "" });
-      setBalance(balance + amount);
     }
   };
 
   return (
-    <form action="submit" className="flex flex-col" onSubmit={handleSubmit}>
+    <form className="flex flex-col" onSubmit={handleSubmit}>
+      <ToastContainer />
       <div className="flex flex-col">
         <label className="font-bold">Deposit Amount in NGN</label>
         <input
-          className="bg-[#F5F5F5] w-52 h-10 "
+          className="bg-[#F5F5F5] w-52 h-10"
           type="text"
           name="depositAmount"
-          value={formData.depositAmount}
+          value={depositAmount}
           onChange={handleDepositInputChange}
-          min="200"
-          max="500000"
         />
         {errorMessage && (
-          <p className=" text-red-500 my-1 text-sm ">{errorMessage}</p>
+          <p className="text-red-500 my-1 text-sm">{errorMessage}</p>
         )}
       </div>
 
       <div
-        aria-disabled={isButtonDisabled}
-        className={
-          isButtonDisabled
-            ? "opacity-50 bg-black text-white text-center text-xs md:text-sm w-20 font-medium p-2 pt-3 md:w-32 md:h-10 rounded mt-4 cursor-pointer"
-            : "bg-black text-white text-center text-xs md:text-sm w-20 font-medium p-2 md:w-32 md:h-10 rounded md:p-2 mt-4"
-        }
+        className={`bg-black text-white text-center text-sm font-medium p-2 w-20 rounded mt-4 ${
+          isButtonDisabled && "opacity-50"
+        }`}
       >
         <PaystackButton
-          amount={parseInt(formData.depositAmount, 10)}
+          amount={parseFloat(depositAmount)}
           email={"pabloalabanza9@gmail.com"}
           onSuccess={handlePaymentSuccess}
           onClose={() => console.log("Payment closed.")}

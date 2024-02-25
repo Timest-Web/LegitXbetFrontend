@@ -10,8 +10,8 @@ const WithdrawalInner = () => {
 	const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
 	const headers = WithdrawalInactiveHeader();
 	return (
-		<div className='flex flex-col space-y-7 '>
-			<div className=' flex space-x-4'>
+		<div className='flex  '>
+			{/* <div className=' flex space-x-4'>
 				<BalanceCard
 					buttonState={true}
 					secondButton={false}
@@ -29,13 +29,14 @@ const WithdrawalInner = () => {
 					buttonAction={handleClick}
 					buttonLink=""
 				/>
-			</div>
-			<Modal
+			</div> */}
+			{/* <Modal
 				openModal={isOpen}
 				setOpenModal={setIsOpen}
 				className='custom-modal-class'
 				modalContent={<WithdrawPop />}
-			/>
+			/> */}
+			<WithdrawPop/>
 		</div>
 	);
 };

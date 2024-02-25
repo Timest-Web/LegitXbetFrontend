@@ -1,29 +1,32 @@
-export const fetchBankDetails = async (key: [string, string], { signal }: { signal: AbortSignal }) => {
-    try {
-      const [selectedBankCode, accountNumber] = key;
-      
-      if (selectedBankCode && accountNumber) {
-        const response = await fetch(
-          `https://api.paystack.co/bank/resolve?account_number=${accountNumber}&bank_code=${selectedBankCode}`,
-          {
-            headers: {
-              Authorization: "Bearer sk_test_6a108bace5d092039f322871d921b3b7362e8634",
-            },
-            signal,
-          }
-        );
-  
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-  
-        const bankDetails = await response.json();
-        return bankDetails.data.account_name;
-      }
-      return null;
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      return null;
+export interface verifyBankPayload {
+  accountNumber: string,
+  bankCode: string
+}
+
+export const verifyBank = async (payload: verifyBankPayload) => {
+  const url = `https://legitx.ng/wallet/verify-bank`;
+
+  try {
+    const userDetails = localStorage.getItem("access") || "{}";
+    const parsedDetails = JSON.parse(userDetails);
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${parsedDetails?.accessToken}`,
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
     }
-  };
-  
+
+    const responseData = await response.json();
+    console.log("Balance updated successfully:", responseData);
+  } catch (error) {
+    console.error("There was a problem updating the balance:", error);
+    // Handle error - maybe show an error message to the user
+  }
+};
