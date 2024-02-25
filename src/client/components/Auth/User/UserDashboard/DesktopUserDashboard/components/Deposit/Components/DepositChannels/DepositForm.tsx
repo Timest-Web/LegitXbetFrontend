@@ -63,7 +63,7 @@ const DepositForm = () => {
     if (transactionReference) {
       fetchData(transactionReference, +depositAmount);
     }
-  }, [transactionReference, depositAmount, setBalance, router, apiUrl]);
+  }, [transactionReference, depositAmount, setBalance, balance, router, apiUrl]);
 
   const handleDepositInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;

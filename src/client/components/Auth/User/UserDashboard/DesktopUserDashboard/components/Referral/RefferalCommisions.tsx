@@ -1,8 +1,8 @@
 import LayoutDashboard from "../../shared/LayoutDashboard";
 import ReferralCommisionsInner from "./ReferralCommisionsInner";
 
-const ReferralCommisions = () => {
+const ReferralCommision = () => {
   return <LayoutDashboard content={<ReferralCommisionsInner />} />;
 };
 
-export default ReferralCommisions;
+export default ReferralCommision;
