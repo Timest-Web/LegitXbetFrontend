@@ -58,7 +58,7 @@ export const ProfileProvider: React.FC<ProfileProviderProps> = ({
         bvn: userDetails.bvn,
       });
     }
-  }, [userDetails, setTotalPersonalDetails]);
+  }, [userDetails, setTotalPersonalDetails, firstName, lastName]);
 
   return (
     <ProfileContext.Provider value={{ totalPersonalDetails, setTotalPersonalDetails }}>
