@@ -29,7 +29,7 @@ const ProfileUpdate = () => {
       });
       setIsEditable(false); // Set isEditable to false when userDetails is available
     }
-  }, [userDetails, setTotalPersonalDetails]);
+  }, [userDetails, setTotalPersonalDetails, firstName, lastName]);
 
   const { mutateAsync: updateProfile } = useMutation({
     mutationFn: profileDetails,
