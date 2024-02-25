@@ -1,99 +1,105 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { BetContext } from './BetContext';
-import { OddsValuesProps } from './constant';
-
+import React, { useEffect, useState, useRef } from "react";
+import { BetContext } from "./BetContext";
+import { OddsValuesProps } from "./constant";
 
 type BetProviderProps = {
-	children: React.ReactNode;
+  children: React.ReactNode;
 };
 
 type SelectedOddsObjectProps = {
-	id: number;
-	time: string;
-	teamOne: string;
-	teamTwo: string;
-	winType?: number | undefined;
-	drawType: number;
-	loseType?: number | undefined;
-}
+  id: number;
+  time: string;
+  teamOne: string;
+  teamTwo: string;
+  home?: number | undefined;
+  draw: number;
+  away?: number | undefined;
+};
 
-export const BetProvider: React.FC<BetProviderProps> = ({children}: BetProviderProps) => {
-	const initialRender = useRef(true);
-	const [bet, setBet] = useState<OddsValuesProps[]>([]);
+export const BetProvider: React.FC<BetProviderProps> = ({
+  children,
+}: BetProviderProps) => {
+  const initialRender = useRef(true);
+  const [bet, setBet] = useState<OddsValuesProps[]>([]);
 
+  useEffect(() => {
+    const betFromLocalStorage = JSON.parse(localStorage.getItem("bet") || "[]");
+    setBet(betFromLocalStorage);
+  }, []);
 
-	useEffect(() => {
-		const betFromLocalStorage = JSON.parse(
-			localStorage.getItem('bet') || '[]'
-		);
-		setBet(betFromLocalStorage);
-	}, []);
+  const addToBetSlip = (
+    id: number,
+    oddName: string,
+    odd: number,
+    selectedOddObj: SelectedOddsObjectProps
+  ) => {
+    if (id) {
+      if (selectedOddObj) {
+        const checkSelected = bet.find(
+          (obj: OddsValuesProps) => obj.id === id && obj.odd === odd
+        );
 
-	
-	const addToBetSlip = (id: number,oddName: string, odd: number, selectedOddObj: SelectedOddsObjectProps) => {
-		if (id) {
-			if (selectedOddObj) {
-				const checkSelected = bet.find(
-					(obj: OddsValuesProps) => obj.id === id && obj.odd === odd
-				);
-				if (!checkSelected) {
-					const oddType = Object.entries(selectedOddObj).find(
-						([key, value]) => value === odd && key.endsWith('Type')
-					);
-					if (oddType) {
-						setBet([
-							...bet,
-							{
-								id: selectedOddObj.id,
-								time: selectedOddObj.time,
-								teamOne: selectedOddObj.teamOne,
-								teamTwo: selectedOddObj.teamTwo,
-								odd: odd,
-								oddType: oddName,
-							},
-						]);
-					} else {
-						console.error(`OddType not found for odd ${odd}`);
-					}
-				} else {
-					console.log('Odd already added');
-				}
-			} else {
-				console.error(`Item with ID ${id} and odd ${odd} not found`);
-			}
-		}
-	};
+        if (!checkSelected) {
+          const oddType = Object.entries(selectedOddObj).find(
+            ([key, value]) => value === odd
+          );
 
-	const handleDelete = ({ id, odd }: { id: number; odd: number }) => {
-		if (id) {
-			const updateBetList = bet.filter(
-				(betItem) => !(betItem.id === id && betItem.odd === odd)
-			);
-			setBet([...updateBetList]);
-		}
-	};
+          console.log(oddName);
+          if (oddType) {
+            setBet([
+              ...bet,
+              {
+                id: selectedOddObj.id,
+                time: selectedOddObj.time,
+                teamOne: selectedOddObj.teamOne,
+                teamTwo: selectedOddObj.teamTwo,
+                odd: odd,
+                oddName,
+              },
+            ]);
+          } else {
+            console.error(`OddType not found for odd ${odd}`);
+          }
+        } else {
+          console.log("Odd already added");
+        }
+      } else {
+        console.error(`Item with ID ${id} and odd ${odd} not found`);
+      }
+    }
+  };
 
-	const handleDeleteAll = () => {
-		setBet([]);
-	};
+  const handleDelete = ({ id, odd }: { id: number; odd: number }) => {
+    if (id) {
+      const updateBetList = bet.filter(
+        (betItem) => !(betItem.id === id && betItem.odd === odd)
+      );
+      setBet([...updateBetList]);
+    }
+  };
 
-	useEffect(() => {
-		if (initialRender.current) {
-			initialRender.current = false;
-			return;
-		}
-		window.localStorage.setItem('bet', JSON.stringify(bet));
-	}, [bet]);
+  const handleDeleteAll = () => {
+    setBet([]);
+  };
 
-	return (
-		<BetContext.Provider
-			value={{
-				handleDeleteAll,
-				addToBetSlip,
-				handleDelete,
-				bet,
-			}}>
-			{children}
-		</BetContext.Provider>
-	);
+  useEffect(() => {
+    if (initialRender.current) {
+      initialRender.current = false;
+      return;
+    }
+    window.localStorage.setItem("bet", JSON.stringify(bet));
+  }, [bet]);
+
+  return (
+    <BetContext.Provider
+      value={{
+        handleDeleteAll,
+        addToBetSlip,
+        handleDelete,
+        bet,
+      }}
+    >
+      {children}
+    </BetContext.Provider>
+  );
 };

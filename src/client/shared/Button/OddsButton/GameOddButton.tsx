@@ -3,54 +3,55 @@ import useBet from "../../Context/BetContext/useBet";
 import { useButtonEventClick } from "../../Hooks/useButtonEventClick";
 
 type SelectedOddsObjectProps = {
-	id: number;
-	time: string;
-	teamOne: string;
-	teamTwo: string;
-	winType?: number | undefined;
-	drawType: number;
-	loseType?: number | undefined;
+  id: number;
+  time: string;
+  teamOne: string;
+  teamTwo: string;
+  home?: number | undefined;
+  draw: number;
+  away?: number | undefined;
 };
 
 const OddButton = ({
-	id,
-	onextwo,
-	onextwoValue,
-	selectedOddObj,
+  id,
+  onextwo,
+  onextwoValue,
+  selectedOddObj,
 }: {
-	id: number;
-	onextwo?: string;
-	onextwoValue?: number;
-	selectedOddObj: SelectedOddsObjectProps;
+  id: number;
+  onextwo?: string;
+  onextwoValue?: number;
+  selectedOddObj: SelectedOddsObjectProps;
 }) => {
-	const { click, handleClick } = useButtonEventClick();
-	const { bet, addToBetSlip, handleDelete } = useBet();
-	const [color, setColor] = useState(false);
-	const [isBet, setIsBet] = useState(false);
+  const { click, handleClick } = useButtonEventClick();
+  const { bet, addToBetSlip, handleDelete } = useBet();
+  const [color, setColor] = useState(false);
+  const [isBet, setIsBet] = useState(false);
 
-    const onHandleClick = (
-			id: number,
-			oddName: string,
-			odd: number,
-			selectedOddObj: SelectedOddsObjectProps
-	) => {
-			setColor(!color);
-			addToBetSlip(id, oddName,odd, selectedOddObj);
+  const onHandleClick = (
+    id: number,
+    oddName: string,
+    odd: number,
+    selectedOddObj: SelectedOddsObjectProps
+  ) => {
+    setColor(!color);
+    addToBetSlip(id, oddName, odd, selectedOddObj);
 
-		if (color) {
-			const isObjectExist = bet.some(
-				(item) => item.id === id && item.odd === onextwoValue
-			);
-			setIsBet(isObjectExist);handleDelete({ id, odd });
-		}
-	};
+    if (color) {
+      const isObjectExist = bet.some(
+        (item) => item.id === id && item.odd === onextwoValue
+      );
+      setIsBet(isObjectExist);
+      handleDelete({ id, odd });
+    }
+  };
 
-	useEffect(() => {
-		const isObjectExist = bet.some(
-			(item) => item.id === id && item.odd === onextwoValue
-		);
-		setIsBet(isObjectExist);
-	}, [bet, id, onextwoValue]);
+  useEffect(() => {
+    const isObjectExist = bet.some(
+      (item) => item.id === id && item.odd === onextwoValue
+    );
+    setIsBet(isObjectExist);
+  }, [bet, id, onextwoValue]);
 
   return (
     <>

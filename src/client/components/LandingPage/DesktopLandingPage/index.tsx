@@ -2,13 +2,13 @@ import React from 'react';
 import Layout from '../../Layout';
 import LeftSection from './LeftSection';
 import CenterSection from '../../components/MainSection/CenterSection';
-import { TopBetTable } from '../../components/Tables/DesktopTable/TopBetTable';
-import { LiveBetTable } from '../../components/Tables/DesktopTable/LiveBetTable';
+// import { TopBetTable } from '../../components/Tables/DesktopTable/TopBetTable';
+// import { LiveBetTable } from '../../components/Tables/DesktopTable/LiveBetTable';
 import { UpcomingBetTable } from '../../components/Tables/DesktopTable/UpcomingBetTable';
-import { AmericanFootballBetTable } from '../../components/Tables/DesktopTable/AmericanFootball';
-import { AllTodayBetTable } from '../../components/Tables/DesktopTable/AllMatchesToday';
-import { TonightTable } from '../../components/Tables/DesktopTable/TonightMatches';
-import { TodayBetTable } from '../../components/Tables/DesktopTable/TodayGames';
+// import { AmericanFootballBetTable } from '../../components/Tables/DesktopTable/AmericanFootball';
+// import { AllTodayBetTable } from '../../components/Tables/DesktopTable/AllMatchesToday';
+// import { TonightTable } from '../../components/Tables/DesktopTable/TonightMatches';
+// import { TodayBetTable } from '../../components/Tables/DesktopTable/TodayGames';
 
 
 const DesktopLandingPage = () => {
@@ -18,13 +18,13 @@ const DesktopLandingPage = () => {
 			leftSection={<LeftSection />}
 			centerSection={
 				<CenterSection>
-					<LiveBetTable/>
+					{/* <LiveBetTable/> */}
 					<UpcomingBetTable/>
-					<TopBetTable/>
+					{/* <TopBetTable/>
 					<AllTodayBetTable/>
 					<TodayBetTable/>
 					<TonightTable/>
-					<AmericanFootballBetTable/>
+					<AmericanFootballBetTable/> */}
 				</CenterSection>
 		   }
 		/>
