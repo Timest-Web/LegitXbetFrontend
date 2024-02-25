@@ -4,42 +4,68 @@ import ProfileVeriReuse from "../ProfileReusables/ProfileVeriReuse";
 import InputField from "../ProfileReusables/InputField";
 import ProfileReusableCard from "../ProfileReusables/ProfileReusableCard";
 import useUser from "@/src/client/shared/Context/UserContext/useUser";
-import axios from "axios";
+import { useMutation } from "@tanstack/react-query";
+import { profileDetails } from "@/src/helper/apis/services/auth/profile-details.api";
+import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.api";
 
 const ProfileUpdate = () => {
-  const { totalPersonalDetails, setTotalPersonalDetails } = useProfileContext()!;
+  const { totalPersonalDetails, setTotalPersonalDetails } =
+    useProfileContext()!;
+  const [isEditable, setIsEditable] = useState(true);
 
-  const user = useUser();
+  const { data: userDetails, isLoading, error } = useGetUserProfile();
+  // console.log(userDetails.bvn, userDetails.name);
+  const fullName = userDetails?.name || "";
+  const [firstName, lastName] = fullName.split(" ");
 
-  const [isFormEditable, setIsFormEditable] = useState(() => {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      const storedValue = window.localStorage.getItem("isFormEditable");
-      return storedValue ? JSON.parse(storedValue) : true;
+  useEffect(() => {
+    if (userDetails) {
+      setTotalPersonalDetails({
+        firstName: firstName,
+        lastName: lastName,
+        dob: userDetails.dob,
+        address: userDetails.address,
+        bvn: userDetails.bvn,
+      });
+      setIsEditable(false); // Set isEditable to false when userDetails is available
     }
-    return true;
+  }, [userDetails, setTotalPersonalDetails]);
+
+  const { mutateAsync: updateProfile } = useMutation({
+    mutationFn: profileDetails,
+    onSuccess: () => {
+      console.log("Profile Details updated successfully");
+      setIsEditable(false)
+    },
   });
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      const storedFormValues = JSON.parse(window.localStorage.getItem("formValues") || "{}");
-      setTotalPersonalDetails(prevValues => ({
-        ...prevValues,
-        ...storedFormValues
-      }));
-    }
-  }, [setTotalPersonalDetails]);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      window.localStorage.setItem("formValues", JSON.stringify(totalPersonalDetails));
-    }
-  }, [totalPersonalDetails]);
-
   const handleSaveUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsFormEditable(false);
-  };
+    try {
+      const formatDate = (date: any) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        const hours = String(date.getHours()).padStart(2, "0");
+        const minutes = String(date.getMinutes()).padStart(2, "0");
+        const seconds = String(date.getSeconds()).padStart(2, "0");
+        return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.000Z`;
+      };
 
+    
+      const formattedDateOfBirth = formatDate(
+        new Date(totalPersonalDetails.dob)
+      );
+
+      await updateProfile({
+        name: totalPersonalDetails.firstName + totalPersonalDetails.lastName,
+        address: totalPersonalDetails.address,
+        dateOfBirth: formattedDateOfBirth,
+        bvn: totalPersonalDetails.bvn,
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className="pb-24 md:pb-0">
@@ -62,7 +88,7 @@ const ProfileUpdate = () => {
                     firstName: e.target.value,
                   }))
                 }
-                disabled={!isFormEditable}
+                disabled={!isEditable}
               />
               <InputField
                 label="Last Name"
@@ -75,6 +101,7 @@ const ProfileUpdate = () => {
                     lastName: e.target.value,
                   }))
                 }
+                disabled={!isEditable}
               />
               <InputField
                 label="Date of Birth"
@@ -87,6 +114,7 @@ const ProfileUpdate = () => {
                     dob: e.target.value,
                   }))
                 }
+                disabled={!isEditable}
               />
               <InputField
                 label="Address"
@@ -99,10 +127,11 @@ const ProfileUpdate = () => {
                     address: e.target.value,
                   }))
                 }
+                disabled={!isEditable}
               />
               <InputField
                 label="BVN"
-                type="password"
+                type="text"
                 placeholder="226643828"
                 value={totalPersonalDetails.bvn}
                 onChange={(e) =>
@@ -111,12 +140,13 @@ const ProfileUpdate = () => {
                     bvn: e.target.value,
                   }))
                 }
+                disabled={!isEditable}
               />
 
               <button
+                disabled={!isEditable}
                 type="submit"
-                className="bg-black text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"
-                disabled={!isFormEditable}
+                className={!isEditable ? "bg-black opacity-50 text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium": "bg-black text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"}
               >
                 Save & Update
               </button>

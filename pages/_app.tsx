@@ -7,22 +7,21 @@ import { UserProvider } from "@/src/client/shared/Context/UserContext/UserProvid
 import BalanceProvider from "@/src/client/shared/Context/BalanceContext/BalanceContext";
 import { ProfileProvider } from "@/src/client/shared/Context/PersonalDetailsContext/ProfileContext";
 
-
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <ProfileProvider>
-        <UserProvider>
+      <UserProvider>
+        <ProfileProvider>
           <BalanceProvider>
             <BetProvider>
               <Component {...pageProps} />
               {/* <ReactQueryDevtools /> */}
             </BetProvider>
           </BalanceProvider>
-        </UserProvider>
-      </ProfileProvider>
+        </ProfileProvider>
+      </UserProvider>
     </QueryClientProvider>
   );
 }

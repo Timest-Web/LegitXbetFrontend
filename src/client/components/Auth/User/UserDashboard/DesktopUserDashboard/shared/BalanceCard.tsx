@@ -37,6 +37,7 @@ const BalanceCard: React.FC<BalanceCardProps> = ({
 
   const { balance, setBalance } = useContext(BalanceContext)!;
   const { totalPersonalDetails, setTotalPersonalDetails } = useProfileContext()!;
+  console.log(totalPersonalDetails)
 
 
   const emptyPersonalDetails = Object.values(totalPersonalDetails).every(

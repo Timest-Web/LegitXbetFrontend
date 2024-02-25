@@ -1,18 +1,20 @@
-export interface ChangePasswordPayload {
-  oldPassword: string;
-  newPassword: string;
+export interface ProfileDetailsPayload {
+  name: string;
+  address: string;
+  dateOfBirth: string;
+  bvn: string;
 }
 
-export const changePassword = async (payload: ChangePasswordPayload) => {
+export const profileDetails = async (payload: ProfileDetailsPayload) => {
   try {
     const userDetails = localStorage.getItem("access") || "{}";
     const parsedDetails = JSON.parse(userDetails);
-    const response = await fetch("https://legitx.ng/auth/change-password", {
-      method: "POST",
+
+    const response = await fetch("https://legitx.ng/auth/profile", {
+      method: "PUT",
       headers: {
         "Content-type": "application/json",
-        'Authorization': `Bearer ${parsedDetails?.accessToken}`
-          
+        Authorization: `Bearer ${parsedDetails?.accessToken}`,
       },
 
       body: JSON.stringify(payload),

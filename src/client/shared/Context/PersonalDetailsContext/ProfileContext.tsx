@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from "react";
+import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.api";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface TotalPersonalDetails {
   firstName: string;
@@ -32,13 +33,32 @@ type ProfileProviderProps = {
 export const ProfileProvider: React.FC<ProfileProviderProps> = ({
   children,
 }) => {
+  const { data: userDetails, isLoading, error } = useGetUserProfile();
+  // console.log(userDetails.bvn, userDetails.name);
+  const fullName = userDetails?.name || "";
+  const [firstName, lastName] = fullName.split(" ");
+
   const [totalPersonalDetails, setTotalPersonalDetails] = useState<TotalPersonalDetails>({
-    firstName: "",
-    lastName: "",
-    dob: "",
-    address: "",
-    bvn: "",
+    firstName: firstName || "",
+    lastName: lastName || "",
+    dob: userDetails?.dob || "",
+    address: userDetails?.address || "",
+    bvn: userDetails?.bvn || "",
   });
+
+
+
+  useEffect(() => {
+    if (userDetails) {
+      setTotalPersonalDetails({
+        firstName: firstName,
+        lastName: lastName,
+        dob: userDetails.dob,
+        address: userDetails.address,
+        bvn: userDetails.bvn,
+      });
+    }
+  }, [userDetails, setTotalPersonalDetails]);
 
   return (
     <ProfileContext.Provider value={{ totalPersonalDetails, setTotalPersonalDetails }}>
