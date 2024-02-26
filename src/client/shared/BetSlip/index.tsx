@@ -10,7 +10,7 @@ const BetSlip = () => {
   const { link: betSlipTypeLink, handleClick: betSlipTypeHandleClick } = useLink("Single");
   const { bet } = useBet();
 
-  console.log(bet);
+  // console.log(bet);
 
   const checkDifferentIds = (array: any) => {
     const idSet = new Set();

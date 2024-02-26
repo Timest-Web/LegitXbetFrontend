@@ -7,7 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 const CustomSlider = ({customItem}:{customItem: React.ReactNode}) => {
   const settings = {
     className: "slider variable-width",
-    variableWidth: true
+    variableWidth: true,
+    infinite: false,
   };
   return (
     <div className='w-full'>

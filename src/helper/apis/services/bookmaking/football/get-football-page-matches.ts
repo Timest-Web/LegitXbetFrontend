@@ -1,17 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 
-const useGetLandingPageSportsMatches = () => {
-  const getLandingPageSportData = async () => {
+const useGetFootballPageMatches = () => {
+  const getFootballMatches = async () => {
     try {
       const response = await fetch(
-        "https://legitx.ng/bookmaking/pages/landing-page",
+        "https://legitx.ng/bookmaking/pages/sports/football",
         {
           method: "GET",
         }
       );
+
       const responseData = await response.json();
       responseData.statusCode = responseData.status;
-
       return responseData;
     } catch (error) {
       console.error(error);
@@ -19,11 +19,11 @@ const useGetLandingPageSportsMatches = () => {
   };
 
   const query = useQuery({
-    queryFn: getLandingPageSportData,
-    queryKey: ["GET_SPORTS_DATA"],
+    queryFn: getFootballMatches,
+    queryKey: ["GET_FOOTBALL_PAGE_MATCHES"],
   });
 
   return query;
 };
 
-export default useGetLandingPageSportsMatches;
+export default useGetFootballPageMatches;

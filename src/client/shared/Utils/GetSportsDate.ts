@@ -3,7 +3,7 @@ const monthNames = [
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
 ];
 
-export const getNextThreeDates = () => {
+export const getFeatureDates = () => {
     const today = new Date();
     const nextDate = new Date(today);
 

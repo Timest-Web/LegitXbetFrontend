@@ -8,8 +8,14 @@ import { UpcomingBetTable } from "../components/Tables/MobileTable/UpcomingBetTa
 import { UpcomingBetTable as DesktopUpcomingBetTable } from "../components/Tables/DesktopTable/UpcomingBetTable";
 import { FOOTBALL_DATA } from "../LandingPage/DesktopLandingPage/LeftSection/constant/data";
 import MobileNavbar from "../../shared/MobileNavbar";
+import useGetFootballPageMatches from "@/src/helper/apis/services/bookmaking/football/get-football-page-matches";
+import useGetFootballLeagues from "@/src/helper/apis/services/bookmaking/football/get-football-leagues";
 
 const Football = () => {
+  const { data } = useGetFootballLeagues();
+  
+
+
   return (
     <Layout
       leftSection={
@@ -21,7 +27,7 @@ const Football = () => {
       }
       centerSection={
         <CenterSection>
-          <DesktopUpcomingBetTable />
+          <DesktopUpcomingBetTable leagues={data}/>
         </CenterSection>
       }
       mobileComponents={
