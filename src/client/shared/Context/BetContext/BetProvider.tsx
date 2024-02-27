@@ -44,7 +44,6 @@ export const BetProvider: React.FC<BetProviderProps> = ({
             ([key, value]) => value === odd
           );
 
-          console.log(oddName);
           if (oddType) {
             setBet([
               ...bet,

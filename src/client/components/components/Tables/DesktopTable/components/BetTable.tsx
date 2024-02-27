@@ -184,6 +184,13 @@ const BetTable = ({
                           time={value.time}
                           teamOne={value.home.name}
                           teamTwo={value.away.name}
+                          sport={sportClick}
+                          marketName={link}
+                          marketId={
+                            link === "Match Winner"
+                              ? value.markets[0]?.id
+                              : value.markets[1]?.id
+                          }
                           home={
                             link === "Match Winner"
                               ? value.markets[0]?.odds[0]?.value

@@ -14,6 +14,9 @@ type OddsButtonProps = {
   oddOne: string;
   oddTwo: string;
   oddThree: string;
+  sport: string;
+  marketId: string;
+  marketName: string;
 };
 
 export const OddsButtons = ({

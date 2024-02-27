@@ -13,7 +13,7 @@ import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 
 const TopHeader = () => {
   const {
-    user: { name: username },
+    user: { name: username, amount: userBalance },
     handleUserLogout,
   } = useUser();
   const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
@@ -62,7 +62,7 @@ const TopHeader = () => {
               >
                 <div>{value.icon}</div>
                 <p className="text-center font-bold text-gray-200 text-[12px]">
-                  {index === 1 ? username.split(" ")[1] : value.title}
+                  {index === 1 ? username.split(" ")[1] : userBalance}
                 </p>
               </Link>
             ))}

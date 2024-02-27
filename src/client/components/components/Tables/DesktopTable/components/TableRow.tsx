@@ -24,7 +24,10 @@ const TableRow = ({
   teamTwoScore,
   oddOne,
   oddTwo,
-  oddThree
+  oddThree,
+  sport,
+  marketId,
+  marketName,
 }: {
   id: number;
   time: string;
@@ -42,6 +45,9 @@ const TableRow = ({
   oddOne: string;
   oddTwo: string;
   oddThree: string;
+  sport: string;
+  marketId: string;
+  marketName: string;
 }) => {
   const truncatedTeamOne = truncateText(teamOne, 10);
   const truncatedTeamTwo = truncateText(teamTwo, 8);
@@ -61,7 +67,10 @@ const TableRow = ({
     drawName,
     oddOne,
     oddTwo,
-    oddThree
+    oddThree,
+    sport,
+    marketId,
+    marketName
   };
 
   return (
