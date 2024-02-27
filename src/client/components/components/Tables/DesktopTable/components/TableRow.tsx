@@ -22,6 +22,9 @@ const TableRow = ({
   isLiveTable,
   teamOneScore,
   teamTwoScore,
+  oddOne,
+  oddTwo,
+  oddThree
 }: {
   id: number;
   time: string;
@@ -36,6 +39,9 @@ const TableRow = ({
   teamOneScore: string;
   teamTwoScore: string;
   isLiveTable?: boolean;
+  oddOne: string;
+  oddTwo: string;
+  oddThree: string;
 }) => {
   const truncatedTeamOne = truncateText(teamOne, 10);
   const truncatedTeamTwo = truncateText(teamTwo, 8);
@@ -52,7 +58,10 @@ const TableRow = ({
     away: loseInt,
     homeName,
     awayName,
-    drawName
+    drawName,
+    oddOne,
+    oddTwo,
+    oddThree
   };
 
   return (
@@ -73,16 +82,16 @@ const TableRow = ({
                 className="flex items-center justify-between text-[10px] w-40"
               >
                 <p className="text-start w-2/5">{truncatedTeamOne}</p>
-                <p className="w-1/5">v</p>
+                <p className="w-1/5">Vs</p>
                 <p className="text-end w-2/5">{truncatedTeamTwo}</p>
               </Link>
             </Chip>
           </Tooltip.Trigger>
           <Tooltip.Content
-            className="flex justify-start items-start bg-black text-white text-[12px] font-bold border border-gray-800 -mt-6 rounded-3xl "
+            className="flex justify-start items-start bg-lightAsh text-white text-[12px] font-bold border border-gray-800 -mt-6 rounded-3xl "
             position="bottom-start"
           >
-            {`${teamOne} V ${teamTwo}`}
+            {`${teamOne} Vs ${teamTwo}`}
           </Tooltip.Content>
         </Tooltip>
         <div className="px-3">

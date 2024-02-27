@@ -32,10 +32,14 @@ const BetItem: React.FC<BetItemProps> = ({ index, value, onDelete }) => {
           <DeleteIcon />
         </div>
       </div>
-      <p className="font-bold text-[10px] pl-9">{`${value.oddName.replace(
-        "Type",
-        ""
-      )} : ${value.odd}`}</p>
+      <div className="flex items-center justify-between">
+        <p className="font-bold text-[10px] pl-9">{`${
+          value.oddName.includes(":")
+            ? `Correct Score[${value.oddName}]`
+            : value.oddName
+        }`}</p>
+        <p className="font-bold text-[12px] pr-1">{value.odd}</p>
+      </div>
     </div>
   );
 };

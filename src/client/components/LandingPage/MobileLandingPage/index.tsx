@@ -5,29 +5,29 @@ import LandScaleImageCarousel from "@/src/client/shared/Carousel/LandScaleImageC
 import Layout from "../../Layout";
 import BetTableSection from "./components/BetTableSection";
 import { Loader } from "@heathmont/moon-core-tw";
-import useGetLandingPageSportsMatches from "@/src/helper/apis/services/bookmaking/landingPage/get-landing-page-sports-and-matches";
+import useGetFootballPageMatches from "@/src/helper/apis/services/bookmaking/football/get-football-page-matches";
+import { LoaderScreen } from "@/src/client/shared/Loader/LoaderScreen";
 
 const MobileLandingPage = () => {
-  const { data } = useGetLandingPageSportsMatches();
-  // console.log(data);
+  const { data } = useGetFootballPageMatches();
+
+  if (!data) {
+    return <LoaderScreen />;
+  }
+
   return (
     <>
-      {data ? (
+      {data &&
         <Layout
           mobileComponents={
             <div className="h-max w-full -mt-[120px] pt-[120px]">
-				<LandScaleImageCarousel height="h-[134.36px]" width="w-full" />
-				<LeagueType />
-				<BetTableSection />
-				<MobileNavbar />
+              <LandScaleImageCarousel height="h-[134.36px]" width="w-full" />
+              <LeagueType />
+              <BetTableSection data={data} />
+              <MobileNavbar />
             </div>
           }
-        />
-      ) : (
-        <div className="flex items-center justify-center w-screen h-screen">
-          <Loader color="border-raditz" size="sm" />
-        </div>
-      )}
+        />}
     </>
   );
 };

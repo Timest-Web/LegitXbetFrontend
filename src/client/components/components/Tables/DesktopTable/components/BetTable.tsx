@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  ReactElement,
-  SetStateAction,
-} from "react";
+import React, { useState, ReactElement } from "react";
 import { useRouter } from "next/router";
 import TableRow from "./TableRow";
 import ViewMore from "../../../MainSection/components/ViewMore";
@@ -14,54 +9,59 @@ import { SPORTS_TYPES } from "../../../MainSection/CenterSection/constant/data";
 import { getFeatureDates } from "@/src/client/shared/Utils/GetSportsDate";
 import Link from "next/link";
 
-
 const BetTable = ({
   href,
   icon,
   contentTitle,
   isLiveTable,
   sportData,
-  sportsType,
+  viewFeatureMatches
 }: {
   href: string;
   sportData: any;
-  sportsType: any;
   icon?: ReactElement;
   contentTitle: string;
   isLiveTable: boolean;
+  viewFeatureMatches: number;
 }) => {
   const router = useRouter();
   const { pathname } = router;
-  const nextTwoDates = getFeatureDates();
-  const odds = ['1x2', 'Correct Score']
+  const nextTwoDates = getFeatureDates(viewFeatureMatches);
+  const sportsType = ['Football', 'Basketball'];
   const [collapse, setCollapse] = useState(false);
-  const { link, handleClick } = useLink(odds[0]);
+  const { link, handleClick } = useLink("Match Winner");
   const { link: dateClick, handleClick: dateHandleClick } = useLink(
     nextTwoDates[0]
   );
   const { link: sportClick, handleClick: sportHandleClick } = useLink(
     sportsType[0]
   );
-  const { link: leagueClick, handleClick: leagueHandleClick } = useLink(
-    sportData && sportData.length > 0 ? sportData[0]?.name : ""
-  );
   const filteredSports = SPORTS_TYPES.filter((sport) =>
     sportsType.includes(sport.title)
   );
 
   const extractedLeagues = () => {
-    return sportData
-      .map((value: any) => ({
-        ...value,
-        matches: value.matches.filter((match: any) => match.date !== dateClick),
-      }))
-      .filter((value: any) => value.matches.length > 0);
+    return Array.isArray(sportData)
+      ? sportData
+          .map((value: any) => ({
+            ...value,
+            matches: value?.matches.filter(
+              (match: any) => match?.date !== dateClick
+            ),
+          }))
+          .filter((value: any) => value?.matches.length > 0)
+      : [];
   };
 
-  const extraData = extractedLeagues();
-  const extractedMatches = extraData.filter(
+  const extractLeagues = extractedLeagues();
+  const { link: leagueClick, handleClick: leagueHandleClick } = useLink(
+    extractLeagues ? extractLeagues[0]?.name : ""
+  );
+
+  const extractedMatches = extractLeagues.filter(
     (value: any) => value.name === leagueClick
   )[0]?.matches;
+
 
   return (
     <div className="w-[720px]">
@@ -93,7 +93,7 @@ const BetTable = ({
                       dateClick === value ? "text-gray-200" : "text-gray-400"
                     } text-[14px] font-bold cursor-pointer`}
                   >
-                    {index === 0 ? "Today" : index === 1 ? "Tomorrow" : value}
+                    {index === 0 ? "Today" : index === 1 ? `Tomorrow (${nextTwoDates[1]})` : value}
                   </p>
                 ))}
               </div>
@@ -125,7 +125,7 @@ const BetTable = ({
 
           <div className="w-[720px] py-1 bg-lightAsh border-t border-t-gray-800 px-6">
             <MyCarousel
-              customItem={extraData.map((title: any, index: number) => (
+              customItem={extractLeagues.map((title: any, index: number) => (
                 <div key={index} className="px-1">
                   <div
                     onClick={() => leagueHandleClick(title.name)}
@@ -148,17 +148,19 @@ const BetTable = ({
                 !collapse && "border-b border-b-gray-800"
               } h-10`}
             >
-              {odds.map((value: string, index: number) => (
-                <div
-                  key={index}
-                  onClick={() => handleClick(value)}
-                  className={`${
-                    value === link ? "text-gold" : "text-white"
-                  } p-2 cursor-pointer hover:text-gold text-[10px] font-bold`}
-                >
-                  {value}
-                </div>
-              ))}
+              {["Match Winner", "Correct Score"].map(
+                (market: string, index: number) => (
+                  <div
+                    key={index}
+                    onClick={() => handleClick(market)}
+                    className={`${
+                      market === link ? "text-gold" : "text-white"
+                    } p-2 cursor-pointer hover:text-gold text-[10px] font-bold`}
+                  >
+                    {market === "Match Winner" ? "1x2" : market}
+                  </div>
+                )
+              )}
             </div>
 
             {!collapse && (
@@ -178,16 +180,55 @@ const BetTable = ({
                       return (
                         <TableRow
                           key={index}
-                          id={value.id}           
+                          id={value.id}
                           time={value.time}
                           teamOne={value.home.name}
                           teamTwo={value.away.name}
-                          home={value.markets[0]?.odds[0]?.value}
-                          homeName={value.markets[0]?.odds[0]?.name}
-                          draw={value.markets[0].odds[1].value}
-                          drawName={value.markets[0].odds[1]?.name}
-                          away={value.markets[0].odds[2]?.value}
-                          awayName={value.markets[0].odds[2]?.name}
+                          home={
+                            link === "Match Winner"
+                              ? value.markets[0]?.odds[0]?.value
+                              : value.markets[1]?.odds[0]?.value
+                          }
+                          oddOne={
+                            link === "Match Winner"
+                              ? "1"
+                              : value.markets[1]?.odds[0]?.name
+                          }
+                          homeName={
+                            link === "Match Winner"
+                              ? value.markets[0]?.odds[0]?.name
+                              : value.markets[1]?.odds[0]?.name
+                          }
+                          draw={
+                            link === "Match Winner"
+                              ? value.markets[0]?.odds[1]?.value
+                              : value.markets[1]?.odds[1]?.value
+                          }
+                          oddTwo={
+                            link === "Match Winner"
+                              ? "X"
+                              : value.markets[1]?.odds[1]?.name
+                          }
+                          drawName={
+                            link === "Match Winner"
+                              ? value.markets[0]?.odds[1]?.name
+                              : value.markets[1]?.odds[1]?.name
+                          }
+                          away={
+                            link === "Match Winner"
+                              ? value.markets[0]?.odds[2]?.value
+                              : value.markets[1]?.odds[2]?.value
+                          }
+                          oddThree={
+                            link === "Match Winner"
+                              ? "2"
+                              : value.markets[1]?.odds[2]?.name
+                          }
+                          awayName={
+                            link === "Match Winner"
+                              ? value.markets[0]?.odds[2]?.name
+                              : value.markets[1]?.odds[2]?.name
+                          }
                           teamOneScore={value.home?.goals}
                           teamTwoScore={value.away?.goals}
                           isLiveTable={isLiveTable}

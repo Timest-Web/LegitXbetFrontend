@@ -1,89 +1,73 @@
 import React, {
   ReactElement,
-  SetStateAction,
-  useEffect,
   useState,
 } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/router";
+import Link from "next/link";
 import TableRow from "./TableRow";
 import ViewMore from "../../../../MainSection/components/ViewMore";
 import RightArrow from "@/src/client/shared/Svg/RightArrow";
 import { useLink } from "@/src/client/shared/Hooks/useLink";
 import { SPORTS_TYPES } from "../../../../MainSection/CenterSection/constant/data";
 import { CustomCarousel } from "@/src/client/shared/Carousel";
-import { footballFixture } from "@/src/helper/apis/services/bookmaking/football/get-football-feature";
-import { getNextThreeDates } from "@/src/client/shared/Utils/GetSportsDate";
+import { getFeatureDates } from "@/src/client/shared/Utils/GetSportsDate";
 
-type LeaguesDataProps = {
-  id: number;
-  sport: string;
-  providerId: string;
-  name: string;
-  isActive: boolean;
-}[];
 
 const BetTable = ({
   href,
-  odds,
   icon,
-  leagues,
-  setSelectedDate,
-  setSelectedSport,
-  setSelectedLeague,
   contentTitle,
   isLiveTable,
   sportData,
-  sportsType,
+  viewFeatureMatches,
 }: {
   href: string;
-  odds: string[];
   sportData: any;
-  leagues: LeaguesDataProps;
-  sportsType: any;
   icon?: ReactElement;
   contentTitle: string;
   isLiveTable: boolean;
-  setSelectedDate: React.Dispatch<SetStateAction<string>>;
-  setSelectedLeague: React.Dispatch<SetStateAction<string>>;
-  setSelectedSport: React.Dispatch<SetStateAction<string>>;
+  viewFeatureMatches: number;
 }) => {
-  const nextThreeDates = getNextThreeDates();
+  const router = useRouter();
+  const { pathname } = router;
+  const nextTwoDates = getFeatureDates(viewFeatureMatches);
+  const sportsType = ["Football", "Basketball"];
+  const markets = ["Match Winner","Correct Score"];
   const [collapse, setCollapse] = useState(false);
-  const { link, handleClick } = useLink(odds[0]);
+  const { link, handleClick } = useLink(markets[0]);
   const { link: dateClick, handleClick: dateHandleClick } = useLink(
-    nextThreeDates[0]
+    nextTwoDates[0]
   );
   const { link: sportClick, handleClick: sportHandleClick } = useLink(
     sportsType[0]
   );
-  const { link: leagueClick, handleClick: leagueHandleClick } = useLink(
-    leagues && leagues.length > 0 ? leagues[0]?.name : ""
-  );
-  const { link: leagueIdClick, handleClick: handleLeagueIdClick } = useLink(
-    leagues && leagues.length > 0 ? leagues[0]?.providerId : ""
-  );
-
-  useEffect(() => {
-    setSelectedDate(dateClick);
-    setSelectedSport(sportClick);
-    setSelectedLeague(leagueClick);
-  }, [
-    dateClick,
-    sportClick,
-    leagueClick,
-    setSelectedDate,
-    setSelectedSport,
-    setSelectedLeague,
-  ]);
-
   const filteredSports = SPORTS_TYPES.filter((sport) =>
-    sportsType?.includes(sport.title)
+    sportsType.includes(sport.title)
   );
 
-  const { mutateAsync, data } = useMutation({ mutationFn: footballFixture });
-  useEffect(() => {
-    mutateAsync({ leagueId: leagueIdClick });
-  }, [leagueIdClick, mutateAsync]);
+  const extractedLeagues = () => {
+    return Array.isArray(sportData)
+      ? sportData
+          .map((value: any) => ({
+            ...value,
+            matches: value?.matches.filter(
+              (match: any) => match?.date !== dateClick
+            ),
+          }))
+          .filter((value: any) => value?.matches.length > 0)
+      : [];
+  };
+
+  const extractLeagues = extractedLeagues();
+  const { link: leagueClick, handleClick: leagueHandleClick } = useLink(
+    extractLeagues ? extractLeagues[0]?.name : ""
+  );
+
+  const extractedMatches = extractLeagues.filter(
+    (value: any) => value.name === leagueClick
+  )[0]?.matches;
+
+  console.log(link);
 
   return (
     <div>
@@ -101,69 +85,69 @@ const BetTable = ({
         <div className="w-full bg-darkAsh">
           <div className="flex p-2 border-b border-b-lightAsh space-x-2">
             <div className="flex items-center justify-center space-x-1 text-white text-[12px]">
-              <p className="text-gray-400">All Matches</p>
+              <p className="text-gray-400 text-[14px]">All Matches</p>
               <RightArrow />
             </div>
-            <div className="flex items-center space-x-6">
-              {nextThreeDates.map((value, index) => (
+            <div className="flex items-center space-x-3">
+              {nextTwoDates.map((value, index) => (
                 <p
                   key={index}
-                  onClick={() => {
-                    dateHandleClick(value);
-                  }}
+                  onClick={() => dateHandleClick(value)}
                   className={`${
-                    dateClick === value
-                      ? "font-bold text-gray-200"
-                      : "text-gray-400"
-                  } text-[10px] cursor-pointer`}
+                    dateClick === value ? "text-gray-200" : "text-gray-400"
+                  } text-[14px] cursor-pointer`}
                 >
-                  {index === 0 ? "Today" : value}
+                  {index === 0
+                    ? "Today"
+                    : index === 1
+                    ? `Tomorrow (${nextTwoDates[1]})`
+                    : value}
                 </p>
               ))}
             </div>
           </div>
 
-          <div className="flex items-center h-10 justify-start w-full px-2 bg-darkAsh text-sm">
-            <CustomCarousel
-              className="flex items-start justify-start w-full"
-              renderCarouselItems={() =>
-                filteredSports.map((value, index) => (
-                  <div
-                    key={index}
-                    onClick={() => sportHandleClick(value.title)}
-                    className={`${
-                      value.title === sportClick
-                        ? "text-gold bg-gray-700"
-                        : "text-gray-400"
-                    } flex items-center justify-center text-center font-bold hover:bg-gray-700 hover:text-gold cursor-pointer pr-3 pl-1 rounded-lg`}
-                  >
-                    <value.icon height={25} width={25} />
-                    {value.title}
-                  </div>
-                ))
-              }
-            />
-          </div>
+          {pathname === "/" && (
+            <div className="flex items-center h-10 justify-start w-full px-2 bg-darkAsh text-sm">
+              <CustomCarousel
+                className="flex items-start justify-start w-full"
+                renderCarouselItems={() =>
+                  filteredSports.map((value, index) => (
+                    <div
+                      key={index}
+                      onClick={() => sportHandleClick(value.title)}
+                      className={`${
+                        value.title === sportClick
+                          ? "text-gold bg-gray-700"
+                          : "text-white"
+                      } flex items-center justify-center text-center font-bold hover:bg-gray-700 hover:text-gold cursor-pointer pr-3 pl-1 rounded-lg`}
+                    >
+                      <value.icon height={25} width={25} />
+                      {value.title}
+                    </div>
+                  ))
+                }
+              />
+            </div>
+          )}
 
           <div className="flex items-center justify-start text-xs px-1 border-y border-y-lightAsh bg-darkAsh w-full h-8">
             <CustomCarousel
               className="flex items-start justify-start w-full"
               renderCarouselItems={() =>
-                leagues?.map((value, index) => (
+                extractLeagues?.map((value, index) => (
                   <div
                     key={index}
                     onClick={() => {
                       leagueHandleClick(value.name);
-                      setSelectedLeague(value.name);
-                      handleLeagueIdClick(String(value.providerId));
                     }}
                     className={`${
                       value.name === leagueClick
                         ? "text-gold bg-gray-700 font-bold"
-                        : "text-gray-500"
+                        : "text-white"
                     } flex items-center justify-center text-center text-xs hover:bg-gray-700 hover:text-gold cursor-pointer rounded-lg py-1 px-3`}
                   >
-                    {value.name}
+                    {value.name.split(":")[1]}
                   </div>
                 ))
               }
@@ -174,17 +158,15 @@ const BetTable = ({
             <CustomCarousel
               className="flex items-start justify-start w-full"
               renderCarouselItems={() =>
-                odds?.map((value, index) => (
+                markets.map((market: string, index: number) => (
                   <div
                     key={index}
-                    onClick={() => handleClick(value)}
+                    onClick={() => handleClick(market)}
                     className={`${
-                      value === link
-                        ? "text-gray-200 font-bold"
-                        : "text-gray-700"
-                    } p-2 cursor-pointer hover:text-gray-200`}
+                      market === link ? "text-gold" : "text-white"
+                    } p-2 cursor-pointer font-bold hover:text-gold`}
                   >
-                    {value}
+                    {market === "Match Winner" ? "1x2" : market}
                   </div>
                 ))
               }
@@ -194,36 +176,87 @@ const BetTable = ({
           {!collapse && (
             <div className="bg-darkAsh">
               <div className="border-b border-lightAsh">
-                {Array.isArray(data) &&
-                  data
-                    .filter((value) => value.date === dateClick)
-                    .map((value: any, index: number) => (
-                      <TableRow
-                        key={index}
-                        id={value.fix_id}
-                        time={value.time}
-                        teamOne={value.home?.name}
-                        teamTwo={value.away?.name}
-                        home={value.odds[0]?.value}
-                        homeName={value.odds[0]?.name}
-                        draw={value.odds[1]?.value}
-                        drawName={value.odds[1]?.name}
-                        away={value.odds[2]?.value}
-                        awayName={value.odds[2]?.name}
-                        teamOneScore={value.home?.goals}
-                        teamTwoScore={value.away?.goals}
-                        isLiveTable={isLiveTable}
-                      />
-                    ))}
+                {Array.isArray(extractedMatches) &&
+                  extractedMatches
+                    .sort((a: any, b: any) => {
+                      const timeA = a.time?.split(":").map(Number);
+                      const timeB = b.time?.split(":").map(Number);
+                      if (timeA[0] !== timeB[0]) {
+                        return timeA[0] - timeB[0];
+                      }
+                      return timeA[1] - timeB[1];
+                    })
+                    .slice(0, 5)
+                    .map((value: any, index: number) => {
+                      return (
+                        <TableRow
+                          key={index}
+                          id={value.id}
+                          time={value.time}
+                          teamOne={value.home.name}
+                          teamTwo={value.away.name}
+                          home={
+                            link === "Match Winner"
+                              ? value.markets[0]?.odds[0]?.value
+                              : value.markets[1]?.odds[0]?.value
+                          }
+                          oddOne={
+                            link === "Match Winner"
+                              ? "1"
+                              : value.markets[1]?.odds[0]?.name
+                          }
+                          homeName={
+                            link === "Match Winner"
+                              ? value.markets[0]?.odds[0]?.name
+                              : value.markets[1]?.odds[0]?.name
+                          }
+                          draw={
+                            link === "Match Winner"
+                              ? value.markets[0]?.odds[1]?.value
+                              : value.markets[1]?.odds[1]?.value
+                          }
+                          oddTwo={
+                            link === "Match Winner"
+                              ? "X"
+                              : value.markets[1]?.odds[1]?.name
+                          }
+                          drawName={
+                            link === "Match Winner"
+                              ? value.markets[0]?.odds[1]?.name
+                              : value.markets[1]?.odds[1]?.name
+                          }
+                          away={
+                            link === "Match Winner"
+                              ? value.markets[0]?.odds[2]?.value
+                              : value.markets[1]?.odds[2]?.value
+                          }
+                          oddThree={
+                            link === "Match Winner"
+                              ? "2"
+                              : value.markets[1]?.odds[2]?.name
+                          }
+                          awayName={
+                            link === "Match Winner"
+                              ? value.markets[0]?.odds[2]?.name
+                              : value.markets[1]?.odds[2]?.name
+                          }
+                          teamOneScore={value.home?.goals}
+                          teamTwoScore={value.away?.goals}
+                          isLiveTable={isLiveTable}
+                        />
+                      );
+                    })}
               </div>
-              {Array.isArray(sportData) &&
-                sportData.length > 0 &&
-                sportData[0]?.availableMatch.length > 3 && (
-                  <div className="h-12 w-full py-2 px-3">
-                    <button className="w-full h-8 rounded-lg bg-gray-700 text-white text-xs">
-                      View All
-                    </button>
-                  </div>
+
+              {Array.isArray(extractedMatches) &&
+                extractedMatches.length > 5 && (
+                  <Link href={`/sports/football/40`}>
+                    <div className="h-12 w-full py-2 px-3">
+                      <button className="w-full h-8 rounded-lg bg-gray-700 text-white text-xs">
+                        View All
+                      </button>
+                    </div>
+                  </Link>
                 )}
             </div>
           )}
