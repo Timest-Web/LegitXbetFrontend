@@ -1,4 +1,4 @@
-import React, { useMemo} from "react";
+import React, { useMemo } from "react";
 import BetHistoryPopUp from "./BetHistoryPopUp";
 import UnsettledData from "../Constant/unsettledData";
 import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
@@ -14,22 +14,15 @@ const BetHistoryUnsettled = () => {
   const columns = betHistoryColumns(handleClick);
 
   return (
-        <div>
-          <TableComp
-            data={data}
-            columns={columns}
-            searchField={true}
-            filterField={true}
-            tableTitle="Bet History"
-            betStatus={<BetStatusTab isUnsettled/>}
-          />
-          <Modal
-            openModal={isOpen}
-            setOpenModal={setIsOpen}
-            className="custom-modal-class"
-            modalContent={<BetHistoryPopUp  />}
-          />
-        </div>
+    <div className="mt-6">
+      <BetStatusTab isUnsettled />
+      <div className="mt-8 space-y-3">
+        <BetHistoryPopUp />
+        <BetHistoryPopUp />
+        <BetHistoryPopUp />
+        <BetHistoryPopUp />
+      </div>
+    </div>
   );
 };
 
