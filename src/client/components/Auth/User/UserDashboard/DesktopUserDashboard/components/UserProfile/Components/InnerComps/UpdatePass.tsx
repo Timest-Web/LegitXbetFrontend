@@ -4,7 +4,7 @@ import MultiReuse from "../ProfileReusables/MultiReuse";
 import ProfileReusableCard from "../ProfileReusables/ProfileReusableCard";
 import { useMutation } from "@tanstack/react-query";
 import { changePassword } from "@/src/helper/apis/services/change-password/change-password.api";
-import { error } from "console";
+
 
 const UpdatePass = () => {
   const [oldPassword, setOldPassword] = useState("");

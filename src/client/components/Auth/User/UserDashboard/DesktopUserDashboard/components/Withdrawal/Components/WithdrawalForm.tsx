@@ -182,7 +182,7 @@ const WithdrawalForm = () => {
       <hr></hr>
       <form action="submit" onSubmit={handleSubmit} className=" mt-4 md:mt-8 ">
         {user.user.bankDetail == null ? (
-          <section className="flex flex-col md:flex-row md:space-x-16 mt-6 ">
+          <div>          <section className="flex flex-col md:flex-row md:space-x-16 mt-6 ">
             <div className="flex flex-col space-y-1 ">
               <label className="font-bold">Bank account</label>
               <select
@@ -207,14 +207,15 @@ const WithdrawalForm = () => {
                 value={accountNumber}
                 onChange={(e) => setAccountNumber(e.target.value)}
               />
-            </div>{" "}
-            <p className="mt-6">Recipient: {customerDetails}</p>
-            <button onClick={handleRecipient} className="bg-black text-white">
-              Save Recipient
-            </button>
+            </div>
           </section>
+          <p className="mt-6">Recipient: {customerDetails}</p>
+            <button onClick={handleRecipient} className="bg-black text-sm rounded-md p-2 text-white">
+              Save Recipient
+            </button></div>
+
         ) : (
-          <p>Withdraw to your saved account: </p>
+          <div className="flex flex-col space-y-2"> <p>Withdraw to your saved account</p> <p>Account Name- {user.user.bankDetail.details.account_name }</p> <p>Bank-{user.user.bankDetail.details.bank_name}</p> </div>
         )}
 
         { user.user.bankDetail !== null ? (

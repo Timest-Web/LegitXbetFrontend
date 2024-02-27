@@ -7,27 +7,38 @@ import useUser from "@/src/client/shared/Context/UserContext/useUser";
 import { useMutation } from "@tanstack/react-query";
 import { profileDetails } from "@/src/helper/apis/services/auth/profile-details.api";
 import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.api";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const ProfileUpdate = () => {
   const { totalPersonalDetails, setTotalPersonalDetails } =
     useProfileContext()!;
-  const [isEditable, setIsEditable] = useState(true);
+  const [isEditable, setIsEditable] = useState(false);
 
   const { data: userDetails, isLoading, error } = useGetUserProfile();
-  // console.log(userDetails.bvn, userDetails.name);
+
   const fullName = userDetails?.name || "";
   const [firstName, lastName] = fullName.split(" ");
 
   useEffect(() => {
-    if (userDetails) {
+    if (
+      !userDetails ||
+      !userDetails.dateOfBirth ||
+      !userDetails.address ||
+      !userDetails.bvn
+    ) {
+      setIsEditable(true);
+    } else {
+      setIsEditable(false);
+    }
+    if (userDetails && userDetails.dateOfBirth) {
       setTotalPersonalDetails({
         firstName: firstName,
         lastName: lastName,
-        dob: userDetails.dob,
+        dob: userDetails.dateOfBirth,
         address: userDetails.address,
         bvn: userDetails.bvn,
       });
-      setIsEditable(false); 
     }
   }, [userDetails, setTotalPersonalDetails, firstName, lastName]);
 
@@ -35,9 +46,10 @@ const ProfileUpdate = () => {
     mutationFn: profileDetails,
     onSuccess: () => {
       console.log("Profile Details updated successfully");
-      setIsEditable(false)
+      setIsEditable(false);
     },
   });
+
   const handleSaveUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -45,13 +57,9 @@ const ProfileUpdate = () => {
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, "0");
         const day = String(date.getDate()).padStart(2, "0");
-        const hours = String(date.getHours()).padStart(2, "0");
-        const minutes = String(date.getMinutes()).padStart(2, "0");
-        const seconds = String(date.getSeconds()).padStart(2, "0");
-        return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.000Z`;
+        return `${year}-${month}-${day}`;
       };
 
-    
       const formattedDateOfBirth = formatDate(
         new Date(totalPersonalDetails.dob)
       );
@@ -103,19 +111,30 @@ const ProfileUpdate = () => {
                 }
                 disabled={!isEditable}
               />
-              <InputField
-                label="Date of Birth"
-                type="date"
-                placeholder="23/04/1997"
-                value={totalPersonalDetails.dob}
-                onChange={(e) =>
-                  setTotalPersonalDetails((prevValues) => ({
-                    ...prevValues,
-                    dob: e.target.value,
-                  }))
-                }
-                disabled={!isEditable}
-              />
+              <div className="space-y-2">
+                <label className="font-bold pl-3">Date of Birth</label>
+                <DatePicker
+                  className="bg-[#ECEEF1] w-[19.0625rem] h-[2.8125rem] p-2 rounded"
+                  selected={
+                    totalPersonalDetails.dob
+                      ? new Date(totalPersonalDetails.dob)
+                      : null
+                  }
+                  onChange={(date: Date) => {
+                    if (!isNaN(date.getTime())) {
+                      setTotalPersonalDetails((prevValues) => ({
+                        ...prevValues,
+                        dob: date.toISOString().split("T")[0], // Converts date to "yyyy-MM-dd" format
+                      }));
+                    } else {
+                      console.error("Invalid date selected");
+                    }
+                  }}
+                  dateFormat="yyyy-MM-dd"
+                  disabled={!isEditable}
+                />
+              </div>
+
               <InputField
                 label="Address"
                 type="text"
@@ -146,7 +165,11 @@ const ProfileUpdate = () => {
               <button
                 disabled={!isEditable}
                 type="submit"
-                className={!isEditable ? "bg-black opacity-50 text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium": "bg-black text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"}
+                className={
+                  !isEditable
+                    ? "bg-black opacity-50 text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"
+                    : "bg-black text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"
+                }
               >
                 Save & Update
               </button>
