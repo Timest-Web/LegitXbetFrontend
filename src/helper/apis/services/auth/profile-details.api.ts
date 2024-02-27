@@ -21,6 +21,7 @@ export const profileDetails = async (payload: ProfileDetailsPayload) => {
     });
     const data = await response.json();
     data.statusCode = response.status;
+    console.log(data)
     return data;
   } catch (error) {
     console.error("An error occurred during the API request:", error);
