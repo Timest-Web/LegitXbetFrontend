@@ -4,11 +4,14 @@ import MultiReuse from "../ProfileReusables/MultiReuse";
 import ProfileReusableCard from "../ProfileReusables/ProfileReusableCard";
 import { useMutation } from "@tanstack/react-query";
 import { changePassword } from "@/src/helper/apis/services/change-password/change-password.api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const UpdatePass = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  const notify = () => toast.success("Password Updated Successfully");
 
   const { mutateAsync: updatePassword } = useMutation({
     mutationFn: changePassword,
@@ -24,6 +27,7 @@ const UpdatePass = () => {
     } catch (err) {
       console.error(err);
     }
+    notify()
   };
 
   return (
@@ -32,6 +36,7 @@ const UpdatePass = () => {
       <ProfileReusableCard
         profileContent={
           <div>
+            <ToastContainer/>
             <MultiReuse isInsideUpdatePassword />
             <form
               onSubmit={handlePasswordSubmit}

@@ -178,8 +178,8 @@ const ProfileUpdate = () => {
                 type="submit"
                 className={
                   !isEditable
-                    ? "bg-black opacity-50 text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"
-                    : "bg-black text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"
+                    ? "bg-black opacity-50 p-2 text-sm text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"
+                    : "bg-black p-2 text-sm text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"
                 }
               >
                 Save & Update
