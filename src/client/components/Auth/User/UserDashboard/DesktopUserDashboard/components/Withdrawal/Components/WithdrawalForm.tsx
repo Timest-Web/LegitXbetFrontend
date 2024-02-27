@@ -29,6 +29,17 @@ const WithdrawalForm = () => {
     setSelectedBankCode(e.target.value);
   };
 
+  interface BankDetail {
+    details: {
+      account_name: string;
+      bank_name: string;
+    }
+  }
+
+  const userBankDetail: BankDetail  = user.user.bankDetail!;
+  
+  
+
   useEffect(() => {
     const fetchBankDetails = async () => {
       const url = `https://legitx.ng/wallet/verify-bank`;
@@ -215,7 +226,7 @@ const WithdrawalForm = () => {
             </button></div>
 
         ) : (
-          <div className="flex flex-col space-y-2"> <p>Withdraw to your saved account</p> <p>Account Name- {user.user.bankDetail.details.account_name }</p> <p>Bank-{user.user.bankDetail.details.bank_name}</p> </div>
+          <div className="flex flex-col space-y-2"> <p>Withdraw to your saved account</p> <p>Account Name- {userBankDetail.details.account_name }</p> <p>Bank-{userBankDetail.details.bank_name}</p> </div>
         )}
 
         { user.user.bankDetail !== null ? (
