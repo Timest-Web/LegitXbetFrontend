@@ -57,12 +57,23 @@ const ProfileUpdate = () => {
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, "0");
         const day = String(date.getDate()).padStart(2, "0");
-        return `${year}-${month}-${day}`;
+        const hours = String(date.getHours()).padStart(2, "0");
+        const minutes = String(date.getMinutes()).padStart(2, "0");
+        const seconds = String(date.getSeconds()).padStart(2, "0");
+        const milliseconds = String(date.getMilliseconds()).padStart(3, "0");
+        
+        return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`;
       };
-
+      
       const formattedDateOfBirth = formatDate(
         new Date(totalPersonalDetails.dob)
       );
+      console.log("Data to be sent:", {
+        name: totalPersonalDetails.firstName + totalPersonalDetails.lastName,
+        address: totalPersonalDetails.address,
+        dateOfBirth: formattedDateOfBirth,
+        bvn: totalPersonalDetails.bvn,
+      });
 
       await updateProfile({
         name: totalPersonalDetails.firstName + totalPersonalDetails.lastName,
@@ -111,7 +122,7 @@ const ProfileUpdate = () => {
                 }
                 disabled={!isEditable}
               />
-              <div className="space-y-2">
+              <div className="flex flex-col space-y-2">
                 <label className="font-bold pl-3">Date of Birth</label>
                 <DatePicker
                   className="bg-[#ECEEF1] w-[19.0625rem] h-[2.8125rem] p-2 rounded"
@@ -124,7 +135,7 @@ const ProfileUpdate = () => {
                     if (!isNaN(date.getTime())) {
                       setTotalPersonalDetails((prevValues) => ({
                         ...prevValues,
-                        dob: date.toISOString().split("T")[0], // Converts date to "yyyy-MM-dd" format
+                        dob: date.toISOString().split("T")[0], 
                       }));
                     } else {
                       console.error("Invalid date selected");
