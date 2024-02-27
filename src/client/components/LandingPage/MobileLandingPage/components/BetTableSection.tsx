@@ -1,24 +1,18 @@
-import React from 'react'
-// import { LiveBetTable } from '../../../components/Tables/MobileTable/LiveBetTable';
-// import { TopBetTable } from '../../../components/Tables/MobileTable/TopBetTable';
-import { UpcomingBetTable } from '../../../components/Tables/MobileTable/UpcomingBetTable';
-// import { AllTodayBetTable } from '../../../components/Tables/MobileTable/AllMatchesToday';
-// import { TodayBetTable } from '../../../components/Tables/MobileTable/TodayGames';
-// import { TonightTable } from '../../../components/Tables/MobileTable/TonightMatches';
-// import { AmericanFootballBetTable } from '../../../components/Tables/MobileTable/AmericanFootball';
+import React from "react";
+import { UpcomingBetTable } from "../../../components/Tables/MobileTable/UpcomingBetTable";
+import { filterMatches } from "@/src/client/shared/Utils/FilterMatches";
 
-const BetTableSection = () => {
+const BetTableSection = (data: any) => {
+	// console.log(data);
   return (
-		<div className='mt-2 -mb-6 space-y-8'>
-				{/* <LiveBetTable/> */}
-				<UpcomingBetTable/>
-				{/* <TopBetTable/>
-				<AllTodayBetTable/>
-				<TodayBetTable/>
-				<TonightTable/>
-				<AmericanFootballBetTable/> */}
-		</div>
+    <div className="mt-2 -mb-6 space-y-8">
+      {/* <LiveBetTable/> */}
+      <UpcomingBetTable
+        data={filterMatches(data.data, 2)}
+        viewFeatureMatches={2}
+      />
+    </div>
   );
-}
+};
 
-export default BetTableSection
+export default BetTableSection;

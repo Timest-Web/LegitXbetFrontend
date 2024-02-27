@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 const useGetFootballLeagues = () => {
-  const getProfile = async () => {
+  const getFootLeagues = async () => {
     try {
       const response = await fetch(
         "https://legitx.ng/bookmaking/football/leagues",
@@ -19,7 +19,7 @@ const useGetFootballLeagues = () => {
   };
 
   const query = useQuery({
-    queryFn: getProfile,
+    queryFn: getFootLeagues,
     queryKey: ["GET_FOOTBALL_LEAGUES"],
   });
 

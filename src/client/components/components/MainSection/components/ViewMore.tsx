@@ -48,7 +48,7 @@ const ViewMore = ({
 					<>
 					   {
 						urlPathname === undefined ?
-							<p className='font-bold text-[17px]'>Live</p>
+							<p className='font-bold text-[17px]'>Upcoming Matches</p>
 							: 
 							<>
 								<TableTitle tableTitle={urlPathname}/>

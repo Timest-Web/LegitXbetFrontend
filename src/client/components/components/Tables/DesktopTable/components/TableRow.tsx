@@ -6,6 +6,7 @@ import { OddsButtons } from "./OddsButtons";
 import Time from "@/src/client/shared/Svg/Time";
 import Ranking from "@/src/client/shared/Svg/Ranking";
 import { truncateText } from "@/src/client/shared/Utils/TruncateText";
+import { Chip, Tooltip } from "@heathmont/moon-core-tw";
 
 const TableRow = ({
   id,
@@ -21,6 +22,9 @@ const TableRow = ({
   isLiveTable,
   teamOneScore,
   teamTwoScore,
+  oddOne,
+  oddTwo,
+  oddThree
 }: {
   id: number;
   time: string;
@@ -35,13 +39,15 @@ const TableRow = ({
   teamOneScore: string;
   teamTwoScore: string;
   isLiveTable?: boolean;
+  oddOne: string;
+  oddTwo: string;
+  oddThree: string;
 }) => {
   const truncatedTeamOne = truncateText(teamOne, 10);
-  const truncatedTeamTwo = truncateText(teamTwo, 10);
+  const truncatedTeamTwo = truncateText(teamTwo, 8);
   const winInt = parseFloat(home);
   const drawInt = parseFloat(draw);
   const loseInt = parseFloat(away);
-
   const selectedOddObj = {
     id,
     time,
@@ -52,27 +58,46 @@ const TableRow = ({
     away: loseInt,
     homeName,
     awayName,
-    drawName
+    drawName,
+    oddOne,
+    oddTwo,
+    oddThree
   };
 
   return (
     <div className="flex bg-darkAsh w-full rounded-b-xl">
-      <div className="flex items-center justify-center border-r border-r-gray-800 w-20 h-12 text-[10px] space-x-1">
-        <Time color="#E6EAEE" />
-        <p className="text-gray-400 ">{time}</p>
+      <div className="flex flex-col items-center justify-center border-r border-r-gray-800 border-b border-b-gray-800 w-20 h-12 text-[10px] space-x-1">
+        <div className="flex items-center justify-center space-x-1">
+          <Time color="#E6EAEE" />
+          <p className="text-white ">{time}</p>
+        </div>
+        <p className="text-[10px] text-gray-400">{`ID: ${id}`}</p>
       </div>
-      <div className="flex items-center justify-between border-b border-b-gray-800 w-full text-gray-200 px-4 text-xs">
-        <Link
-          href={`/sports/football/40`}
-          className="flex items-center justify-between text-[10px] w-32"
-        >
-          <p>{truncatedTeamOne}</p>
-          <p>v</p>
-          <p>{truncatedTeamTwo}</p>
-        </Link>
+      <div className="flex items-center justify-between border-b border-b-gray-800 w-full text-gray-200 pr-4 text-xs">
+        <Tooltip>
+          <Tooltip.Trigger>
+            <Chip>
+              <Link
+                href={`/sports/football/40`}
+                className="flex items-center justify-between text-[10px] w-40"
+              >
+                <p className="text-start w-2/5">{truncatedTeamOne}</p>
+                <p className="w-1/5">Vs</p>
+                <p className="text-end w-2/5">{truncatedTeamTwo}</p>
+              </Link>
+            </Chip>
+          </Tooltip.Trigger>
+          <Tooltip.Content
+            className="flex justify-start items-start bg-lightAsh text-white text-[12px] font-bold border border-gray-800 -mt-6 rounded-3xl "
+            position="bottom-start"
+          >
+            {`${teamOne} Vs ${teamTwo}`}
+          </Tooltip.Content>
+        </Tooltip>
         <div className="px-3">
           <Ranking />
         </div>
+
         <div className="flex space-x-4">
           {isLiveTable === true && (
             <ScoreView
