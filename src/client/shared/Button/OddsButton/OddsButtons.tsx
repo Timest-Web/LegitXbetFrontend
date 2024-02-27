@@ -1,4 +1,4 @@
-import OddsButton from "@/src/client/shared/Button/OddsButton/OddsButton";
+import OddsButton from "./OddsButton";
 
 type OddsButtonProps = {
   id: number;
