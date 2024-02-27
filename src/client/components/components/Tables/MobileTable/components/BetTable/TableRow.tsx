@@ -1,11 +1,12 @@
 import React from "react";
+import Link from "next/link";
 import Time from "@/src/client/shared/Svg/Time";
 import Ranking from "@/src/client/shared/Svg/Ranking";
 import { truncateText } from "@/src/client/shared/Utils/TruncateText";
 import ScoreView from "../../../DesktopTable/components/ScoreView";
 import { MoreOdds } from "../../../DesktopTable/components/MoreOdds";
-import { OddsButtons } from "../../../DesktopTable/components/OddsButtons";
-import Link from "next/link";
+import { OddsButtons } from "@/src/client/shared/Button/OddsButton/OddsButtons";
+import { TableProps } from "../../../constant/data";
 
 const TableRow = ({
   id,
@@ -24,24 +25,10 @@ const TableRow = ({
   oddOne,
   oddTwo,
   oddThree,
-}: {
-  id: number;
-  time: string;
-  teamOne: string;
-  teamTwo: string;
-  home: string;
-  draw: string;
-  away: string;
-  homeName: string;
-  drawName: string;
-  awayName: string;
-  teamOneScore: string;
-  teamTwoScore: string;
-  isLiveTable?: boolean;
-  oddOne: string;
-  oddTwo: string;
-  oddThree: string;
-}) => {
+  sport,
+  marketId,
+  marketName,
+}: TableProps) => {
   const truncatedTeamOne = truncateText(teamOne, 10);
   const truncatedTeamTwo = truncateText(teamTwo, 10);
   const winInt = parseFloat(home);
@@ -62,6 +49,9 @@ const TableRow = ({
     oddOne,
     oddTwo,
     oddThree,
+    sport,
+    marketId,
+    marketName
   };
 
   return (

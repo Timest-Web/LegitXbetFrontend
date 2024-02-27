@@ -1,13 +1,20 @@
+"use client"
+
 import type { NextPage } from "next";
 import useUser from "@/src/client/shared/Context/UserContext/useUser";
 import UserDashboard from "@/src/client/components/Auth/User/UserDashboard";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const UserDashboards: NextPage = (props) => {
-  const { user } = useUser();
+  // const router = useRouter();
+  // const { user } = useUser();
 
-  if (user.id === 0) {
-    <p className="text-red-500 text-2xl">{`You're not authorized to access this page`}</p>;
-  }
+  // useEffect(() => {
+  //   if (!user.name) {
+  //     router.push("/");
+  //   }
+  // }, [router,user]);
 
   return (
     <div>

@@ -2,11 +2,12 @@ import React from "react";
 import Link from "next/link";
 import ScoreView from "./ScoreView";
 import { MoreOdds } from "./MoreOdds";
-import { OddsButtons } from "./OddsButtons";
 import Time from "@/src/client/shared/Svg/Time";
 import Ranking from "@/src/client/shared/Svg/Ranking";
 import { truncateText } from "@/src/client/shared/Utils/TruncateText";
 import { Chip, Tooltip } from "@heathmont/moon-core-tw";
+import { OddsButtons } from "@/src/client/shared/Button/OddsButton/OddsButtons";
+import { TableProps } from "../../constant/data";
 
 const TableRow = ({
   id,
@@ -24,25 +25,11 @@ const TableRow = ({
   teamTwoScore,
   oddOne,
   oddTwo,
-  oddThree
-}: {
-  id: number;
-  time: string;
-  teamOne: string;
-  teamTwo: string;
-  home: string;
-  draw: string;
-  away: string;
-  homeName: string;
-  drawName: string;
-  awayName: string;
-  teamOneScore: string;
-  teamTwoScore: string;
-  isLiveTable?: boolean;
-  oddOne: string;
-  oddTwo: string;
-  oddThree: string;
-}) => {
+  oddThree,
+  sport,
+  marketId,
+  marketName,
+}: TableProps) => {
   const truncatedTeamOne = truncateText(teamOne, 10);
   const truncatedTeamTwo = truncateText(teamTwo, 8);
   const winInt = parseFloat(home);
@@ -61,7 +48,10 @@ const TableRow = ({
     drawName,
     oddOne,
     oddTwo,
-    oddThree
+    oddThree,
+    sport,
+    marketId,
+    marketName
   };
 
   return (

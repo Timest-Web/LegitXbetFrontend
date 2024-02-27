@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useBet from "../../Context/BetContext/useBet";
 import { useButtonEventClick } from "../../Hooks/useButtonEventClick";
+import { useMutation } from "@tanstack/react-query";
+import { addGame } from "@/src/helper/apis/services/ticket/add-game-api";
 
 type SelectedOddsObjectProps = {
   id: number;
@@ -10,6 +12,9 @@ type SelectedOddsObjectProps = {
   home: number;
   draw: number;
   away: number;
+  sport: string;
+  marketId: string;
+  marketName: string;
 };
 
 const OddsButton = ({
@@ -25,6 +30,7 @@ const OddsButton = ({
   onextwoValue: number;
   selectedOddObj: SelectedOddsObjectProps;
 }) => {
+  const { mutateAsync } = useMutation({ mutationFn: addGame });
   const { click, handleClick } = useButtonEventClick();
   const { bet, addToBetSlip, handleDelete } = useBet();
   const [color, setColor] = useState(false);
@@ -44,6 +50,19 @@ const OddsButton = ({
     }
   };
 
+  // const handleAddGame = () => {
+  //   const addGameObj = {
+  //     sport: selectedOddObj.sport,
+  //     marketId: selectedOddObj.marketId,
+  //     matchId: Number(selectedOddObj.id),
+  //     marketName: selectedOddObj.marketName,
+  //     oddName,
+  //     odd: onextwoValue,
+  //   };
+
+  //   mutateAsync(addGameObj).then(() => {})
+  // };
+
   useEffect(() => {
     const isObjectExist = bet.some(
       (item) => item.id === id && item.odd === onextwoValue
@@ -56,6 +75,7 @@ const OddsButton = ({
       onClick={() => {
         handleClick();
         onHandleClick(id, oddName, onextwoValue, selectedOddObj);
+        // handleAddGame();
       }}
       type="submit"
       className={`flex items-center justify-between transition-all transform ${

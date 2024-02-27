@@ -1,4 +1,4 @@
-import OddsButton from "@/src/client/shared/Button/OddsButton/OddsButton";
+import OddsButton from "./OddsButton";
 
 type OddsButtonProps = {
   id: number;
@@ -14,6 +14,9 @@ type OddsButtonProps = {
   oddOne: string;
   oddTwo: string;
   oddThree: string;
+  sport: string;
+  marketId: string;
+  marketName: string;
 };
 
 export const OddsButtons = ({

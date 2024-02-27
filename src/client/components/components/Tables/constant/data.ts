@@ -42,3 +42,26 @@ export type SportMatchProp = {
     id: string;
     matches: Match
 }[]
+
+export type TableProps = {
+  id: number;
+  time: string;
+  teamOne: string;
+  teamTwo: string;
+  home: string;
+  draw: string;
+  away: string;
+  homeName: string;
+  drawName: string;
+  awayName: string;
+  teamOneScore: string;
+  teamTwoScore: string;
+  isLiveTable?: boolean;
+  oddOne: string;
+  oddTwo: string;
+  oddThree: string;
+  sport: string;
+  marketId: string;
+  marketName: string;
+};
+
