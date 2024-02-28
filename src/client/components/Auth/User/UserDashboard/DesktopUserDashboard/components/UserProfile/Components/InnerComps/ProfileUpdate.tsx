@@ -9,12 +9,15 @@ import { profileDetails } from "@/src/helper/apis/services/auth/profile-details.
 import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.api";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const ProfileUpdate = () => {
   const { totalPersonalDetails, setTotalPersonalDetails } =
     useProfileContext()!;
   const [isEditable, setIsEditable] = useState(false);
-
+  const notify = () => toast.success("Password Updated Successfully");
   const { data: userDetails, isLoading, error } = useGetUserProfile();
 
   const fullName = userDetails?.name || "";
@@ -68,13 +71,8 @@ const ProfileUpdate = () => {
       const formattedDateOfBirth = formatDate(
         new Date(totalPersonalDetails.dob)
       );
-      console.log("Data to be sent:", {
-        name: totalPersonalDetails.firstName + totalPersonalDetails.lastName,
-        address: totalPersonalDetails.address,
-        dateOfBirth: formattedDateOfBirth,
-        bvn: totalPersonalDetails.bvn,
-      });
-
+      
+      notify()
       await updateProfile({
         name: totalPersonalDetails.firstName + totalPersonalDetails.lastName,
         address: totalPersonalDetails.address,
@@ -92,6 +90,7 @@ const ProfileUpdate = () => {
       <ProfileReusableCard
         profileContent={
           <div>
+             <ToastContainer/>
             <form
               onSubmit={handleSaveUpdate}
               className="grid md:grid-cols-2 grid-cols-1 gap-8"
