@@ -16,7 +16,7 @@ const AuthUser = ({
   const isUserDashboardPage = router.pathname.includes("user-dashboard");
 
   useEffect(() => {
-    if (!user.accessToken && isUserDashboardPage) {
+    if (!user?.accessToken && isUserDashboardPage) {
       const timeout = setTimeout(() => {
         router.push("/");
       }, 4000);
@@ -24,7 +24,7 @@ const AuthUser = ({
     }
   }, [user, router, isUserDashboardPage]);
 
-  if (!user.accessToken && isUserDashboardPage) {
+  if (!user?.accessToken && isUserDashboardPage) {
     return (
       <div className="flex flex-col items-center justify-center h-screen w-screen bg-black text-gray-400 lg:p-0 px-6">
         <Image src={Logo} alt="img alt" />
