@@ -14,19 +14,19 @@ const queryClient = new QueryClient();
 export default function App({ Component, pageProps }: AppProps) {
   const { user } = useGetUser();
   return (
-    <AuthUser user={user}>
-      <QueryClientProvider client={queryClient}>
-        <ProfileProvider>
-          <BalanceProvider>
-            <UserProvider>
-              <BetProvider>
+    <QueryClientProvider client={queryClient}>
+      <ProfileProvider>
+        <BalanceProvider>
+          <UserProvider>
+            <BetProvider>
+              <AuthUser user={user}>
                 <Component {...pageProps} />
-              </BetProvider>
-            </UserProvider>
-          </BalanceProvider>
-        </ProfileProvider>
-        <ReactQueryDevtools />
-      </QueryClientProvider>
-    </AuthUser>
+              </AuthUser>
+            </BetProvider>
+          </UserProvider>
+        </BalanceProvider>
+      </ProfileProvider>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 }
