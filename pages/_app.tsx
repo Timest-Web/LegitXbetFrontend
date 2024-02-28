@@ -11,7 +11,6 @@ import BalanceProvider from "@/src/client/shared/Context/BalanceContext/BalanceC
 
 
 const queryClient = new QueryClient();
-
 export default function App({ Component, pageProps }: AppProps) {
   const { user } = useGetUser();
   return (
