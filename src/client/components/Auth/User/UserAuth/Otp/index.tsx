@@ -12,7 +12,7 @@ import useCountdown from '@/src/client/shared/Hooks/useCountDown';
 type ApiResponse = {
 	message: string;
 	statusCode: number;
-};
+};                                          
 
 type MyMutationFunctionType = (data: {
 	phoneNumber: string;
@@ -38,6 +38,8 @@ const Otp = ({ title, phoneNo, msgValue, fieldsValue, mutationFunction }: OtpPro
 		initialSeconds: 240,
 		initialActive: true,
 	});
+
+	console.log(phoneNo);
 	const code = inputOtpValue;
 	const { mutateAsync, isPending } = useMutation({mutationFn: mutationFunction});
 	const handleSubmit = () => {
@@ -47,9 +49,9 @@ const Otp = ({ title, phoneNo, msgValue, fieldsValue, mutationFunction }: OtpPro
 				apiMessageHelper({
 					message: res?.message,
 					statusCode: res?.statusCode,
-					onSuccessCallback: () => {
-						push('/user-dashboard');
-					},
+					// onSuccessCallback: () => {
+					// 	push('/user-dashboard');
+					// },
 				});
 			});
 		}

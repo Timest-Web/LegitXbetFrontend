@@ -29,7 +29,7 @@ const UserSection = ({
             />
           ) : (
             <Link
-              href="#"
+              href={index === 2 ? "/user-dashboard/deposit" : ""}
               passHref
               className={`flex items-center justify-center space-x-2 ${
                 index === 2 ? "flex-row-reverse space-x-4" : ""
@@ -37,7 +37,7 @@ const UserSection = ({
             >
               <div className={index === 2 ? "ml-2" : ""}>{value.icon}</div>
               <p className="text-center font-bold text-gray-200 text-sm">
-                {index === 0 ? `N${userBalance}` : value.title}
+                {index === 0 ? `N${userBalance}.00` : value.title}
               </p>
             </Link>
           )}

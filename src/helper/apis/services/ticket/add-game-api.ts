@@ -5,15 +5,17 @@ export type AddGameToTicket = {
   marketName: string;
   oddName: string;
   odd: number;
-}
+};
 
-
-export const addGame = async (payload: AddGameToTicket ) => {
+export const addGame = async (payload: AddGameToTicket) => {
   try {
+    const userDetails = localStorage.getItem("access") || "{}";
+    const parsedDetails = JSON.parse(userDetails);
     const response = await fetch("https://legitx.ng/ticket/add-game", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
+        Authorization: `Bearer ${parsedDetails?.accessToken}`,
       },
       body: JSON.stringify(payload),
     });

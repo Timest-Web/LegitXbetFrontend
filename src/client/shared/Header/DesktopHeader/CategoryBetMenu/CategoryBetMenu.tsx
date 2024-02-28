@@ -16,17 +16,12 @@ import useUrlPathChecker from "../../../Hooks/useUrlPathChecker";
 import { useVisibilityControl } from "../../../Hooks/useVisibilityControl";
 import CustomerCareDrawer from "../../../Modal/components/DesktopCustomerCare";
 import AuthContent from "../../../../components/Auth/User/UserAuth/Components/AuthContent";
-import { useGetUser } from "../../../Hooks/useGetUser";
 
 const CategoryBetMenu = () => {
   const { user } = useUser();
   const { link, handleClick } = useLink("Sports");
   const { link: click, handleClick: selectedHandle } = useLink("login");
   const isUrlPathIncluded = useUrlPathChecker({ urlPath: "user-dashboard" });
-
-  const {user: userData} = useGetUser();
-  
-  console.log(userData?.accessToken);
 
 
   const {
