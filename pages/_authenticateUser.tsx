@@ -1,11 +1,11 @@
-
+// import React 
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Logo from '../public/assets/logo1.png';
 
 
-export const AuthUser = ({
+const AuthUser = ({
   children,
   user,
 }: {
@@ -43,3 +43,4 @@ export const AuthUser = ({
 };
 
 
+export default AuthUser

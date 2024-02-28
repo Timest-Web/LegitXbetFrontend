@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { AuthUser } from "./_authenticateUser";
+import AuthUser from "./_authenticateUser";
 import { useGetUser } from "@/src/client/shared/Hooks/useGetUser";
 import { BetProvider } from "@/src/client/shared/Context/BetContext/BetProvider";
 import { UserProvider } from "@/src/client/shared/Context/UserContext/UserProvider";
