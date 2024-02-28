@@ -1,7 +1,7 @@
+import { useEffect } from "react";
 import { UserProps, UserProviderProps } from "./constant";
 import { UserContext } from "./UserContext";
 import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.api";
-
 
 export const UserProvider: React.FC<UserProviderProps> = ({
   children,
@@ -29,5 +29,3 @@ export const UserProvider: React.FC<UserProviderProps> = ({
     </UserContext.Provider>
   );
 };
-
-

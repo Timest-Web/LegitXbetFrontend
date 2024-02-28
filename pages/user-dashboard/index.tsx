@@ -1,21 +1,12 @@
-"use client"
-
 import type { NextPage } from "next";
-import useUser from "@/src/client/shared/Context/UserContext/useUser";
 import UserDashboard from "@/src/client/components/Auth/User/UserDashboard";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 
 const UserDashboards: NextPage = (props) => {
-  // const router = useRouter();
-  // const { user } = useUser();
+    const router = useRouter();
+    const isUserDashboardPage = router.pathname.includes("user-dashboard");
 
-  // useEffect(() => {
-  //   if (!user.name) {
-  //     router.push("/");
-  //   }
-  // }, [router,user]);
-
+    console.log(isUserDashboardPage);
   return (
     <div>
       <UserDashboard {...props} />

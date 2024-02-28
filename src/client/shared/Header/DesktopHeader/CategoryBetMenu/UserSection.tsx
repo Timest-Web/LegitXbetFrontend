@@ -3,7 +3,13 @@ import Link from "next/link";
 import DropdownIcon from "../../components/DropdonIcon";
 import { USER_HEADER_DATA } from "../../constant";
 
-const UserSection = ({ userName, userBalance }: { userName: string, userBalance: number }) => {
+const UserSection = ({
+  userName,
+  userBalance,
+}: {
+  userName: string;
+  userBalance: number;
+}) => {
   const extratedUserName = userName.split(" ")[0];
 
   return (
@@ -31,7 +37,7 @@ const UserSection = ({ userName, userBalance }: { userName: string, userBalance:
             >
               <div className={index === 2 ? "ml-2" : ""}>{value.icon}</div>
               <p className="text-center font-bold text-gray-200 text-sm">
-                {index === 0 ? userBalance : value.title}
+                {index === 0 ? `N${userBalance}` : value.title}
               </p>
             </Link>
           )}

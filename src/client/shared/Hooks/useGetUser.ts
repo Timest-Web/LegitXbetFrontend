@@ -4,17 +4,17 @@ interface User {
 }
 
 
-export const useGetUser = (data: string) => {
+export const useGetUser = () => {
    const [user, setUser] = useState<User>({});
     
     useEffect(() => {
-        const userDetailString = localStorage.getItem(data);
+        const userDetailString = localStorage.getItem('access');
 
         if (userDetailString !== null) {
             const userDetail = JSON.parse(userDetailString);
             setUser(userDetail);
         }
-    }, [data]);
+    }, []);
 
     return { user };
 };
