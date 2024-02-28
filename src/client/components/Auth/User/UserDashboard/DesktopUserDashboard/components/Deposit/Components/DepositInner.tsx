@@ -1,50 +1,25 @@
-import React, { useState } from 'react';
-import DepositContainer from './DepositModal/DepositContainer';
-import { useVisibilityControl } from '@/src/client/shared/Hooks/useVisibilityControl';
-import BalanceCard from '../../../shared/BalanceCard';
-import AllBetTable from '../../../shared/InactiveTable';
-import Modal from '@/src/client/shared/Modal';
+import React, { useContext, useState } from "react";
+import DepositContainer from "./DepositModal/DepositContainer";
+import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
+import BalanceCard from "../../../shared/BalanceCard";
+import AllBetTable from "../../../shared/InactiveTable";
+import Modal from "@/src/client/shared/Modal";
+import SubmitButton from "../../../shared/SubmitButton";
+import { BalanceContext } from "@/src/client/shared/Context/BalanceContext/BalanceContext";
 
 const DepositInner = () => {
-	const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
+  const {balance, setBalance} = useContext(BalanceContext)!;
 
-	const headers = [
-		'No',
-		'Reference ID',
-		'Date',
-		'Status',
-		'Amount',
-		'Channel',
-	];
-	return (
-		<div className='flex flex-col space-y-7 '>
-			<div className=' flex space-x-4'>
-				<BalanceCard
-					buttonState={true}
-					secondButton={false}
-					firstButtonText='Deposit'
-					secondButtonText=''
-					balanceButtonAction={handleClick}
-				/>
-			</div>
-			<div>
-				<AllBetTable
-					title='Transaction History'
-					headers={headers}
-					noBetsMessage='No transactions recorded'
-					placeBetButtonText='Deposit'
-					buttonAction={handleClick}
-					buttonLink=''
-				/>
-			</div>
-			<Modal
-				openModal={isOpen}
-				setOpenModal={setIsOpen}
-				className='custom-modal-class'
-				modalContent={<DepositContainer />}
-			/>
-		</div>
-	);
+  return (
+    <div className="">
+      <div className="mb-8 flex justify-between md:hidden">
+        <SubmitButton buttonContent="Deposit" />
+        <p className="font-bold">{`N${balance.toLocaleString()}`}</p>
+      </div>
+	  <p className="hidden md:block md:text-lg md:font-bold md:mb-4">Deposit</p>
+      <DepositContainer />
+    </div>
+  );
 };
 
 export default DepositInner;

@@ -4,7 +4,7 @@ import SupportInactive from "../../../DesktopUserDashboard/components/Support/Co
 
 const MobileSupportInactive = () => {
   return (
-    <div>
+    <div className="mb-16">
       <MobileDashboardLayout mobilelayoutcontent={<SupportInactive />} />
     </div>
   );

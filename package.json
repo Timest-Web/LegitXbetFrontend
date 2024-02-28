@@ -21,6 +21,7 @@
     "js-cookie": "^3.0.5",
     "next": "14.0.3",
     "react": "^18",
+    "react-datepicker": "^6.1.0",
     "react-dom": "^18",
     "react-infinite-scroll-component": "^6.1.0",
     "react-paystack": "^5.0.0",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
+    "@types/react-datepicker": "^6.0.1",
     "@types/react-dom": "^18",
     "@types/react-scroll": "^1.8.10",
     "@types/react-slick": "^0.23.13",

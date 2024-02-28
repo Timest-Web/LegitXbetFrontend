@@ -6,6 +6,7 @@ import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityCon
 import Modal from "@/src/client/shared/Modal";
 import BalanceCard from "../../../../shared/BalanceCard";
 import TableComp from "../../../../shared/ActiveTableComp";
+import TransactionDetailsCard from "../../../../shared/TransactionDetailsCard";
 
 const DepositActiveContentInner = () => {
   const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
@@ -15,26 +16,27 @@ const DepositActiveContentInner = () => {
 
   return (
     <div>
-      <BalanceCard
-        buttonState={true}
-        secondButton={false}
-        firstButtonText="Deposit"
-        secondButtonText=""
-        balanceButtonAction={handleClick}
-      />
-      <TableComp
-        tableTitle="Transactions history"
-        searchField={true}
-        filterField={true}
-        data={data}
-        columns={columns}
-      />
-      <Modal
-        openModal={isOpen}
-        setOpenModal={setIsOpen}
-        className="custom-modal-class"
-        modalContent={<DepositContainer />}
-      />
+      <div className="hidden md:block">
+        <TableComp
+          tableTitle="Deposit history"
+          searchField={true}
+          filterField={true}
+          data={data}
+          columns={columns}
+        />
+      </div>
+      <div className="md:hidden">
+        {data.map((deposit, index) => (
+          <TransactionDetailsCard
+            key={index}
+            amount={deposit.amount}
+            date={deposit.date}
+            status={deposit.status}
+            channel={deposit.channel}
+            reference_id={deposit.reference_id}
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -10,6 +10,7 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({
   title,
   children,
   isActive,
+
 }) => {
   return (
     <div
@@ -19,7 +20,7 @@ const ProfileMenu: React.FC<ProfileMenuProps> = ({
     >
       <div>{children}</div>
       <h2
-        className={`hover:bg-black hover:text-white hover:py-1 hover:px-2 hover:rounded-3xl ${
+        className={`hover:opacity-100 ${
           isActive ? "bg-black text-white py-1 px-2 rounded-3xl" : ""
         }`}
       >

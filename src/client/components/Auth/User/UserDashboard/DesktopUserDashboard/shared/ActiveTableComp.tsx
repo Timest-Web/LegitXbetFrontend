@@ -16,8 +16,8 @@ import FilterComponent from "./FilterComponent";
 
 interface TableProps {
   tableTitle: string;
-  searchField: boolean;
-  filterField: boolean;
+  searchField?: boolean;
+  filterField?: boolean;
   data: any[];
   columns: any[];
   betStatus?: React.JSX.Element;
@@ -45,40 +45,6 @@ const TableComp: React.FC<TableProps> = ({
     onGlobalFilterChange: setFiltering,
   });
 
-  const renderCarouselItems = () => {
-    return (
-      <Carousel.Item className="md:hidden">
-        <table className="w-[50rem] ">
-          <tbody>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <th
-                    className=" border-b-2 border-50 border-solid text-center"
-                    key={header.id}
-                  >
-                    {flexRender(
-                      header.column.columnDef.header,
-                      header.getContext()
-                    )}
-                  </th>
-                ))}
-              </tr>
-            ))}
-            {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <td className=" text-center h-9" key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </Carousel.Item>
-    );
-  };
 
   return (
     <div className="md:mt-6 w-full md:pb-12 ">
@@ -103,8 +69,8 @@ const TableComp: React.FC<TableProps> = ({
       </div>
 
       <div className="bg-white box-border w-full md:h-[34rem] h-[28rem] rounded-[20px] text-sm md:text-base p-4 md:p-8 mt-4 relative">
-        <CustomCarousel renderCarouselItems={renderCarouselItems} />
-        <div className="hidden md:flex">
+
+        <div className=" ">
           <table className="w-full">
             <tbody>
               {table.getHeaderGroups().map((headerGroup) => (

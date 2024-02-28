@@ -16,6 +16,9 @@ export const UserProvider: React.FC<UserProviderProps> = ({
     phoneNumber: "",
     verificationCode: "",
     bankDetail: null,
+    address: "",
+    dateOfBirth: "",
+    bvn: "",
   };
 
   const handleUserLogout = () => {

@@ -11,6 +11,8 @@ import {
   ControlsChevronDown,
 } from "@heathmont/moon-icons-tw";
 import Link from "next/link";
+import Receipt from "@/src/client/shared/Svg/Receipt";
+import Overview from "../../../DesktopUserDashboard/components/Overview/Components/Overview";
 
 const MobileOverview = () => {
   const [isDepositModalOpen, setDepositModalOpen] = useState(false);
@@ -30,57 +32,10 @@ const MobileOverview = () => {
   };
 
   return (
-    <div>
+    <div className="pb-16">
       <MobileDashboardLayout
         mobilelayoutcontent={
-          <div className="">
-            <div className="flex justify-between">
-              <p className=" font-bold mb-4 pt-3 ">Welcome, Johnson</p>
-            </div>
-            <BalanceCard
-              buttonState={true}
-              secondButton={true}
-              firstButtonText="Deposit"
-              secondButtonText="Withdrawal"
-              balanceButtonAction={(buttonType) => {
-                if (buttonType === "first") {
-                  handleDepositClick();
-                } else if (buttonType === "second") {
-                  handleWithdrawalClick();
-                }
-              }}
-            />
-            <Modal
-              openModal={isDepositModalOpen}
-              setOpenModal={setDepositModalOpen}
-              className="custom-modal-class"
-              modalContent={<DepositContainer />}
-            />
-            <Modal
-              openModal={isWithdrawalModalOpen}
-              setOpenModal={setWithdrawalModalOpen}
-              className="custom-modal-class"
-              modalContent={<WithdrawPop />}
-            />
-            <div
-              className="bg-white rounded-lg h-12 w-[99.5%] p-3 my-4 flex justify-between"
-              onClick={handleBetHistory}
-            >
-              <p>Bet History</p>
-              {betHistory && <ControlsChevronUp />}
-              {!betHistory && <ControlsChevronDown />}
-            </div>
-            {betHistory && <BetHistoryPopUp />}
-
-            <Link href="/user-dashboard/transaction">
-              <div className="bg-white rounded h-12 w-[99.5%] p-3 mt-4 ">
-                <p>Transaction History</p>
-              </div>
-            </Link>
-            <div className="mt-24">
-              <OverviewWelcomeTab />
-            </div>
-          </div>
+          <Overview/>
         }
       />
     </div>

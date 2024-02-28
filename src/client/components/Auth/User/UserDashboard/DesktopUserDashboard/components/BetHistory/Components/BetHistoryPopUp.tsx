@@ -2,6 +2,21 @@ import SubmitButton from "../../../shared/SubmitButton";
 import { Accordion } from "@heathmont/moon-core-tw";
 import { ControlsChevronDownSmall } from "@heathmont/moon-icons-tw";
 import Link from "next/link";
+import React from "react";
+
+interface BetHistoryPopUpProps{
+  date: string;
+  status:string;
+  stake: number;
+  returnStake: number;
+  team1: string;
+  team2: string;
+  oddsPlayed: number;
+  oddsResult: number;
+  scoreTeam1: number;
+  scoreTeam2: number;
+}
+
 
 const BetHistoryPopUp = () => {
   return (

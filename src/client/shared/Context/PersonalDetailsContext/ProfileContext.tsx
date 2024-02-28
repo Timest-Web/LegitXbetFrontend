@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useState } from 'react';
+import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.api";
+import React, { createContext, useContext, useEffect, useState } from "react";
+
 interface TotalPersonalDetails {
   firstName: string;
   lastName: string;
@@ -9,44 +11,58 @@ interface TotalPersonalDetails {
 
 type ProfileContextProps = {
   totalPersonalDetails: TotalPersonalDetails;
-  handleInputChange: (fieldName: string, value: string) => void;
-}
+  setTotalPersonalDetails: React.Dispatch<React.SetStateAction<TotalPersonalDetails>>; // Add setter function
+};
 
-const ProfileContext = createContext<ProfileContextProps | undefined>(undefined);
+const ProfileContext = createContext<ProfileContextProps | undefined>(
+  undefined
+);
 
 export const useProfileContext = () => {
-  return useContext(ProfileContext);
+  const context = useContext(ProfileContext);
+  if (!context) {
+    throw new Error("useProfileContext must be used within a ProfileProvider");
+  }
+  return context;
 };
 
 type ProfileProviderProps = {
-  children: React.JSX.Element;
+  children: React.ReactNode;
 };
 
-export const ProfileProvider: React.FC<ProfileProviderProps> = ({ children }) => {
-  const [totalPersonalDetails, setTotalPersonalDetails] = useState({
-    firstName: '',
-    lastName: '',
-    dob: '',
-    address: '',
-    bvn: '',
+export const ProfileProvider: React.FC<ProfileProviderProps> = ({
+  children,
+}) => {
+  const { data: userDetails, isLoading, error } = useGetUserProfile();
+  // console.log(userDetails.bvn, userDetails.name);
+  const fullName = userDetails?.name || "";
+  const [firstName, lastName] = fullName.split(" ");
+
+  const [totalPersonalDetails, setTotalPersonalDetails] = useState<TotalPersonalDetails>({
+    firstName: firstName || "",
+    lastName: lastName || "",
+    dob: userDetails?.dob || "",
+    address: userDetails?.address || "",
+    bvn: userDetails?.bvn || "",
   });
 
-  const handleInputChange = (fieldName:string, value:string) => {
-    setTotalPersonalDetails((prevValues) => ({
-      ...prevValues,
-      [fieldName]: value,
-    }));
-  };
 
-  const contextValue = {
-    totalPersonalDetails,
-    handleInputChange,
-  };
+
+  useEffect(() => {
+    if (userDetails) {
+      setTotalPersonalDetails({
+        firstName: firstName,
+        lastName: lastName,
+        dob: userDetails.dob,
+        address: userDetails.address,
+        bvn: userDetails.bvn,
+      });
+    }
+  }, [userDetails, setTotalPersonalDetails, firstName, lastName]);
 
   return (
-    <ProfileContext.Provider value={contextValue}>
+    <ProfileContext.Provider value={{ totalPersonalDetails, setTotalPersonalDetails }}>
       {children}
     </ProfileContext.Provider>
   );
 };
-
