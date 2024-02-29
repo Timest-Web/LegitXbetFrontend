@@ -6,10 +6,11 @@ import useGetFootballPageMatches from "@/src/helper/apis/services/bookmaking/foo
 import { LoaderScreen } from "@/src/client/shared/Loader/LoaderScreen";
 import { filterMatches } from "@/src/client/shared/Utils/FilterMatches";
 import { UpcomingBetTable } from "../../components/Tables/DesktopTable/UpcomingBetTable";
+import useGetLandingPageSportsMatches from "@/src/helper/apis/services/bookmaking/landingPage/get-landing-page-sports-and-matches";
 
 
 const DesktopLandingPage = () => {
-  const { data } = useGetFootballPageMatches();
+  const { data } = useGetLandingPageSportsMatches();
 
   if (!data) {
     return <LoaderScreen />;
@@ -23,7 +24,7 @@ const DesktopLandingPage = () => {
           centerSection={
             <CenterSection>
               <UpcomingBetTable
-                data={filterMatches(data, 2)}
+                data={filterMatches(data.upcoming.football, 2)}
                 viewFeatureMatches={2}
               />
             </CenterSection>
