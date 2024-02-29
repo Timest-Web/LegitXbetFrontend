@@ -50,18 +50,19 @@ const OddsButton = ({
     }
   };
 
-  // const handleAddGame = () => {
-  //   const addGameObj = {
-  //     sport: selectedOddObj.sport,
-  //     marketId: selectedOddObj.marketId,
-  //     matchId: Number(selectedOddObj.id),
-  //     marketName: selectedOddObj.marketName,
-  //     oddName,
-  //     odd: onextwoValue,
-  //   };
+  const handleAddGame = () => {
+    const addGameObj = {
+      sport: selectedOddObj.sport,
+      marketId: selectedOddObj.marketId,
+      matchId: Number(selectedOddObj.id),
+      marketName: selectedOddObj.marketName,
+      oddName,
+      odd: String(onextwoValue),
+    };
 
-  //   mutateAsync(addGameObj).then(() => {})
-  // };
+    // console.log(addGameObj)
+    mutateAsync(addGameObj).then(() => {})
+  };
 
   useEffect(() => {
     const isObjectExist = bet.some(
@@ -75,7 +76,7 @@ const OddsButton = ({
       onClick={() => {
         handleClick();
         onHandleClick(id, oddName, onextwoValue, selectedOddObj);
-        // handleAddGame();
+        handleAddGame();
       }}
       type="submit"
       className={`flex items-center justify-between transition-all transform ${
