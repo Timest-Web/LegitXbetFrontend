@@ -20,7 +20,7 @@ const Overview = () => {
   const columns: any = TransactionColumn();
   const user = useUser();
 
-  const referenceValue = "https://script.viserlab.com/betlab?reference=";
+  const referenceValue = "https://legitxbet.com/user?reference=";
   return (
     <div className="flex flex-col space-y-7 ">
       <div className="flex flex-col space-y-5 md:flex-row md:space-x-12 md:space-y-0">

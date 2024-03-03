@@ -17,7 +17,7 @@ const ProfileUpdate = () => {
   const { totalPersonalDetails, setTotalPersonalDetails } =
     useProfileContext()!;
   const [isEditable, setIsEditable] = useState(false);
-  const notify = () => toast.success("Password Updated Successfully");
+  const notify = () => toast.success("Profile Updated Successfully");
   const { data: userDetails, isLoading, error } = useGetUserProfile();
 
   const fullName = userDetails?.name || "";
@@ -50,6 +50,7 @@ const ProfileUpdate = () => {
     onSuccess: () => {
       console.log("Profile Details updated successfully");
       setIsEditable(false);
+      notify()
     },
   });
 
@@ -72,7 +73,7 @@ const ProfileUpdate = () => {
         new Date(totalPersonalDetails.dob)
       );
       
-      notify()
+     
       await updateProfile({
         name: totalPersonalDetails.firstName + totalPersonalDetails.lastName,
         address: totalPersonalDetails.address,
@@ -142,6 +143,9 @@ const ProfileUpdate = () => {
                   }}
                   dateFormat="yyyy-MM-dd"
                   disabled={!isEditable}
+                  showYearDropdown  
+                  scrollableYearDropdown 
+                  yearDropdownItemNumber={70} 
                 />
               </div>
 

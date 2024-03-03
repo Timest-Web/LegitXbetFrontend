@@ -31,7 +31,7 @@ const UserSection = ({ userName, userBalance }: { userName: string, userBalance:
             >
               <div className={index === 2 ? "ml-2" : ""}>{value.icon}</div>
               <p className="text-center font-bold text-gray-200 text-sm">
-                {index === 0 ? `N${userBalance}.00` : value.title}
+                {index === 0 ? `N${userBalance.toLocaleString()}` : value.title}
               </p>
             </Link>
           )}

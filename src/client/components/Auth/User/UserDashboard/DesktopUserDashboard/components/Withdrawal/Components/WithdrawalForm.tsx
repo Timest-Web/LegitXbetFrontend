@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import SubmitButton from "../../../shared/SubmitButton";
 import { BalanceContext } from "@/src/client/shared/Context/BalanceContext/BalanceContext";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { fetchBankList } from "@/src/helper/apis/services/wallet/getBank.api";
 import { verifyBank } from "@/src/helper/apis/services/wallet/getBankAccountDetails.api";
 import useUser from "@/src/client/shared/Context/UserContext/useUser";
@@ -24,6 +24,7 @@ const WithdrawalForm = () => {
   const [customerDetails, setCustomerDetails] = useState("");
   const [withdrawalField, setWithdrawalField] = useState(false);
   const user = useUser();
+  const queryClient = useQueryClient()
 
   const handleBankCodeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedBankCode(e.target.value);
@@ -101,6 +102,7 @@ const WithdrawalForm = () => {
       });
 
       const responseData = await res.json();
+      queryClient.invalidateQueries('USER_PROFILE' as any);
       console.log(responseData);
     } catch (error) {
       console.error("Error:", error);
