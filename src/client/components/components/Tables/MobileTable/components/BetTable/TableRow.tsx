@@ -1,11 +1,12 @@
 import React from "react";
+import Link from "next/link";
 import Time from "@/src/client/shared/Svg/Time";
 import Ranking from "@/src/client/shared/Svg/Ranking";
 import { truncateText } from "@/src/client/shared/Utils/TruncateText";
 import ScoreView from "../../../DesktopTable/components/ScoreView";
 import { MoreOdds } from "../../../DesktopTable/components/MoreOdds";
-import { OddsButtons } from "../../../DesktopTable/components/OddsButtons";
-import Link from "next/link";
+import { OddsButtons } from "@/src/client/shared/Button/OddsButton/OddsButtons";
+import { TableProps } from "../../../constant/data";
 
 const TableRow = ({
   id,
@@ -21,21 +22,13 @@ const TableRow = ({
   isLiveTable,
   teamOneScore,
   teamTwoScore,
-}: {
-  id: number;
-  time: string;
-  teamOne: string;
-  teamTwo: string;
-  home: string;
-  draw: string;
-  away: string;
-  homeName: string;
-  drawName: string;
-  awayName: string;
-  teamOneScore: string;
-  teamTwoScore: string;
-  isLiveTable?: boolean;
-}) => {
+  oddOne,
+  oddTwo,
+  oddThree,
+  sport,
+  marketId,
+  marketName,
+}: TableProps) => {
   const truncatedTeamOne = truncateText(teamOne, 10);
   const truncatedTeamTwo = truncateText(teamTwo, 10);
   const winInt = parseFloat(home);
@@ -53,14 +46,23 @@ const TableRow = ({
     homeName,
     awayName,
     drawName,
+    oddOne,
+    oddTwo,
+    oddThree,
+    sport,
+    marketId,
+    marketName
   };
 
   return (
     <div className={`bg-darkAsh w-full`}>
       <div className="flex flex-row w-full h-11">
-        <div className="flex items-center justify-center w-20 h-11 text-[10px] space-x-1 border-r border-r-lightAsh">
-          <Time color="#E6EAEE" />
-          <p className="text-gray-400 ">{time}</p>
+        <div className="flex flex-col items-center justify-center w-20 h-11 text-[10px] space-x-1 border-r border-r-lightAsh">
+          <div className="flex items-center justify-center space-x-1">
+            <Time color="#E6EAEE" />
+            <p className="text-gray-400 ">{time}</p>
+          </div>
+          <p className="text-[10px] text-gray-400">{`ID: ${id}`}</p>
         </div>
 
         <div className="flex items-center justify-between space-x-6  overflow-x-scroll border-t tablerow border-t-lightAsh w-screen text-gray-200 px-4 text-xs">

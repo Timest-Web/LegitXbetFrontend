@@ -62,12 +62,12 @@ export const USER_HEADER_DATA = [
       {
         icon: <User />,
         title: "Profile",
-        link: "/user-dashboard/profile/profile_update",
+        link: "/user-dashboard/profile",
       },
       {
         icon: <ReceiptSearch />,
         title: "Bet History",
-        link: "/user-dashboard/bet_history",
+        link: "/user-dashboard/bet-history",
       },
       {
         icon: <Logout />,
@@ -82,16 +82,17 @@ export const USER_HEADER_DATA = [
   },
 ];
 
+
 export const DATA = [
   {
     icon: <User />,
     title: "Profile",
-    link: "/user-dashboard/profile/profile_update",
+    link: "/user-dashboard/profile",
   },
   {
     icon: <ReceiptSearch />,
     title: "Bet History",
-    link: "/user-dashboard/bet_history",
+    link: "/user-dashboard/bet-history",
   },
   {
     icon: <Logout />,

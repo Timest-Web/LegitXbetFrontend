@@ -1,4 +1,4 @@
-import OddsButton from "@/src/client/shared/Button/OddsButton/OddsButton";
+import OddsButton from "./OddsButton";
 
 type OddsButtonProps = {
   id: number;
@@ -11,6 +11,12 @@ type OddsButtonProps = {
   home: number;
   draw: number;
   away: number;
+  oddOne: string;
+  oddTwo: string;
+  oddThree: string;
+  sport: string;
+  marketId: string;
+  marketName: string;
 };
 
 export const OddsButtons = ({
@@ -21,21 +27,21 @@ export const OddsButtons = ({
   <div className="flex flex-row space-x-2">
     <OddsButton
       id={selectedOddObj.id}
-      onextwo="1"
+      onextwo={selectedOddObj.oddOne}
       oddName={selectedOddObj.homeName}
       selectedOddObj={selectedOddObj}
       onextwoValue={selectedOddObj.home}
     />
     <OddsButton
       id={selectedOddObj.id}
-      onextwo="X"
+      onextwo={selectedOddObj.oddTwo}
       oddName={selectedOddObj.drawName}
       selectedOddObj={selectedOddObj}
       onextwoValue={selectedOddObj.draw}
     />
     <OddsButton
       id={selectedOddObj.id}
-      onextwo="2"
+      onextwo={selectedOddObj.oddThree}
       oddName={selectedOddObj.awayName}
       selectedOddObj={selectedOddObj}
       onextwoValue={selectedOddObj.away}

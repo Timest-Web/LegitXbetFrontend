@@ -42,6 +42,9 @@ const Otp = ({ title, phoneNo, msgValue, fieldsValue, mutationFunction }: OtpPro
 	const { mutateAsync, isPending } = useMutation({mutationFn: mutationFunction});
 	const handleSubmit = () => {
 		const data = { phoneNumber: phoneNo, code };
+
+		
+
 		if (inputOtpValue.length === fieldsValue) {
 			mutateAsync(data).then((res) => {
 				apiMessageHelper({
@@ -112,7 +115,7 @@ const Otp = ({ title, phoneNo, msgValue, fieldsValue, mutationFunction }: OtpPro
 					isPending={isPending}
 					validationErrors={inputOtpValue}
 					handleSubmit={handleSubmit}
-					inputVerificationErrorsLength={6}
+					inputVerificationErrorsLength={fieldsValue}
 				/>
 			</div>
 		</div>
