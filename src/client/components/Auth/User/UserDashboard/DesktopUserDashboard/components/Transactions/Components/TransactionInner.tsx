@@ -3,7 +3,7 @@ import TransactionInactiveHeader from "./TransactionInactiveHeaders";
 import AllBetTable from "../../../shared/InactiveTable";
 import TransactionCard from "./TransactionCard";
 import transactionData from "../../../../MobileUserDashboard/constant/MOCK_DATA (7).json";
-import { TransactionContext } from "@/src/client/shared/Context/TransactionContext/TransactionContext";
+import { useTransactions } from "@/src/client/shared/Context/TransactionContext/TransactionContext";
 
 const ITEMS_PER_PAGE = 5;
 
@@ -32,7 +32,7 @@ const TransactionInner = () => {
 
   const [filterType, setFilterType] = useState<string>("");
   const [filterDate, setFilterDate] = useState<string>("");
-  const transactions = useContext(TransactionContext);
+  const transactions = useTransactions();
   const data = transactions;
 
   const formattedData = data.map((allTransaction: any, index: number) => ({

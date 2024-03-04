@@ -25,7 +25,7 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { getDeposit } from "@/src/helper/apis/services/transaction-list/get-deposit.api";
 import axios from "axios";
-import { TransactionContext } from "@/src/client/shared/Context/TransactionContext/TransactionContext";
+import { useTransactions } from "@/src/client/shared/Context/TransactionContext/TransactionContext";
 
 const Overview = () => {
   const formatDate = (dateString: string) => {
@@ -53,7 +53,7 @@ const Overview = () => {
   const query = useQuery({ queryKey: ["deposit"], queryFn: getDeposit });
   const depoData = query.data || [];
   const referenceValue = "https://legitxbet.com/user?reference=";
-  const transactions = useContext(TransactionContext);
+  const transactions = useTransactions();
   const data = transactions;
 
   const formattedData = data.map((allTransaction: any, index: number) => ({

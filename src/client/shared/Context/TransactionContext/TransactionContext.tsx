@@ -1,49 +1,28 @@
-import React, { createContext, useState, useEffect, ReactNode } from "react";
+import getTransactionList from "@/src/helper/apis/services/transaction-list/get-transaction.api";
+import { useQuery } from "@tanstack/react-query";
+import React, { createContext, ReactNode, useContext } from "react";
+
 
 const TransactionContext = createContext<any[]>([]);
 
-interface TransactonProviderProps{
+interface TransactionProviderProps {
     children: ReactNode
 }
 
-const TransactionProvider: React.FC<TransactonProviderProps> = ({ children }) => {
-    const [transactions, setTransactions] = useState<any[]>([]);
+const TransactionProvider: React.FC<TransactionProviderProps> = ({ children }) => {
+  const query = useQuery({ queryKey: ["deposit"], queryFn: getTransactionList });
+  const transactions = query.data || [];
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const userDetails = localStorage.getItem("access") || "{}";
-      const parsedDetails = JSON.parse(userDetails);
-      const baseUrl = "https://legitx.ng/transactions/";
-      const token = parsedDetails.accessToken;
-      try {
-        const [creditResponse, debitResponse] = await Promise.all([
-          fetch(baseUrl + "credit", {
-            headers: { Authorization: `Bearer ${token}` },
-          }),
-          fetch(baseUrl + "debit", {
-            headers: { Authorization: `Bearer ${token}` },
-          }),
-        ]);
+    if (query.isLoading) return <div>Loading...</div>;
+    if (query.isError) return <div>Error fetching transactions</div>;
 
-        const creditTransactions = await creditResponse.json();
-        const debitTransactions = await debitResponse.json();
-
-        const allTransactions = [...creditTransactions, ...debitTransactions];
-
-        setTransactions(allTransactions);
-      } catch (error) {
-        console.error("Error fetching transactions:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  return (
-    <TransactionContext.Provider value={transactions}>
-      {children}
-    </TransactionContext.Provider>
-  );
+    return (
+        <TransactionContext.Provider value={transactions}>
+            {children}
+        </TransactionContext.Provider>
+    );
 };
 
-export { TransactionContext, TransactionProvider };
+const useTransactions = () => useContext(TransactionContext);
+
+export { TransactionProvider, useTransactions };

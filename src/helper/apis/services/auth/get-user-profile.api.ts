@@ -17,7 +17,7 @@ const useGetUserProfile = () => {
             responseData.statusCode = responseData.status;
             return responseData;
         } catch (error) {
-            console.error(error);
+            console.error(error); 
         }
     };
 
