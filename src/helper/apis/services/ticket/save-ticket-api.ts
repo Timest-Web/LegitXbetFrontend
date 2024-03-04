@@ -1,18 +1,29 @@
-export interface ChangePasswordPayload {
-  oldPassword: string;
-  newPassword: string;
+export interface SaveTicketPayload {
+  games: {
+    sport: string;
+    matchId: string;
+    marketId: string;
+    marketName: string;
+    oddName: string;
+    odd: string;
+  }[];
 }
 
-export const changePassword = async (payload: ChangePasswordPayload) => {
+export interface SaveTicketResponse {
+  code: string;
+}
+
+export const saveTicket: (
+  payload: SaveTicketPayload
+) => Promise<SaveTicketResponse> = async (payload) => {
   try {
     const userDetails = localStorage.getItem("access") || "{}";
     const parsedDetails = JSON.parse(userDetails);
-    const response = await fetch("https://legitx.ng/auth/change-password", {
+    const response = await fetch("https://legitx.ng/ticket/save-ticket", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
-        'Authorization': `Bearer ${parsedDetails?.accessToken}`
-          
+        Authorization: `Bearer ${parsedDetails?.accessToken}`,
       },
       body: JSON.stringify(payload),
     });

@@ -1,5 +1,5 @@
 export type ModalProps = {
-	className: string;
+	className?: string;
 	openModal: boolean;
 	modalContent: React.JSX.Element;
 	setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;

@@ -2,6 +2,7 @@ import React from "react";
 import { useLink } from "@/src/client/shared/Hooks/useLink";
 import RenderBetSlipType from "./components/RenderBetSlipType";
 import useBet from "../Context/BetContext/useBet";
+import MyBet from "./BetTypes/MyBet";
 
 const BetSlip = () => {
   const betSlipTitle = ["Bet Slip", "My Bets"];
@@ -10,23 +11,18 @@ const BetSlip = () => {
   const { link: betSlipTypeLink, handleClick: betSlipTypeHandleClick } = useLink("Single");
   const { bet } = useBet();
 
-  // console.log(bet);
-
   const checkDifferentIds = (array: any) => {
     const idSet = new Set();
-
     for (const obj of array) {
       idSet.add(obj.id);
       if (idSet.size >= 2) {
         return true;
       }
     }
-
     return false;
   };
 
   const checkDifferentOddsId = checkDifferentIds(bet);
-
   return (
     <div className="w-[283px] h-max rounded-lg shadow-lg border bg-white pb-2">
       <div className="flex items-center justify-between py-4 px-3">
@@ -44,34 +40,31 @@ const BetSlip = () => {
       </div>
 
       <hr />
-
+      
       <div className="flex items-center justify-between px-12 text-xs py-3 font-bold">
-        <p
-          className={`${
-            bet.length > 0 ? "text-black" : "text-gray-400"
-          } cursor-pointer`}
-        >
-          Single
-        </p>
-        <p
-          className={`${
-            checkDifferentOddsId === true ? "text-black" : "text-gray-400"
-          } cursor-pointer`}
-        >
-          Multiple
-        </p>
-        <p
-          className={`${
-            checkDifferentOddsId === true ? "text-black" : "text-gray-400"
-          } cursor-pointer`}
-        >
-          System
-        </p>
+        {[
+          { type: "Single", active: bet.length > 0 },
+          { type: "Multiple", active: checkDifferentOddsId },
+          { type: "System", active: checkDifferentOddsId },
+        ].map((betType, index) => (
+          <p
+            key={index}
+            className={`${
+              betType.active ? "text-black" : "text-gray-400"
+            } cursor-pointer`}
+          >
+            {betType.type}
+          </p>
+        ))}
       </div>
 
       <hr />
 
-      <RenderBetSlipType betSlipTypeLink={betSlipTypeLink} />
+      {link === "Bet Slip" && (
+        <RenderBetSlipType betSlipTypeLink={betSlipTypeLink} />
+      )}
+
+      {link === "My Bets" && <MyBet />}
     </div>
   );
 };

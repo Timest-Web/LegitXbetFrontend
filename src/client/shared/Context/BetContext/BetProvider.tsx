@@ -1,19 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import { BetContext } from "./BetContext";
-import { OddsValuesProps } from "./constant";
+import { OddsValuesProps, SelectedOddsObjectProps } from "./constant";
 
 type BetProviderProps = {
   children: React.ReactNode;
-};
-
-type SelectedOddsObjectProps = {
-  id: number;
-  time: string;
-  teamOne: string;
-  teamTwo: string;
-  home?: number | undefined;
-  draw: number;
-  away?: number | undefined;
 };
 
 export const BetProvider: React.FC<BetProviderProps> = ({
@@ -53,6 +43,9 @@ export const BetProvider: React.FC<BetProviderProps> = ({
                 teamOne: selectedOddObj.teamOne,
                 teamTwo: selectedOddObj.teamTwo,
                 odd: odd,
+                sport: selectedOddObj.sport,
+                marketId: selectedOddObj.marketId,
+                marketName: selectedOddObj.marketName,
                 oddName,
               },
             ]);

@@ -10,16 +10,21 @@ type SelectedOddsObjectProps = {
   home?: number | undefined;
   draw: number;
   away?: number | undefined;
+  sport: string;
+  marketId: string;
+  marketName: string;
 };
 
 const OddButton = ({
   id,
   onextwo,
+  oddName,
   onextwoValue,
   selectedOddObj,
 }: {
   id: number;
   onextwo?: string;
+  oddName: string;
   onextwoValue?: number;
   selectedOddObj: SelectedOddsObjectProps;
 }) => {
@@ -60,7 +65,7 @@ const OddButton = ({
           onClick={() => {
             handleClick();
             if (onextwo !== undefined) {
-              onHandleClick(id, onextwo, onextwoValue, selectedOddObj);
+              onHandleClick(id, oddName, onextwoValue, selectedOddObj);
             }
           }}
           type="submit"

@@ -2,12 +2,10 @@ import React from "react";
 import Layout from "../../Layout";
 import LeftSection from "./LeftSection";
 import CenterSection from "../../components/MainSection/CenterSection";
-import useGetFootballPageMatches from "@/src/helper/apis/services/bookmaking/football/get-football-page-matches";
 import { LoaderScreen } from "@/src/client/shared/Loader/LoaderScreen";
 import { filterMatches } from "@/src/client/shared/Utils/FilterMatches";
 import { UpcomingBetTable } from "../../components/Tables/DesktopTable/UpcomingBetTable";
 import useGetLandingPageSportsMatches from "@/src/helper/apis/services/bookmaking/landingPage/get-landing-page-sports-and-matches";
-
 
 const DesktopLandingPage = () => {
   const { data } = useGetLandingPageSportsMatches();
@@ -15,6 +13,8 @@ const DesktopLandingPage = () => {
   if (!data) {
     return <LoaderScreen />;
   }
+
+  const filterMatchesData = filterMatches(data.upcoming.football, 2);
 
   return (
     <>
@@ -24,7 +24,7 @@ const DesktopLandingPage = () => {
           centerSection={
             <CenterSection>
               <UpcomingBetTable
-                data={filterMatches(data.upcoming.football, 2)}
+                data={filterMatchesData}
                 viewFeatureMatches={2}
               />
             </CenterSection>

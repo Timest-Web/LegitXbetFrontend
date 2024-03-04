@@ -18,32 +18,34 @@ export const getFeatureDates = (noOfDays: number) => {
 
 
 function formatDate(date: any) {
-    const day = date.getDate();
-    const monthIndex = date.getMonth();
-    return monthNames[monthIndex] + " " + day;
+  const day = date.getDate();
+  const monthIndex = date.getMonth();
+  const formattedDay = day < 10 ? "0" + day : day;
+  return monthNames[monthIndex] + " " + formattedDay;
 }
 
 
-export const getSingleDate = (inputDate: string) => {
-	const currentDate = new Date();
-	const inputDateObject = new Date(inputDate);
+// export const getSingleDate = (inputDate: string) => {
+//   const currentDate = new Date();
+//   const inputDateObject = new Date(inputDate);
 
-	if (
-		inputDateObject.getDate() === currentDate.getDate() &&
-		inputDateObject.getMonth() === currentDate.getMonth() &&
-		inputDateObject.getFullYear() === currentDate.getFullYear()
-	) {
-		return "Today";
-	} else {
-		const day = inputDateObject.getDate();
-		const month = monthNames[inputDateObject.getMonth()];
-		return `${month} ${day}`;
-	}
-}
+//   if (
+//     inputDateObject.getDate() === currentDate.getDate() &&
+//     inputDateObject.getMonth() === currentDate.getMonth() &&
+//     inputDateObject.getFullYear() === currentDate.getFullYear()
+//   ) {
+//     return "Today";
+//   } else {
+//     const day = inputDateObject.getDate();
+//     const month = monthNames[inputDateObject.getMonth()];
+//     return `${month} ${day}`;
+//   }
+// };
 
 export const getTodayDate = () => {
-    const currentDate = new Date();
-    const day = currentDate.getDate();
-    const month = monthNames[currentDate.getMonth()];
-    return `${month} ${day}`;
-}
+  const currentDate = new Date();
+  const day = currentDate.getDate();
+  const formattedDay = day < 10 ? "0" + day : day;
+  const month = monthNames[currentDate.getMonth()];
+  return `${month} ${formattedDay}`;
+};
