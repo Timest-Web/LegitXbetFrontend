@@ -28,9 +28,14 @@ const TransactionColumn = () => [
     accessorKey: "status",
   },
   {
-    header: "Amount",
+    header: "Amount (NGN)",
     accessorKey: "amount",
   },
+  {
+    header: "Type",
+    accessorKey: "type",
+  },
+
   {
     header: "Channel",
     accessorKey: "merchant",

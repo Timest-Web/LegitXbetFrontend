@@ -45,6 +45,9 @@ const Overview = () => {
     console.log("Formatted Date:", formattedDate);
     return formattedDate;
   };
+  const capitalizeFirstLetter = (string:string)=> {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
   const columns: any = TransactionColumn();
   const user = useUser();
   const query = useQuery({ queryKey: ["deposit"], queryFn: getDeposit });
@@ -57,8 +60,11 @@ const Overview = () => {
   const formattedData = data.map((allTransaction: any, index: number) => ({
     ...allTransaction,
     serialNumber: index + 1,
+    merchant: capitalizeFirstLetter(allTransaction.merchant),
+    status: capitalizeFirstLetter(allTransaction.status),
     createdAt: formatDate(allTransaction.createdAt),
     amount: allTransaction.amount.toLocaleString(),
+    type: allTransaction.type === "credit" ? "Deposit" : "Withdrawal"
   }));
 
   return (

@@ -16,7 +16,7 @@ const DepositColumn = ()=>[
       accessorKey: "status",
     },
     {
-      header: "Amount",
+      header: "Amount (NGN)",
       accessorKey: "amount",
     },
     {

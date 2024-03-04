@@ -14,7 +14,7 @@ const DepositActiveContentInner = () => {
   const formatDate = (dateString: string) => {
     if (!dateString) return "";
     const date = new Date(dateString);
-
+ 
     if (isNaN(date.getTime())) {
       console.log("Date Parsing Failed:", dateString);
       return dateString;
@@ -28,6 +28,9 @@ const DepositActiveContentInner = () => {
     console.log("Formatted Date:", formattedDate);
     return formattedDate;
   };
+  const capitalizeFirstLetter = (string:string)=> {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
   const query = useQuery({ queryKey: ["deposit"], queryFn: getDeposit });
   const data = query.data || [];
@@ -36,6 +39,8 @@ const DepositActiveContentInner = () => {
   const formattedData = data.map((deposit: any, index: number) => ({
     ...deposit,
     serialNumber: index + 1,
+    merchant: capitalizeFirstLetter(deposit.merchant),
+    status: capitalizeFirstLetter(deposit.status),
     createdAt: formatDate(deposit.createdAt),
     amount: deposit.amount.toLocaleString(),
   }));
