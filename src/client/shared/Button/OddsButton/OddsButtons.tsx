@@ -24,6 +24,7 @@ export const OddsButtons = ({
 }: {
   selectedOddObj: OddsButtonProps;
 }) => (
+  
   <div className="flex flex-row space-x-2">
     <OddsButton
       id={selectedOddObj.id}

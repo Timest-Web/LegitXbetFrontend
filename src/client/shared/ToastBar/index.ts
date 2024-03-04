@@ -20,7 +20,7 @@ export const SuccessToast = ({ text }: Props) => {
 
 export const ErrorToast = ({ text }: Props) => {
 	toast.error(text, {
-		position: 'top-left',
+		position: 'top-right',
 		autoClose: 5000,
 		hideProgressBar: false,
 		closeOnClick: true,

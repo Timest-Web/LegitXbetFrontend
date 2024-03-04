@@ -1,19 +1,19 @@
 
 import { SPORTS_DATA } from "../../../LandingPage/constant/data";
 import MatchStar from "@/src/client/shared/Svg/MatchStar";
-import { useBetTable } from "@/src/client/shared/Hooks/useBetTable";
+// import { useBetTable } from "@/src/client/shared/Hooks/useBetTable";
 import BetTable from "./components/BetTable";
 
 
 export const TopBetTable = () => {
-  const {
-    odds,
-    sportData,
-    setSelectedDate,
-    setSelectedSport,
-    setSelectedLeague,
-    extractedSportType,
-  } = useBetTable(SPORTS_DATA?.TopMatches);
+  // const {
+  //   odds,
+  //   sportData,
+  //   setSelectedDate,
+  //   setSelectedSport,
+  //   setSelectedLeague,
+  //   extractedSportType,
+  // } = useBetTable(SPORTS_DATA?.TopMatches);
 
   return (
     <></>

@@ -51,12 +51,14 @@ const BetTable = ({
           .map((value: any) => ({
             ...value,
             matches: value?.matches.filter(
-              (match: any) => match?.date !== dateClick
+              (match: any) => match?.date === dateClick
             ),
           }))
           .filter((value: any) => value?.matches.length > 0)
       : [];
   };
+
+  // console.log(extractedLeagues())
 
   const extractLeagues = extractedLeagues();
   const { link: leagueClick, handleClick: leagueHandleClick } = useLink(
@@ -193,6 +195,7 @@ const BetTable = ({
                           key={index}
                           id={value.id}
                           time={value.time}
+                          league={leagueClick}
                           teamOne={value.home.name}
                           teamTwo={value.away.name}
                           sport={sportClick}

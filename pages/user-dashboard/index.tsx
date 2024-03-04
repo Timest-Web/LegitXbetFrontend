@@ -7,14 +7,6 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 const UserDashboards: NextPage = (props) => {
-  // const router = useRouter();
-  // const { user } = useUser();
-
-  // useEffect(() => {
-  //   if (!user.name) {
-  //     router.push("/");
-  //   }
-  // }, [router,user]);
 
   return (
     <div>

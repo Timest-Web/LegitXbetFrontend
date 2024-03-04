@@ -1,17 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 
-const useGetFootballLeaguesFeed = () => {
-  const getFootballLeaguesFeed = async () => {
+const useGetMatchById = ({matchId}:{matchId: string}) => {
+  const getMatchById = async () => {
     try {
       const response = await fetch(
-        "https://legitx.ng/bookmaking/football/leagues/fixtures/feed",
+        `https://legitx.ng/bookmaking/football/matches/${matchId}`,
         {
           method: "GET",
         }
       );
+
       const responseData = await response.json();
       responseData.statusCode = responseData.status;
-
       return responseData;
     } catch (error) {
       console.error(error);
@@ -19,11 +19,11 @@ const useGetFootballLeaguesFeed = () => {
   };
 
   const query = useQuery({
-    queryFn: getFootballLeaguesFeed,
-    queryKey: ["GET_FOOTBALL_LEAGUES_FEED"],
+    queryFn: getMatchById,
+    queryKey: ["GET_MATCH_BY_ID"],
   });
 
   return query;
 };
 
-export default useGetFootballLeaguesFeed;
+export default useGetMatchById;
