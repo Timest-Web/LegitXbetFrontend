@@ -5,31 +5,31 @@ import Link from "next/link";
 
 interface TransactionCardProps {
   type: string;
-  date: string;
+  createdAt: string;
   time: string;
   amount: number;
-  transaction_id: string;
+  reference: string;
   status: string;
-  channel: string;
+  merchant: string;
 }
 
 const TransactionCard: React.FC<TransactionCardProps> = ({
   type,
-  date,
+  createdAt,
   time,
   amount,
-  transaction_id,
+  reference,
   status,
-  channel,
+  merchant,
 }) => {
   const queryParams = {
     type,
-    date,
+    createdAt,
     time,
     amount,
-    transaction_id,
+    reference,
     status,
-    channel,
+    merchant,
   };
 
 
@@ -46,8 +46,7 @@ const TransactionCard: React.FC<TransactionCardProps> = ({
         <div>
           <p className="font-bold">{type}</p>
           <div className="text-xs flex space-x-3">
-            <span>{date}</span>
-            <span>{time}</span>
+            <span>{createdAt}</span>
           </div>
         </div>
         <p>{amount}</p>

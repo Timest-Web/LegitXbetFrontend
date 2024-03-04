@@ -9,12 +9,13 @@ import TableComp from "../../../../shared/ActiveTableComp";
 import TransactionDetailsCard from "../../../../shared/TransactionDetailsCard";
 import { useQuery } from "@tanstack/react-query";
 import { getDeposit } from "@/src/helper/apis/services/transaction-list/get-deposit.api";
+import { usePagination } from "@/src/client/shared/Hooks/usePagination";
 
 const DepositActiveContentInner = () => {
   const formatDate = (dateString: string) => {
     if (!dateString) return "";
     const date = new Date(dateString);
- 
+
     if (isNaN(date.getTime())) {
       console.log("Date Parsing Failed:", dateString);
       return dateString;
@@ -28,9 +29,9 @@ const DepositActiveContentInner = () => {
     console.log("Formatted Date:", formattedDate);
     return formattedDate;
   };
-  const capitalizeFirstLetter = (string:string)=> {
+  const capitalizeFirstLetter = (string: string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
-}
+  };
 
   const query = useQuery({ queryKey: ["deposit"], queryFn: getDeposit });
   const data = query.data || [];
@@ -44,8 +45,9 @@ const DepositActiveContentInner = () => {
     createdAt: formatDate(deposit.createdAt),
     amount: deposit.amount.toLocaleString(),
   }));
-
-  console.log(formattedData);
+  const itemsPerPage = 5;
+  const { currentItems, currentPage, totalPages, nextPage, prevPage } =
+    usePagination(itemsPerPage, formattedData);
 
   return (
     <div>
@@ -59,7 +61,7 @@ const DepositActiveContentInner = () => {
         />
       </div>
       <div className="md:hidden">
-        {formattedData.map((deposit: any, index: any) => (
+        {currentItems.map((deposit: any, index: any) => (
           <TransactionDetailsCard
             key={index}
             amount={deposit.amount}
@@ -69,6 +71,22 @@ const DepositActiveContentInner = () => {
             reference_id={deposit.reference}
           />
         ))}
+        <div className="mt-4">
+          <button
+            onClick={prevPage}
+            disabled={currentPage === 1}
+            className="bg-black hover:opacity-50 text-white font-bold py-2 px-4 rounded mr-2"
+          >
+            Previous
+          </button>
+          <button
+            onClick={nextPage}
+            disabled={currentPage === totalPages}
+            className="bg-black hover:opacity-50 text-white font-bold py-2 px-4 rounded"
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,18 +1,51 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import TransactionInactiveHeader from "./TransactionInactiveHeaders";
 import AllBetTable from "../../../shared/InactiveTable";
 import TransactionCard from "./TransactionCard";
 import transactionData from "../../../../MobileUserDashboard/constant/MOCK_DATA (7).json";
+import { TransactionContext } from "@/src/client/shared/Context/TransactionContext/TransactionContext";
 
 const ITEMS_PER_PAGE = 5;
 
 const TransactionInner = () => {
+  const formatDate = (dateString: string) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+
+    if (isNaN(date.getTime())) {
+      console.log("Date Parsing Failed:", dateString);
+      return dateString;
+    }
+
+    const options = { year: "numeric", month: "short", day: "2-digit" };
+    const formattedDate = date.toLocaleDateString(
+      "en-US",
+      options as Intl.DateTimeFormatOptions
+    );
+    console.log("Formatted Date:", formattedDate);
+    return formattedDate;
+  };
+  const capitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
   const [currentPage, setCurrentPage] = useState(1);
 
   const [filterType, setFilterType] = useState<string>("");
   const [filterDate, setFilterDate] = useState<string>("");
+  const transactions = useContext(TransactionContext);
+  const data = transactions;
 
-  const filteredTransactions = transactionData.filter((transaction) => {
+  const formattedData = data.map((allTransaction: any, index: number) => ({
+    ...allTransaction,
+    serialNumber: index + 1,
+    merchant: capitalizeFirstLetter(allTransaction.merchant),
+    status: capitalizeFirstLetter(allTransaction.status),
+    createdAt: formatDate(allTransaction.createdAt),
+    amount: allTransaction.amount.toLocaleString(),
+    type: allTransaction.type === "credit" ? "Deposit" : "Withdrawal"
+  }));
+
+  const filteredTransactions = formattedData.filter((transaction) => {
     const typeCondition = filterType === "" || transaction.type === filterType;
     const dateCondition =
       filterDate === "" ||
@@ -59,7 +92,7 @@ const TransactionInner = () => {
             <option value="Winnings">Winnings</option>
           </select>
         </div>
-        <div className="text-sm">
+        {/* <div className="text-sm">
           <label htmlFor="filterDate">Filter by Date: </label>
           <input
             className="p-[0.2rem] rounded-md"
@@ -68,7 +101,7 @@ const TransactionInner = () => {
             value={filterDate}
             onChange={(e) => setFilterDate(e.target.value)}
           />
-        </div>
+        </div> */}
       </section>
 
       <>

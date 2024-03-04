@@ -112,7 +112,7 @@ const WithdrawalForm = () => {
   const handleWithdrawal = async () => {
     const userDetails = localStorage.getItem("access") || "{}";
     const parsedDetails = JSON.parse(userDetails);
-    const url = "https://legitx.ng/wallet/withdraw";
+    const url = "https://legitx.ng/wallet/automatic-withdrawal";
     const headers = {
       "Content-Type": "application/json",
       accept: "*/*",
@@ -121,6 +121,7 @@ const WithdrawalForm = () => {
     const data = {
       amount: parseInt(formData.withdrawalAmount, 10),
       userId: user.user.id,
+      trxId: 6
     };
 
     try {
@@ -255,7 +256,7 @@ const WithdrawalForm = () => {
                 type="submit"
                 className="mt-9 bg-black p-2 rounded-md text-white"
               >
-                <p>Withdraw</p>
+                Withdraw
                 {/* <SubmitButton buttonContent="Withdraw" /> */}
               </button>
             </div>

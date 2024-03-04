@@ -7,7 +7,7 @@ import { ArrowsLeft } from "@heathmont/moon-icons-tw";
 
 const TransactionDetails = () => {
   const router = useRouter();
-  const { type, date, time, amount, transaction_id, status, channel } = router.query;
+  const { type, createdAt, time, amount, reference, status, merchant } = router.query;
 
   return (
     <div className="bg-gray-200 h-screen">
@@ -20,10 +20,10 @@ const TransactionDetails = () => {
           Amount(NGN) <span className="font-bold">{amount}</span>
         </p>
         <p className="flex justify-between">
-          Date <span className="font-bold">{date}</span>
+          Date <span className="font-bold">{createdAt}</span>
         </p>
         <p className="flex justify-between">
-          Reference Id <span className="font-bold">{transaction_id}</span>
+          Reference Id <span className="font-bold">{reference}</span>
         </p>
         <p className="flex justify-between">
           Status <span className="font-bold">{status}</span>
@@ -32,7 +32,7 @@ const TransactionDetails = () => {
           Type <span className="font-bold">{type}</span>
         </p>
         <p className="flex justify-between">
-          Channel <span className="font-bold">{channel}</span>
+          Channel <span className="font-bold">{merchant}</span>
         </p>
       </div>
     </div>

@@ -45,16 +45,15 @@ const Overview = () => {
     console.log("Formatted Date:", formattedDate);
     return formattedDate;
   };
-  const capitalizeFirstLetter = (string:string)=> {
+  const capitalizeFirstLetter = (string: string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
-}
+  };
   const columns: any = TransactionColumn();
   const user = useUser();
   const query = useQuery({ queryKey: ["deposit"], queryFn: getDeposit });
   const depoData = query.data || [];
   const referenceValue = "https://legitxbet.com/user?reference=";
   const transactions = useContext(TransactionContext);
-  console.log(transactions);
   const data = transactions;
 
   const formattedData = data.map((allTransaction: any, index: number) => ({
@@ -64,9 +63,12 @@ const Overview = () => {
     status: capitalizeFirstLetter(allTransaction.status),
     createdAt: formatDate(allTransaction.createdAt),
     amount: allTransaction.amount.toLocaleString(),
-    type: allTransaction.type === "credit" ? "Deposit" : "Withdrawal"
+    type: allTransaction.type === "credit" ? "Deposit" : "Withdrawal",
   }));
-
+  const totalDeposits = depoData.reduce(
+    (total: number, deposit: any) => total + deposit.amount,
+    0
+  );
   return (
     <div className="flex flex-col space-y-7 ">
       <div className="flex flex-col space-y-5 md:flex-row md:space-x-12 md:space-y-0">
@@ -95,15 +97,17 @@ const Overview = () => {
         className="grid grid-rows-6 gap-3 md:grid-cols-3 md:grid-rows-2 md:gap-x-2 "
       >
         <ReuseTab
+          href="/user-dashboard/deposit/deposit-history"
           icon={
             <div className="bg-white p-4 rounded-md">
               <ShopWallet className="text-moon-32" />
             </div>
           }
-          figure={depoData.length}
+          figure={`NGN ${totalDeposits.toLocaleString()}`}
           description="Total Deposits"
         />
         <ReuseTab
+          href=""
           icon={
             <div className="bg-white p-4 rounded-md">
               <ShopCashback className="text-moon-32" />
@@ -113,6 +117,7 @@ const Overview = () => {
           description="Total Withdrawal"
         />
         <ReuseTab
+          href=""
           icon={
             <div className="bg-white p-4 rounded-md">
               <GenericMultiBet className="text-moon-32" />
@@ -122,6 +127,7 @@ const Overview = () => {
           description="Total Bets"
         />
         <ReuseTab
+          href=""
           icon={
             <div className="bg-white p-4 rounded-md">
               <TimeSandglass className="text-moon-32" />
@@ -131,15 +137,17 @@ const Overview = () => {
           description="Pending Bets"
         />
         <ReuseTab
+          href="/user-dashboard/transaction"
           icon={
             <div className="bg-white p-4 rounded-md">
               <GenericBookmark className="text-moon-32" />
             </div>
           }
           figure={formattedData.length}
-          description="Transactions"
+          description="Total Transactions"
         />
         <ReuseTab
+          href=""
           icon={
             <div className="bg-white p-4 rounded-md">
               <GenericTicket className="text-moon-32" />
