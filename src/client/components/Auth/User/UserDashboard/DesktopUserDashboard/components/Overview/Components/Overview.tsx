@@ -24,8 +24,10 @@ import {
 } from "@heathmont/moon-icons-tw";
 import { useQuery } from "@tanstack/react-query";
 import { getDeposit } from "@/src/helper/apis/services/transaction-list/get-deposit.api";
-import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useTransactions } from "@/src/client/shared/Context/TransactionContext/TransactionContext";
+import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.api";
 
 const Overview = () => {
   const formatDate = (dateString: string) => {
@@ -50,9 +52,11 @@ const Overview = () => {
   };
   const columns: any = TransactionColumn();
   const user = useUser();
+  const { data: userDetails, isLoading, error } = useGetUserProfile();
   const query = useQuery({ queryKey: ["deposit"], queryFn: getDeposit });
   const depoData = query.data || [];
-  const referenceValue = "https://legitxbet.com/user?reference=";
+  const referenceValue = userDetails.referralCode;
+  const notify = ()=>toast.success('Copied!')
   const transactions = useTransactions();
   const data = transactions;
 
@@ -71,6 +75,7 @@ const Overview = () => {
   );
   return (
     <div className="flex flex-col space-y-7 ">
+      <ToastContainer autoClose={1000}/>
       <div className="flex flex-col space-y-5 md:flex-row md:space-x-12 md:space-y-0">
         <BalanceCard
           buttonState={true}
@@ -85,7 +90,7 @@ const Overview = () => {
             <span>{referenceValue}</span>
             <button
               className="bg-black text-white text-center text-sm rounded-md p-2"
-              onClick={() => navigator.clipboard.writeText(referenceValue)}
+              onClick={() => {navigator.clipboard.writeText(referenceValue); notify()}}
             >
               Copy
             </button>
