@@ -2,7 +2,7 @@ import React from "react";
 
 interface ReuseTabProps {
   icon: React.JSX.Element;
-  figure: string;
+  figure: number ;
   description: string;
 }
 

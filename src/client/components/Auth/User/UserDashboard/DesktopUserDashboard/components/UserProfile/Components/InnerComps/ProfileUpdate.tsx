@@ -12,7 +12,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const ProfileUpdate = () => {
   const { totalPersonalDetails, setTotalPersonalDetails } =
     useProfileContext()!;
@@ -50,7 +49,7 @@ const ProfileUpdate = () => {
     onSuccess: () => {
       console.log("Profile Details updated successfully");
       setIsEditable(false);
-      notify()
+      notify();
     },
   });
 
@@ -65,15 +64,14 @@ const ProfileUpdate = () => {
         const minutes = String(date.getMinutes()).padStart(2, "0");
         const seconds = String(date.getSeconds()).padStart(2, "0");
         const milliseconds = String(date.getMilliseconds()).padStart(3, "0");
-        
+
         return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`;
       };
-      
+
       const formattedDateOfBirth = formatDate(
         new Date(totalPersonalDetails.dob)
       );
-      
-     
+
       await updateProfile({
         name: totalPersonalDetails.firstName + totalPersonalDetails.lastName,
         address: totalPersonalDetails.address,
@@ -91,7 +89,7 @@ const ProfileUpdate = () => {
       <ProfileReusableCard
         profileContent={
           <div>
-             <ToastContainer/>
+            <ToastContainer />
             <form
               onSubmit={handleSaveUpdate}
               className="grid md:grid-cols-2 grid-cols-1 gap-8"
@@ -135,7 +133,7 @@ const ProfileUpdate = () => {
                     if (!isNaN(date.getTime())) {
                       setTotalPersonalDetails((prevValues) => ({
                         ...prevValues,
-                        dob: date.toISOString().split("T")[0], 
+                        dob: date.toISOString().split("T")[0],
                       }));
                     } else {
                       console.error("Invalid date selected");
@@ -143,9 +141,9 @@ const ProfileUpdate = () => {
                   }}
                   dateFormat="yyyy-MM-dd"
                   disabled={!isEditable}
-                  showYearDropdown  
-                  scrollableYearDropdown 
-                  yearDropdownItemNumber={70} 
+                  showYearDropdown
+                  scrollableYearDropdown
+                  yearDropdownItemNumber={70}
                 />
               </div>
 

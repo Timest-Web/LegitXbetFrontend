@@ -8,7 +8,7 @@ const MobileDepositActive = () => {
         
       <MobileDashboardLayout
         mobilelayoutcontent={
-          <div>
+          <div className="pb-12">
             <DepositActiveContentInner/>
           </div>
         }

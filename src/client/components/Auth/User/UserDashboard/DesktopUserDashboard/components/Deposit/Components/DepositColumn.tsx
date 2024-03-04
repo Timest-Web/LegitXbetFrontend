@@ -1,7 +1,7 @@
 const DepositColumn = ()=>[
     {
       header: "No",
-      accessorKey: "id",
+      accessorKey: "serialNumber",
     },
     {
       header: "Reference ID",

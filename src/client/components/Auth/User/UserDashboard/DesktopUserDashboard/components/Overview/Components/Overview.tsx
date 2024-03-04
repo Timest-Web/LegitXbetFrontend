@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import BalanceCard from "../../../shared/BalanceCard";
 import AllBetTable from "../../../shared/InactiveTable";
 import OverViewHeader from "./OverviewHeader";
@@ -13,18 +13,54 @@ import TransactionColumn from "../../Transactions/Components/TransactionColumn";
 import mData from "../../../../constant/MOCK_DATA (4).json";
 import TransactionInner from "../../Transactions/Components/TransactionInner";
 import useUser from "@/src/client/shared/Context/UserContext/useUser";
-import { ShopWallet, ShopCashback, SportEsportGeneric, TimeSandglass, GenericBookmark, GenericTicket, GenericMultiBet } from '@heathmont/moon-icons-tw';
+import {
+  ShopWallet,
+  ShopCashback,
+  SportEsportGeneric,
+  TimeSandglass,
+  GenericBookmark,
+  GenericTicket,
+  GenericMultiBet,
+} from "@heathmont/moon-icons-tw";
 import { useQuery } from "@tanstack/react-query";
 import { getDeposit } from "@/src/helper/apis/services/transaction-list/get-deposit.api";
+import axios from "axios";
+import { TransactionContext } from "@/src/client/shared/Context/TransactionContext/TransactionContext";
 
 const Overview = () => {
-  const data = useMemo(() => mData, []);
+  const formatDate = (dateString: string) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+
+    if (isNaN(date.getTime())) {
+      console.log("Date Parsing Failed:", dateString);
+      return dateString;
+    }
+
+    const options = { year: "numeric", month: "short", day: "2-digit" };
+    const formattedDate = date.toLocaleDateString(
+      "en-US",
+      options as Intl.DateTimeFormatOptions
+    );
+    console.log("Formatted Date:", formattedDate);
+    return formattedDate;
+  };
   const columns: any = TransactionColumn();
   const user = useUser();
   const query = useQuery({ queryKey: ["deposit"], queryFn: getDeposit });
   const depoData = query.data || [];
-
   const referenceValue = "https://legitxbet.com/user?reference=";
+  const transactions = useContext(TransactionContext);
+  console.log(transactions);
+  const data = transactions;
+
+  const formattedData = data.map((allTransaction: any, index: number) => ({
+    ...allTransaction,
+    serialNumber: index + 1,
+    createdAt: formatDate(allTransaction.createdAt),
+    amount: allTransaction.amount.toLocaleString(),
+  }));
+
   return (
     <div className="flex flex-col space-y-7 ">
       <div className="flex flex-col space-y-5 md:flex-row md:space-x-12 md:space-y-0">
@@ -48,11 +84,14 @@ const Overview = () => {
           </div>
         </div>
       </div>
-      <section onClick={()=>console.log(user)}  className="grid grid-rows-6 gap-3 md:grid-cols-3 md:grid-rows-2 md:gap-x-2 ">
+      <section
+        onClick={() => console.log(user)}
+        className="grid grid-rows-6 gap-3 md:grid-cols-3 md:grid-rows-2 md:gap-x-2 "
+      >
         <ReuseTab
           icon={
             <div className="bg-white p-4 rounded-md">
-             <ShopWallet className="text-moon-32"/>
+              <ShopWallet className="text-moon-32" />
             </div>
           }
           figure={depoData.length}
@@ -61,28 +100,28 @@ const Overview = () => {
         <ReuseTab
           icon={
             <div className="bg-white p-4 rounded-md">
-             <ShopCashback className="text-moon-32"/>
+              <ShopCashback className="text-moon-32" />
             </div>
           }
-          figure="0"
+          figure={0}
           description="Total Withdrawal"
         />
         <ReuseTab
           icon={
             <div className="bg-white p-4 rounded-md">
-              <GenericMultiBet className="text-moon-32"/>
+              <GenericMultiBet className="text-moon-32" />
             </div>
           }
-          figure="0"
+          figure={0}
           description="Total Bets"
         />
         <ReuseTab
           icon={
             <div className="bg-white p-4 rounded-md">
-             <TimeSandglass className="text-moon-32"/>
+              <TimeSandglass className="text-moon-32" />
             </div>
           }
-          figure="0"
+          figure={0}
           description="Pending Bets"
         />
         <ReuseTab
@@ -91,23 +130,23 @@ const Overview = () => {
               <GenericBookmark className="text-moon-32" />
             </div>
           }
-          figure="0"
+          figure={formattedData.length}
           description="Transactions"
         />
         <ReuseTab
           icon={
             <div className="bg-white p-4 rounded-md">
-              <GenericTicket className="text-moon-32"/>
+              <GenericTicket className="text-moon-32" />
             </div>
           }
-          figure="0"
+          figure={0}
           description="Support Ticket"
         />
       </section>
 
       <div className="hidden md:block">
         <TableComp
-          data={data}
+          data={formattedData}
           columns={columns}
           tableTitle="Transaction History"
         />

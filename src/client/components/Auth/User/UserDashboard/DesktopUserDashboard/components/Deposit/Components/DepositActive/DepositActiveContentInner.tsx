@@ -33,10 +33,11 @@ const DepositActiveContentInner = () => {
   const data = query.data || [];
   const columns: any = DepositColumn();
 
-  const formattedData = data.map((deposit: any) => ({
+  const formattedData = data.map((deposit: any, index: number) => ({
     ...deposit,
+    serialNumber: index + 1,
     createdAt: formatDate(deposit.createdAt),
-    amount: deposit.amount.toLocaleString()
+    amount: deposit.amount.toLocaleString(),
   }));
 
   console.log(formattedData);

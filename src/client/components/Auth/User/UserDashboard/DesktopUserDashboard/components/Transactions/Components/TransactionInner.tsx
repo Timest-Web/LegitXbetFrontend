@@ -4,7 +4,7 @@ import AllBetTable from "../../../shared/InactiveTable";
 import TransactionCard from "./TransactionCard";
 import transactionData from "../../../../MobileUserDashboard/constant/MOCK_DATA (7).json";
 
-const ITEMS_PER_PAGE = 5; 
+const ITEMS_PER_PAGE = 5;
 
 const TransactionInner = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -16,7 +16,8 @@ const TransactionInner = () => {
     const typeCondition = filterType === "" || transaction.type === filterType;
     const dateCondition =
       filterDate === "" ||
-      new Date(transaction.date).toISOString() >= new Date(filterDate).toISOString();
+      new Date(transaction.date).toISOString() >=
+        new Date(filterDate).toISOString();
 
     return typeCondition && dateCondition;
   });
@@ -25,10 +26,21 @@ const TransactionInner = () => {
   const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
 
-  const currentItems = filteredTransactions.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filteredTransactions.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
 
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
+  };
+
+  const nextPage = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const prevPage = () => {
+    setCurrentPage(currentPage - 1);
   };
   return (
     <div className="w-full">
@@ -65,6 +77,22 @@ const TransactionInner = () => {
           <TransactionCard key={index} {...transaction} />
         ))}
       </>
+      <div className="mt-4">
+        <button
+          onClick={prevPage}
+          disabled={currentPage === 1}
+          className="bg-black hover:opacity-50 text-white font-bold py-2 px-4 rounded mr-2"
+        >
+          Previous
+        </button>
+        <button
+          onClick={nextPage}
+          disabled={currentPage === totalPages}
+          className="bg-black hover:opacity-50 text-white font-bold py-2 px-4 rounded"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
