@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import DesktopModal from "../../../Modal";
 import Logo from "../../../../../assets/logo1.png";
 import Headphone from "../../../Svg/Headphone";
 import UserSection from "./UserSection";
@@ -16,6 +15,7 @@ import useUrlPathChecker from "../../../Hooks/useUrlPathChecker";
 import { useVisibilityControl } from "../../../Hooks/useVisibilityControl";
 import CustomerCareDrawer from "../../../Modal/components/DesktopCustomerCare";
 import AuthContent from "../../../../components/Auth/User/UserAuth/Components/AuthContent";
+import Modal from "../../../Modal";
 
 const CategoryBetMenu = () => {
   const { user } = useUser();
@@ -137,7 +137,7 @@ const CategoryBetMenu = () => {
         />
       )}
       {isOpen && (
-        <DesktopModal
+        <Modal
           className=""
           openModal={isOpen}
           setOpenModal={setIsOpen}

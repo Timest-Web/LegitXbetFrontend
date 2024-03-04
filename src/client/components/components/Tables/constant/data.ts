@@ -48,6 +48,7 @@ export type TableProps = {
   time: string;
   teamOne: string;
   teamTwo: string;
+  league: string;
   home: string;
   draw: string;
   away: string;

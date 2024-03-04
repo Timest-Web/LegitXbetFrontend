@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../Layout";
+import { Loader } from "@heathmont/moon-core-tw";
 import OddsFilter from "./components/OddsFilter";
 import FilterByTime from "./components/FilterByTime";
 import PopularDataType from "./components/PopularDataType";
@@ -10,11 +11,11 @@ import { FOOTBALL_DATA } from "../LandingPage/DesktopLandingPage/LeftSection/con
 import MobileNavbar from "../../shared/MobileNavbar";
 import useGetFootballPageMatches from "@/src/helper/apis/services/bookmaking/football/get-football-page-matches";
 import { getFeatureDates } from "../../shared/Utils/GetSportsDate";
-import { Loader } from "@heathmont/moon-core-tw";
 import { filterMatches } from "../../shared/Utils/FilterMatches";
 
 const Football = () => {
   const { data } = useGetFootballPageMatches();
+  console.log(data);
   const nextTwoDates = getFeatureDates(4);
 
 
@@ -25,8 +26,6 @@ const Football = () => {
       </div>
     );
   }
-
-
 
   return (
     <>
@@ -42,7 +41,7 @@ const Football = () => {
           centerSection={
             <CenterSection>
               <DesktopUpcomingBetTable
-                data={filterMatches(data, 4)}
+                data={data}
                 viewFeatureMatches={4}
               />
             </CenterSection>

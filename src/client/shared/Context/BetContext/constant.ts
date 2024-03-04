@@ -3,12 +3,14 @@ export type OddsValuesProps = {
   time: string;
   odd: number;
   oddName: string;
-  // oddName: string;
   teamOne: string;
   teamTwo: string;
+  sport: string;
+  marketId: string;
+  marketName: string
 };
 
-type SelectedOddsObjectProps = {
+export type SelectedOddsObjectProps = {
   id: number;
   time: string;
   teamOne: string;
@@ -16,6 +18,9 @@ type SelectedOddsObjectProps = {
   home?: number | undefined;
   draw: number;
   away?: number | undefined;
+  sport: string;
+  marketId: string;
+  marketName: string;
 };
 
 export type BetContextType = {

@@ -1,15 +1,14 @@
 import React from "react";
+import Layout from "../../Layout";
+import { LoaderScreen } from "@/src/client/shared/Loader/LoaderScreen";
 import LeagueType from "./components/LeagueType";
 import MobileNavbar from "@/src/client/shared/MobileNavbar";
-import LandScaleImageCarousel from "@/src/client/shared/Carousel/LandScaleImageCarousel";
-import Layout from "../../Layout";
 import BetTableSection from "./components/BetTableSection";
-import { Loader } from "@heathmont/moon-core-tw";
-import useGetFootballPageMatches from "@/src/helper/apis/services/bookmaking/football/get-football-page-matches";
-import { LoaderScreen } from "@/src/client/shared/Loader/LoaderScreen";
+import LandScaleImageCarousel from "@/src/client/shared/Carousel/LandScaleImageCarousel";
+import useGetLandingPageSportsMatches from "@/src/helper/apis/services/bookmaking/landingPage/get-landing-page-sports-and-matches";
 
 const MobileLandingPage = () => {
-  const { data } = useGetFootballPageMatches();
+  const { data } = useGetLandingPageSportsMatches();
 
   if (!data) {
     return <LoaderScreen />;
@@ -23,7 +22,7 @@ const MobileLandingPage = () => {
             <div className="h-max w-full -mt-[120px] pt-[120px]">
               <LandScaleImageCarousel height="h-[134.36px]" width="w-full" />
               <LeagueType />
-              <BetTableSection data={data} />
+              <BetTableSection data={data.upcoming.football} />
               <MobileNavbar />
             </div>
           }

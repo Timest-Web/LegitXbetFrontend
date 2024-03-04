@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import useBet from "../../Context/BetContext/useBet";
 import { useButtonEventClick } from "../../Hooks/useButtonEventClick";
-import { useMutation } from "@tanstack/react-query";
-import { addGame } from "@/src/helper/apis/services/ticket/add-game-api";
 
 type SelectedOddsObjectProps = {
   id: number;
   time: string;
   teamOne: string;
   teamTwo: string;
-  home: number;
+  home?: number | undefined;
   draw: number;
-  away: number;
+  away?: number | undefined;
   sport: string;
   marketId: string;
   marketName: string;
@@ -30,7 +28,6 @@ const OddsButton = ({
   onextwoValue: number;
   selectedOddObj: SelectedOddsObjectProps;
 }) => {
-  const { mutateAsync } = useMutation({ mutationFn: addGame });
   const { click, handleClick } = useButtonEventClick();
   const { bet, addToBetSlip, handleDelete } = useBet();
   const [color, setColor] = useState(false);
@@ -44,24 +41,9 @@ const OddsButton = ({
   ) => {
     setColor(!color);
     addToBetSlip(id, oddName, odd, selectedOddObj);
-
     if (color) {
       handleDelete({ id, odd });
     }
-  };
-
-  const handleAddGame = () => {
-    const addGameObj = {
-      sport: selectedOddObj.sport,
-      marketId: selectedOddObj.marketId,
-      matchId: Number(selectedOddObj.id),
-      marketName: selectedOddObj.marketName,
-      oddName,
-      odd: String(onextwoValue),
-    };
-
-    // console.log(addGameObj)
-    mutateAsync(addGameObj).then(() => {})
   };
 
   useEffect(() => {
@@ -76,15 +58,14 @@ const OddsButton = ({
       onClick={() => {
         handleClick();
         onHandleClick(id, oddName, onextwoValue, selectedOddObj);
-        handleAddGame();
       }}
       type="submit"
       className={`flex items-center justify-between transition-all transform ${
-        isBet ? " text-black bg-gold" : "bg-lightAsh "
+        isBet ? " text-black bg-gold" : "bg-lightAsh hover:bg-gray-800"
       } text-xs w-20 px-2 h-6 rounded-md ${click ? "scale-75" : ""}`}
     >
       <p>{onextwo}</p>
-      <p className={`${isBet ? "text-black" : "text-gold "} font-bold`}>
+      <p className={`${isBet ? "text-black" : "text-gold"} font-bold`}>
         {onextwoValue}
       </p>
     </button>

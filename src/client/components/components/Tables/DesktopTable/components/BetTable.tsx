@@ -1,4 +1,5 @@
 import React, { useState, ReactElement } from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import TableRow from "./TableRow";
 import ViewMore from "../../../MainSection/components/ViewMore";
@@ -7,7 +8,6 @@ import BetTableLoadingSkeleton from "@/src/client/shared/LoadingSkeleton/BetTabl
 import { useLink } from "@/src/client/shared/Hooks/useLink";
 import { SPORTS_TYPES } from "../../../MainSection/CenterSection/constant/data";
 import { getFeatureDates } from "@/src/client/shared/Utils/GetSportsDate";
-import Link from "next/link";
 
 const BetTable = ({
   href,
@@ -46,18 +46,18 @@ const BetTable = ({
           .map((value: any) => ({
             ...value,
             matches: value?.matches.filter(
-              (match: any) => match?.date !== dateClick
+              (match: any) => match?.date === dateClick
             ),
           }))
           .filter((value: any) => value?.matches.length > 0)
       : [];
   };
 
+
   const extractLeagues = extractedLeagues();
   const { link: leagueClick, handleClick: leagueHandleClick } = useLink(
     extractLeagues ? extractLeagues[0]?.name : ""
   );
-
   const extractedMatches = extractLeagues.filter(
     (value: any) => value.name === leagueClick
   )[0]?.matches;
@@ -182,6 +182,7 @@ const BetTable = ({
                           key={index}
                           id={value.id}
                           time={value.time}
+                          league={leagueClick}
                           teamOne={value.home.name}
                           teamTwo={value.away.name}
                           sport={sportClick}
@@ -247,7 +248,7 @@ const BetTable = ({
 
             {Array.isArray(extractedMatches) &&
               extractedMatches.length >= 5 && (
-                <Link href={`/sports/football/40`}>
+                <Link href={`/sport/football/40`}>
                   <div className="h-12 w-full py-2 px-3">
                     <button className="w-full h-8 rounded-lg bg-lightAsh text-white text-xs">
                       View All

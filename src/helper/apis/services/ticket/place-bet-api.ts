@@ -1,18 +1,21 @@
-export type AddGameToTicket = {
-  sport: string;
-  matchId: number;
-  marketId: string;
-  marketName: string;
-  oddName: string;
-  odd: string;
+export interface PlaceBetPayload {
+  games: {
+    sport: string;
+    matchId: string;
+    marketId: string;
+    marketName: string;
+    oddName: string;
+    odd: string;
+  }[];
+  amount: number
 }
 
 
-export const addGame = async (payload: AddGameToTicket ) => {
+export const placeBet = async (payload: PlaceBetPayload) => {
   try {
     const userDetails = localStorage.getItem("access") || "{}";
     const parsedDetails = JSON.parse(userDetails);
-    const response = await fetch("https://legitx.ng/ticket/add-game", {
+    const response = await fetch("https://legitx.ng/ticket/place-bet", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

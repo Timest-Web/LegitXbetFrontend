@@ -1,8 +1,8 @@
 import RightArrow from "@/src/client/shared/Svg/RightArrow";
 import Link from "next/link";
 
-export const MoreOdds = () => (
-  <Link href={`/sports/football/40`}
+export const MoreOdds = ({href}: {href: string}) => (
+  <Link href={href}
     className={`flex items-center justify-between text-xs bg-lightAsh w-20 px-2 h-6 rounded-md cursor-pointer`}
   >
     <p>All</p>
