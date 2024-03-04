@@ -14,11 +14,15 @@ import mData from "../../../../constant/MOCK_DATA (4).json";
 import TransactionInner from "../../Transactions/Components/TransactionInner";
 import useUser from "@/src/client/shared/Context/UserContext/useUser";
 import { ShopWallet, ShopCashback, SportEsportGeneric, TimeSandglass, GenericBookmark, GenericTicket, GenericMultiBet } from '@heathmont/moon-icons-tw';
+import { useQuery } from "@tanstack/react-query";
+import { getDeposit } from "@/src/helper/apis/services/transaction-list/get-deposit.api";
 
 const Overview = () => {
   const data = useMemo(() => mData, []);
   const columns: any = TransactionColumn();
   const user = useUser();
+  const query = useQuery({ queryKey: ["deposit"], queryFn: getDeposit });
+  const depoData = query.data || [];
 
   const referenceValue = "https://legitxbet.com/user?reference=";
   return (
@@ -51,7 +55,7 @@ const Overview = () => {
              <ShopWallet className="text-moon-32"/>
             </div>
           }
-          figure="5000"
+          figure={depoData.length}
           description="Total Deposits"
         />
         <ReuseTab
@@ -60,7 +64,7 @@ const Overview = () => {
              <ShopCashback className="text-moon-32"/>
             </div>
           }
-          figure="2000"
+          figure="0"
           description="Total Withdrawal"
         />
         <ReuseTab
@@ -69,7 +73,7 @@ const Overview = () => {
               <GenericMultiBet className="text-moon-32"/>
             </div>
           }
-          figure="119"
+          figure="0"
           description="Total Bets"
         />
         <ReuseTab
@@ -78,7 +82,7 @@ const Overview = () => {
              <TimeSandglass className="text-moon-32"/>
             </div>
           }
-          figure="50"
+          figure="0"
           description="Pending Bets"
         />
         <ReuseTab
@@ -87,7 +91,7 @@ const Overview = () => {
               <GenericBookmark className="text-moon-32" />
             </div>
           }
-          figure="30"
+          figure="0"
           description="Transactions"
         />
         <ReuseTab
@@ -96,7 +100,7 @@ const Overview = () => {
               <GenericTicket className="text-moon-32"/>
             </div>
           }
-          figure="2"
+          figure="0"
           description="Support Ticket"
         />
       </section>

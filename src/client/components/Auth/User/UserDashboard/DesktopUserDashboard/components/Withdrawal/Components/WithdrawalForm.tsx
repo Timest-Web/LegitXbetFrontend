@@ -223,7 +223,7 @@ const WithdrawalForm = () => {
             </div>
           </section>
           <p className="mt-6">Recipient: {customerDetails}</p>
-            <button onClick={handleRecipient} className="bg-black text-sm rounded-md p-2 text-white">
+            <button onClick={handleRecipient} className="bg-black mt-4 text-sm rounded-md px-4 py-2 text-white">
               Save Recipient
             </button></div>
 

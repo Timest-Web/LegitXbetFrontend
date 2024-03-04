@@ -7,12 +7,39 @@ import Modal from "@/src/client/shared/Modal";
 import BalanceCard from "../../../../shared/BalanceCard";
 import TableComp from "../../../../shared/ActiveTableComp";
 import TransactionDetailsCard from "../../../../shared/TransactionDetailsCard";
+import { useQuery } from "@tanstack/react-query";
+import { getDeposit } from "@/src/helper/apis/services/transaction-list/get-deposit.api";
 
 const DepositActiveContentInner = () => {
-  const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
-  const data = useMemo(() => mData, []);
+  const formatDate = (dateString: string) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
 
+    if (isNaN(date.getTime())) {
+      console.log("Date Parsing Failed:", dateString);
+      return dateString;
+    }
+
+    const options = { year: "numeric", month: "short", day: "2-digit" };
+    const formattedDate = date.toLocaleDateString(
+      "en-US",
+      options as Intl.DateTimeFormatOptions
+    );
+    console.log("Formatted Date:", formattedDate);
+    return formattedDate;
+  };
+
+  const query = useQuery({ queryKey: ["deposit"], queryFn: getDeposit });
+  const data = query.data || [];
   const columns: any = DepositColumn();
+
+  const formattedData = data.map((deposit: any) => ({
+    ...deposit,
+    createdAt: formatDate(deposit.createdAt),
+    amount: deposit.amount.toLocaleString()
+  }));
+
+  console.log(formattedData);
 
   return (
     <div>
@@ -21,19 +48,19 @@ const DepositActiveContentInner = () => {
           tableTitle="Deposit history"
           searchField={true}
           filterField={true}
-          data={data}
+          data={formattedData}
           columns={columns}
         />
       </div>
       <div className="md:hidden">
-        {data.map((deposit, index) => (
+        {formattedData.map((deposit: any, index: any) => (
           <TransactionDetailsCard
             key={index}
             amount={deposit.amount}
-            date={deposit.date}
+            date={deposit.createdAt}
             status={deposit.status}
-            channel={deposit.channel}
-            reference_id={deposit.reference_id}
+            channel={deposit.merchant}
+            reference_id={deposit.reference}
           />
         ))}
       </div>
