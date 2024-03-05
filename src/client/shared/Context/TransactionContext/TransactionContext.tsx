@@ -13,8 +13,7 @@ const TransactionProvider: React.FC<TransactionProviderProps> = ({ children }) =
   const query = useQuery({ queryKey: ["deposit"], queryFn: getTransactionList });
   const transactions = query.data || [];
 
-    if (query.isLoading) return <div>Loading...</div>;
-    if (query.isError) return <div>Error fetching transactions</div>;
+   
 
     return (
         <TransactionContext.Provider value={transactions}>

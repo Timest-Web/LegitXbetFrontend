@@ -9,7 +9,7 @@ const TransactionDetails = () => {
   const router = useRouter();
   const { type, createdAt, time, amount, reference, status, merchant } = router.query;
 
-  return (
+  return ( 
     <div className="bg-gray-200 h-screen">
       <div className="bg-black text-white text-lg font-bold p-2 w-full flex space-x-3 ">
         <Link href='/user-dashboard/transaction'><ArrowsLeft className='text-moon-32 text-moon-white'/></Link>

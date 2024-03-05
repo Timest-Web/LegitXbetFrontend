@@ -17,10 +17,6 @@ const BetHistoryActiveInner = () => {
         <div className="mt-6">
           <BetStatusTab isSettled/>
           <div className="mt-8 space-y-3">
-          <BetHistoryPopUp/>
-          <BetHistoryPopUp/>
-          <BetHistoryPopUp/>
-          <BetHistoryPopUp/>
           </div>
             
         </div>

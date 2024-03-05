@@ -28,6 +28,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useTransactions } from "@/src/client/shared/Context/TransactionContext/TransactionContext";
 import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.api";
+import { getBetSlip } from "@/src/helper/apis/services/bookmaking/get-bet-slip-api";
 
 const Overview = () => {
   const formatDate = (dateString: string) => {
@@ -55,8 +56,12 @@ const Overview = () => {
   const { data: userDetails, isLoading, error } = useGetUserProfile();
   const query = useQuery({ queryKey: ["deposit"], queryFn: getDeposit });
   const depoData = query.data || [];
-  const referenceValue = userDetails.referralCode;
-  const notify = ()=>toast.success('Copied!')
+  const betquery = useQuery({ queryKey: ["betSlip"], queryFn: getBetSlip });
+  const betdata = betquery.data || [];
+  const unsettledBets = betdata.filter((bet:any) => bet.status === "pending");
+  const unsettledBetsLength = unsettledBets.length;
+  const referenceValue = userDetails?.referralCode;
+  const notify = () => toast.success("Copied!");
   const transactions = useTransactions();
   const data = transactions;
 
@@ -75,7 +80,7 @@ const Overview = () => {
   );
   return (
     <div className="flex flex-col space-y-7 ">
-      <ToastContainer autoClose={1000}/>
+      <ToastContainer autoClose={1000} />
       <div className="flex flex-col space-y-5 md:flex-row md:space-x-12 md:space-y-0">
         <BalanceCard
           buttonState={true}
@@ -90,7 +95,10 @@ const Overview = () => {
             <span>{referenceValue}</span>
             <button
               className="bg-black text-white text-center text-sm rounded-md p-2"
-              onClick={() => {navigator.clipboard.writeText(referenceValue); notify()}}
+              onClick={() => {
+                navigator.clipboard.writeText(referenceValue);
+                notify();
+              }}
             >
               Copy
             </button>
@@ -112,7 +120,7 @@ const Overview = () => {
           description="Total Deposits"
         />
         <ReuseTab
-          href=""
+          href="user-dashboard/withdrawal/withdrawal-history"
           icon={
             <div className="bg-white p-4 rounded-md">
               <ShopCashback className="text-moon-32" />
@@ -122,23 +130,23 @@ const Overview = () => {
           description="Total Withdrawal"
         />
         <ReuseTab
-          href=""
+          href="user-dashboard/bet-history"
           icon={
             <div className="bg-white p-4 rounded-md">
               <GenericMultiBet className="text-moon-32" />
             </div>
           }
-          figure={0}
+          figure={betdata.length}
           description="Total Bets"
         />
         <ReuseTab
-          href=""
+          href="user-dashboard/bet-history/unsettled"
           icon={
             <div className="bg-white p-4 rounded-md">
               <TimeSandglass className="text-moon-32" />
             </div>
           }
-          figure={0}
+          figure={unsettledBetsLength}
           description="Pending Bets"
         />
         <ReuseTab
@@ -152,7 +160,7 @@ const Overview = () => {
           description="Total Transactions"
         />
         <ReuseTab
-          href=""
+          href="user-dashboard/user-support/support-ticket"
           icon={
             <div className="bg-white p-4 rounded-md">
               <GenericTicket className="text-moon-32" />

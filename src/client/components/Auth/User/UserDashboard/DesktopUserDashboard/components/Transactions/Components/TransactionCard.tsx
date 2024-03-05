@@ -32,7 +32,7 @@ const TransactionCard: React.FC<TransactionCardProps> = ({
     merchant,
   };
 
-
+ 
   
 
   return (

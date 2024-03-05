@@ -4,6 +4,8 @@ import AllBetTable from "../../../shared/InactiveTable";
 import TransactionCard from "./TransactionCard";
 import transactionData from "../../../../MobileUserDashboard/constant/MOCK_DATA (7).json";
 import { useTransactions } from "@/src/client/shared/Context/TransactionContext/TransactionContext";
+import TableComp from "../../../shared/ActiveTableComp";
+import TransactionColumn from "./TransactionColumn";
 
 const ITEMS_PER_PAGE = 5;
 
@@ -34,6 +36,7 @@ const TransactionInner = () => {
   const [filterDate, setFilterDate] = useState<string>("");
   const transactions = useTransactions();
   const data = transactions;
+  const columns: any = TransactionColumn();
 
   const formattedData = data.map((allTransaction: any, index: number) => ({
     ...allTransaction,
@@ -42,7 +45,7 @@ const TransactionInner = () => {
     status: capitalizeFirstLetter(allTransaction.status),
     createdAt: formatDate(allTransaction.createdAt),
     amount: allTransaction.amount.toLocaleString(),
-    type: allTransaction.type === "credit" ? "Deposit" : "Withdrawal"
+    type: allTransaction.type === "credit" ? "Deposit" : "Withdrawal",
   }));
 
   const filteredTransactions = formattedData.filter((transaction) => {
@@ -76,23 +79,31 @@ const TransactionInner = () => {
     setCurrentPage(currentPage - 1);
   };
   return (
-    <div className="w-full">
-      <section className="flex  md:space-x-4 mb-4">
-        <div className="text-sm">
-          <label htmlFor="filterType">Filter by Type: </label>
-          <select
-            className="p-1 rounded-md"
-            id="filterType"
-            value={filterType}
-            onChange={(e) => setFilterType(e.target.value)}
-          >
-            <option value="">All Types</option>
-            <option value="Deposit">Deposit</option>
-            <option value="Withdrawal">Withdrawal</option>
-            <option value="Winnings">Winnings</option>
-          </select>
-        </div>
-        {/* <div className="text-sm">
+    <div>
+      <div className=" hidden md:block ">
+        <TableComp
+          data={formattedData}
+          columns={columns}
+          tableTitle="Transaction History"
+        />
+      </div>
+      <div className="w-full md:hidden">
+        <section className="flex  md:space-x-4 mb-4">
+          <div className="text-sm">
+            <label htmlFor="filterType">Filter by Type: </label>
+            <select
+              className="p-1 rounded-md"
+              id="filterType"
+              value={filterType}
+              onChange={(e) => setFilterType(e.target.value)}
+            >
+              <option value="">All Types</option>
+              <option value="Deposit">Deposit</option>
+              <option value="Withdrawal">Withdrawal</option>
+              <option value="Winnings">Winnings</option>
+            </select>
+          </div>
+          {/* <div className="text-sm">
           <label htmlFor="filterDate">Filter by Date: </label>
           <input
             className="p-[0.2rem] rounded-md"
@@ -102,29 +113,30 @@ const TransactionInner = () => {
             onChange={(e) => setFilterDate(e.target.value)}
           />
         </div> */}
-      </section>
+        </section>
 
-      <>
-        <p className="font-bold text-xl mb-4">Transaction List</p>
-        {currentItems.map((transaction, index) => (
-          <TransactionCard key={index} {...transaction} />
-        ))}
-      </>
-      <div className="mt-4">
-        <button
-          onClick={prevPage}
-          disabled={currentPage === 1}
-          className="bg-black hover:opacity-50 text-white font-bold py-2 px-4 rounded mr-2"
-        >
-          Previous
-        </button>
-        <button
-          onClick={nextPage}
-          disabled={currentPage === totalPages}
-          className="bg-black hover:opacity-50 text-white font-bold py-2 px-4 rounded"
-        >
-          Next
-        </button>
+        <>
+          <p className="font-bold text-xl mb-4">Transaction List</p>
+          {currentItems.map((transaction, index) => (
+            <TransactionCard key={index} {...transaction} />
+          ))}
+        </>
+        <div className="mt-4">
+          <button
+            onClick={prevPage}
+            disabled={currentPage === 1}
+            className="bg-black hover:opacity-50 text-white font-bold py-2 px-4 rounded mr-2"
+          >
+            Previous
+          </button>
+          <button
+            onClick={nextPage}
+            disabled={currentPage === totalPages}
+            className="bg-black hover:opacity-50 text-white font-bold py-2 px-4 rounded"
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -34,7 +34,7 @@ const DepositActiveContentInner = () => {
   };
 
   const query = useQuery({ queryKey: ["deposit"], queryFn: getDeposit });
-  const data = query.data || [];
+  const data = query.data || []; 
   const columns: any = DepositColumn();
 
   const formattedData = data.map((deposit: any, index: number) => ({
