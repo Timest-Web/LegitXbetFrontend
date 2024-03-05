@@ -1,33 +1,15 @@
-import { getBetSlip } from "@/src/helper/apis/services/bookmaking/get-bet-slip-api";
-import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import FixtureDetails from "./FixtureDetails";
+import useFormatDate from "@/src/client/shared/Hooks/useFormatDate";
+import useBetSlipQuery from "@/src/client/shared/Hooks/useBetSlip";
 
 const TicketDetails = () => {
-  const formatDate = (dateString: string) => {
-    if (!dateString) return "";
-    const date = new Date(dateString);
-
-    if (isNaN(date.getTime())) {
-      console.log("Date Parsing Failed:", dateString);
-      return dateString;
-    }
-
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-
-    const formattedDate = `${year}-${month}-${day}`;
-    console.log("Formatted Date:", formattedDate);
-    return formattedDate;
-  };
-
+  const { data: betSlipData = [] } = useBetSlipQuery();
+  const formatDate = useFormatDate();
   const router = useRouter();
   const { id, date, status, stake, returnStake, totalOdd, type } = router.query;
-  const query = useQuery({ queryKey: ["betSlip"], queryFn: getBetSlip });
-  const data = query.data || [];
 
-  const formattedData = data.map((betslip: any, index: number) => ({
+  const formattedData = betSlipData.map((betslip: any, index: number) => ({
     ...betslip,
     serialNumber: index + 1,
     amount: betslip.possibleWin.toLocaleString(),

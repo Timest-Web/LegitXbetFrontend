@@ -29,43 +29,27 @@ import "react-toastify/dist/ReactToastify.css";
 import { useTransactions } from "@/src/client/shared/Context/TransactionContext/TransactionContext";
 import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.api";
 import { getBetSlip } from "@/src/helper/apis/services/bookmaking/get-bet-slip-api";
+import useFormatDate from "@/src/client/shared/Hooks/useFormatDate";
+import useCapitalizeFirstLetter from "@/src/client/shared/Hooks/useCapitalizeFirstLetters";
+import useBetSlipQuery from "@/src/client/shared/Hooks/useBetSlip";
+import useDepositListQuery from "@/src/client/shared/Hooks/useDepositList";
 
 const Overview = () => {
-  const formatDate = (dateString: string) => {
-    if (!dateString) return "";
-    const date = new Date(dateString);
-
-    if (isNaN(date.getTime())) {
-      console.log("Date Parsing Failed:", dateString);
-      return dateString;
-    }
-
-    const options = { year: "numeric", month: "short", day: "2-digit" };
-    const formattedDate = date.toLocaleDateString(
-      "en-US",
-      options as Intl.DateTimeFormatOptions
-    );
-    console.log("Formatted Date:", formattedDate);
-    return formattedDate;
-  };
-  const capitalizeFirstLetter = (string: string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
+  const { data: betSlipData = [] } = useBetSlipQuery();
+  const capitalizeFirstLetter = useCapitalizeFirstLetter();
+  const formatDate = useFormatDate();
   const columns: any = TransactionColumn();
   const user = useUser();
   const { data: userDetails, isLoading, error } = useGetUserProfile();
-  const query = useQuery({ queryKey: ["deposit"], queryFn: getDeposit });
-  const depoData = query.data || [];
-  const betquery = useQuery({ queryKey: ["betSlip"], queryFn: getBetSlip });
-  const betdata = betquery.data || [];
-  const unsettledBets = betdata.filter((bet:any) => bet.status === "pending");
+  const { data: depositList = [] } = useDepositListQuery();
+  const unsettledBets = betSlipData.filter((bet:any) => bet.status === "pending");
   const unsettledBetsLength = unsettledBets.length;
   const referenceValue = userDetails?.referralCode;
   const notify = () => toast.success("Copied!");
   const transactions = useTransactions();
-  const data = transactions;
 
-  const formattedData = data.map((allTransaction: any, index: number) => ({
+
+  const formattedData = transactions.map((allTransaction: any, index: number) => ({
     ...allTransaction,
     serialNumber: index + 1,
     merchant: capitalizeFirstLetter(allTransaction.merchant),
@@ -74,7 +58,7 @@ const Overview = () => {
     amount: allTransaction.amount.toLocaleString(),
     type: allTransaction.type === "credit" ? "Deposit" : "Withdrawal",
   }));
-  const totalDeposits = depoData.reduce(
+  const totalDeposits = depositList.reduce(
     (total: number, deposit: any) => total + deposit.amount,
     0
   );
@@ -136,7 +120,7 @@ const Overview = () => {
               <GenericMultiBet className="text-moon-32" />
             </div>
           }
-          figure={betdata.length}
+          figure={betSlipData.length}
           description="Total Bets"
         />
         <ReuseTab

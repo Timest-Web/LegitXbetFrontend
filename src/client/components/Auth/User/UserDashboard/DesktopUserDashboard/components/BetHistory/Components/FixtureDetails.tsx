@@ -1,71 +1,14 @@
-import { useState, useEffect } from "react";
-
-interface Odds {
-  name: string;
-  value: string;
-  stop: string;
-}
-
-interface Market {
-  id: string;
-  value: string;
-  stop: string;
-  odds: Odds[];
-}
-
-interface Team {
-  id: string;
-  name: string;
-  goals: string;
-}
-
-interface FixtureDetailsData {
-  id: string;
-  status: string;
-  date: string;
-  formatted_date: string;
-  time: string;
-  venue: string;
-  static_id: string;
-  fix_id: string;
-  home: Team;
-  away: Team;
-  events: string;
-  ht: { score: string };
-  markets: Market[];
-}
+import useGetMatchById from "@/src/helper/apis/services/bookmaking/get-match-by-id-api";
 
 const FixtureDetails = ({ matchId }: { matchId: string }) => {
-  const [fixtureDetails, setFixtureDetails] =
-    useState<FixtureDetailsData | null>(null);
+  const { data: fixtureDetails, status, error } = useGetMatchById({ matchId });
 
-  useEffect(() => {
-    const fetchFixtureDetails = async () => {
-      try {
-        const response = await fetch(
-          `https://legitx.ng/bookmaking/football/matches/${matchId}`
-        );
-        if (response.ok) {
-          const data = await response.json();
-          console.log(data);
-          if (data) {
-            setFixtureDetails(data);
-          } else {
-            throw new Error("Empty response received");
-          }
-        } else {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-      } catch (error) {
-        console.error("Error fetching fixture details:", error);
-      }
-    };
-
-    fetchFixtureDetails();
-  }, [matchId]);
+  if (status === 'error') {
+    return <div>Error: {error.message}</div>;
+  }
 
   if (!fixtureDetails) {
-    return <p>Loading fixture details...</p>;
+    return null;
   }
 
   return (

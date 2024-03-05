@@ -1,41 +1,15 @@
 import React, { useMemo } from "react";
 import BetHistoryPopUp from "./BetHistoryPopUp";
-import UnsettledData from "../Constant/unsettledData";
-import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
-import TableComp from "../../../shared/ActiveTableComp";
-import Modal from "@/src/client/shared/Modal";
-import betHistoryColumns from "./betHistoryColumns";
 import BetStatusTab from "./BetStatusTab";
-import { getBetSlip } from "@/src/helper/apis/services/bookmaking/get-bet-slip-api";
-import { useQuery } from "@tanstack/react-query";
+import useBetSlipQuery from "@/src/client/shared/Hooks/useBetSlip";
+import useCapitalizeFirstLetter from "@/src/client/shared/Hooks/useCapitalizeFirstLetters";
+import useFormatDate from "@/src/client/shared/Hooks/useFormatDate";
 
 const BetHistoryUnsettled = () => {
-  const formatDate = (dateString: string) => {
-    if (!dateString) return "";
-    const date = new Date(dateString);
-
-    if (isNaN(date.getTime())) {
-      console.log("Date Parsing Failed:", dateString);
-      return dateString;
-    }
-
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-
-    const formattedDate = `${year}-${month}-${day}`;
-    console.log("Formatted Date:", formattedDate);
-    return formattedDate;
-  };
-
-  const capitalizeFirstLetter = (string: string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
-
-  const query = useQuery({ queryKey: ["betSlip"], queryFn: getBetSlip });
-  const data = query.data || [];
-
-  const formattedData = data.map((betslip: any, index: number) => ({
+  const { data: betSlipData = [] } = useBetSlipQuery();
+  const capitalizeFirstLetter = useCapitalizeFirstLetter();
+  const formatDate = useFormatDate();
+  const formattedData = betSlipData.map((betslip: any, index: number) => ({
     ...betslip,
     serialNumber: index + 1,
     status: capitalizeFirstLetter(betslip.status),
