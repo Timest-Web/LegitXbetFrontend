@@ -77,7 +77,7 @@ const Overview = () => {
           balanceButtonAction={undefined}
         />
         <div className="flex flex-col space-y-2">
-          <label className="font-bold text-lg">Referral Link</label>
+          <label className="font-bold text-lg">Referral Code</label>
           <div className="w-[99.5%] md:w-[32rem] p-3 bg-white rounded-md flex justify-between">
             <span>{referenceValue}</span>
             <button
