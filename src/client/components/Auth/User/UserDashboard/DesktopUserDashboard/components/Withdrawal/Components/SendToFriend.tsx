@@ -21,7 +21,7 @@ const SendToFriend = () => {
       }
 
       return "234" + localNumber;
-    }
+    };
 
     const newAmount = parseFloat(amount);
     const convertedPhone = parseFloat(
@@ -32,19 +32,22 @@ const SendToFriend = () => {
     const data = { amount: newAmount, phoneNumber: newReceipientPhone };
 
     try {
-        const userDetails = localStorage.getItem("access") || "{}";
-        const parsedDetails = JSON.parse(userDetails);
+      const userDetails = localStorage.getItem("access") || "{}";
+      const parsedDetails = JSON.parse(userDetails);
       const response = await axios.post(
         "https://legitx.ng/wallet/send-receipient",
-        data  ,   { headers: {
-        'Authorization': `Bearer ${parsedDetails?.accessToken}`,
-        'Content-Type': 'application/json' 
-      }}
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${parsedDetails?.accessToken}`,
+            "Content-Type": "application/json",
+          },
+        }
       );
 
       console.log("Response:", response.data);
       setAmount("");
-      setReceipientPhone("")
+      setReceipientPhone("");
     } catch (error) {
       console.error("Error:", error);
     }
@@ -52,9 +55,9 @@ const SendToFriend = () => {
 
   return (
     <div>
-        <h3 className="font-bold text-lg mb-6">Send to Friend</h3>
+      <h3 className="font-bold text-lg mb-6">Send to Friend</h3>
       <form
-        className="flex flex-col space-y-4 md:flex-row md:space-x-6 p-3"
+        className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-6 p-3"
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col space-y-2">
@@ -77,7 +80,14 @@ const SendToFriend = () => {
             onChange={handlePhoneChange}
           />
         </div>
-        <button type="submit" className="bg-black text-white text-center flex justify-center items-center p-2 rounded-md w-24 h-8 mt-8">Send</button>
+        <div className="md:pt-8">
+          <button
+            type="submit"
+            className="bg-black text-white text-center flex justify-center items-center p-2 rounded-md w-24 h-8"
+          >
+            Send
+          </button>
+        </div>
       </form>
     </div>
   );

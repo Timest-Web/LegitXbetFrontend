@@ -30,8 +30,8 @@ const WithdrawalActiveInner = () => {
 
   return (
     <div>
-       <h2 className="font-bold text-lg m-auto">No Withdrawal Yet</h2>
-      <div className="hidden ">
+       <h2 className="font-bold text-lg m-auto hidden">No Withdrawal Yet</h2>
+      <div className="hidden md:block ">
        
         <TableComp
           tableTitle="Withdrawal History"
