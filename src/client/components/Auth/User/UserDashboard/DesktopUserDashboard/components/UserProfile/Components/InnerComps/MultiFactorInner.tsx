@@ -14,7 +14,7 @@ const MultiFactorInner = () => {
             <MultiReuse isInsideMultiAuth />
             <h3 className="font-bold text">Enable 2FA Authenticator</h3>
             <h2 className="mt-2 text-[15px] font-bold">Google Authenticator OTP </h2>
-            <form className="mt-4 space-x-3">
+            <form className="mt-4 space-y-4 md:space-x-3">
               <input className="bg-gray-200 p-2 rounded-md" />
               <button className="bg-black text-white rounded-md w-32 px-4 py-2">
                 Apply

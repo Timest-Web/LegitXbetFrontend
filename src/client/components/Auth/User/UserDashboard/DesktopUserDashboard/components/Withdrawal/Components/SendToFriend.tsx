@@ -15,7 +15,7 @@ const SendToFriend = () => {
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    function convertToInternationalFormat(localNumber: any) {
+    const convertToInternationalFormat = (localNumber: any) => {
       if (localNumber.startsWith("0")) {
         localNumber = localNumber.slice(1);
       }
@@ -54,7 +54,7 @@ const SendToFriend = () => {
     <div>
         <h3 className="font-bold text-lg mb-6">Send to Friend</h3>
       <form
-        className="flex flex-col md:flex-row space-x-6 p-3"
+        className="flex flex-col space-y-4 md:flex-row md:space-x-6 p-3"
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col space-y-2">
