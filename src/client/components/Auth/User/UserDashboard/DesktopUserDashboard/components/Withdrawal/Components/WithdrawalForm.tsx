@@ -5,6 +5,8 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { fetchBankList } from "@/src/helper/apis/services/wallet/getBank.api";
 import { verifyBank } from "@/src/helper/apis/services/wallet/getBankAccountDetails.api";
 import useUser from "@/src/client/shared/Context/UserContext/useUser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface FormData {
   withdrawalAmount: string;
@@ -25,6 +27,7 @@ const WithdrawalForm = () => {
   const [withdrawalField, setWithdrawalField] = useState(false);
   const user = useUser();
   const queryClient = useQueryClient()
+  const antinotify = ()=> toast.error("Unsuccessful Withdrawal")
 
   const handleBankCodeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedBankCode(e.target.value);
@@ -132,9 +135,15 @@ const WithdrawalForm = () => {
       });
 
       const responseData = await res.json();
+      if (responseData.status = 500) {
+        console.log("Wahala")  
+        antinotify()
+      }
       console.log(responseData);
     } catch (error) {
       console.error("Error:", error);
+    
+     
     }
   };
 
@@ -192,6 +201,7 @@ const WithdrawalForm = () => {
 
   return (
     <div>
+      <ToastContainer/>
       <h2 className="font-bold mb-4 ">Bank Transfer</h2>
       <hr></hr>
       <form action="submit" onSubmit={handleSubmit} className=" mt-4 md:mt-8 ">

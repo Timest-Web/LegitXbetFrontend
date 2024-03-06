@@ -42,22 +42,25 @@ const Overview = () => {
   const user = useUser();
   const { data: userDetails, isLoading, error } = useGetUserProfile();
   const { data: depositList = [] } = useDepositListQuery();
-  const unsettledBets = betSlipData.filter((bet:any) => bet.status === "pending");
+  const unsettledBets = betSlipData.filter(
+    (bet: any) => bet.status === "pending"
+  );
   const unsettledBetsLength = unsettledBets.length;
   const referenceValue = userDetails?.referralCode;
   const notify = () => toast.success("Copied!");
   const transactions = useTransactions();
 
-
-  const formattedData = transactions.map((allTransaction: any, index: number) => ({
-    ...allTransaction,
-    serialNumber: index + 1,
-    merchant: capitalizeFirstLetter(allTransaction.merchant),
-    status: capitalizeFirstLetter(allTransaction.status),
-    createdAt: formatDate(allTransaction.createdAt),
-    amount: allTransaction.amount.toLocaleString(),
-    type: allTransaction.type === "credit" ? "Deposit" : "Withdrawal",
-  }));
+  const formattedData = transactions.map(
+    (allTransaction: any, index: number) => ({
+      ...allTransaction,
+      serialNumber: index + 1,
+      merchant: capitalizeFirstLetter(allTransaction.merchant),
+      status: capitalizeFirstLetter(allTransaction.status),
+      createdAt: formatDate(allTransaction.createdAt),
+      amount: allTransaction.amount.toLocaleString(),
+      type: allTransaction.type === "credit" ? "Deposit" : "Withdrawal",
+    })
+  );
   const totalDeposits = depositList.reduce(
     (total: number, deposit: any) => total + deposit.amount,
     0

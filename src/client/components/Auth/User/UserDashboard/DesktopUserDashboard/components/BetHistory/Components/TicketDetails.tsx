@@ -16,9 +16,13 @@ const TicketDetails = () => {
     date: formatDate(betslip.createdAt),
   }));
 
+  console.log(formattedData)
+
   const currentBetSlip = formattedData.find(
     (betslip: any) => betslip.id === Number(id)
   );
+
+
 
   return (
     <div className="">
