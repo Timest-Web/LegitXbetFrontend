@@ -12,7 +12,15 @@ const MultiFactorInner = () => {
         profileContent={
           <div>
             <MultiReuse isInsideMultiAuth />
-            <form className="flex flex-col space-y-16">
+            <h3 className="font-bold text">Enable 2FA Authenticator</h3>
+            <h2 className="mt-2 text-[15px] font-bold">Google Authenticator OTP </h2>
+            <form className="mt-4 space-y-4 md:space-x-3">
+              <input className="bg-gray-200 p-2 rounded-md" />
+              <button className="bg-black text-white rounded-md w-32 px-4 py-2">
+                Apply
+              </button>
+            </form>
+            {/* <form className="flex flex-col space-y-16">
               <section className="flex space-x-8">
                 <div className="flex space-x-5">
                   <input
@@ -46,10 +54,10 @@ const MultiFactorInner = () => {
                 />
                 <ProfileButton />
               </div>
-            </form>
-            <h3 className="font-medium mt-56">
+            </form> */}
+            {/* <h3 className="font-medium mt-56">
               NB - Channels could be SMS or Emails Verification upon sign in
-            </h3>
+            </h3> */}
           </div>
         }
       />

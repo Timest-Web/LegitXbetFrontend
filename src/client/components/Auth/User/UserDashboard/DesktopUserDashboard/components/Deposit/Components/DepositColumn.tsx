@@ -1,27 +1,27 @@
 const DepositColumn = ()=>[
     {
       header: "No",
-      accessorKey: "no",
+      accessorKey: "serialNumber",
     },
     {
       header: "Reference ID",
-      accessorKey: "reference_id",
+      accessorKey: "reference",
     },
     {
       header: "Date",
-      accessorKey: "date",
+      accessorKey: "createdAt",
     },
     {
       header: "Status",
       accessorKey: "status",
     },
     {
-      header: "Amount",
+      header: "Amount (NGN)",
       accessorKey: "amount",
     },
     {
       header: "Channel",
-      accessorKey: "channel",
+      accessorKey: "merchant",
     },
   ];
 

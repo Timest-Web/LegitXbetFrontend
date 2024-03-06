@@ -1,35 +1,46 @@
-import React, { useMemo} from "react";
+import React, { useMemo } from "react";
 import BetHistoryPopUp from "./BetHistoryPopUp";
-import UnsettledData from "../Constant/unsettledData";
-import { useVisibilityControl } from "@/src/client/shared/Hooks/useVisibilityControl";
-import TableComp from "../../../shared/ActiveTableComp";
-import Modal from "@/src/client/shared/Modal";
-import betHistoryColumns from "./betHistoryColumns";
 import BetStatusTab from "./BetStatusTab";
+import useBetSlipQuery from "@/src/client/shared/Hooks/useBetSlip";
+import useCapitalizeFirstLetter from "@/src/client/shared/Hooks/useCapitalizeFirstLetters";
+import useFormatDate from "@/src/client/shared/Hooks/useFormatDate";
 
 const BetHistoryUnsettled = () => {
-  const { isOpen, setIsOpen, handleClick } = useVisibilityControl();
-
-  const data = useMemo(() => UnsettledData, []);
-  const columns = betHistoryColumns(handleClick);
+  const { data: betSlipData = [] } = useBetSlipQuery();
+  const capitalizeFirstLetter = useCapitalizeFirstLetter();
+  const formatDate = useFormatDate();
+  const formattedData = betSlipData.map((betslip: any, index: number) => ({
+    ...betslip,
+    serialNumber: index + 1,
+    status: capitalizeFirstLetter(betslip.status),
+    date: formatDate(betslip.createdAt),
+    amount: betslip.possibleWin.toLocaleString(),
+    type: betslip.bookedGames.length === 1 ? "Single" : "Multiple",
+  }));
 
   return (
-        <div>
-          <TableComp
-            data={data}
-            columns={columns}
-            searchField={true}
-            filterField={true}
-            tableTitle="Bet History"
-            betStatus={<BetStatusTab isUnsettled/>}
-          />
-          <Modal
-            openModal={isOpen}
-            setOpenModal={setIsOpen}
-            className="custom-modal-class"
-            modalContent={<BetHistoryPopUp  />}
-          />
+    <div className="">
+      <div>
+        <BetStatusTab isUnsettled />
+        <div className="mt-4">
+          {formattedData.map(
+            (bet: any, index: number) =>
+              bet.status === "Pending" && (
+                <BetHistoryPopUp
+                  key={bet.id}
+                  type={bet.type}
+                  id={bet.id}
+                  stake={bet.stake}
+                  date={bet.date}
+                  status={bet.status}
+                  returnStake={bet.possibleWin}
+                  totalOdd={bet.totalOdd}
+                />
+              )
+          )}
         </div>
+      </div>
+    </div>
   );
 };
 

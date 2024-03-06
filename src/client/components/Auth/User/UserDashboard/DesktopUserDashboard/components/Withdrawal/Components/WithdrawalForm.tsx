@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import SubmitButton from "../../../shared/SubmitButton";
 import { BalanceContext } from "@/src/client/shared/Context/BalanceContext/BalanceContext";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { fetchBankList } from "@/src/helper/apis/services/wallet/getBank.api";
 import { verifyBank } from "@/src/helper/apis/services/wallet/getBankAccountDetails.api";
 import useUser from "@/src/client/shared/Context/UserContext/useUser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface FormData {
   withdrawalAmount: string;
@@ -24,6 +26,8 @@ const WithdrawalForm = () => {
   const [customerDetails, setCustomerDetails] = useState("");
   const [withdrawalField, setWithdrawalField] = useState(false);
   const user = useUser();
+  const queryClient = useQueryClient()
+  const antinotify = ()=> toast.error("Unsuccessful Withdrawal")
 
   const handleBankCodeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedBankCode(e.target.value);
@@ -101,6 +105,7 @@ const WithdrawalForm = () => {
       });
 
       const responseData = await res.json();
+      queryClient.invalidateQueries('USER_PROFILE' as any);
       console.log(responseData);
     } catch (error) {
       console.error("Error:", error);
@@ -110,7 +115,7 @@ const WithdrawalForm = () => {
   const handleWithdrawal = async () => {
     const userDetails = localStorage.getItem("access") || "{}";
     const parsedDetails = JSON.parse(userDetails);
-    const url = "https://legitx.ng/wallet/withdraw";
+    const url = "https://legitx.ng/wallet/automatic-withdrawal";
     const headers = {
       "Content-Type": "application/json",
       accept: "*/*",
@@ -119,6 +124,7 @@ const WithdrawalForm = () => {
     const data = {
       amount: parseInt(formData.withdrawalAmount, 10),
       userId: user.user.id,
+      trxId: 6
     };
 
     try {
@@ -129,9 +135,15 @@ const WithdrawalForm = () => {
       });
 
       const responseData = await res.json();
+      if (responseData.status = 500) {
+        console.log("Wahala")  
+        antinotify()
+      }
       console.log(responseData);
     } catch (error) {
       console.error("Error:", error);
+    
+     
     }
   };
 
@@ -189,6 +201,7 @@ const WithdrawalForm = () => {
 
   return (
     <div>
+      <ToastContainer/>
       <h2 className="font-bold mb-4 ">Bank Transfer</h2>
       <hr></hr>
       <form action="submit" onSubmit={handleSubmit} className=" mt-4 md:mt-8 ">
@@ -221,7 +234,7 @@ const WithdrawalForm = () => {
             </div>
           </section>
           <p className="mt-6">Recipient: {customerDetails}</p>
-            <button onClick={handleRecipient} className="bg-black text-sm rounded-md p-2 text-white">
+            <button onClick={handleRecipient} className="bg-black mt-4 text-sm rounded-md px-4 py-2 text-white">
               Save Recipient
             </button></div>
 
@@ -253,7 +266,7 @@ const WithdrawalForm = () => {
                 type="submit"
                 className="mt-9 bg-black p-2 rounded-md text-white"
               >
-                <p>Withdraw</p>
+                Withdraw
                 {/* <SubmitButton buttonContent="Withdraw" /> */}
               </button>
             </div>

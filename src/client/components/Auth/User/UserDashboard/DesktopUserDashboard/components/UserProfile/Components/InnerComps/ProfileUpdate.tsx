@@ -9,12 +9,14 @@ import { profileDetails } from "@/src/helper/apis/services/auth/profile-details.
 import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.api";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProfileUpdate = () => {
   const { totalPersonalDetails, setTotalPersonalDetails } =
     useProfileContext()!;
   const [isEditable, setIsEditable] = useState(false);
-
+  const notify = () => toast.success("Profile Updated Successfully");
   const { data: userDetails, isLoading, error } = useGetUserProfile();
 
   const fullName = userDetails?.name || "";
@@ -47,6 +49,7 @@ const ProfileUpdate = () => {
     onSuccess: () => {
       console.log("Profile Details updated successfully");
       setIsEditable(false);
+      notify();
     },
   });
 
@@ -61,19 +64,13 @@ const ProfileUpdate = () => {
         const minutes = String(date.getMinutes()).padStart(2, "0");
         const seconds = String(date.getSeconds()).padStart(2, "0");
         const milliseconds = String(date.getMilliseconds()).padStart(3, "0");
-        
+
         return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`;
       };
-      
+
       const formattedDateOfBirth = formatDate(
         new Date(totalPersonalDetails.dob)
       );
-      console.log("Data to be sent:", {
-        name: totalPersonalDetails.firstName + totalPersonalDetails.lastName,
-        address: totalPersonalDetails.address,
-        dateOfBirth: formattedDateOfBirth,
-        bvn: totalPersonalDetails.bvn,
-      });
 
       await updateProfile({
         name: totalPersonalDetails.firstName + totalPersonalDetails.lastName,
@@ -92,6 +89,7 @@ const ProfileUpdate = () => {
       <ProfileReusableCard
         profileContent={
           <div>
+            <ToastContainer />
             <form
               onSubmit={handleSaveUpdate}
               className="grid md:grid-cols-2 grid-cols-1 gap-8"
@@ -135,7 +133,7 @@ const ProfileUpdate = () => {
                     if (!isNaN(date.getTime())) {
                       setTotalPersonalDetails((prevValues) => ({
                         ...prevValues,
-                        dob: date.toISOString().split("T")[0], 
+                        dob: date.toISOString().split("T")[0],
                       }));
                     } else {
                       console.error("Invalid date selected");
@@ -143,6 +141,9 @@ const ProfileUpdate = () => {
                   }}
                   dateFormat="yyyy-MM-dd"
                   disabled={!isEditable}
+                  showYearDropdown
+                  scrollableYearDropdown
+                  yearDropdownItemNumber={70}
                 />
               </div>
 
@@ -178,8 +179,8 @@ const ProfileUpdate = () => {
                 type="submit"
                 className={
                   !isEditable
-                    ? "bg-black opacity-50 text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"
-                    : "bg-black text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"
+                    ? "bg-black opacity-50 p-2 text-sm text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"
+                    : "bg-black p-2 text-sm text-white w-[7.1875rem] h-[2.4375rem] text-[15px] rounded font-medium"
                 }
               >
                 Save & Update

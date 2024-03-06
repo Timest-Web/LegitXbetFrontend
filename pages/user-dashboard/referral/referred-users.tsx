@@ -1,11 +1,11 @@
 import ReferredUsers from '@/src/client/components/Auth/User/UserDashboard/DesktopUserDashboard/components/Referral/ReferredUsers';
-import ReferredUsersInner from '@/src/client/components/Auth/User/UserDashboard/DesktopUserDashboard/components/Referral/ReferredUsersInner';
+import MobileRefferedUsers from '@/src/client/components/Auth/User/UserDashboard/MobileUserDashboard/components/MobileReferral/MobileReferredUsers';
 import DeviceDisplay from '@/src/client/shared/Utils/DeviceDisplay';
 import type { NextPage } from 'next';
 
 const ReferralUsers: NextPage = (props) => (
     <DeviceDisplay
-      mobileViewDisplay={<ReferredUsers {...props} />}
+      mobileViewDisplay={<MobileRefferedUsers {...props} />}
       desktopViewDisplay={<ReferredUsers {...props} />}
     />
 );

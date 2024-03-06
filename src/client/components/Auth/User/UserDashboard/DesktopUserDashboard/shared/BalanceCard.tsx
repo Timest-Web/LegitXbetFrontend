@@ -65,9 +65,6 @@ const BalanceCard: React.FC<BalanceCardProps> = ({
           )}
         </div>
       </section>
-      <div>
-        <MoreIcon />
-      </div>
     </div>
   );
 };

@@ -11,16 +11,21 @@ export const changePassword = async (payload: ChangePasswordPayload) => {
       method: "POST",
       headers: {
         "Content-type": "application/json",
-        'Authorization': `Bearer ${parsedDetails?.accessToken}`
-          
+        Authorization: `Bearer ${parsedDetails?.accessToken}`,
       },
       body: JSON.stringify(payload),
     });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     const data = await response.json();
     data.statusCode = response.status;
     return data;
   } catch (error) {
     console.error("An error occurred during the API request:", error);
-    return { statusCode: 500, error: "Internal Server Error" };
+
+    throw error;
   }
 };

@@ -4,6 +4,7 @@ import PaystackButton from "./PaystackComponent";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useQueryClient } from "@tanstack/react-query";
 
 const DepositForm = () => {
   const [depositAmount, setDepositAmount] = useState<string>("");
@@ -15,6 +16,7 @@ const DepositForm = () => {
   >(null);
   const router = useRouter();
   const notify = () => toast.success("Deposit Succesful");
+  const queryClient = useQueryClient();
   const apiUrl = "https://legitx.ng/wallet/deposit";
 
   const handlePaymentSuccess = (response: any) => {
@@ -55,6 +57,7 @@ const DepositForm = () => {
         const data = await response.json();
         setBalance(balance + amount)
         console.log("Response:", data);
+        queryClient.invalidateQueries('USER_PROFILE' as any);
       } catch (error: any) {
         console.error("Fetch Error:", error.message);
       }

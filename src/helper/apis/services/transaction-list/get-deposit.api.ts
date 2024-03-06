@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 
-const useGetUserProfile = () => {
-    const getProfile = async () => {
+ export const getDeposit = async () => {
         try {
             const userDetails = localStorage.getItem("access") || "{}";
             const parsedDetails = JSON.parse(userDetails);
-            const response = await fetch("https://legitx.ng/auth/profile", {
+            const response = await fetch("https://legitx.ng/transactions/credit", {
                 method: "GET",
                 headers: {
                     "Content-type": "application/json",
@@ -17,16 +16,10 @@ const useGetUserProfile = () => {
             responseData.statusCode = responseData.status;
             return responseData;
         } catch (error) {
-            console.error(error); 
+            console.error(error);
         }
     };
 
-    const query = useQuery({
-        queryFn: getProfile,
-        queryKey: ['USER_PROFILE']
-    });
 
-    return query;
-}
 
-export default useGetUserProfile;
+
