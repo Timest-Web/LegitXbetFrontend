@@ -1,16 +1,12 @@
 import React, { SetStateAction, useState } from 'react';
-import { useRouter } from 'next/router';
 import { useMutation } from "@tanstack/react-query";
-import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
 import SecureText from '../SecureText';
-import apiMessageHelper from '@/src/helper/apiMessageHelper';
 import AuthButton from '../AuthButton';
+import apiMessageHelper from "@/src/helper/apiMessageHelper";
 import { signIn } from '@/src/helper/apis/services/auth/login.api';
 import { signInValidation } from "./FormValidation";
 import { useFormattedPhoneNo } from '@/src/client/shared/Hooks/useFormattedPhoneNo';
 import { Password, PhoneNumber, ResponseHint } from "../Input";
-
 
 
 const Login = ({
@@ -18,7 +14,6 @@ const Login = ({
 }: {
 	setIsForgetPassword: React.Dispatch<SetStateAction<boolean>>;
 }) => {
-	const { push } = useRouter();
 	const [password, setPassword] = useState('');
 	const [phoneNo, setPhoneNo] = useState('');
 	const [errors, setErrors] = useState<{
@@ -39,7 +34,7 @@ const Login = ({
 					message: res?.message,
 					statusCode: res?.statusCode,
 					onSuccessCallback: () => {
-						window.location.href = '/user-dashboard';
+						window.location.href = '/';
 					},
 				});
 
@@ -58,7 +53,6 @@ const Login = ({
 		<form
 			action='submit'
 			className='flex flex-col items-center justify-center space-y-3'>
-			<ToastContainer />
 
 			<div>
 				<PhoneNumber

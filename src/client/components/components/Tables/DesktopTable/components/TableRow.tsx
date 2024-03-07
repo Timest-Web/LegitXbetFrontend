@@ -33,17 +33,14 @@ const TableRow = ({
 }: TableProps) => {
   const truncatedTeamOne = truncateText(teamOne, 10);
   const truncatedTeamTwo = truncateText(teamTwo, 8);
-  const winInt = parseFloat(home);
-  const drawInt = parseFloat(draw);
-  const loseInt = parseFloat(away);
   const selectedOddObj = {
     id,
     time,
     teamOne,
     teamTwo,
-    home: winInt,
-    draw: drawInt,
-    away: loseInt,
+    home,
+    draw,
+    away,
     homeName,
     awayName,
     drawName,
@@ -59,19 +56,20 @@ const TableRow = ({
     league?.split(":")[1]
   }/${teamOne}-vs-${teamTwo}/${id}`;
 
+  console.log(typeof(oddOne));
+
   return (
     <div className="flex bg-darkAsh w-full rounded-b-xl">
-      <Link
-        href={href}
-      >
+      <Link href={href}>
         <div className="flex flex-col items-center justify-center border-r border-r-gray-800 border-b border-b-gray-800 w-20 h-12 text-[10px] space-x-1">
-          <div className="flex items-center justify-center space-x-1">
+          <div className="flex items-center justify-center space-x-1">        
             <Time color="#E6EAEE" />
             <p className="text-white ">{time}</p>
           </div>
           <p className="text-[10px] text-gray-400">{`ID: ${id}`}</p>
         </div>
       </Link>
+      
       <div className="flex items-center justify-between border-b border-b-gray-800 w-full text-gray-200 pr-4 text-xs">
         <Tooltip>
           <Tooltip.Trigger>

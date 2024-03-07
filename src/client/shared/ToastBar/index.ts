@@ -2,7 +2,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 type Props = {
-	text: string;
+	text?: string;
 };
 
 export const SuccessToast = ({ text }: Props) => {

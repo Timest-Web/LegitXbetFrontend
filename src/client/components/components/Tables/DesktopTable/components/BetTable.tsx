@@ -135,7 +135,7 @@ const BetTable = ({
                         : "text-white"
                     } flex items-center justify-center w-full font-bold text-center text-[12px] hover:bg-gray-700 hover:text-gold cursor-pointer rounded-lg py-1 px-3`}
                   >
-                    {title.name.split(":")[1]}
+                    {title.name}
                   </div>
                 </div>
               ))}

@@ -1,8 +1,6 @@
 import React, { SetStateAction, useState } from 'react';
-import 'react-toastify/dist/ReactToastify.css';
 import AuthButton from '../AuthButton';
 import SecureText from '../SecureText';
-import { ToastContainer } from 'react-toastify';
 import { signUpValidation } from './FormValidation';
 import { useMutation } from '@tanstack/react-query';
 import apiMessageHelper from '@/src/helper/apiMessageHelper';
@@ -63,8 +61,6 @@ const Register = ({ setInputPhoneNo, setIsFormSubmit }: FormProps) => {
 			className={`flex flex-col items-center justify-center px-8 ${
 				isMobile ? 'space-y-2' : 'space-y-3'
 			}`}>
-			<ToastContainer />
-
 			<div
 				className={`flex ${
 					isMobile ? 'flex-col space-y-2' : 'space-x-3'

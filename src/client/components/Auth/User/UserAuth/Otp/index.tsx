@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import 'react-toastify/dist/ReactToastify.css';
 import Lock from '@/src/client/shared/Svg/Lock';
 import AuthOtpCodeInput from '../Components/AuthCode';
 import AuthButton from '../Components/AuthButton';
 import { useMutation } from '@tanstack/react-query';
-import { ToastContainer } from 'react-toastify';
 import apiMessageHelper from '@/src/helper/apiMessageHelper';
 import useCountdown from '@/src/client/shared/Hooks/useCountDown';
 
@@ -41,10 +39,7 @@ const Otp = ({ title, phoneNo, msgValue, fieldsValue, mutationFunction }: OtpPro
 	const code = inputOtpValue;
 	const { mutateAsync, isPending } = useMutation({mutationFn: mutationFunction});
 	const handleSubmit = () => {
-		const data = { phoneNumber: phoneNo, code };
-
-		
-
+	const data = { phoneNumber: phoneNo, code };
 		if (inputOtpValue.length === fieldsValue) {
 			mutateAsync(data).then((res) => {
 				apiMessageHelper({
@@ -83,7 +78,6 @@ const Otp = ({ title, phoneNo, msgValue, fieldsValue, mutationFunction }: OtpPro
 				<Lock />
 				<p className='font-bold text-sm'>OTP Verification</p>
 			</div>
-			<ToastContainer />
 
 			<div className='flex flex-col items-center justify-center mt-4'>
 				<AuthOtpCodeInput
