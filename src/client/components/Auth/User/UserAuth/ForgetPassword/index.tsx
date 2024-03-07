@@ -1,12 +1,10 @@
 import React, { SetStateAction, useState } from 'react';
 import Otp from '../Otp';
 import Lock from '@/src/client/shared/Svg/Lock';
-import 'react-toastify/dist/ReactToastify.css';
 import AuthButton from '../Components/AuthButton';
 import ModalContainer from '../Components/ModalContainer';
 import apiMessageHelper from '@/src/helper/apiMessageHelper';
 import { useMutation } from '@tanstack/react-query';
-import { ToastContainer } from 'react-toastify';
 import { PhoneNumber, ResponseHint } from '../Components/Input';
 import { resetPassword } from '@/src/helper/apis/services/auth/reset-password.api';
 import { forgetPassword } from '@/src/helper/apis/services/auth/forget-password.api';
@@ -70,7 +68,6 @@ const ForgetPassword = ({
 						</p>
 					</div>
 
-					<ToastContainer />
 
 					<div className='flex flex-col items-center justify-center mt-4'>
 						<div>

@@ -21,7 +21,10 @@ const TableTennis = () => {
       }
       centerSection={
         <CenterSection>
-          <DesktopLiveBetTable />
+          {/* <DesktopLiveBetTable /> */}
+          <div className="w-[720px]">
+            <p className="text-gray-600 font-bold text-7xl">Coming Soon</p>
+          </div>
         </CenterSection>
       }
       mobileComponents={

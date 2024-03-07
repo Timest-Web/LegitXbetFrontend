@@ -1,7 +1,7 @@
 export type OddsValuesProps = {
   id: number;
   time: string;
-  odd: number;
+  odd: string;
   oddName: string;
   teamOne: string;
   teamTwo: string;
@@ -15,9 +15,9 @@ export type SelectedOddsObjectProps = {
   time: string;
   teamOne: string;
   teamTwo: string;
-  home?: number | undefined;
-  draw: number;
-  away?: number | undefined;
+  home?: string | undefined;
+  draw: string;
+  away?: string | undefined;
   sport: string;
   marketId: string;
   marketName: string;
@@ -29,8 +29,8 @@ export type BetContextType = {
   addToBetSlip: (
     id: number,
     oddName: string,
-    odd: number,
+    odd: string,
     selectedOddObj: SelectedOddsObjectProps
   ) => void;
-  handleDelete: (params: { id: number; odd: number }) => void | boolean;
+  handleDelete: (params: { id: number; odd: string }) => void | boolean;
 };

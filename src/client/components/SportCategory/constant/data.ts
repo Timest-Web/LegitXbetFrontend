@@ -30,9 +30,9 @@ export type MatchWinProps = {
   homeName: string;
   drawName: string;
   awayName: string;
-  home: number;
-  draw: number;
-  away: number;
+  home: string;
+  draw: string;
+  away: string;
   oddOne: string;
   oddTwo: string;
   oddThree: string;
