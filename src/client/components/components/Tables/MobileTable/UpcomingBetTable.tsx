@@ -2,14 +2,14 @@ import BetTable from "./components/BetTable";
 import MatchStar from "@/src/client/shared/Svg/MatchStar";
 
 
-export const UpcomingBetTable = ({
+export const CustomBetTable = ({
   data,
   viewFeatureMatches
 }:{
   data: any,
   viewFeatureMatches: number
 }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <BetTable
       href="upcominggames"

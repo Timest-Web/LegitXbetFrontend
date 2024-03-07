@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 
-const useGetFootballLeagues = () => {
-  const getFootLeagues = async () => {
+const useGetFootballLeague = ({leagueName}: {leagueName: string}) => {
+    console.log(leagueName);
+  const getFootballlLeagues = async () => {
     try {
       const response = await fetch(
-        "https://legitx.ng/bookmaking/football/leagues",
+        `https://legitx.ng/bookmaking/football/matches/leagues/${leagueName}`,
         {
           method: "GET",
         }
@@ -19,11 +20,10 @@ const useGetFootballLeagues = () => {
   };
 
   const query = useQuery({
-    queryFn: getFootLeagues,
-    queryKey: ["GET_FOOTBALL_LEAGUES"],
+    queryFn: getFootballlLeagues,
+    queryKey: ["GET_TOP_LEAGUES_DATA"],
   });
-
   return query;
 };
 
-export default useGetFootballLeagues;
+export default useGetFootballLeague;

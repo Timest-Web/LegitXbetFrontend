@@ -1,34 +1,19 @@
+import useGetTopLeaguesFootball from "@/src/helper/apis/services/bookmaking/football/get-top-leagues-api";
 import BetTable from "./components/BetTable";
-import { SPORTS_DATA } from "../../../LandingPage/constant/data";
 import MatchStar from "@/src/client/shared/Svg/MatchStar";
-// import { useBetTable } from "@/src/client/shared/Hooks/useBetTable";
-
+import { filterMatches } from "@/src/client/shared/Utils/FilterMatches";
 
 export const TopBetTable = () => {
-  // const {
-  //   odds,
-  //   sportData,
-  //   setSelectedDate,
-  //   setSelectedSport,
-  //   setSelectedLeague,
-  //   extractedSportType,
-  // } = useBetTable(SPORTS_DATA?.TopMatches);
+  const { data: topLeaguesData } = useGetTopLeaguesFootball();
 
   return (
-    <></>
-    // <BetTable
-    //   href="topgames"
-    //   icon={<MatchStar />}
-    //   odds={odds}
-    //   leagues={leagues}
-    //   isLiveTable={false}
-    //   sportData={sportData}
-    //   contentTitle="Top Matches"
-    //   sportsType={extractedSportType}
-    //   setSelectedDate={setSelectedDate}
-    //   setSelectedSport={setSelectedSport}
-    //   setSelectedLeague={setSelectedLeague}
-    // />
+    <BetTable
+      href="topgames"
+      icon={<MatchStar />}
+      isLiveTable={false}
+      sportData={filterMatches(topLeaguesData, 4)}
+      contentTitle="Top Matches"
+      viewFeatureMatches={4}
+    />
   );
 };
-

@@ -87,12 +87,10 @@ const SelectedGame = () => {
     }
   }
 
-  console.log(uniqueOdds);
-
   return (
     <Layout>
       {data && data.id ? (
-        <div className="w-full rounded-xl bg-white lg:p-12 p-3 space-y-4">
+        <div className="w-[720px] rounded-xl bg-white lg:p-12 p-3 space-y-4">
           <div className="flex items-start justify-between">
             <div className="space-y-5">
               <p className="text-black font-bold lg:text-xl text-sm">

@@ -1,13 +1,13 @@
 import React from "react";
-import { UpcomingBetTable } from "../../../components/Tables/MobileTable/UpcomingBetTable";
 import { filterMatches } from "@/src/client/shared/Utils/FilterMatches";
+import { CustomBetTable } from "../../../components/Tables/MobileTable/UpcomingBetTable";
 
 const BetTableSection = (data: any) => {
-	// console.log(data);
+  // console.log(data);
   return (
     <div className="mt-2 -mb-6 space-y-8">
       {/* <LiveBetTable/> */}
-      <UpcomingBetTable
+      <CustomBetTable
         data={filterMatches(data.data, 2)}
         viewFeatureMatches={2}
       />

@@ -1,7 +1,6 @@
 
 import { SPORTS_DATA } from "../../../LandingPage/constant/data";
 import MatchStar from "@/src/client/shared/Svg/MatchStar";
-// import { useBetTable } from "@/src/client/shared/Hooks/useBetTable";
 import BetTable from "./components/BetTable";
 
 
