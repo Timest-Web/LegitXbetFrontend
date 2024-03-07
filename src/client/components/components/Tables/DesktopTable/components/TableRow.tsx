@@ -56,7 +56,6 @@ const TableRow = ({
     league?.split(":")[1]
   }/${teamOne}-vs-${teamTwo}/${id}`;
 
-  console.log(typeof(oddOne));
 
   return (
     <div className="flex bg-darkAsh w-full rounded-b-xl">

@@ -57,8 +57,6 @@ const NoSelectionYet = () => {
   };
 
   const ticketDatas = extractedTicketValues();
-  console.log(ticketDatas);
-
 
   return (
     <>

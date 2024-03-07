@@ -14,15 +14,15 @@ import useRedirectIfNoAccessToken from "@/src/client/shared/Hooks/useRedirectIfN
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
-  const { user } = useGetUser();
-  const router = useRouter();
-  const isUserDashboardPage = router.pathname.includes("user-dashboard");
+  // const { user } = useGetUser();
+  // const router = useRouter();
+  // const isUserDashboardPage = router.pathname.includes("user-dashboard");
 
-  useRedirectIfNoAccessToken(user, isUserDashboardPage);
+  // useRedirectIfNoAccessToken(user, isUserDashboardPage);
 
-  if (!user?.accessToken && isUserDashboardPage) {
-    return <AuthUser />;
-  }
+  // if (!user?.accessToken && isUserDashboardPage) {
+  //   return <AuthUser />;
+  // }
 
   return (
     <QueryClientProvider client={queryClient}>

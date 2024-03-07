@@ -1,7 +1,4 @@
-import React, {
-  ReactElement,
-  useState,
-} from "react";
+import React, { ReactElement, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import TableRow from "./TableRow";
@@ -11,7 +8,6 @@ import { useLink } from "@/src/client/shared/Hooks/useLink";
 import { SPORTS_TYPES } from "../../../../MainSection/CenterSection/constant/data";
 import { CustomCarousel } from "@/src/client/shared/Carousel";
 import { getFeatureDates } from "@/src/client/shared/Utils/GetSportsDate";
-
 
 const BetTable = ({
   href,
@@ -32,7 +28,7 @@ const BetTable = ({
   const { pathname } = router;
   const nextTwoDates = getFeatureDates(viewFeatureMatches);
   const sportsType = ["Football", "Basketball"];
-  const markets = ["Match Winner","Correct Score"];
+  const markets = ["Match Winner", "Correct Score"];
   const [collapse, setCollapse] = useState(false);
   const { link, handleClick } = useLink(markets[0]);
   const { link: dateClick, handleClick: dateHandleClick } = useLink(
@@ -58,8 +54,6 @@ const BetTable = ({
       : [];
   };
 
-  // console.log(extractedLeagues())
-
   const extractLeagues = extractedLeagues();
   const { link: leagueClick, handleClick: leagueHandleClick } = useLink(
     extractLeagues ? extractLeagues[0]?.name : ""
@@ -68,8 +62,6 @@ const BetTable = ({
   const extractedMatches = extractLeagues.filter(
     (value: any) => value.name === leagueClick
   )[0]?.matches;
-
-  console.log(link);
 
   return (
     <div>

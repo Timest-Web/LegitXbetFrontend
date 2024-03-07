@@ -1,8 +1,7 @@
-// import { filterMatches } from "@/src/client/shared/Utils/FilterMatches";
 import BetTable from "./components/BetTable";
 import MatchStar from "@/src/client/shared/Svg/MatchStar";
 
-export const UpcomingBetTable = ({
+export const CustomBetTable = ({
   data,
   viewFeatureMatches,
 }: {
