@@ -32,18 +32,18 @@ const TableRow = ({
 }: TableProps) => {
   const truncatedTeamOne = truncateText(teamOne, 10);
   const truncatedTeamTwo = truncateText(teamTwo, 10);
-  const winInt = parseFloat(home);
-  const drawInt = parseFloat(draw);
-  const loseInt = parseFloat(away);
+  // const winInt = parseFloat(home);
+  // const drawInt = parseFloat(draw);
+  // const loseInt = parseFloat(away);
 
   const selectedOddObj = {
     id,
     time,
     teamOne,
     teamTwo,
-    home: winInt,
-    draw: drawInt,
-    away: loseInt,
+    home,
+    draw,
+    away,
     homeName,
     awayName,
     drawName,

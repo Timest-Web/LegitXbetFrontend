@@ -5,10 +5,13 @@ import MobileNavbar from "../../shared/MobileNavbar";
 import FilterByTime from "./components/FilterByTime";
 import PopularDataType from "./components/PopularDataType";
 import CenterSection from "../components/MainSection/CenterSection";
-import { LiveBetTable as DesktopLiveBetTable, LiveBetTable } from "../components/Tables/DesktopTable/LiveBetTable";
+import {
+  LiveBetTable as DesktopLiveBetTable,
+  LiveBetTable,
+} from "../components/Tables/DesktopTable/LiveBetTable";
 import { BASKETBALL_DATA } from "../LandingPage/DesktopLandingPage/LeftSection/constant/data";
 
-const Basketball = () => {
+const Dart = () => {
   return (
     <Layout
       leftSection={
@@ -22,9 +25,7 @@ const Basketball = () => {
         <CenterSection>
           {/* <DesktopLiveBetTable /> */}
           <div className="w-[720px]">
-            <p className="text-gray-600 font-bold text-7xl">
-              Coming Soon
-            </p>
+            <p className="text-gray-600 font-bold text-7xl">Coming Soon</p>
           </div>
         </CenterSection>
       }
@@ -38,4 +39,4 @@ const Basketball = () => {
   );
 };
 
-export default Basketball;
+export default Dart;

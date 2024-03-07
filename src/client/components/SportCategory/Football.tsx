@@ -12,18 +12,15 @@ import MobileNavbar from "../../shared/MobileNavbar";
 import useGetFootballPageMatches from "@/src/helper/apis/services/bookmaking/football/get-football-page-matches";
 import { getFeatureDates } from "../../shared/Utils/GetSportsDate";
 import { filterMatches } from "../../shared/Utils/FilterMatches";
+import { LoaderScreen } from "../../shared/Loader/LoaderScreen";
 
 const Football = () => {
   const { data } = useGetFootballPageMatches();
-  console.log(data);
-  const nextTwoDates = getFeatureDates(4);
 
 
   if (!data) {
     return (
-      <div className="flex items-center justify-center w-screen h-screen">
-        <Loader color="border-raditz" size="lg" />
-      </div>
+      <LoaderScreen />
     );
   }
 
