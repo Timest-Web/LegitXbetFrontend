@@ -3,8 +3,6 @@ import { getFeatureDates } from "./GetSportsDate";
 export const filterMatches = (data: any, fetchNumbersOfDayMatch: number) => {
   const nextDates = getFeatureDates(fetchNumbersOfDayMatch);
 
-  console.log(nextDates);
-
   return Array.isArray(data) ? data.map((value: any) => ({
       ...value,
       matches: value.matches.filter((match: any) => {

@@ -3,12 +3,12 @@ export type OddsValuesProps = {
   time: string;
   teamOne: string;
   teamTwo: string;
-  odd: number;
+  odd: string;
   oddName: string;
 };
 
 export type BetItemProps = {
   index: number;
   value: OddsValuesProps;
-  onDelete: (id: number, odd: number) => void;
+  onDelete: ((id: number, odd: string) => void) | undefined;
 };

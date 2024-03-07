@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SetStateAction } from 'react';
 import TagCross from '@/src/client/shared/Svg/TagCross';
 import useBet from '@/src/client/shared/Context/BetContext/useBet';
 

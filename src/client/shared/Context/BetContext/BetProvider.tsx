@@ -20,7 +20,7 @@ export const BetProvider: React.FC<BetProviderProps> = ({
   const addToBetSlip = (
     id: number,
     oddName: string,
-    odd: number,
+    odd: string,
     selectedOddObj: SelectedOddsObjectProps
   ) => {
     if (id) {
@@ -61,7 +61,7 @@ export const BetProvider: React.FC<BetProviderProps> = ({
     }
   };
 
-  const handleDelete = ({ id, odd }: { id: number; odd: number }) => {
+  const handleDelete = ({ id, odd }: { id: number; odd: string }) => {
     if (id) {
       const updateBetList = bet.filter(
         (betItem) => !(betItem.id === id && betItem.odd === odd)

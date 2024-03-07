@@ -3,7 +3,6 @@ export interface SaveTicketPayload {
     sport: string;
     matchId: string;
     marketId: string;
-    marketName: string;
     oddName: string;
     odd: string;
   }[];

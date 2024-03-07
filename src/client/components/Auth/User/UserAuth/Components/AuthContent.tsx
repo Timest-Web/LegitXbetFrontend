@@ -5,6 +5,7 @@ import ModalContainer from './ModalContainer';
 import ForgetPassword from '../ForgetPassword';
 import { forgetPassword } from '@/src/helper/apis/services/auth/forget-password.api';
 
+
 const AuthContent = ({ selectedButton }: { selectedButton: string }) => {
 	const [isForgetPassword, setIsForgetPassword] = useState(false);
 	const [isFormSubmit, setIsFormSubmit] = useState(false);
