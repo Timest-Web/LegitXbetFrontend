@@ -51,7 +51,7 @@ const OddsButton = ({
       (item) => item.id === id && item.odd === onextwoValue && item.oddName === onextwo
     );
     setIsBet(isObjectExist);
-  }, [bet, id, onextwoValue, oddName]);
+  }, [bet, id, onextwoValue, onextwo]);
 
   return (
     <button
