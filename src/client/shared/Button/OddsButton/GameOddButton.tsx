@@ -44,7 +44,7 @@ const OddButton = ({
 
     if (color) {
       const isObjectExist = bet.some(
-        (item) => item.id === id && item.odd === onextwoValue
+        (item) => item.id === id && item.oddName === onextwo && item.odd === onextwoValue
       );
       setIsBet(isObjectExist);
       handleDelete({ id, odd });
@@ -53,10 +53,10 @@ const OddButton = ({
 
   useEffect(() => {
     const isObjectExist = bet.some(
-      (item) => item.id === id && item.odd === onextwoValue
+      (item) => item.id === id && item.oddName === onextwo && item.odd === onextwoValue
     );
     setIsBet(isObjectExist);
-  }, [bet, id, onextwoValue]);
+  }, [bet, id, onextwo, onextwoValue]);
 
   return (
     <>

@@ -48,10 +48,10 @@ const OddsButton = ({
 
   useEffect(() => {
     const isObjectExist = bet.some(
-      (item) => item.id === id && item.odd === onextwoValue
+      (item) => item.id === id && item.odd === onextwoValue && item.oddName === onextwo
     );
     setIsBet(isObjectExist);
-  }, [bet, id, onextwoValue]);
+  }, [bet, id, onextwoValue, onextwo]);
 
   return (
     <button

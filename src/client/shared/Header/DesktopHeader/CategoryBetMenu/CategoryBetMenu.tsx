@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../../../../../assets/logo1.png";
+import Logo from "../../../../../assets/logo.jpg";
 import Headphone from "../../../Svg/Headphone";
 import UserSection from "./UserSection";
 import SupportContent from "../../SupportContent";
@@ -41,7 +41,7 @@ const CategoryBetMenu = () => {
             <Image
               src={Logo}
               alt="logo alt"
-              className="h-[22px] w-[123px] cursor-pointer"
+              className="h-[37px] w-[123px] cursor-pointer"
             />
           </Link>
 

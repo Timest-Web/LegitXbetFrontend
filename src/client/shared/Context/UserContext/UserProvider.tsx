@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { UserProps, UserProviderProps } from "./constant";
 import { UserContext } from "./UserContext";
 import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.api";
@@ -6,7 +7,11 @@ import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.
 export const UserProvider: React.FC<UserProviderProps> = ({
   children,
 }: UserProviderProps) => {
-  const { data, isLoading, error } = useGetUserProfile();
+  const { data, refetch } = useGetUserProfile();
+
+  useEffect(() => {
+    refetch()
+  }, [data, refetch])
 
   const user: UserProps = data ?? {
     id: 0,

@@ -17,6 +17,7 @@ import { BetTable as MobileBetTable } from "../components/Tables/MobileTable/com
 
 
 const Football = () => {
+  
   const router = useRouter();
   const { query, asPath } = router;
   const { data: upcomingMatches } = useGetLandingPageSportsMatches();
