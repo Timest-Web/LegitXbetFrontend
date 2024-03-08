@@ -20,34 +20,8 @@ type OddsButtonProps = {
 };
 
 export const OddsButtons = ({
-  // id,
-  // time,
-  // teamOne,
-  // teamTwo,
-  // winOdd,
-  // home,
-  // drawOdd,
-  // draw,
-  // loseOdd,
-  // away,
-  // sport,
-  // marketId,
-  // marketName
   selectedOddObj
 }: {selectedOddObj: OddsButtonProps}) => {
-  // const extratedSelectedOddObj = {
-  //   id,
-  //   time,
-  //   teamOne,
-  //   teamTwo,
-  //   home,
-  //   draw,
-  //   away,    
-  //   sport,
-  //   marketId,
-  //   marketName
-  // };
-
   return (
     <div className="flex flex-row space-x-2 w-full">
       <OddButton

@@ -9,7 +9,7 @@ import { SPORTS_TYPES } from "../../../../MainSection/CenterSection/constant/dat
 import { CustomCarousel } from "@/src/client/shared/Carousel";
 import { getFeatureDates } from "@/src/client/shared/Utils/GetSportsDate";
 
-const BetTable = ({
+export const BetTable = ({
   href,
   icon,
   contentTitle,
@@ -17,7 +17,7 @@ const BetTable = ({
   sportData,
   viewFeatureMatches,
 }: {
-  href: string;
+  href?: string;
   sportData: any;
   icon?: ReactElement;
   contentTitle: string;
@@ -268,4 +268,4 @@ const BetTable = ({
   );
 };
 
-export default BetTable;
+

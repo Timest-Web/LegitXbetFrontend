@@ -31,7 +31,7 @@ export const LINK_GAME_TYPES = [
   },
   {
     page: "Ice Hockey",
-    href: "/icehockey",
+    href: "/ice-hockey",
   },
   {
     page: "Volleyball",

@@ -61,7 +61,7 @@ const SingleBet = () => {
     <>
       <ToastContainer />
       {bet.length > 0 && (
-        <div className="flex flex-col items-center justify-center h-full w-full py-3 px-5">
+        <div className="flex flex-col items-start justify-start h-full w-full py-3 px-5">
           <DeleteBet />
           <div className="flex flex-col w-full pb-16 pt-6">
             {bet.map((value, index) => (
