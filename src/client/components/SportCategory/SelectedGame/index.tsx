@@ -90,7 +90,7 @@ const SelectedGame = () => {
   return (
     <Layout>
       {data && data.id ? (
-        <div className="w-[720px] rounded-xl bg-white lg:p-12 p-3 space-y-4">
+        <div className="lg:w-[720px] w-full rounded-xl bg-white lg:p-12 p-3 space-y-4">
           <div className="flex items-start justify-between">
             <div className="space-y-5">
               <p className="text-black font-bold lg:text-xl text-sm">
@@ -171,7 +171,7 @@ const SelectedGame = () => {
           )}
 
           {isMobile && (
-            <div className="space-y-4 w-full lg:mt-0 -mt-5">
+            <div className="space-y-4 w-full -mt-5">
               {data.markets.map((value: any, index: number) => (
                 <div key={index}>
                   {index === 0 ? (
@@ -186,7 +186,7 @@ const SelectedGame = () => {
                   ) : (
                     <div key={index} className="space-y-1">
                       <p className="lg:text-sm text-[10px]">{`${value.value}:`}</p>
-                      <div className="flex flex-row items-center space-x-3 justify-between py-2 px-4 bg-lightGray">
+                      <div className="flex flex-row items-center justify-between py-2 px-4 bg-lightGray">
                         <div className="grid grid-cols-3 gap-3 lg:w-full w-full h-max">
                           {odds &&
                             odds.length > 1 &&

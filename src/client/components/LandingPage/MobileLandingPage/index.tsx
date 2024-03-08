@@ -22,7 +22,7 @@ const MobileLandingPage = () => {
             <div className="h-max w-full -mt-[120px] pt-[120px]">
               <LandScaleImageCarousel height="h-[134.36px]" width="w-full" />
               <LeagueType />
-              <BetTableSection data={data.upcoming.football} />
+              <BetTableSection />
               <MobileNavbar />
             </div>
           }

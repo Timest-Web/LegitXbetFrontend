@@ -16,8 +16,6 @@ export const FOOTBALL_DATA = [
     {title: "Spain Matches", link: "/sports/football?league=spain"},
     {title: "Italy Matches", link: "/sports/football?league=italy"},
     {title: "Germany Matches", link: "/sports/football?league=germany"},
-    {title: "African Matches", link: "/sports/football?african-leagues"},
-    {title: "Local Leagues", link: "/sports/football?local-leagues-leagues"},
 ]
 
 export const BASKETBALL_DATA = [

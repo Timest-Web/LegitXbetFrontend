@@ -4,8 +4,6 @@ import OddsFilter from "./components/OddsFilter";
 import FilterByTime from "./components/FilterByTime";
 import PopularDataType from "./components/PopularDataType";
 import CenterSection from "../components/MainSection/CenterSection";
-import { LiveBetTable as DesktopLiveBetTable } from "../components/Tables/DesktopTable/LiveBetTable";
-import { LiveBetTable } from "../components/Tables/MobileTable/LiveBetTable";
 import { TABLETENNIS_DATA } from "../LandingPage/DesktopLandingPage/LeftSection/constant/data";
 import MobileNavbar from "../../shared/MobileNavbar";
 
@@ -29,7 +27,9 @@ const VolleyBall = () => {
       }
       mobileComponents={
         <div className="pt-4 -mb-6">
-          <LiveBetTable />
+          <div className="w-full p-2">
+            <p className="text-gray-600 font-bold text-3xl">Coming Soon</p>
+          </div>
           <MobileNavbar />
         </div>
       }

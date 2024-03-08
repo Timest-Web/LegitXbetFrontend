@@ -5,7 +5,6 @@ import MobileNavbar from "../../shared/MobileNavbar";
 import FilterByTime from "./components/FilterByTime";
 import PopularDataType from "./components/PopularDataType";
 import CenterSection from "../components/MainSection/CenterSection";
-import { LiveBetTable as DesktopLiveBetTable, LiveBetTable } from "../components/Tables/DesktopTable/LiveBetTable";
 import { BASKETBALL_DATA } from "../LandingPage/DesktopLandingPage/LeftSection/constant/data";
 
 const Basketball = () => {
@@ -22,15 +21,15 @@ const Basketball = () => {
         <CenterSection>
           {/* <DesktopLiveBetTable /> */}
           <div className="w-[720px]">
-            <p className="text-gray-600 font-bold text-7xl">
-              Coming Soon
-            </p>
+            <p className="text-gray-600 font-bold text-7xl">Coming Soon</p>
           </div>
         </CenterSection>
       }
       mobileComponents={
         <div className="pt-4 -mb-6">
-          <LiveBetTable />
+          <div className="w-full p-2">
+            <p className="text-gray-600 font-bold text-3xl">Coming Soon</p>
+          </div>
           <MobileNavbar />
         </div>
       }

@@ -56,84 +56,73 @@ const Register = ({ setInputPhoneNo, setIsFormSubmit }: FormProps) => {
 	};
 
 	return (
-		<form
-			action='submit'
-			className={`flex flex-col items-center justify-center px-8 ${
-				isMobile ? 'space-y-2' : 'space-y-3'
-			}`}>
-			<div
-				className={`flex ${
-					isMobile ? 'flex-col space-y-2' : 'space-x-3'
-				}`}>
-				<div>
-					<InputField
-						type='text'
-						label='Full Name'
-						value={fullname}
-						setValue={setFullname}
-						placeHolder='Abu Godwin'
-						borderHint={
-							errors.fullname ? 'border border-red-600' : ''
-						}
-					/>
-					{errors.fullname && <ResponseHint err={errors.fullname} />}
-				</div>
+    <form
+      action="submit"
+      className={`flex flex-col items-center justify-center px-8 ${
+        isMobile ? "space-y-2" : "space-y-3"
+      }`}
+    >
+      <div className={`flex ${isMobile ? "flex-col space-y-2" : "space-x-3"}`}>
+        <div>
+          <InputField
+            type="text"
+            label="Full Name"
+            value={fullname}
+            setValue={setFullname}
+            placeHolder="Abu Godwin"
+            borderHint={errors.fullname ? "border border-red-600" : ""}
+          />
+          {errors.fullname && <ResponseHint err={errors.fullname} />}
+        </div>
 
-				<div>
-					<InputField
-						type='email'
-						label='Email'
-						value={email}
-						setValue={setEmail}
-						placeHolder='youremail@gmail.com'
-						borderHint={errors.email ? 'border border-red-600' : ''}
-					/>
-					{errors.email && <ResponseHint err={errors.email} />}
-				</div>
-			</div>
+        <div>
+          <InputField
+            type="email"
+            label="Email"
+            value={email}
+            setValue={setEmail}
+            placeHolder="youremail@gmail.com"
+            borderHint={errors.email ? "border border-red-600" : ""}
+          />
+          {errors.email && <ResponseHint err={errors.email} />}
+        </div>
+      </div>
 
-			<div
-				className={`flex ${
-					isMobile ? 'flex-col space-y-2' : 'space-x-3'
-				}`}>
-				<div>
-					<PhoneNumber
-						type='number'
-						label='Mobile Number'
-						value={phoneNo}
-						setValue={setPhoneNo}
-						placeHolder='e.g 80x xxxx xxxx'
-						borderHint={
-							errors.phoneNo ? 'border border-red-600' : ''
-						}
-					/>
-					{errors.phoneNo && <ResponseHint err={errors.phoneNo} />}
-				</div>
+      <div className={`flex ${isMobile ? "flex-col space-y-2" : "space-x-3"}`}>
+        <div>
+          <PhoneNumber
+            type="number"
+            label="Mobile Number"
+            value={phoneNo}
+            setValue={setPhoneNo}
+            placeHolder="e.g 80x xxxx xxxx"
+            borderHint={errors.phoneNo ? "border border-red-600" : ""}
+          />
+          {errors.phoneNo && <ResponseHint err={errors.phoneNo} />}
+        </div>
 
-				<div>
-					<Password
-						type='password'
-						label='Password'
-						value={password}
-						setValue={setPassword}
-						placeHolder=''
-						borderHint={
-							errors.password ? 'border border-red-600' : ''
-						}
-					/>
-					{errors.password && <ResponseHint err={errors.password} />}
-				</div>
-			</div>
+        <div>
+          <Password
+            type="password"
+            label="Password"
+            value={password}
+            setValue={setPassword}
+            placeHolder=""
+            borderHint={errors.password ? "border border-red-600" : ""}
+          />
+          {errors.password && <ResponseHint err={errors.password} />}
+        </div>
+      </div>
 
-			<SecureText />
-			<AuthButton
-				isPending={isPending}
-				validationErrors={validationErrors}
-				handleSubmit={handleSubmit}
-				inputVerificationErrorsLength={0}
-			/>
-		</form>
-	);
+      <SecureText />
+      <AuthButton
+        isPending={isPending}
+        validationErrors={validationErrors}
+        handleSubmit={handleSubmit}
+        inputVerificationErrorsLength={0}
+      />
+    </form>
+  );
 };
 
 export default Register;
