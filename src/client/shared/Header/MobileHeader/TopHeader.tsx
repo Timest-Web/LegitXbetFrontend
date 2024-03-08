@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../../../../assets/logo1.png";
+import Logo from "../../../../assets/logo.jpg";
 import useUser from "../../Context/UserContext/useUser";
 import AuthContent from "@/src/client/components/Auth/User/UserAuth/Components/AuthContent";
 import MobileTopDrawer from "../../Drawer/MobileTopDrawer";
@@ -24,7 +24,7 @@ const TopHeader = () => {
     <>
       <div className="flex items-center justify-between px-4 h-12 w-full bg-black">
         <Link href="/">
-          <Image src={Logo} alt="Logo alt" className="h-4 w-24" />
+          <Image src={Logo} alt="Logo alt" className="h-8 w-28" />
         </Link>
 
         {!username && (

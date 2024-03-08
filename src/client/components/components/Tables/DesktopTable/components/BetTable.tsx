@@ -248,7 +248,7 @@ const BetTable = ({
 
             {Array.isArray(extractedMatches) &&
               extractedMatches.length >= 5 && pathname === '/' && (
-                <Link href={`/sport/football/40`}>
+                <Link href={`/sports/football`}>
                   <div className="h-12 w-full py-2 px-3">
                     <button className="w-full h-8 rounded-lg bg-lightAsh text-white text-xs">
                       View All
