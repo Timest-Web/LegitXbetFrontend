@@ -4,8 +4,10 @@ import PaystackButton from "./PaystackComponent";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useUser from "@/src/client/shared/Context/UserContext/useUser";
 
 const DepositForm = () => {
+  const {refreshUserData} = useUser()
   const [depositAmount, setDepositAmount] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const { balance, setBalance } = useContext(BalanceContext)!;
@@ -52,6 +54,7 @@ const DepositForm = () => {
         }, 5000);
 
         notify();
+        refreshUserData();
         const data = await response.json();
         setBalance(balance + amount)
         console.log("Response:", data);
@@ -63,7 +66,7 @@ const DepositForm = () => {
     if (transactionReference) {
       fetchData(transactionReference, +depositAmount);
     }
-  }, [transactionReference, depositAmount, setBalance, balance, router, apiUrl]);
+  }, [transactionReference, depositAmount, setBalance, balance, router, apiUrl, refreshUserData]);
 
   const handleDepositInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;

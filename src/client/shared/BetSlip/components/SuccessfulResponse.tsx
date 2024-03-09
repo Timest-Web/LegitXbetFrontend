@@ -17,18 +17,19 @@ const SuccessfulResponse = ({
   amount,
   totalStake,
   potentialWins,
-  closeModal
+  closeModal,
 }: {
-  closeModal: Function,
+  closeModal: Function;
   amount: string;
   totalStake: string;
   potentialWins: string;
 }) => {
-  const { user } = useUser();
+  const { user, refreshUserData } = useUser();
   const { bet } = useBet();
   const router = useRouter();
   const [ticketCode, setTicketCode] = useState("");
   const [isBetPlace, setIsBetPlace] = useState(false);
+
   const handleClick = () => {
     router.reload();
   };
@@ -60,22 +61,21 @@ const SuccessfulResponse = ({
     });
   };
 
-
-    const handleGenerateCode = () => {
-      const data = { games: saveTicketArray };
-      if (user.id) {
-        mutateAsync(data).then((res: any) => {
-          apiMessageHelper({
-            message: res.message,
-            statusCode: res?.statusCode,
-            onSuccessCallback: () => {
-              setTicketCode(res?.code);
-              handleSubmit();
-            },
-          });
+  const handleGenerateCode = () => {
+    const data = { games: saveTicketArray };
+    if (user.id) {
+      mutateAsync(data).then((res: any) => {
+        apiMessageHelper({
+          message: res.message,
+          statusCode: res?.statusCode,
+          onSuccessCallback: () => {
+            setTicketCode(res?.code);
+            handleSubmit();
+          },
         });
-      }
-    };
+      });
+    }
+  };
 
   return (
     <>
@@ -111,7 +111,7 @@ const SuccessfulResponse = ({
           <div className="flex flex-col mt-6 w-full space-y-4 px-8">
             <button
               className="text-white bg-gold py-2 px-6 w-full"
-              onClick={handleClick}
+              onClick={() => {refreshUserData(); closeModal()}}
             >
               ok
             </button>
@@ -156,7 +156,5 @@ const SuccessfulResponse = ({
     </>
   );
 };
-
-
 
 export default SuccessfulResponse;
