@@ -1,8 +1,11 @@
+import useUser from "../../Context/UserContext/useUser";
 import Logout from "../../Svg/Logout";
 import ReceiptSearch from "../../Svg/ReceiptSearch";
 import Repeat from "../../Svg/Repeat";
 import User from "../../Svg/User";
 import UserTage from "../../Svg/UserTage";
+
+
 
 export const LINK_CATEGORY_TYPES = [
   "Sports",
@@ -50,7 +53,7 @@ export const LINK_GAME_TYPES = [
 export const USER_HEADER_DATA = [
   {
     icon: <Repeat />,
-    title: "NGN26.24",
+    title: `NGN26.24`,
   },
   {
     icon: <UserTage />,

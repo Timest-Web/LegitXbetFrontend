@@ -30,7 +30,9 @@ const WithdrawalActiveInner = () => {
 
   return (
     <div>
-      <div className="hidden md:block">
+       <h2 className="font-bold text-lg m-auto hidden">No Withdrawal Yet</h2>
+      <div className="hidden md:block ">
+       
         <TableComp
           tableTitle="Withdrawal History"
           searchField={true}
@@ -39,7 +41,7 @@ const WithdrawalActiveInner = () => {
           columns={columns}
         />
       </div>
-      <div className="md:hidden">
+      <div className="hidden">
         {currentItems.map((withdrawal, index) => (
           <div className="bg-white rounded-lg space-y-3 p-3 mb-3" key={index}>
             <p className="flex justify-between font-bold">

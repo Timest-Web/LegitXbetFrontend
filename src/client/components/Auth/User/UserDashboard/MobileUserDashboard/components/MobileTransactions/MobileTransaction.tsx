@@ -9,7 +9,9 @@ const MobileTransaction = () => {
     <div>
       <MobileDashboardLayout
         mobilelayoutcontent={
-          <TransactionInner/>
+          <div className="pb-20 ">
+            <TransactionInner />
+          </div>
         }
       />
     </div>

@@ -13,27 +13,32 @@ interface TabViewRows {
 const TransactionColumn = () => [
   {
     header: "No",
-    accessorKey: "no",
+    accessorKey: "serialNumber",
   },
   {
     header: "Reference ID",
-    accessorKey: "reference_id",
+    accessorKey: "reference",
   },
   {
     header: "Date",
-    accessorKey: "date",
+    accessorKey: "createdAt",
   },
   {
     header: "Status",
     accessorKey: "status",
   },
   {
-    header: "Amount",
+    header: "Amount (NGN)",
     accessorKey: "amount",
   },
   {
+    header: "Type",
+    accessorKey: "type",
+  },
+
+  {
     header: "Channel",
-    accessorKey: "channel",
+    accessorKey: "merchant",
   },
 ];
 

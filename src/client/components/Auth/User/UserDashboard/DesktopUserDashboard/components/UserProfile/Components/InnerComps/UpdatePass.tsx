@@ -4,17 +4,29 @@ import MultiReuse from "../ProfileReusables/MultiReuse";
 import ProfileReusableCard from "../ProfileReusables/ProfileReusableCard";
 import { useMutation } from "@tanstack/react-query";
 import { changePassword } from "@/src/helper/apis/services/change-password/change-password.api";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UpdatePass = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  const notify = () => toast.success("Password Updated Successfully", {});
+  const antinotify = () => toast.error("Password Update Failed", {});
 
-  const { mutateAsync: updatePassword } = useMutation({
+  const { mutate: updatePassword } = useMutation({
     mutationFn: changePassword,
     onSuccess: () => {
       console.log("Password changed successfully");
-    }
+      setTimeout(() => {
+        notify();
+      }, 2000);
+    },
+    onError: () => {
+      console.error("Failed to change password");
+      setTimeout(() => {
+        antinotify();
+      }, );
+    },
   });
 
   const handlePasswordSubmit = async (e: React.FormEvent) => {
@@ -22,7 +34,7 @@ const UpdatePass = () => {
     try {
       await updatePassword({ oldPassword, newPassword });
     } catch (err) {
-      console.error(err);
+      console.error(err, "the");
     }
   };
 
@@ -32,6 +44,7 @@ const UpdatePass = () => {
       <ProfileReusableCard
         profileContent={
           <div>
+            <ToastContainer autoClose={5000} />
             <MultiReuse isInsideUpdatePassword />
             <form
               onSubmit={handlePasswordSubmit}

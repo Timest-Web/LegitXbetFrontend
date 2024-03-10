@@ -33,7 +33,7 @@ const TransactionDetailsCard: React.FC<TransactionCardProps> = ({
         <p className="font-bold">Status</p> <span>{status}</span>
       </p>
       <p className="flex justify-between ">
-        <p className="font-bold">Transaction ID</p> <span>{reference_id}</span>
+        <p className="font-bold">Reference ID</p> <span>{reference_id}</span>
       </p>
     </div>
   );

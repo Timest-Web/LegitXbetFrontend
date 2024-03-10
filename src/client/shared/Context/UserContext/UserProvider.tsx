@@ -21,6 +21,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({
     address: "",
     dateOfBirth: "",
     bvn: "",
+    referralCode: ""
   };
 
     const refreshUserData = async () => {

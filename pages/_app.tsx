@@ -10,6 +10,7 @@ import { ProfileProvider } from "@/src/client/shared/Context/PersonalDetailsCont
 import { useGetUser } from "@/src/client/shared/Hooks/useGetUser";
 import AuthUser from "@/src/client/components/Auth/User/UserAuth/AuthUser";
 import useRedirectIfNoAccessToken from "@/src/client/shared/Hooks/useRedirectIfNoAccessToken";
+import { TransactionProvider } from "@/src/client/shared/Context/TransactionContext/TransactionContext";
 
 const queryClient = new QueryClient();
 
@@ -29,10 +30,12 @@ export default function App({ Component, pageProps }: AppProps) {
       <UserProvider>
         <ProfileProvider>
           <BalanceProvider>
-            <BetProvider>
-              <Component {...pageProps} />
-              <ReactQueryDevtools />
-            </BetProvider>
+            <TransactionProvider>
+              <BetProvider>
+                <Component {...pageProps} />
+                <ReactQueryDevtools />
+              </BetProvider>
+            </TransactionProvider>
           </BalanceProvider>
         </ProfileProvider>
       </UserProvider>

@@ -62,7 +62,7 @@ const TopHeader = () => {
               >
                 <div>{value.icon}</div>
                 <p className="text-center font-bold text-gray-200 text-[12px]">
-                  {index === 1 ? username.split(" ")[1] : userBalance}
+                  {index === 1 ? username.split(" ")[1] : userBalance.toLocaleString()}
                 </p>
               </Link>
             ))}
