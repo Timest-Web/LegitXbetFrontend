@@ -1,4 +1,4 @@
-import OddsButton from "./OddsButton";
+import OddButton from "./OddButton";
 
 type OddsButtonProps = {
   id: number;
@@ -26,21 +26,21 @@ export const OddsButtons = ({
 }) => (
   
   <div className="flex flex-row space-x-2">
-    <OddsButton
+    <OddButton
       id={selectedOddObj.id}
       onextwo={selectedOddObj.oddOne}
       oddName={selectedOddObj.homeName}
       selectedOddObj={selectedOddObj}
       onextwoValue={selectedOddObj.home}
     />
-    <OddsButton
+    <OddButton
       id={selectedOddObj.id}
       onextwo={selectedOddObj.oddTwo}
       oddName={selectedOddObj.drawName}
       selectedOddObj={selectedOddObj}
       onextwoValue={selectedOddObj.draw}
     />
-    <OddsButton
+    <OddButton
       id={selectedOddObj.id}
       onextwo={selectedOddObj.oddThree}
       oddName={selectedOddObj.awayName}

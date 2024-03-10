@@ -23,6 +23,8 @@ const PlaceBet = ({
   const { isMobile } = useDeviceType();
   const { link: click, handleClick: selectedHandle } = useLink("login");
 
+  console.log(amount);
+
   const {
     isOpen,
     setIsOpen,

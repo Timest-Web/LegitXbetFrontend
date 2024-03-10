@@ -18,9 +18,11 @@ const SuccessfulResponse = ({
   totalStake,
   potentialWins,
   closeModal,
+  setAmount,
 }: {
   closeModal: Function;
   amount: string;
+  setAmount: Function;
   totalStake: string;
   potentialWins: string;
 }) => {
@@ -56,6 +58,7 @@ const SuccessfulResponse = ({
         statusCode: res?.statusCode,
         onSuccessCallback: () => {
           setIsBetPlace(true);
+          setAmount('')
         },
       });
     });
