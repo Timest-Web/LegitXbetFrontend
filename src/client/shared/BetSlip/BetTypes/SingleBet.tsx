@@ -19,7 +19,6 @@ const SingleBet = () => {
   const { user } = useUser();
   const { bet, handleDelete, handleDeleteAll } = useBet();
   const [amount, setAmount] = useState("");
-  const [ticketCode, setTicketCode] = useState("");
   const { link: click, handleClick: selectedHandle } = useLink("login");
   const {
     isOpen: isSuccessfulModal,
@@ -33,9 +32,9 @@ const SingleBet = () => {
     handleClick: onHandleClick,
   } = useVisibilityControl();
 
-  const handleDeleteBet = (id: number, odd: string) => {
+  const handleDeleteBet = (id: number, odd: string, oddName: string) => {
     if (id) {
-      handleDelete({ id, odd });
+      handleDelete({ id, odd, oddName });
     }
   };
 
@@ -102,6 +101,7 @@ const SingleBet = () => {
             <SuccessfulResponse
               closeModal={setIsSuccessfulModal}
               amount={amount}
+              setAmount={setAmount}
               totalStake={`${Number(amount).toLocaleString()}.00`}
               potentialWins={`${(Number(amount) * odds).toLocaleString()}.00`}
             />

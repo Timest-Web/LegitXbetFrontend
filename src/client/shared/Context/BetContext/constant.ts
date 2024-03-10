@@ -32,5 +32,5 @@ export type BetContextType = {
     odd: string,
     selectedOddObj: SelectedOddsObjectProps
   ) => void;
-  handleDelete: (params: { id: number; odd: string }) => void | boolean;
+  handleDelete: (params: { id: number; odd: string, oddName: string }) => void | boolean;
 };

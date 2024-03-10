@@ -13,6 +13,7 @@ export type UserProps = {
 }
 
 export type UserContextType = {
-	user: UserProps;
-	handleUserLogout: () => void;
+  user: UserProps;
+  handleUserLogout: () => void;
+  refreshUserData: () => void;
 };

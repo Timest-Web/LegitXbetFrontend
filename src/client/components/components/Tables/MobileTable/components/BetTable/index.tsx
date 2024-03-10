@@ -79,7 +79,7 @@ export const BetTable = ({
         <div className="w-full bg-darkAsh">
           <div className="flex p-2 border-b border-b-lightAsh space-x-2">
             <div className="flex items-center justify-center space-x-1 text-white text-[12px]">
-              <p className="text-gray-400 text-[14px]">All Matches</p>
+              <p className="text-gray-400 text-[12px]">All Matches</p>
               <RightArrow />
             </div>
             <div className="flex items-center space-x-3">
@@ -89,7 +89,7 @@ export const BetTable = ({
                   onClick={() => dateHandleClick(value)}
                   className={`${
                     dateClick === value ? "text-gray-200" : "text-gray-400"
-                  } text-[14px] cursor-pointer`}
+                  } text-[12px] cursor-pointer`}
                 >
                   {index === 0
                     ? "Today"

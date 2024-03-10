@@ -5,7 +5,7 @@ import { BetContext } from './BetContext';
 const useBet = (): BetContextType => {
 	const context = useContext(BetContext);
 	if (!context) {
-		throw new Error('useCart must be used within a CartProvider');
+		throw new Error('useBet must be used within a BetProvider');
 	}
 	return context;
 };

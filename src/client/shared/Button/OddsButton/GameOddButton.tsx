@@ -1,19 +1,7 @@
-import React, { useEffect, useState } from "react";
-import useBet from "../../Context/BetContext/useBet";
+import React from "react";
 import { useButtonEventClick } from "../../Hooks/useButtonEventClick";
-
-type SelectedOddsObjectProps = {
-  id: number;
-  time: string;
-  teamOne: string;
-  teamTwo: string;
-  home?: string | undefined;
-  draw: string;
-  away?: string | undefined;
-  sport: string;
-  marketId: string;
-  marketName: string;
-};
+import { SelectedOddsObjectProps } from "../../Context/BetContext/constant";
+import useOddButtonLogic from "../../Hooks/useOddButtonLogin";
 
 const OddButton = ({
   id,
@@ -29,34 +17,11 @@ const OddButton = ({
   selectedOddObj: SelectedOddsObjectProps;
 }) => {
   const { click, handleClick } = useButtonEventClick();
-  const { bet, addToBetSlip, handleDelete } = useBet();
-  const [color, setColor] = useState(false);
-  const [isBet, setIsBet] = useState(false);
-
-  const onHandleClick = (
-    id: number,
-    oddName: string,
-    odd: string,
-    selectedOddObj: SelectedOddsObjectProps
-  ) => {
-    setColor(!color);
-    addToBetSlip(id, oddName, odd, selectedOddObj);
-
-    if (color) {
-      const isObjectExist = bet.some(
-        (item) => item.id === id && item.oddName === onextwo && item.odd === onextwoValue
-      );
-      setIsBet(isObjectExist);
-      handleDelete({ id, odd });
-    }
-  };
-
-  useEffect(() => {
-    const isObjectExist = bet.some(
-      (item) => item.id === id && item.oddName === onextwo && item.odd === onextwoValue
-    );
-    setIsBet(isObjectExist);
-  }, [bet, id, onextwo, onextwoValue]);
+  const { onHandleClick, isBet } = useOddButtonLogic({
+    id,
+    oddName,
+    onextwoValue,
+  });
 
   return (
     <>

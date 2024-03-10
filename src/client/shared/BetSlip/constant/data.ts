@@ -10,5 +10,5 @@ export type OddsValuesProps = {
 export type BetItemProps = {
   index: number;
   value: OddsValuesProps;
-  onDelete: ((id: number, odd: string) => void) | undefined;
+  onDelete: ((id: number, odd: string, oddName: string) => void) | undefined;
 };
