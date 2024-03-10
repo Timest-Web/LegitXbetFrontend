@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useBet from "../../Context/BetContext/useBet";
 import { useButtonEventClick } from "../../Hooks/useButtonEventClick";
-
+                                                                                
 type SelectedOddsObjectProps = {
   id: number;
   time: string;
