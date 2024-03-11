@@ -42,29 +42,32 @@ const Overview = () => {
   const user = useUser();
   const { data: userDetails, isLoading, error } = useGetUserProfile();
   const { data: depositList = [] } = useDepositListQuery();
-  const unsettledBets = betSlipData.filter(
-    (bet: any) => bet.status === "pending"
-  );
+  console.log("betSlipData:", betSlipData);
+  const unsettledBets = Array.isArray(betSlipData)
+    ? betSlipData.filter((bet: any) => bet.status === "pending")
+    : [];
+
   const unsettledBetsLength = unsettledBets.length;
   const referenceValue = userDetails?.referralCode;
   const notify = () => toast.success("Copied!");
   const transactions = useTransactions();
 
-  const formattedData = transactions.map(
-    (allTransaction: any, index: number) => ({
-      ...allTransaction,
-      serialNumber: index + 1,
-      merchant: capitalizeFirstLetter(allTransaction.merchant),
-      status: capitalizeFirstLetter(allTransaction.status),
-      createdAt: formatDate(allTransaction.createdAt),
-      amount: allTransaction.amount.toLocaleString(),
-      type: allTransaction.type === "credit" ? "Deposit" : "Withdrawal",
-    })
-  );
-  const totalDeposits = depositList.reduce(
+  const formattedData = Array.isArray(transactions)
+    ? transactions.map((allTransaction: any, index: number) => ({
+        ...allTransaction,
+        serialNumber: index + 1,
+        merchant: capitalizeFirstLetter(allTransaction.merchant),
+        status: capitalizeFirstLetter(allTransaction.status),
+        createdAt: formatDate(allTransaction.createdAt),
+        amount: allTransaction.amount.toLocaleString(),
+        type: allTransaction.type === "credit" ? "Deposit" : "Withdrawal",
+      }))
+    : [];
+  const totalDeposits = Array.isArray(depositList) ? depositList.reduce(
     (total: number, deposit: any) => total + deposit.amount,
     0
-  );
+  ) : [];
+  
   return (
     <div className="flex flex-col space-y-7 ">
       <ToastContainer autoClose={1000} />

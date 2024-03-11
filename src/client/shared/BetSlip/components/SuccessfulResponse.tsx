@@ -29,7 +29,7 @@ const SuccessfulResponse = ({
   const { user, refreshUserData } = useUser();
   const { bet } = useBet();
   const router = useRouter();
-  const [ticketCode, setTicketCode] = useState("");
+  const [ticketCode, setTicketCode] = useState("jakj7yeu");
   const [isBetPlace, setIsBetPlace] = useState(false);
 
   const handleClick = () => {
@@ -80,6 +80,21 @@ const SuccessfulResponse = ({
     }
   };
 
+  const handleCopyCode = () => {
+    if (ticketCode) {
+      navigator.clipboard
+        .writeText(ticketCode)
+        .then(() => {
+          console.log("Ticket code copied to clipboard");
+        })
+        .catch((error) => {
+          console.error("Failed to copy ticket code: ", error);
+        });
+    }
+  };
+
+
+  
   return (
     <>
       {ticketCode && isBetPlace ? (
@@ -105,7 +120,7 @@ const SuccessfulResponse = ({
               </div>
               <div className="flex items-center space-x-2">
                 <GenericShareAndroid height={26} width={26} />
-                <FilesCopy height={26} width={26} />
+                <FilesCopy height={26} width={26} onClick={handleCopyCode} />
                 <p className="font-semibold">{ticketCode}</p>
               </div>
             </div>
@@ -114,7 +129,10 @@ const SuccessfulResponse = ({
           <div className="flex flex-col mt-6 w-full space-y-4 px-8">
             <button
               className="text-white bg-gold py-2 px-6 w-full"
-              onClick={() => {refreshUserData(); closeModal()}}
+              onClick={() => {
+                refreshUserData();
+                closeModal();
+              }}
             >
               ok
             </button>
