@@ -251,8 +251,13 @@ export const BetTable = ({
               </div>
 
               {Array.isArray(extractedMatches) &&
-                extractedMatches.length >= 5 && pathname === '/' && (
-                  <Link href={`/sports/football`}>
+                extractedMatches.length >= 5 &&
+                pathname === "/" && (
+                  <Link
+                    href={`/sports/football?league=${leagueClick
+                      .split(":")[0]
+                      .toLocaleLowerCase()}`}
+                  >
                     <div className="h-12 w-full py-2 px-3">
                       <button className="w-full h-8 rounded-lg bg-gray-700 text-white text-xs">
                         View All

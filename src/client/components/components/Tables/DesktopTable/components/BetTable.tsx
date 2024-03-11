@@ -58,6 +58,9 @@ const BetTable = ({
   const { link: leagueClick, handleClick: leagueHandleClick } = useLink(
     extractLeagues ? extractLeagues[0]?.name : ""
   );
+
+  // leagueClick.split(':')[0];
+
   const extractedMatches = extractLeagues.filter(
     (value: any) => value.name === leagueClick
   )[0]?.matches;
@@ -93,7 +96,11 @@ const BetTable = ({
                       dateClick === value ? "text-gray-200" : "text-gray-400"
                     } text-[14px] font-bold cursor-pointer`}
                   >
-                    {index === 0 ? "Today" : index === 1 ? `Tomorrow (${nextTwoDates[1]})` : value}
+                    {index === 0
+                      ? "Today"
+                      : index === 1
+                      ? `Tomorrow (${nextTwoDates[1]})`
+                      : value}
                   </p>
                 ))}
               </div>
@@ -247,8 +254,11 @@ const BetTable = ({
             )}
 
             {Array.isArray(extractedMatches) &&
-              extractedMatches.length > 5 && pathname === '/' && (
-                <Link href={`/sports/football`}>
+              extractedMatches.length > 5 &&
+              pathname === "/" && (
+                <Link
+                  href={`/sports/football?league=${leagueClick.split(":")[0].toLocaleLowerCase()}`}
+                >
                   <div className="h-12 w-full py-2 px-3">
                     <button className="w-full h-8 rounded-lg bg-lightAsh text-white text-xs">
                       View All
