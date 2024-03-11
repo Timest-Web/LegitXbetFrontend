@@ -8,7 +8,7 @@ interface ReuseTabProps {
   href: string;
 }
 
-const ReuseTab: React.FC<ReuseTabProps> = ({
+const AdminReuseTab: React.FC<ReuseTabProps> = ({
   icon,
   figure,
   description,
@@ -16,8 +16,8 @@ const ReuseTab: React.FC<ReuseTabProps> = ({
 }) => {
   return (
     <Link href={href}>
-      <div className="cursor-pointer md:w-11/12 bg-gray-300 flex space-x-3 p-3 rounded-lg font-bold ">
-        <div>{icon}</div>
+      <div className="cursor-pointer md:w-11/12 bg-white flex space-x-3 p-3 rounded-lg font-bold drop-shadow-xl hover:translate-x-1 hover:translate-y-1 ">
+        <div className="bg-gray-100 p-4 rounded-md">{icon}</div>
         <div>
           <p className="text-lg">{figure}</p>
           <p className="text-sm ">{description}</p>
@@ -27,4 +27,4 @@ const ReuseTab: React.FC<ReuseTabProps> = ({
   );
 };
 
-export default ReuseTab;
+export default AdminReuseTab;
