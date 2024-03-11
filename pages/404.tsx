@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../public/assets/logo1.png";
+import Logo from "../public/assets/logo.jpg";
 
 export default function PageNotFound() {
   return (
     <div className="flex flex-col items-center justify-center h-screen w-screen bg-black text-gray-400 lg:p-0 px-6">
-      <Image src={Logo} alt="img alt" />
+      <Image src={Logo} alt="img alt" className="w-[300px] h-24" />
       <h1 className="lg:text-5xl font-bold lg:mt-0 mt-5">
         Oops! <span className="text-gold lg:text-8xl text-5xl"> 404 </span> Page
         Not Found
