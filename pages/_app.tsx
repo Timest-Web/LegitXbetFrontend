@@ -11,7 +11,7 @@ import RedirectIfNoAccessToken from "@/src/client/shared/Utils/RedirectIfNotToke
 
 const queryClient = new QueryClient();
 export default function App({ Component, pageProps }: AppProps) {
-  // RedirectIfNoAccessToken();
+  RedirectIfNoAccessToken();
   return (
     <QueryClientProvider client={queryClient}>
       <UserProvider>
