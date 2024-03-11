@@ -6,7 +6,9 @@ import useGetUserProfile from "@/src/helper/apis/services/auth/get-user-profile.
 export const UserProvider: React.FC<UserProviderProps> = ({
   children,
 }: UserProviderProps) => {
-  const { data, isLoading, error } = useGetUserProfile();
+  const { data, isLoading, error, refetch } = useGetUserProfile();
+
+
 
   const user: UserProps = data ?? {
     id: 0,
@@ -22,13 +24,18 @@ export const UserProvider: React.FC<UserProviderProps> = ({
     referralCode: ""
   };
 
+    const refreshUserData = async () => {
+      await refetch();
+    };
+
+
   const handleUserLogout = () => {
     localStorage.removeItem("access");
     window.location.href = "/";
   };
 
   return (
-    <UserContext.Provider value={{ user, handleUserLogout }}>
+    <UserContext.Provider value={{ user, handleUserLogout, refreshUserData }}>
       {children}
     </UserContext.Provider>
   );

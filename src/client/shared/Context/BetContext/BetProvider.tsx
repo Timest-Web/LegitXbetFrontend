@@ -16,27 +16,26 @@ export const BetProvider: React.FC<BetProviderProps> = ({
     const betFromLocalStorage = JSON.parse(localStorage.getItem("bet") || "[]");
     setBet(betFromLocalStorage);
   }, []);
-
+  
   const addToBetSlip = (
     id: number,
     oddName: string,
     odd: string,
     selectedOddObj: SelectedOddsObjectProps
   ) => {
-    if (id) {
+    if (id && oddName && odd) {
       if (selectedOddObj) {
-        const checkSelected = bet.find(
-          (obj: OddsValuesProps) => obj.id === id && obj.odd === odd
-        );
-
-        if (!checkSelected) {
-          const oddType = Object.entries(selectedOddObj).find(
-            ([key, value]) => value === odd
+        setBet((prevBet) => {
+          const isItemInBetSlip = prevBet.some(
+            (item) =>
+              item.id === selectedOddObj.id &&
+              item.oddName === oddName &&
+              item.odd === odd
           );
 
-          if (oddType) {
-            setBet([
-              ...bet,
+          if (!isItemInBetSlip) {
+            return [
+              ...prevBet,
               {
                 id: selectedOddObj.id,
                 time: selectedOddObj.time,
@@ -48,23 +47,35 @@ export const BetProvider: React.FC<BetProviderProps> = ({
                 marketName: selectedOddObj.marketName,
                 oddName,
               },
-            ]);
+            ];
           } else {
-            console.error(`OddType not found for odd ${odd}`);
+            handleDelete({ id, odd, oddName });
+            return prevBet;
           }
-        } else {
-          console.log("Odd already added");
-        }
+        });
       } else {
         console.error(`Item with ID ${id} and odd ${odd} not found`);
       }
     }
   };
 
-  const handleDelete = ({ id, odd }: { id: number; odd: string }) => {
-    if (id) {
+  const handleDelete = ({
+    id,
+    odd,
+    oddName,
+  }: {
+    id: number;
+    odd: string;
+    oddName: string;
+  }) => {
+    if (id && odd && oddName) {
       const updateBetList = bet.filter(
-        (betItem) => !(betItem.id === id && betItem.odd === odd)
+        (betItem) =>
+          !(
+            betItem.id === id &&
+            betItem.odd === odd &&
+            betItem.oddName === oddName
+          )
       );
       setBet([...updateBetList]);
     }

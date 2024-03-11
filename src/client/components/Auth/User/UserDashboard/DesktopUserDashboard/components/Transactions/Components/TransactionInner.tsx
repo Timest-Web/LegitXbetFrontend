@@ -38,7 +38,7 @@ const TransactionInner = () => {
   const data = transactions;
   const columns: any = TransactionColumn();
 
-  const formattedData = data.map((allTransaction: any, index: number) => ({
+  const formattedData = Array.isArray(data) ? data.map((allTransaction: any, index: number) => ({
     ...allTransaction,
     serialNumber: index + 1,
     merchant: capitalizeFirstLetter(allTransaction.merchant),
@@ -46,7 +46,7 @@ const TransactionInner = () => {
     createdAt: formatDate(allTransaction.createdAt),
     amount: allTransaction.amount.toLocaleString(),
     type: allTransaction.type === "credit" ? "Deposit" : "Withdrawal",
-  }));
+  })) : [];
 
   const filteredTransactions = formattedData.filter((transaction) => {
     const typeCondition = filterType === "" || transaction.type === filterType;

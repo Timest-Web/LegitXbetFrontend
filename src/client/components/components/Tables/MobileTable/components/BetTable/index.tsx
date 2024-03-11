@@ -1,7 +1,4 @@
-import React, {
-  ReactElement,
-  useState,
-} from "react";
+import React, { ReactElement, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import TableRow from "./TableRow";
@@ -12,8 +9,7 @@ import { SPORTS_TYPES } from "../../../../MainSection/CenterSection/constant/dat
 import { CustomCarousel } from "@/src/client/shared/Carousel";
 import { getFeatureDates } from "@/src/client/shared/Utils/GetSportsDate";
 
-
-const BetTable = ({
+export const BetTable = ({
   href,
   icon,
   contentTitle,
@@ -21,7 +17,7 @@ const BetTable = ({
   sportData,
   viewFeatureMatches,
 }: {
-  href: string;
+  href?: string;
   sportData: any;
   icon?: ReactElement;
   contentTitle: string;
@@ -32,7 +28,7 @@ const BetTable = ({
   const { pathname } = router;
   const nextTwoDates = getFeatureDates(viewFeatureMatches);
   const sportsType = ["Football", "Basketball"];
-  const markets = ["Match Winner","Correct Score"];
+  const markets = ["Match Winner", "Correct Score"];
   const [collapse, setCollapse] = useState(false);
   const { link, handleClick } = useLink(markets[0]);
   const { link: dateClick, handleClick: dateHandleClick } = useLink(
@@ -58,8 +54,6 @@ const BetTable = ({
       : [];
   };
 
-  // console.log(extractedLeagues())
-
   const extractLeagues = extractedLeagues();
   const { link: leagueClick, handleClick: leagueHandleClick } = useLink(
     extractLeagues ? extractLeagues[0]?.name : ""
@@ -68,8 +62,6 @@ const BetTable = ({
   const extractedMatches = extractLeagues.filter(
     (value: any) => value.name === leagueClick
   )[0]?.matches;
-
-  console.log(link);
 
   return (
     <div>
@@ -87,7 +79,7 @@ const BetTable = ({
         <div className="w-full bg-darkAsh">
           <div className="flex p-2 border-b border-b-lightAsh space-x-2">
             <div className="flex items-center justify-center space-x-1 text-white text-[12px]">
-              <p className="text-gray-400 text-[14px]">All Matches</p>
+              <p className="text-gray-400 text-[12px]">All Matches</p>
               <RightArrow />
             </div>
             <div className="flex items-center space-x-3">
@@ -97,7 +89,7 @@ const BetTable = ({
                   onClick={() => dateHandleClick(value)}
                   className={`${
                     dateClick === value ? "text-gray-200" : "text-gray-400"
-                  } text-[14px] cursor-pointer`}
+                  } text-[12px] cursor-pointer`}
                 >
                   {index === 0
                     ? "Today"
@@ -259,8 +251,13 @@ const BetTable = ({
               </div>
 
               {Array.isArray(extractedMatches) &&
-                extractedMatches.length > 5 && (
-                  <Link href={`/sports/football/40`}>
+                extractedMatches.length >= 5 &&
+                pathname === "/" && (
+                  <Link
+                    href={`/sports/football?league=${leagueClick
+                      .split(":")[0]
+                      .toLocaleLowerCase()}`}
+                  >
                     <div className="h-12 w-full py-2 px-3">
                       <button className="w-full h-8 rounded-lg bg-gray-700 text-white text-xs">
                         View All
@@ -276,4 +273,4 @@ const BetTable = ({
   );
 };
 
-export default BetTable;
+

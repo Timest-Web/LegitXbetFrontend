@@ -24,7 +24,7 @@ const BetSlip = () => {
 
   const checkDifferentOddsId = checkDifferentIds(bet);
   return (
-    <div className="w-[283px] h-max rounded-lg shadow-lg border bg-white pb-2">
+    <div className="w-[283px] lg:h-max h-screen overflow-y-auto  rounded-lg shadow-lg border bg-white pb-2 ">
       <div className="flex items-center justify-between py-4 px-3">
         {betSlipTitle.map((value, index) => (
           <div
@@ -40,7 +40,7 @@ const BetSlip = () => {
       </div>
 
       <hr />
-      
+
       <div className="flex items-center justify-between px-12 text-xs py-3 font-bold">
         {[
           { type: "Single", active: bet.length > 0 },

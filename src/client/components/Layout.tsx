@@ -11,7 +11,7 @@ type LayoutProps = {
 }
 
 const Layout = ({ leftSection, centerSection, mobileComponents }: LayoutProps) => {
-	const { isMobile } = useDeviceType();
+	const { isMobile } = useDeviceType();               
 	return (
     <>
       <Header />

@@ -22,7 +22,7 @@ const BetItem: React.FC<BetItemProps> = ({ index, value, onDelete }) => {
         </div>
         {onDelete && (
           <div
-            onClick={() => onDelete(value.id, value.odd)}
+            onClick={() => onDelete(value.id, value.odd, value.oddName)}
             className="cursor-pointer"
           >
             <DeleteIcon />

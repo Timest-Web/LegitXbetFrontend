@@ -1,32 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 import Layout from "../Layout";
-import { Loader } from "@heathmont/moon-core-tw";
 import OddsFilter from "./components/OddsFilter";
 import FilterByTime from "./components/FilterByTime";
 import PopularDataType from "./components/PopularDataType";
-import CenterSection from "../components/MainSection/CenterSection";
-import { UpcomingBetTable } from "../components/Tables/MobileTable/UpcomingBetTable";
-import { UpcomingBetTable as DesktopUpcomingBetTable } from "../components/Tables/DesktopTable/UpcomingBetTable";
-import { FOOTBALL_DATA } from "../LandingPage/DesktopLandingPage/LeftSection/constant/data";
 import MobileNavbar from "../../shared/MobileNavbar";
-import useGetFootballPageMatches from "@/src/helper/apis/services/bookmaking/football/get-football-page-matches";
-import { getFeatureDates } from "../../shared/Utils/GetSportsDate";
+import CenterSection from "../components/MainSection/CenterSection";
+import { FOOTBALL_DATA } from "../LandingPage/DesktopLandingPage/LeftSection/constant/data";
 import { filterMatches } from "../../shared/Utils/FilterMatches";
-import { LoaderScreen } from "../../shared/Loader/LoaderScreen";
+import useGetFootballLeague from "@/src/helper/apis/services/bookmaking/football/get-leagues-type-api";
+import useGetLandingPageSportsMatches from "@/src/helper/apis/services/bookmaking/landingPage/get-landing-page-sports-and-matches";
+import useGetTopLeaguesFootball from "@/src/helper/apis/services/bookmaking/football/get-top-leagues-api";
+import BetTable from "../components/Tables/DesktopTable/components/BetTable";
+import MatchStar from "../../shared/Svg/MatchStar";
+import { BetTable as MobileBetTable } from "../components/Tables/MobileTable/components/BetTable";
+
 
 const Football = () => {
-  const { data } = useGetFootballPageMatches();
+  
+  const router = useRouter();
+  const { query, asPath } = router;
+  const { data: upcomingMatches } = useGetLandingPageSportsMatches();
+  const { data: topLeaguesData } = useGetTopLeaguesFootball();
+  const { data: footballLeague, refetch } = useGetFootballLeague({
+    leagueName: `${query.league}`,
+  });
 
+  const extractText = asPath.split("=")[1];
+  const capitalizedString = extractText
+    ? extractText.charAt(0).toUpperCase() + extractText.slice(1)
+    : "";
+  console.log(capitalizedString);
 
-  if (!data) {
-    return (
-      <LoaderScreen />
-    );
-  }
+  useEffect(() => {
+    refetch();
+  }, [query.league, refetch]);
 
   return (
     <>
-      {data && (
+      {footballLeague && (
         <Layout
           leftSection={
             <div className="space-y-5">
@@ -37,18 +49,68 @@ const Football = () => {
           }
           centerSection={
             <CenterSection>
-              <DesktopUpcomingBetTable
-                data={data}
-                viewFeatureMatches={4}
-              />
+              {query.league === "upcoming" ? (
+                <BetTable
+                  href="upcoming"
+                  icon={<MatchStar />}
+                  isLiveTable={false}
+                  sportData={filterMatches(
+                    upcomingMatches.upcoming.football,
+                    4
+                  )}
+                  contentTitle="Highlights"
+                  viewFeatureMatches={4}
+                />
+              ) : query.league === "top" ? (
+                <BetTable
+                  icon={<MatchStar />}
+                  isLiveTable={false}
+                  sportData={filterMatches(topLeaguesData, 4)}
+                  contentTitle="Today's Games {Coming soon}"
+                  viewFeatureMatches={2}
+                />
+              ) : (
+                <BetTable
+                  icon={<MatchStar />}
+                  isLiveTable={false}
+                  sportData={filterMatches(footballLeague, 4)}
+                  contentTitle={`${capitalizedString} Matches`}
+                  viewFeatureMatches={4}
+                />
+              )}
             </CenterSection>
           }
           mobileComponents={
             <div className="pt-4 -mb-6">
-              <UpcomingBetTable
-                data={filterMatches(data, 4)}
-                viewFeatureMatches={4}
-              />
+              {query.league === "upcoming" ? (
+                <MobileBetTable
+                  href="upcoming"
+                  icon={<MatchStar />}
+                  isLiveTable={false}
+                  sportData={filterMatches(
+                    upcomingMatches.upcoming.football,
+                    4
+                  )}
+                  contentTitle="Highlights"
+                  viewFeatureMatches={4}
+                />
+              ) : query.league === "top" ? (
+                <MobileBetTable
+                  icon={<MatchStar />}
+                  isLiveTable={false}
+                  sportData={filterMatches(topLeaguesData, 4)}
+                  contentTitle="Top Matches {Coming soon}"
+                  viewFeatureMatches={2}
+                />
+              ) : (
+                <MobileBetTable
+                  icon={<MatchStar />}
+                  isLiveTable={false}
+                  sportData={filterMatches(footballLeague, 4)}
+                  contentTitle={`${capitalizedString} Matches`}
+                  viewFeatureMatches={4}
+                />
+              )}
               <MobileNavbar />
             </div>
           }

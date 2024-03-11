@@ -13,14 +13,14 @@ const BetInnerComp = () => {
   const { data: betSlipData = [] } = useBetSlipQuery();
   const capitalizeFirstLetter = useCapitalizeFirstLetter();
   const formatDate = useFormatDate();
-  const formattedData = betSlipData.map((betslip: any, index: number) => ({
+  const formattedData = Array.isArray(betSlipData) ? betSlipData.map((betslip: any, index: number) => ({
     ...betslip,
     serialNumber: index + 1,
     status: capitalizeFirstLetter(betslip.status),
     date: formatDate(betslip.createdAt),
     amount: betslip.possibleWin.toLocaleString(),
     type: betslip.bookedGames.length === 1 ? "Single" : "Multiple",
-  }));
+  })) : [];
 
   return (
     <div className="">
