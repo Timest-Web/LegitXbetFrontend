@@ -32,6 +32,13 @@ const Football = () => {
     ? extractText.charAt(0).toUpperCase() + extractText.slice(1)
     : "";
 
+  useEffect(() => {
+    if (!query.league) {
+      router.push("/sports/football?league=upcoming");
+    }
+  }, [query.league, router]);
+
+
   if (isLoading || topLeaguesIsLoading || footballLeagueIsLoading) {
     return (
       <div className="flex items-center justify-center h-full w-full">
