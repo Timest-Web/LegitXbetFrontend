@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ErrorToast } from "../../ToastBar";
+import { ErrorToast } from "../../../../shared/ToastBar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Loader } from "@heathmont/moon-core-tw";
@@ -7,7 +7,6 @@ import { betTicket } from "@/src/helper/apis/services/ticket/get-ticket-api";
 import { useMutation } from "@tanstack/react-query";
 import apiMessageHelper from "@/src/helper/apiMessageHelper";
 import BetItem from "./BetItem";
-
 
 type BetTicketValuesProps = {
   id: number;

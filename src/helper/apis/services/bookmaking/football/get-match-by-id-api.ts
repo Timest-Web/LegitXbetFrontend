@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-const useGetMatchById = ({matchId}:{matchId: string}) => {
+const useGetMatchById = (matchId: string) => {
   const getMatchById = async () => {
     try {
       const response = await fetch(
@@ -20,7 +20,7 @@ const useGetMatchById = ({matchId}:{matchId: string}) => {
 
   const query = useQuery({
     queryFn: getMatchById,
-    queryKey: ["GET_MATCH_BY_ID"],
+    queryKey: ["GET_MATCH_BY_ID", matchId],
   });
 
   return query;

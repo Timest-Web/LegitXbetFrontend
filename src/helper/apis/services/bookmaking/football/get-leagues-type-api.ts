@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-const useGetFootballLeague = ({leagueName}: {leagueName: string}) => {
-    console.log(leagueName);
+const useGetFootballLeague = ({ leagueName }: { leagueName: string }) => {
   const getFootballlLeagues = async () => {
     try {
       const response = await fetch(
@@ -21,7 +20,7 @@ const useGetFootballLeague = ({leagueName}: {leagueName: string}) => {
 
   const query = useQuery({
     queryFn: getFootballlLeagues,
-    queryKey: ["GET_TOP_LEAGUES_DATA"],
+    queryKey: ["GET_TOP_LEAGUES_DATA", leagueName],
   });
   return query;
 };

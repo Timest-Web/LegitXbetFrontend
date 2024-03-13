@@ -1,26 +1,34 @@
 import { ErrorToast, SuccessToast } from "../client/shared/ToastBar";
-interface IApiMsgHelperTYpe {
+
+interface IApiMsgHelperType {
   statusCode: number;
   onSuccessCallback?: () => void;
   onFailureCallback?: () => void;
-  message?: string;
+  message?: string | [];
 }
+
 
 const apiMessageHelper = ({
   statusCode,
   onSuccessCallback,
   onFailureCallback,
   message,
-}: IApiMsgHelperTYpe) => {
-  if (statusCode >= 400 || statusCode <= 409 || statusCode === 500
-  ) {
-    ErrorToast({text: message});
-    onFailureCallback && onFailureCallback();
-  }
+}: IApiMsgHelperType) => {
 
-  if (statusCode === 200 || statusCode === 201) {
+ if (statusCode >= 400 && statusCode <= 500) {
+   if (Array.isArray(message)) {
+     message.forEach((value) => ErrorToast({ text: value }));
+   } else {
+     ErrorToast({ text: message });
+   }
+   onFailureCallback && onFailureCallback();
+ }
+
+  if (statusCode === 200 || statusCode === 201 ) {
     onSuccessCallback && onSuccessCallback();
-    SuccessToast({text: message});
+    if (typeof message === "string") {
+      SuccessToast({ text: message });
+    } 
   }
 };
 

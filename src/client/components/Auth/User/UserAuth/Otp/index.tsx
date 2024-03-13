@@ -87,7 +87,7 @@ const Otp = ({ title, phoneNo, msgValue, fieldsValue, mutationFunction }: OtpPro
 
 				<p className='text-xs text-gray-400 mt-6 cursor-default'>
 					{`Enter ${msgValue} digit`}
-					<span className='font-bold text-black'>OTP </span> secured
+					<span className='font-bold text-black'> OTP</span> secured
 					pin sent to your number
 				</p>
 				<div className='flex items-center justify-between text-gray-400 text-xs space-x-4 mt-6 w-full'>
