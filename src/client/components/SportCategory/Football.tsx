@@ -14,25 +14,31 @@ import useGetTopLeaguesFootball from "@/src/helper/apis/services/bookmaking/foot
 import BetTable from "../components/Tables/DesktopTable/components/BetTable";
 import MatchStar from "../../shared/Svg/MatchStar";
 import { BetTable as MobileBetTable } from "../components/Tables/MobileTable/components/BetTable";
-
+import { LoaderScreen } from "../../shared/Loader/LoaderScreen";
 
 const Football = () => {
   const router = useRouter();
   const { query, asPath } = router;
-  const { data: upcomingMatches } = useGetLandingPageSportsMatches();
-  const { data: topLeaguesData } = useGetTopLeaguesFootball();
-  const { data: footballLeague, refetch } = useGetFootballLeague({
-    leagueName: `${query.league}`,
-  });
+  const { data: upcomingMatches, isLoading } = useGetLandingPageSportsMatches();
+  const { data: topLeaguesData, isLoading: topLeaguesIsLoading } =
+    useGetTopLeaguesFootball();
+  const { data: footballLeague, isLoading: footballLeagueIsLoading } =
+    useGetFootballLeague({
+      leagueName: `${query.league}`,
+    });
 
   const extractText = asPath.split("=")[1];
   const capitalizedString = extractText
     ? extractText.charAt(0).toUpperCase() + extractText.slice(1)
     : "";
 
-  useEffect(() => {
-    refetch();
-  }, [query.league, refetch]);
+  if (isLoading || topLeaguesIsLoading || footballLeagueIsLoading) {
+    return (
+      <div className="flex items-center justify-center h-full w-full">
+        <LoaderScreen />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -53,7 +59,7 @@ const Football = () => {
                   icon={<MatchStar />}
                   isLiveTable={false}
                   sportData={filterMatches(
-                    upcomingMatches.upcoming.football,
+                    upcomingMatches?.upcoming?.football,
                     4
                   )}
                   contentTitle="Highlights"
@@ -97,7 +103,7 @@ const Football = () => {
                   icon={<MatchStar />}
                   isLiveTable={false}
                   sportData={filterMatches(topLeaguesData, 4)}
-                  contentTitle="Top Matches {Coming soon}"
+                  contentTitle="Top Matches"
                   viewFeatureMatches={2}
                 />
               ) : (
