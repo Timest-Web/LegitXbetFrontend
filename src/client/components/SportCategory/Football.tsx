@@ -99,7 +99,7 @@ const Football = () => {
                   icon={<MatchStar />}
                   isLiveTable={false}
                   sportData={filterMatches(
-                    upcomingMatches.upcoming.football,
+                    upcomingMatches?.upcoming?.football,
                     4
                   )}
                   contentTitle="Highlights"
