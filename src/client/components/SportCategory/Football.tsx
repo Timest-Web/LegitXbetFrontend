@@ -17,7 +17,6 @@ import { BetTable as MobileBetTable } from "../components/Tables/MobileTable/com
 
 
 const Football = () => {
-  
   const router = useRouter();
   const { query, asPath } = router;
   const { data: upcomingMatches } = useGetLandingPageSportsMatches();
@@ -30,7 +29,6 @@ const Football = () => {
   const capitalizedString = extractText
     ? extractText.charAt(0).toUpperCase() + extractText.slice(1)
     : "";
-  console.log(capitalizedString);
 
   useEffect(() => {
     refetch();
@@ -66,7 +64,7 @@ const Football = () => {
                   icon={<MatchStar />}
                   isLiveTable={false}
                   sportData={filterMatches(topLeaguesData, 4)}
-                  contentTitle="Today's Games {Coming soon}"
+                  contentTitle="Today's Games"
                   viewFeatureMatches={2}
                 />
               ) : (

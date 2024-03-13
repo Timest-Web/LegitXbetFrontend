@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useLink } from "../../Hooks/useLink";
-import Modal from "../../Modal";
-import { ErrorToast } from "../../ToastBar";
+import { useLink } from "../../../../shared/Hooks/useLink";
+import Modal from "../../../../shared/Modal";
+import { ErrorToast } from "../../../../shared/ToastBar";
 import PlaceBet from "../components/PlaceBet";
 import DeleteBet from "../components/DeleteBet";
 import NoSelectionYet from "../components/NoSelectionYet";
 import useBet from "@/src/client/shared/Context/BetContext/useBet";
 import { OddsValuesProps } from "../constant/data";
-import { useVisibilityControl } from "../../Hooks/useVisibilityControl";
+import { useVisibilityControl } from "../../../../shared/Hooks/useVisibilityControl";
 import AuthContent from "@/src/client/components/Auth/User/UserAuth/Components/AuthContent";
-import useUser from "../../Context/UserContext/useUser";
+import useUser from "../../../../shared/Context/UserContext/useUser";
 import BetItem from "../components/BetItem";
 import SuccessfulResponse from "../components/SuccessfulResponse";
 
@@ -42,7 +42,6 @@ const SingleBet = () => {
   bet.forEach((item: OddsValuesProps) => {
     odds += Number(item.odd);
   });
-
 
   const handlePlaceBet = () => {
     console.log(Number(amount), user.amount);

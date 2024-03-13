@@ -1,11 +1,8 @@
 import useGetBetSlip from "@/src/helper/apis/services/ticket/get-bet-slips-api";
 import { Loader } from "@heathmont/moon-core-tw";
-import Receipt from "../../Svg/Receipt";
+import Receipt from "../../../../shared/Svg/Receipt";
 import BetItem from "../components/BetItem";
 import Link from "next/link";
-
-
-
 
 const MyBet = () => {
   const { data } = useGetBetSlip();

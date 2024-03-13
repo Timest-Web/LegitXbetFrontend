@@ -251,7 +251,7 @@ export const BetTable = ({
               </div>
 
               {Array.isArray(extractedMatches) &&
-                extractedMatches.length >= 5 &&
+                extractedMatches.length > 10 &&
                 pathname === "/" && (
                   <Link
                     href={`/sports/football?league=${leagueClick

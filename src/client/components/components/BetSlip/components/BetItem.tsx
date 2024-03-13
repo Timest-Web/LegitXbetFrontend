@@ -1,7 +1,7 @@
-import React from 'react'
-import DeleteIcon from '../../Svg/DeleteIcon';
-import { truncateText } from '../../Utils/TruncateText';
-import { BetItemProps } from '../constant/data';
+import React from "react";
+import DeleteIcon from "../../../../shared/Svg/DeleteIcon";
+import { truncateText } from "../../../../shared/Utils/TruncateText";
+import { BetItemProps } from "../constant/data";
 
 const BetItem: React.FC<BetItemProps> = ({ index, value, onDelete }) => {
   const truncatedTeamOne = truncateText(value.teamOne, 10);
@@ -40,6 +40,5 @@ const BetItem: React.FC<BetItemProps> = ({ index, value, onDelete }) => {
     </div>
   );
 };
-
 
 export default BetItem;
