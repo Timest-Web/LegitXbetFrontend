@@ -61,10 +61,10 @@ import {
           </section>
         </div>
   
-        <div className=" box-border mx-auto w-[90%] md:h-[34rem] h-[28rem]  text-sm md:text-base p-4 md:p-8 mt-4 relative">
+        <div className=" box-border bg-white mx-auto w-[98%] md:h-[34rem] h-[28rem] text-sm md:p-0 mt-4 relative">
           <div className=" ">
-            <table className="w-full">
-              <tbody>
+            <table className="w-full p-3">
+              <tbody className="p-4">
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
                     {headerGroup.headers.map((header) => (

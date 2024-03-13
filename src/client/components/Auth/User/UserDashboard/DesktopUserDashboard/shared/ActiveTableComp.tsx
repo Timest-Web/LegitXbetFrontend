@@ -45,7 +45,6 @@ const TableComp: React.FC<TableProps> = ({
     onGlobalFilterChange: setFiltering,
   });
 
-
   return (
     <div className="md:mt-6 w-full md:pb-12 ">
       <div className="flex flex-col md:flex-row md:justify-between md:px-8">
@@ -69,7 +68,6 @@ const TableComp: React.FC<TableProps> = ({
       </div>
 
       <div className="bg-white box-border w-full md:h-[34rem] h-[28rem] rounded-[20px] text-sm md:text-base p-4 md:p-8 mt-4 relative">
-
         <div className=" ">
           <table className="w-full">
             <tbody>

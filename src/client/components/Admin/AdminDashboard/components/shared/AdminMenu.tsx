@@ -10,118 +10,44 @@ import {
   menuClasses,
   sidebarClasses,
 } from "react-pro-sidebar";
-import {
-  GenericHome,
-  SportEsoccer,
-  SportOlympics,
-  SportEsportGeneric,
-  GenericMultiBet,
-  GenericBet,
-  OtherAgent,
-  GenericUsers,
-  ShopWallet,
-  ShopCashback,
-  ShopBank,
-  ShopRebate,
-  GenericPlus,
-  GenericTicket,
-  NotificationsError,
-  GenericMinus,
-  GenericCheckAlternative,
-  GenericGlobe,
-  GenericPartners,
-  MailEnvelope,
-  MailEmailStats,
-  GenericHelp,
-  OtherSun,
-  GenericSettings,
-} from "@heathmont/moon-icons-tw";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { GenericHome } from "@heathmont/moon-icons-tw";
+import menuItemsData from "./AdminMenuList";
 
-type MenuItemData = {
-  icon: JSX.Element;
-  title: string;
-  content?: string[];
-  asMenuItem?: boolean;
-  href: string
-};
 
-type MenuItemsData = {
-  [key: string]: MenuItemData[];
-};
-
-const menuItemsData: MenuItemsData = {
-  betSetUp: [
-    { icon: <SportEsoccer />, title: "Sport Categories", asMenuItem: true, href:'/admin/bet-setup/sport-categories' },
-    { icon: <SportOlympics />, title: "Manage Leagues", asMenuItem: true, href:'/admin/bet-setup' },
-    {
-      icon: <SportEsportGeneric />,
-      title: "Manage Matches",
-      content: [
-        "All Matches",
-        "Running Matches",
-        "Upcoming Matches",
-        "Close Matches (Highlights)",
-      ], href:'/admin/bet-setup'
-    },
-    { icon: <GenericBet />, title: "Manage Bets" , href:'/admin/bet-setup'  },
-    { icon: <GenericMultiBet />, title: "Results" , href:'/admin/bet-setup' },
-  ],
-  manageUsers: [
-    {
-      icon: <GenericUsers />,
-      title: "Manage Bettors",
-      content: ["Alaba", "Active"] , href:'/admin/bet-setup'
-    },
-    { icon: <OtherAgent />, title: "Administrator" , href:'/admin/bet-setup' },
-  ],
-  manageFinance: [
-    { icon: <ShopBank />, title: "Payment Gateway" , href:'/admin/bet-setup' },
-    { icon: <ShopWallet />, title: "Deposits Log" , href:'/admin/bet-setup' },
-    { icon: <ShopCashback />, title: "Withdraw" , href:'/admin/bet-setup'},
-  ],
-  commission: [{ icon: <ShopRebate />, title: "Referral" , href:'/admin/bet-setup'}],
-  support: [
-    { icon: <GenericTicket />, title: "All Tickets" , href:'/admin/bet-setup'},
-    { icon: <GenericPlus />, title: "Open Tickets" , href:'/admin/bet-setup' },
-    { icon: <GenericMinus />, title: "Closed Ticket" , href:'/admin/bet-setup'},
-    { icon: <GenericCheckAlternative />, title: "Answered Ticket" , href:'/admin/bet-setup'},
-  ],
-  settings: [
-    { icon: <GenericGlobe />, title: "Sports API" , href:'/admin/bet-setup'},
-    { icon: <GenericPartners />, title: "KYC Settings" , href:'/admin/bet-setup' },
-    { icon: <MailEnvelope />, title: "Email Setting" , href:'/admin/bet-setup'},
-    { icon: <MailEmailStats />, title: "SMS Setting" , href:'/admin/bet-setup'},
-    { icon: <GenericHelp />, title: "Manage Section" , href:'/admin/bet-setup'},
-    { icon: <GenericSettings />, title: "General Setting" , href:'/admin/bet-setup'},
-    { icon: <OtherSun />, title: "System" , href:'/admin/bet-setup'},
-  ],
-};
 
 const AdminMenu = () => {
+  const router = useRouter();
+  const isSubmenuActive = (href: string) => router.pathname === (href);
+
   return (
-    <div className="w-[25%] bg-black">
+    <div className="w-[25%] bg-black h-screen">
       <Sidebar
         className="h-screen w-fit "
         rootStyles={{
           [`.${sidebarClasses.container}`]: {
-            backgroundColor: 'black',
+            backgroundColor: "black",
             color: "white",
-            width:'110%'
+            width: "110%",
           },
         }}
       >
         <Image className="px-4" src={logo} alt="logo" />
         <Menu className="text-white mt-8">
-          <AdminMenuItem icon={<GenericHome />} title="Dashboard" />
+          <AdminMenuItem
+            icon={<GenericHome />}
+            title="Dashboard"
+            href="/admin"
+          />
           {Object.entries(menuItemsData).map(([header, items], index) => (
             <AdminMenuMini
               key={index}
               header={header.toUpperCase().replace(/_/g, " ")}
               content={items.map((item, index) =>
-                // Check if the item should be rendered as a MenuItem or SubMenu
                 item.asMenuItem ? (
                   <MenuItem
-                  href={item.href}
+                    href={item.href}
                     key={index}
                     icon={item.icon}
                     rootStyles={{
@@ -143,6 +69,7 @@ const AdminMenu = () => {
                   </MenuItem>
                 ) : (
                   <SubMenu
+                    defaultOpen={item.content?.some(subItem => isSubmenuActive(subItem.href))}
                     key={index}
                     label={item.title}
                     icon={item.icon}
@@ -170,10 +97,15 @@ const AdminMenu = () => {
                     {item.content &&
                       item.content.map((subItem, index) => (
                         <MenuItem
+                          component={<Link href={subItem.href} />}
                           key={index}
-                          className="bg-black text-white hover:text-black hover:bg-white"
+                          className={`${
+                            router.pathname === subItem.href
+                              ? "bg-white text-black"
+                              : "bg-black text-white hover:text-black"
+                          }`}
                         >
-                          {subItem}
+                          {subItem.title}
                         </MenuItem>
                       ))}
                   </SubMenu>
