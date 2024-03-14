@@ -10,8 +10,8 @@ import { placeBet } from "@/src/helper/apis/services/ticket/place-bet-api";
 import { useMutation } from "@tanstack/react-query";
 import apiMessageHelper from "@/src/helper/apiMessageHelper";
 import { saveTicket } from "@/src/helper/apis/services/ticket/save-ticket-api";
-import useUser from "../../Context/UserContext/useUser";
-import useBet from "../../Context/BetContext/useBet";
+import useUser from "../../../../shared/Context/UserContext/useUser";
+import useBet from "../../../../shared/Context/BetContext/useBet";
 
 const SuccessfulResponse = ({
   amount,
@@ -29,8 +29,9 @@ const SuccessfulResponse = ({
   const { user, refreshUserData } = useUser();
   const { bet } = useBet();
   const router = useRouter();
-  const [ticketCode, setTicketCode] = useState("jakj7yeu");
+  const [ticketCode, setTicketCode] = useState("");
   const [isBetPlace, setIsBetPlace] = useState(false);
+  const [isCopy, setIsCopy] = useState(false);
 
   const handleClick = () => {
     router.reload();
@@ -58,7 +59,7 @@ const SuccessfulResponse = ({
         statusCode: res?.statusCode,
         onSuccessCallback: () => {
           setIsBetPlace(true);
-          setAmount('')
+          // setAmount("");
         },
       });
     });
@@ -81,7 +82,8 @@ const SuccessfulResponse = ({
   };
 
   const handleCopyCode = () => {
-    if (ticketCode) {
+    if (ticketCode.length > 1) {
+      setIsCopy(true);
       navigator.clipboard
         .writeText(ticketCode)
         .then(() => {
@@ -93,8 +95,6 @@ const SuccessfulResponse = ({
     }
   };
 
-
-  
   return (
     <>
       {ticketCode && isBetPlace ? (
@@ -120,7 +120,11 @@ const SuccessfulResponse = ({
               </div>
               <div className="flex items-center space-x-2">
                 <GenericShareAndroid height={26} width={26} />
-                <FilesCopy height={26} width={26} onClick={handleCopyCode} />
+                {!isCopy ? (
+                  <FilesCopy height={26} width={26} onClick={handleCopyCode} />
+                ) : (
+                  <GenericCheckAlternative height={26} width={26} />
+                )}
                 <p className="font-semibold">{ticketCode}</p>
               </div>
             </div>
@@ -129,16 +133,13 @@ const SuccessfulResponse = ({
           <div className="flex flex-col mt-6 w-full space-y-4 px-8">
             <button
               className="text-white bg-gold py-2 px-6 w-full"
-              onClick={() => {
-                refreshUserData();
-                closeModal();
-              }}
+              onClick={handleClick}
             >
               ok
             </button>
             <button
               className="border border-gold font-bold w-full py-2 px-6 text-gold"
-              onClick={() => closeModal()}
+              onClick={handleClick}
             >
               Rebet
             </button>

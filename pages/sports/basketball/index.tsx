@@ -1,8 +1,13 @@
-import React from 'react';
-import Basketball from '@/src/client/components/SportCategory/Basketball';
+import React from "react";
+import Basketball from "@/src/client/components/SportCategory/Basketball";
 
 const BasketballPage = () => {
-	return <Basketball />;
+  return (
+    <>
+      <title>LegitX</title>
+      <Basketball />
+    </>
+  );
 };
 
 export default BasketballPage;

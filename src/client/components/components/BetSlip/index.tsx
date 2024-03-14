@@ -1,14 +1,15 @@
 import React from "react";
 import { useLink } from "@/src/client/shared/Hooks/useLink";
 import RenderBetSlipType from "./components/RenderBetSlipType";
-import useBet from "../Context/BetContext/useBet";
+import useBet from "../../../shared/Context/BetContext/useBet";
 import MyBet from "./BetTypes/MyBet";
 
 const BetSlip = () => {
   const betSlipTitle = ["Bet Slip", "My Bets"];
-//   const BetSlipType = ["Single", "Multiple", "System"];
+  //   const BetSlipType = ["Single", "Multiple", "System"];
   const { link, handleClick } = useLink("Bet Slip");
-  const { link: betSlipTypeLink, handleClick: betSlipTypeHandleClick } = useLink("Single");
+  const { link: betSlipTypeLink, handleClick: betSlipTypeHandleClick } =
+    useLink("Single");
   const { bet } = useBet();
 
   const checkDifferentIds = (array: any) => {

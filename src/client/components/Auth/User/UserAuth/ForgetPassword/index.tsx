@@ -5,13 +5,12 @@ import AuthButton from '../Components/AuthButton';
 import ModalContainer from '../Components/ModalContainer';
 import apiMessageHelper from '@/src/helper/apiMessageHelper';
 import { useMutation } from '@tanstack/react-query';
-import { PhoneNumber, ResponseHint } from '../Components/Input';
 import { resetPassword } from '@/src/helper/apis/services/auth/reset-password.api';
 import { forgetPassword } from '@/src/helper/apis/services/auth/forget-password.api';
 import { ArrowsLeftCurved } from '@heathmont/moon-icons-tw';
-import { forgetPasswordValidation } from '../Components/Form/FormValidation';
 import { useFormattedPhoneNo } from '@/src/client/shared/Hooks/useFormattedPhoneNo';
-
+import { forgetPasswordValidation } from "../Components/Form/FormValidation";
+import { PhoneNumber, ResponseHint } from "../Components/Input";
 
 const ForgetPassword = ({
 	setIsForgetPassword,

@@ -6,7 +6,7 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>LegitXBet</title>
+				<title>Home - LegitXBet</title>
 				<meta
 					name='description'
 					content='LegitXBet'

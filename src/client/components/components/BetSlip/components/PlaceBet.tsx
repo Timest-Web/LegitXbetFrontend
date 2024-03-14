@@ -1,12 +1,12 @@
 import React from "react";
-import Modal from "../../Modal";
-import { useLink } from "../../Hooks/useLink";
-import useUser from "../../Context/UserContext/useUser";
+import Modal from "../../../../shared/Modal";
+import { useLink } from "../../../../shared/Hooks/useLink";
+import useUser from "../../../../shared/Context/UserContext/useUser";
 import AuthContent from "@/src/client/components/Auth/User/UserAuth/Components/AuthContent";
 import InsufficientBalance from "./InsufficientBalance";
-import { useVisibilityControl } from "../../Hooks/useVisibilityControl";
-import useDeviceType from "../../Hooks/useDeviceType";
-import MobileTopDrawer from "../../Drawer/MobileTopDrawer";
+import { useVisibilityControl } from "../../../../shared/Hooks/useVisibilityControl";
+import useDeviceType from "../../../../shared/Hooks/useDeviceType";
+import MobileTopDrawer from "../../../../shared/Drawer/MobileTopDrawer";
 
 const PlaceBet = ({
   odds,
@@ -23,7 +23,7 @@ const PlaceBet = ({
   const { isMobile } = useDeviceType();
   const { link: click, handleClick: selectedHandle } = useLink("login");
 
-  console.log(amount);
+  // console.log(amount);
 
   const {
     isOpen,

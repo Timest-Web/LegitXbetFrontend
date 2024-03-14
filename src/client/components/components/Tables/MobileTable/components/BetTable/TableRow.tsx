@@ -55,9 +55,12 @@ const TableRow = ({
     marketName,
   };
 
-  const href = `/sport/football/${
-    league?.split(":")[1]
-  }/${teamOne}-vs-${teamTwo}/${id}`;
+  const replaceSpacesWithDash = (text: string) => text.replace(/\s+/g, "-");
+  const formattedLeague = replaceSpacesWithDash(league?.split(":")[1]);
+  const formattedTeamOne = replaceSpacesWithDash(teamOne);
+  const formattedTeamTwo = replaceSpacesWithDash(teamTwo);
+  const href = `/sport/football/${formattedLeague}/${formattedTeamOne}-vs-${formattedTeamTwo}/${id}`;
+
 
   return (
     <div className={`bg-darkAsh w-full`}>

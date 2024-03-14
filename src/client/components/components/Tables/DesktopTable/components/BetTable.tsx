@@ -254,7 +254,7 @@ const BetTable = ({
             )}
 
             {Array.isArray(extractedMatches) &&
-              extractedMatches.length > 5 &&
+              extractedMatches.length > 10 &&
               pathname === "/" && (
                 <Link
                   href={`/sports/football?league=${leagueClick.split(":")[0].toLocaleLowerCase()}`}
