@@ -1,7 +1,7 @@
 import AdminDashboardLayout from "../../shared/AdminDashboardLayout";
 import betData from "../../../constant/BetUpdateData.json";
 import AdminTable from "../../shared/AdminTable";
-const AllBets = () => {
+const LostBets = () => {
   const data: any = betData;
   const columns: any = [
     {
@@ -31,9 +31,14 @@ const AllBets = () => {
   ];
   return (
     <AdminDashboardLayout>
-      <AdminTable data={data} columns={columns} tableTitle="All Bets" searchField={true}/>
+      <AdminTable
+        data={data}
+        columns={columns}
+        tableTitle="Lost Bets"
+        searchField={true}
+      />
     </AdminDashboardLayout>
   );
 };
 
-export default AllBets;
+export default LostBets;

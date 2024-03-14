@@ -39,7 +39,7 @@ type MenuItemData = {
   };
   
   const menuItemsData: MenuItemsData = {
-    betSetUp: [
+    betSetup: [
       {
         icon: <SportEsoccer />,
         title: "Sport Categories",
@@ -86,15 +86,15 @@ type MenuItemData = {
           },
           {
             title: "Won Bet",
-            href: "bbb",
+            href: "/admin/bet-setup/manage-bets/won-bets",
           },
           {
             title: "Lost Bet",
-            href: "bbb",
+            href: "/admin/bet-setup/manage-bets/lost-bets",
           },
           {
             title: "Refunded Bet",
-            href: "bbbb",
+            href: "/admin/bet-setup/manage-bets/refunded-bets",
           },
         ],
       },
@@ -105,16 +105,16 @@ type MenuItemData = {
         content: [
           {
             title: "Pending Results",
-            href: "/",
+            href: "/admin/bet-setup/results/pending-results",
           },
           {
             title: "Declare Results",
-            href: "/",
+            href: "/admin/bet-setup/results/declared-results",
           },
         ],
       },
     ],
-    manageUsers: [
+  manage_Users: [
       {
         icon: <GenericUsers />,
         title: "Manage Bettors",
@@ -122,7 +122,7 @@ type MenuItemData = {
       },
       { icon: <OtherAgent />, title: "Administrator", href: "" },
     ],
-    manageFinance: [
+    manage_Finance: [
       { icon: <ShopBank />, title: "Payment Gateway", href: "" },
       { icon: <ShopWallet />, title: "Deposits Log", href: "/admin/bet-setup" },
       { icon: <ShopCashback />, title: "Withdraw", href: "/admin/bet-setup" },

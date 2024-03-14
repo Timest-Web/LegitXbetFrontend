@@ -50,7 +50,7 @@ import {
             {searchField && (
               <div className="relative">
                 <input
-                  className=" bg-searchIcon bg-no-repeat bg-[center_left_1rem] border-[#292D32] border w-[12rem] md:w-[14.0625rem] h-[2.5625rem] rounded-[35px] pl-12 bg-[#ECEEF1]"
+                  className=" bg-searchIcon bg-no-repeat bg-[center_left_1rem] border-[#292D32] border w-[12rem] md:w-[14.0625rem] h-[2.5625rem] pl-12 bg-[#ECEEF1]"
                   type="text"
                   value={filtering}
                   placeholder="Search"

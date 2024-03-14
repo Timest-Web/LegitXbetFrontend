@@ -2,7 +2,7 @@ import AdminDashboardLayout from "../../shared/AdminDashboardLayout"
 import AdminTable from "../../shared/AdminTable";
 import matchdata from "../../../constant/MatchesData.json"
 
-const RunningMatches = () => {
+const ClosedMatches = () => {
     const data: any = matchdata;
     const columns: any = [
       {
@@ -38,7 +38,7 @@ const RunningMatches = () => {
         accessorKey: "status",
       }
     ];
-    return ( <AdminDashboardLayout><AdminTable data={data} columns={columns} tableTitle="Running Matches"/></AdminDashboardLayout> );
+    return ( <AdminDashboardLayout><AdminTable data={data} columns={columns} tableTitle="Closed Matches"/></AdminDashboardLayout> );
 }
  
-export default RunningMatches;
+export default ClosedMatches;
