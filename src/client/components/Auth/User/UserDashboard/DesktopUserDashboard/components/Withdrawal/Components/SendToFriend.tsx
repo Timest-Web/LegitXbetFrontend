@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { getDeposit } from "@/src/helper/apis/services/transaction-list/get-deposit.api";
 import { getFriend } from "@/src/helper/apis/services/wallet/getFriend";
 import useUser from "@/src/client/shared/Context/UserContext/useUser";
+import { requestSendToFriend } from "@/src/helper/apis/services/wallet/request-send-to-friend";
 
 const SendToFriend = () => {
   const [amount, setAmount] = useState<string>("");
@@ -45,6 +46,16 @@ const SendToFriend = () => {
     }
   };
 
+  const { mutate: requestFriend } = useMutation({
+    mutationFn: requestSendToFriend,
+    onSuccess: () => {
+      console.log("Request sent successfully");
+    },
+    onError: () => {
+      console.error("Failed to send request");
+    },
+  });
+
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRecipientPhone(e.target.value);
   };
@@ -55,26 +66,13 @@ const SendToFriend = () => {
     const newReceipientPhone = convertedPhone;
 
     const data = { amount: newAmount, phoneNumber: newReceipientPhone };
-
     try {
-      const userDetails = localStorage.getItem("access") || "{}";
-      const parsedDetails = JSON.parse(userDetails);
-      const response = await axios.post(
-        "https://legitx.ng/wallet/send-receipient",
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${parsedDetails?.accessToken}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      console.log("Response:", response.data);
-      setAmount("");
-      setRecipientPhone("");
-    } catch (error) {
-      console.error("Error:", error);
+      requestFriend({
+        amount: data.amount,
+        phoneNumber: data.phoneNumber,
+      });
+    } catch (err) {
+      console.error(err, "the ERROR");
     }
   };
 

@@ -23,7 +23,7 @@ const DeclaredResults = () => {
     {
       header: "Bet Amount",
       accessorKey: "bet_amount",
-    },
+    }
   ];
   return (
     <AdminDashboardLayout>
