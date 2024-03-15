@@ -1,4 +1,5 @@
 export interface RequestToSendPayload {
+  code: number;
   amount: number;
   phoneNumber: number;
 }

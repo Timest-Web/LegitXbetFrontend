@@ -68,6 +68,7 @@ const SendToFriend = () => {
     const data = { amount: newAmount, phoneNumber: newReceipientPhone };
     try {
       requestFriend({
+        code: 1234,
         amount: data.amount,
         phoneNumber: data.phoneNumber,
       });

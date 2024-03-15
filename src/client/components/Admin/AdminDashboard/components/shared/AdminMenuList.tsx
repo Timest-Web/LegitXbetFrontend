@@ -125,12 +125,62 @@ const menuItemsData: MenuItemsData = {
         },
       ],
     },
-    { icon: <OtherAgent />, title: "Administrator", href: "" },
+    {
+      icon: <OtherAgent />,
+      title: "Administrator",
+      href: "",
+      content: [
+        {
+          title: "Add User",
+          href: "/admin/manage-users/all-bettors",
+        },
+        {
+          title: "Manage User",
+          href: "/admin/manage-users/all-bettors",
+        },
+      ],
+    },
   ],
   manage_Finance: [
-    { icon: <ShopBank />, title: "Payment Gateway", href: "" },
-    { icon: <ShopWallet />, title: "Deposits Log", href: "/admin/bet-setup" },
-    { icon: <ShopCashback />, title: "Withdraw", href: "/admin/bet-setup" },
+    {
+      icon: <ShopBank />,
+      title: "Payment Gateway",
+      href: "/admin/manage-finance/payment-gateway",
+      asMenuItem: true,
+    },
+    {
+      icon: <ShopWallet />,
+      title: "Deposits Log",
+      href: "/admin/manage-finance/deposit-log",
+      asMenuItem: true,
+    },
+    {
+      icon: <ShopCashback />,
+      title: "Withdraw",
+      href: "/admin/bet-setup",
+      content: [
+        {
+          title: "Withdrawal Methods",
+          href: "/admin/manage-finance/withdrawal-methods",
+        },
+        {
+          title: "Withdrawal Log",
+          href: "/admin/manage-finance/withdrawal-log",
+        },
+        {
+          title: "Pending Withdrawals",
+          href: "/admin/manage-finance/pending-withdrawals",
+        },
+        {
+          title: "Approved Withdrawals",
+          href: "/admin/manage-finance/approved-withdrawals",
+        },
+        {
+          title: "Rejected Withdrawals",
+          href: "/admin/manage-finance/rejected-withdrawals",
+        },
+      ],
+    },
   ],
   commission: [{ icon: <ShopRebate />, title: "Referral", href: "" }],
   support: [

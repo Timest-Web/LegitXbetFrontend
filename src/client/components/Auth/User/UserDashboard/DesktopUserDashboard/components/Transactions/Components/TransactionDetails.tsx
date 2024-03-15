@@ -1,9 +1,9 @@
-// TransactionDetails.tsx
+
 
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { ArrowsLeft } from "@heathmont/moon-icons-tw";
+import { ArrowsLeft } from "@heathmont/moon-icons-tw"; 
 
 const TransactionDetails = () => {
   const router = useRouter();
