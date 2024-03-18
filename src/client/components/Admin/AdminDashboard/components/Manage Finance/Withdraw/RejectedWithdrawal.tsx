@@ -4,10 +4,12 @@ import depositData from "../../../constant/DepositLog.json";
 
 const RejectedWithdrawal = () => {
   const data: any = depositData;
-  const filteredData = data.filter((withdraw: any) => withdraw.status === "Failed");
+  const filteredData = data.filter(
+    (withdraw: any) => withdraw.status === "Failed"
+  );
   const formattedData = filteredData.map((withdraw: any, index: number) => ({
     ...withdraw,
-    status: withdraw.status === "Failed"? "Rejected": ""
+    status: withdraw.status === "Failed" ? "Rejected" : "",
   }));
   const columns: any = [
     {
@@ -34,7 +36,11 @@ const RejectedWithdrawal = () => {
 
   return (
     <AdminDashboardLayout>
-      <AdminTable data={formattedData} columns={columns} tableTitle="Rejected Withdrawal" />
+      <AdminTable
+        data={formattedData}
+        columns={columns}
+        tableTitle="Rejected Withdrawal"
+      />
     </AdminDashboardLayout>
   );
 };

@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import bettorDetail from "../../../../constant/BettorsDetail.json";
-import AdminDashboardLayout from "../../../shared/AdminDashboardLayout";
 import BettorLayout from "./BettorLayout";
 
 const BettorDetails = () => {
@@ -8,6 +7,7 @@ const BettorDetails = () => {
   const { id } = router.query;
 
   const bettor = bettorDetail.find((bettor) => bettor.id === Number(id));
+  
   return (
     <div>
       {bettor ? (
@@ -37,7 +37,7 @@ const BettorDetails = () => {
                   </label>
                 </div>
                 <label className="font-bold flex flex-col mt-3">
-                  Address{" "}
+                  Address
                   <input className="p-3 w-[90%] bg-gray-200 rounded-sm" />
                 </label>
                 <div className="flex justify-between mt-4">
@@ -79,7 +79,7 @@ const BettorDetails = () => {
       ) : (
         <p>Bettor not found</p>
       )}
-  </div>
+    </div>
   );
 };
 

@@ -131,12 +131,8 @@ const menuItemsData: MenuItemsData = {
       href: "",
       content: [
         {
-          title: "Add User",
-          href: "/admin/manage-users/all-bettors",
-        },
-        {
           title: "Manage User",
-          href: "/admin/manage-users/all-bettors",
+          href: "/admin/manage-users/manage-user",
         },
       ],
     },

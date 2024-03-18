@@ -19,7 +19,7 @@ const TransactionCard: React.FC<TransactionCardProps> = ({
   time,
   amount,
   reference,
-  status,
+  status, 
   merchant,
 }) => {
   const queryParams = {

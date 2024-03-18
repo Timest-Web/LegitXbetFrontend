@@ -41,10 +41,7 @@ const ManageLeagues = () => {
       header: "Category",
       accessorKey: "category",
     },
-    {
-      header: "Status",
-      accessorKey: "status",
-    },
+
     {
       header: "Action",
       cell: ({ row }: { row: Row<TableProps> }) => (

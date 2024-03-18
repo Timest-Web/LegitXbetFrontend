@@ -1,6 +1,6 @@
 import WithdrawalActiveColumn from "@/src/client/components/Auth/User/UserDashboard/DesktopUserDashboard/components/Withdrawal/Components/WithdrawalActiveColumn";
 import TableComp from "@/src/client/components/Auth/User/UserDashboard/DesktopUserDashboard/shared/ActiveTableComp";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import mData from "@/src/client/components/Auth/User/UserDashboard/constant/MOCK_DATA (4).json";
 import AdminTable from "../../shared/AdminTable";
 import AdminDashboardLayout from "../../shared/AdminDashboardLayout";
@@ -11,7 +11,7 @@ import { Row } from "@tanstack/react-table";
 import AdminActionColumn from "../../shared/AdminActionColumn";
 
 const SportCategories = () => {
-  const data: any = categories;
+  const [data, setData] = useState(categories);
   const columns: any = [
     {
       header: "Sport",
@@ -28,13 +28,29 @@ const SportCategories = () => {
     {
       header: "Status",
       accessorKey: "status",
+      cell: ({ row }: { row: any }) => (
+        <div
+          className={`text-xs rounded-md ${
+            row.original.status === "Enabled" ? "bg-green-500" : "bg-red-500"
+          }`}
+        >
+          {row.original.status}
+        </div>
+      ),
     },
     {
-      header:"Action",
+      header: "Action",
       cell: ({ row }: { row: Row<TableProps> }) => (
-        <AdminActionColumn row={row} />
+        <AdminActionColumn
+          row={row}
+          setStatus={(status: string) => {
+            const updatedData = [...data];
+            updatedData[row.index].status = status;
+            setData(updatedData);
+          }}
+        />
       ),
-    }
+    },
   ];
   return (
     <AdminDashboardLayout>
