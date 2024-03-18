@@ -178,19 +178,19 @@ const menuItemsData: MenuItemsData = {
       ],
     },
   ],
-  commission: [{ icon: <ShopRebate />, title: "Referral", href: "" }],
+  commission: [{ icon: <ShopRebate />, title: "Referral", href: "/admin/commissions/referral" , asMenuItem:true}],
   support: [
-    { icon: <GenericTicket />, title: "All Tickets", href: "" },
-    { icon: <GenericPlus />, title: "Open Tickets", href: "" },
+    { icon: <GenericTicket />, title: "All Tickets", href: "/admin/support-tickets/all-tickets", asMenuItem:true },
+    { icon: <GenericPlus />, title: "Open Tickets", href: "/admin/support-tickets/open-tickets", asMenuItem:true },
     {
       icon: <GenericMinus />,
       title: "Closed Ticket",
-      href: "",
+      href: "/admin/support-tickets/closed-tickets", asMenuItem:true
     },
     {
       icon: <GenericCheckAlternative />,
       title: "Answered Ticket",
-      href: "",
+      href: "/admin/support-tickets/answered-tickets", asMenuItem:true
     },
   ],
   settings: [

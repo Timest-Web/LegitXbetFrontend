@@ -30,8 +30,10 @@ const SportCategories = () => {
       accessorKey: "status",
       cell: ({ row }: { row: any }) => (
         <div
-          className={`text-xs rounded-md ${
-            row.original.status === "Enabled" ? "bg-green-500" : "bg-red-500"
+          className={`text-xs rounded-lg ${
+            row.original.status === "Enabled"
+              ? "bg-green-100 text-green-500 border border-solid border-green-400"
+              : "bg-red-100 text-red-500 border border-solid border-red-400"
           }`}
         >
           {row.original.status}

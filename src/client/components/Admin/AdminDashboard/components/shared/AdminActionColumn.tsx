@@ -18,7 +18,7 @@ const AdminActionColumn: React.FC<AdminActionColumnProps> = ({ row, setStatus })
 
   return (
     <div className="flex justify-center items-center relative">
-      <button className={`${isActive ? "bg-red-400" : "bg-green-400"} px-2 rounded-md`} onClick={toggleStatus}>
+      <button className={`${isActive ? "text-red-400 border border-red-400 border-solid p-1 hover:bg-red-500 hover:text-white" : " text-green-400 border border-green-400 border-solid p-1 hover:bg-green-500 hover:text-white"} px-2 `} onClick={toggleStatus}>
         {isActive ? "Disable" : "Enable"}
       </button>
     </div>
