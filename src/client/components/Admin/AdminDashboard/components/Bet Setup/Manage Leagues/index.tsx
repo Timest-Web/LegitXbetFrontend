@@ -44,9 +44,9 @@ const ManageLeagues = () => {
 
     {
       header: "Action",
-      cell: ({ row }: { row: Row<TableProps> }) => (
-        <AdminActionColumn row={row} />
-      ),
+      // cell: ({ row }: { row: Row<TableProps> }) => (
+      //    <AdminActionColumn  row={row} />
+      // ),
     },
   ];
   return (

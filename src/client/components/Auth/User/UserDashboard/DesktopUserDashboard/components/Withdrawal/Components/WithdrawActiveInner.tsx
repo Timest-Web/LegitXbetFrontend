@@ -56,7 +56,7 @@ const WithdrawalActiveInner = () => {
               Status<span>{withdrawal.status}</span>
             </p>
             <p className="flex justify-between font-bold">
-              Transaction ID<span>{withdrawal.reference_id}</span>
+              Transaction ID<span>{withdrawal.transaction_id}</span>
             </p>
           </div>
         ))}
