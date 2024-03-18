@@ -3,14 +3,18 @@ import MobileDepositActive from '@/src/client/components/Auth/User/UserDashboard
 import Layout from '@/src/client/components/Layout';
 import DeviceDisplay from '@/src/client/shared/Utils/DeviceDisplay';
 import type { NextPage } from 'next';
+import Head from 'next/head';
 
 const DepositActives: NextPage = (props) => (
-	
+  <div>
+  <Head>
+    <title>Deposit History</title>
+  </Head>
     <DeviceDisplay
       desktopViewDisplay={<DepositActiveContent {...props} />}
       mobileViewDisplay={<MobileDepositActive {...props} />}
     />
-  
+  </div>
 );
 
 export default DepositActives;

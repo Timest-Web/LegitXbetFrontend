@@ -4,13 +4,17 @@ import MobilePaystack from "@/src/client/components/Auth/User/UserDashboard/Mobi
 import Layout from "@/src/client/components/Layout";
 import DeviceDisplay from "@/src/client/shared/Utils/DeviceDisplay";
 import type { NextPage } from "next";
+import Head from "next/head";
 
 const DepositforPaystack: NextPage = (props) => (
-    <DeviceDisplay
+  <div>
+  <Head>
+    <title>Deposit</title>
+  </Head> <DeviceDisplay
       desktopViewDisplay={<DepositPaystack {...props} />}
       mobileViewDisplay={<MobilePaystack {...props} />}
     />
- 
+ </div>
 );
 
 export default DepositforPaystack;
