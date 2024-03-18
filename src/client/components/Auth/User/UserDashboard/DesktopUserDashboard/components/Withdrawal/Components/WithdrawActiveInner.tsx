@@ -9,7 +9,7 @@ import Modal from "@/src/client/shared/Modal";
 import ArrowRight from "@/src/client/shared/Svg/ArrowRight";
 import ArrowLeft from "@/src/client/shared/Svg/ArrowLeft";
 
-const ITEMS_PER_PAGE = 5; 
+const ITEMS_PER_PAGE = 5;
 
 const WithdrawalActiveInner = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -30,9 +30,8 @@ const WithdrawalActiveInner = () => {
 
   return (
     <div>
-       <h2 className="font-bold text-lg m-auto hidden">No Withdrawal Yet</h2>
+      <h2 className="font-bold text-lg m-auto hidden">No Withdrawal Yet</h2>
       <div className="hidden md:block ">
-       
         <TableComp
           tableTitle="Withdrawal History"
           searchField={true}
@@ -57,7 +56,7 @@ const WithdrawalActiveInner = () => {
               Status<span>{withdrawal.status}</span>
             </p>
             <p className="flex justify-between font-bold">
-              Transaction ID<span>{withdrawal.reference_id}</span>
+              Transaction ID<span>{withdrawal.transaction_id}</span>
             </p>
           </div>
         ))}

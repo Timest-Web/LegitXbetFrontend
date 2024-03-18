@@ -3,51 +3,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import ProfileMenu from "./ProfileMenu";
 import menuList from "./MenuList";
-import {
-  ControlsChevronDown,
-  ControlsChevronUp,
-} from "@heathmont/moon-icons-tw";
 import useUser from "@/src/client/shared/Context/UserContext/useUser";
-import { GenericLogOut } from '@heathmont/moon-icons-tw';
-interface AccordionItemProps {
-  title: string;
-  icon?: React.JSX.Element;
-  children: ReactNode;
-  initiallyOpen?: boolean;
-}
+import { GenericLogOut } from "@heathmont/moon-icons-tw";
+import AccordionItem from "./AccordionItem";
 
-const AccordionItem: React.FC<AccordionItemProps> = ({
-  title,
-  icon,
-  children,
-  initiallyOpen = false,
-}) => {
-  const [isOpen, setIsOpen] = useState(initiallyOpen);
-
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
-
-  return (
-    <div className=" cursor-pointer">
-      <div className="flex space-x-3" onClick={toggleAccordion}>
-        <div className="">{icon}</div>
-        <div className="text-sm font-bold opacity-50 ">{title}</div>
-        {isOpen ? <ControlsChevronUp /> : <ControlsChevronDown />}
-      </div>
-      {isOpen && (
-        <div className=" flex flex-col space-y-2 ml-12 mt-4 text-sm font-bold hover:opacity-100">
-          {children}
-        </div>
-      )}
-    </div>
-  );
-};
 
 const SideBar = () => {
   const menuItems = menuList();
   const router = useRouter();
-  const user = useUser()
+  const user = useUser();
 
   return (
     <div className="bg-white   md:w-[17rem] md:rounded-2xl p-7 flex flex-col space-y-7 ">
@@ -280,10 +244,14 @@ const SideBar = () => {
         </React.Fragment>
       ))}
       <div className="flex space-x-2 opacity-50 pt-4">
-        <GenericLogOut className="text-moon-24"/>
-        <p onClick={user.handleUserLogout} className="text-sm font-bold cursor-pointer">Logout</p> 
+        <GenericLogOut className="text-moon-24" />
+        <p
+          onClick={user.handleUserLogout}
+          className="text-sm font-bold cursor-pointer"
+        >
+          Logout
+        </p>
       </div>
-     
     </div>
   );
 };

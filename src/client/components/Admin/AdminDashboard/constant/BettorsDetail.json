@@ -1,0 +1,155 @@
+[
+  {
+    "id": 1,
+    "bettor": "Malissa Noye",
+    "email": "mnoye0@a8.net",
+    "phone_number": "773-595-8362",
+    "country": "Serbia",
+    "joined_at": "2024-02-08T12:11:34Z",
+    "balance": 5178.32
+  },
+  {
+    "id": 2,
+    "bettor": "Tabatha Hulke",
+    "email": "thulke1@howstuffworks.com",
+    "phone_number": "185-550-6272",
+    "country": "China",
+    "joined_at": "2024-01-10T20:32:57Z",
+    "balance": 7109.81
+  },
+  {
+    "id": 3,
+    "bettor": "Evaleen Fowley",
+    "email": "efowley2@reddit.com",
+    "phone_number": "675-979-2029",
+    "country": "Russia",
+    "joined_at": "2024-02-05T13:44:59Z",
+    "balance": 3473.72
+  },
+  {
+    "id": 4,
+    "bettor": "Terrye Delatour",
+    "email": "tdelatour3@php.net",
+    "phone_number": "224-509-3582",
+    "country": "Czech Republic",
+    "joined_at": "2023-09-30T10:24:39Z",
+    "balance": 8360.12
+  },
+  {
+    "id": 5,
+    "bettor": "Lammond Hastilow",
+    "email": "lhastilow4@infoseek.co.jp",
+    "phone_number": "475-849-1226",
+    "country": "Russia",
+    "joined_at": "2023-07-14T04:53:02Z",
+    "balance": 5220.86
+  },
+  {
+    "id": 6,
+    "bettor": "Caria Zmitruk",
+    "email": "czmitruk5@mapquest.com",
+    "phone_number": "775-748-5132",
+    "country": "France",
+    "joined_at": "2023-08-03T12:09:56Z",
+    "balance": 1736.25
+  },
+  {
+    "id": 7,
+    "bettor": "Rheta Dargavel",
+    "email": "rdargavel6@yale.edu",
+    "phone_number": "760-257-0982",
+    "country": "Croatia",
+    "joined_at": "2023-12-21T05:40:42Z",
+    "balance": 4077.35
+  },
+  {
+    "id": 8,
+    "bettor": "Marguerite Neath",
+    "email": "mneath7@woothemes.com",
+    "phone_number": "440-540-0032",
+    "country": "China",
+    "joined_at": "2023-03-18T12:23:02Z",
+    "balance": 7180.69
+  },
+  {
+    "id": 9,
+    "bettor": "Shandeigh Twitchett",
+    "email": "stwitchett8@xing.com",
+    "phone_number": "797-951-4156",
+    "country": "Indonesia",
+    "joined_at": "2024-01-15T17:36:20Z",
+    "balance": 2117.01
+  },
+  {
+    "id": 10,
+    "bettor": "Reece Shafier",
+    "email": "rshafier9@last.fm",
+    "phone_number": "787-600-2048",
+    "country": "Portugal",
+    "joined_at": "2023-12-25T16:16:52Z",
+    "balance": 8374.68
+  },
+  {
+    "id": 11,
+    "bettor": "Michaella Cock",
+    "email": "mcocka@accuweather.com",
+    "phone_number": "491-315-1219",
+    "country": "Cuba",
+    "joined_at": "2024-01-13T15:32:54Z",
+    "balance": 9503.4
+  },
+  {
+    "id": 12,
+    "bettor": "Anita Nabarro",
+    "email": "anabarrob@parallels.com",
+    "phone_number": "548-651-2253",
+    "country": "France",
+    "joined_at": "2024-02-09T00:22:43Z",
+    "balance": 9800.82
+  },
+  {
+    "id": 13,
+    "bettor": "Augustine Pink",
+    "email": "apinkc@google.it",
+    "phone_number": "308-172-4001",
+    "country": "Indonesia",
+    "joined_at": "2023-09-15T06:22:11Z",
+    "balance": 9615.35
+  },
+  {
+    "id": 14,
+    "bettor": "Gwenette Rosengart",
+    "email": "grosengartd@cnet.com",
+    "phone_number": "679-658-9569",
+    "country": "Reunion",
+    "joined_at": "2023-04-15T22:53:50Z",
+    "balance": 9442.7
+  },
+  {
+    "id": 15,
+    "bettor": "Corny Coper",
+    "email": "ccopere@utexas.edu",
+    "phone_number": "192-416-3233",
+    "country": "Philippines",
+    "joined_at": "2023-10-18T04:13:26Z",
+    "balance": 4012.76
+  },
+  {
+    "id": 16,
+    "bettor": "Brook Brabender",
+    "email": "bbrabenderf@nyu.edu",
+    "phone_number": "462-340-0418",
+    "country": "Portugal",
+    "joined_at": "2023-12-23T01:55:30Z",
+    "balance": 5773.96
+  },
+  {
+    "id": 17,
+    "bettor": "Jemima Berthel",
+    "email": "jberthelg@cyberchimps.com",
+    "phone_number": "473-853-7058",
+    "country": "Honduras",
+    "joined_at": "2023-10-23T08:56:56Z",
+    "balance": 7318.72
+  }
+]

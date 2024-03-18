@@ -10,7 +10,7 @@ import useUser from "@/src/client/shared/Context/UserContext/useUser";
 const DepositForm = () => {
   const {refreshUserData} = useUser()
   const [depositAmount, setDepositAmount] = useState<string>("");
-  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string>(""); 
   const { balance, setBalance } = useContext(BalanceContext)!;
   const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
   const [transactionReference, setTransactionReference] = useState<

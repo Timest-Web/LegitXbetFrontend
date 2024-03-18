@@ -16,7 +16,7 @@ const ReuseTab: React.FC<ReuseTabProps> = ({
 }) => {
   return (
     <Link href={href}>
-      <div className=" w-[99.5%] cursor-pointer md:w-11/12 bg-gray-300 flex space-x-3 p-3 rounded-lg font-bold ">
+      <div className="cursor-pointer md:w-11/12 bg-gray-300 flex space-x-3 p-3 rounded-lg font-bold ">
         <div>{icon}</div>
         <div>
           <p className="text-lg">{figure}</p>

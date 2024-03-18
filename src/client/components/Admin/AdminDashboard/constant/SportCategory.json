@@ -1,0 +1,212 @@
+[
+  {
+    "sport_name": "soccer",
+    "status": "disabled",
+    "action_button": "disable",
+    "num_leagues": 94,
+    "num_teams": 27
+  },
+  {
+    "sport_name": "basketball",
+    "status": "enabled",
+    "action_button": "disable",
+    "num_leagues": 85,
+    "num_teams": 65
+  },
+  {
+    "sport_name": "tennis",
+    "status": "disabled",
+    "action_button": "disable",
+    "num_leagues": 9,
+    "num_teams": 23
+  },
+  {
+    "sport_name": "volleyball",
+    "status": "enabled",
+    "action_button": "disable",
+    "num_leagues": 94,
+    "num_teams": 49
+  },
+  {
+    "sport_name": "swimming",
+    "status": "enabled",
+    "action_button": "enable",
+    "num_leagues": 80,
+    "num_teams": 49
+  },
+  {
+    "sport_name": "golf",
+    "status": "disabled",
+    "action_button": "disable",
+    "num_leagues": 99,
+    "num_teams": 46
+  },
+  {
+    "sport_name": "rugby",
+    "status": "disabled",
+    "action_button": "disable",
+    "num_leagues": 93,
+    "num_teams": 49
+  },
+  {
+    "sport_name": "cricket",
+    "status": "enabled",
+    "action_button": "enable",
+    "num_leagues": 14,
+    "num_teams": 22
+  },
+  {
+    "sport_name": "baseball",
+    "status": "enabled",
+    "action_button": "enable",
+    "num_leagues": 68,
+    "num_teams": 45
+  },
+  {
+    "sport_name": "hockey",
+    "status": "disabled",
+    "action_button": "enable",
+    "num_leagues": 97,
+    "num_teams": 36
+  },
+  {
+    "sport_name": "boxing",
+    "status": "disabled",
+    "action_button": "enable",
+    "num_leagues": 83,
+    "num_teams": 100
+  },
+  {
+    "sport_name": "cycling",
+    "status": "enabled",
+    "action_button": "enable",
+    "num_leagues": 76,
+    "num_teams": 74
+  },
+  {
+    "sport_name": "skiing",
+    "status": "enabled",
+    "action_button": "disable",
+    "num_leagues": 92,
+    "num_teams": 69
+  },
+  {
+    "sport_name": "snowboarding",
+    "status": "disabled",
+    "action_button": "disable",
+    "num_leagues": 27,
+    "num_teams": 63
+  },
+  {
+    "sport_name": "surfing",
+    "status": "disabled",
+    "action_button": "disable",
+    "num_leagues": 76,
+    "num_teams": 4
+  },
+  {
+    "sport_name": "wrestling",
+    "status": "enabled",
+    "action_button": "disable",
+    "num_leagues": 47,
+    "num_teams": 18
+  },
+  {
+    "sport_name": "track and field",
+    "status": "disabled",
+    "action_button": "enable",
+    "num_leagues": 35,
+    "num_teams": 33
+  },
+  {
+    "sport_name": "gymnastics",
+    "status": "disabled",
+    "action_button": "enable",
+    "num_leagues": 17,
+    "num_teams": 30
+  },
+  {
+    "sport_name": "rowing",
+    "status": "enabled",
+    "action_button": "disable",
+    "num_leagues": 83,
+    "num_teams": 46
+  },
+  {
+    "sport_name": "table tennis",
+    "status": "enabled",
+    "action_button": "enable",
+    "num_leagues": 78,
+    "num_teams": 72
+  },
+  {
+    "sport_name": "badminton",
+    "status": "disabled",
+    "action_button": "disable",
+    "num_leagues": 6,
+    "num_teams": 45
+  },
+  {
+    "sport_name": "archery",
+    "status": "disabled",
+    "action_button": "enable",
+    "num_leagues": 39,
+    "num_teams": 7
+  },
+  {
+    "sport_name": "fencing",
+    "status": "disabled",
+    "action_button": "disable",
+    "num_leagues": 22,
+    "num_teams": 13
+  },
+  {
+    "sport_name": "karate",
+    "status": "enabled",
+    "action_button": "enable",
+    "num_leagues": 8,
+    "num_teams": 99
+  },
+  {
+    "sport_name": "judo",
+    "status": "enabled",
+    "action_button": "disable",
+    "num_leagues": 20,
+    "num_teams": 27
+  },
+  {
+    "sport_name": "taekwondo",
+    "status": "enabled",
+    "action_button": "enable",
+    "num_leagues": 66,
+    "num_teams": 95
+  },
+  {
+    "sport_name": "weightlifting",
+    "status": "enabled",
+    "action_button": "disable",
+    "num_leagues": 18,
+    "num_teams": 78
+  },
+  {
+    "sport_name": "triathlon",
+    "status": "enabled",
+    "action_button": "enable",
+    "num_leagues": 49,
+    "num_teams": 100
+  },
+  {
+    "sport_name": "sailing",
+    "status": "enabled",
+    "action_button": "enable",
+    "num_leagues": 38,
+    "num_teams": 73
+  },
+  {
+    "sport_name": "equestrian",
+    "status": "enabled",
+    "action_button": "enable",
+    "num_leagues": 38,
+    "num_teams": 53
+  }
+]

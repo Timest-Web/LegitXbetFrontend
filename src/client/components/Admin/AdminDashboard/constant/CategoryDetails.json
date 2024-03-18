@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "sport_name": "Table tennis",
+    "leagues": 1,
+    "teams": 1,
+    "status": "Disabled"
+  },
+  {
+    "id": 2,
+    "sport_name": "Snowboarding",
+    "leagues": 2,
+    "teams": 2,
+    "status": "Enabled"
+  },
+  {
+    "id": 3,
+    "sport_name": "Gymnastics",
+    "leagues": 3,
+    "teams": 3,
+    "status": "Enabled"
+  },
+  {
+    "id": 4,
+    "sport_name": "Taekwondo",
+    "leagues": 4,
+    "teams": 4,
+    "status": "Disabled"
+  },
+  {
+    "id": 5,
+    "sport_name": "Gymnastics",
+    "leagues": 5,
+    "teams": 5,
+    "status": "Enabled"
+  },
+  {
+    "id": 6,
+    "sport_name": "Boxing",
+    "leagues": 6,
+    "teams": 6,
+    "status": "Enabled"
+  },
+  {
+    "id": 7,
+    "sport_name": "Boxing",
+    "leagues": 7,
+    "teams": 7,
+    "status": "Enabled"
+  },
+  {
+    "id": 8,
+    "sport_name": "Karate",
+    "leagues": 8,
+    "teams": 8,
+    "status": "Disabled"
+  },
+  {
+    "id": 9,
+    "sport_name": "Wrestling",
+    "leagues": 9,
+    "teams": 9,
+    "status": "Disabled"
+  },
+  {
+    "id": 10,
+    "sport_name": "Table tennis",
+    "leagues": 10,
+    "teams": 10,
+    "status": "Disabled"
+  },
+  {
+    "id": 11,
+    "sport_name": "Softball",
+    "leagues": 11,
+    "teams": 11,
+    "status": "Disabled"
+  },
+  {
+    "id": 12,
+    "sport_name": "Rowing",
+    "leagues": 12,
+    "teams": 12,
+    "status": "Enabled"
+  },
+  {
+    "id": 13,
+    "sport_name": "Skateboarding",
+    "leagues": 13,
+    "teams": 13,
+    "status": "Enabled"
+  },
+  {
+    "id": 14,
+    "sport_name": "Baseball",
+    "leagues": 14,
+    "teams": 14,
+    "status": "Enabled"
+  },
+  {
+    "id": 15,
+    "sport_name": "Golf",
+    "leagues": 15,
+    "teams": 15,
+    "status": "Enabled"
+  },
+  {
+    "id": 16,
+    "sport_name": "Swimming",
+    "leagues": 16,
+    "teams": 16,
+    "status": "Disabled"
+  },
+  {
+    "id": 17,
+    "sport_name": "Gymnastics",
+    "leagues": 17,
+    "teams": 17,
+    "status": "Enabled"
+  },
+  {
+    "id": 18,
+    "sport_name": "Skiing",
+    "leagues": 18,
+    "teams": 18,
+    "status": "Enabled"
+  },
+  {
+    "id": 19,
+    "sport_name": "Archery",
+    "leagues": 19,
+    "teams": 19,
+    "status": "Disabled"
+  },
+  {
+    "id": 20,
+    "sport_name": "Soccer",
+    "leagues": 20,
+    "teams": 20,
+    "status": "Disabled"
+  },
+  {
+    "id": 21,
+    "sport_name": "Boxing",
+    "leagues": 21,
+    "teams": 21,
+    "status": "Disabled"
+  },
+  {
+    "id": 22,
+    "sport_name": "Softball",
+    "leagues": 22,
+    "teams": 22,
+    "status": "Enabled"
+  },
+  {
+    "id": 23,
+    "sport_name": "Wrestling",
+    "leagues": 23,
+    "teams": 23,
+    "status": "Disabled"
+  },
+  {
+    "id": 24,
+    "sport_name": "Baseball",
+    "leagues": 24,
+    "teams": 24,
+    "status": "Enabled"
+  },
+  {
+    "id": 25,
+    "sport_name": "Softball",
+    "leagues": 25,
+    "teams": 25,
+    "status": "Enabled"
+  },
+  {
+    "id": 26,
+    "sport_name": "Skiing",
+    "leagues": 26,
+    "teams": 26,
+    "status": "Enabled"
+  },
+  {
+    "id": 27,
+    "sport_name": "Surfing",
+    "leagues": 27,
+    "teams": 27,
+    "status": "Enabled"
+  },
+  {
+    "id": 28,
+    "sport_name": "golf",
+    "leagues": 28,
+    "teams": 28,
+    "status": "Disabled"
+  },
+  {
+    "id": 29,
+    "sport_name": "Rugby",
+    "leagues": 29,
+    "teams": 29,
+    "status": "Enabled"
+  },
+  {
+    "id": 30,
+    "sport_name": "Softball",
+    "leagues": 30,
+    "teams": 30,
+    "status": "Disabled"
+  }
+]

@@ -1,55 +1,79 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { getDeposit } from "@/src/helper/apis/services/transaction-list/get-deposit.api";
+import { getFriend } from "@/src/helper/apis/services/wallet/getFriend";
+import useUser from "@/src/client/shared/Context/UserContext/useUser";
+import { requestSendToFriend } from "@/src/helper/apis/services/wallet/request-send-to-friend";
 
 const SendToFriend = () => {
   const [amount, setAmount] = useState<string>("");
-  const [receipientPhone, setReceipientPhone] = useState<string>("");
+  const [recipientPhone, setRecipientPhone] = useState<string>("");
+  const user = useUser();
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
+  const convertToInternationalFormat = (localNumber: any) => {
+    if (localNumber.startsWith("0")) {
+      localNumber = localNumber.slice(1);
+    }
 
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(e.target.value);
+    return "234" + localNumber;
   };
 
+  const newAmount = parseFloat(amount);
+  const convertedPhone = parseFloat(
+    convertToInternationalFormat(recipientPhone)
+  );
+  const {
+    data: friendName,
+    error,
+    isLoading,
+  } = useQuery({
+    queryKey: ["friend", convertedPhone],
+    queryFn: () => getFriend(convertedPhone),
+  });
+
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    setAmount(inputValue);
+    const amount = parseFloat(inputValue);
+    if (isNaN(amount) || amount > user.user.amount) {
+      setErrorMessage("Invalid transfer amount. Check your Balance");
+      setIsButtonDisabled(true);
+    } else {
+      setErrorMessage("");
+      setIsButtonDisabled(false);
+    }
+  };
+
+  const { mutate: requestFriend } = useMutation({
+    mutationFn: requestSendToFriend,
+    onSuccess: () => {
+      console.log("Request sent successfully");
+    },
+    onError: () => {
+      console.error("Failed to send request");
+    },
+  });
+
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setReceipientPhone(e.target.value);
+    setRecipientPhone(e.target.value);
   };
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const convertToInternationalFormat = (localNumber: any) => {
-      if (localNumber.startsWith("0")) {
-        localNumber = localNumber.slice(1);
-      }
 
-      return "234" + localNumber;
-    };
-
-    const newAmount = parseFloat(amount);
-    const convertedPhone = parseFloat(
-      convertToInternationalFormat(receipientPhone)
-    );
     const newReceipientPhone = convertedPhone;
 
     const data = { amount: newAmount, phoneNumber: newReceipientPhone };
-
     try {
-      const userDetails = localStorage.getItem("access") || "{}";
-      const parsedDetails = JSON.parse(userDetails);
-      const response = await axios.post(
-        "https://legitx.ng/wallet/send-receipient",
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${parsedDetails?.accessToken}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      console.log("Response:", response.data);
-      setAmount("");
-      setReceipientPhone("");
-    } catch (error) {
-      console.error("Error:", error);
+      requestFriend({
+        code: 1234,
+        amount: data.amount,
+        phoneNumber: data.phoneNumber,
+      });
+    } catch (err) {
+      console.error(err, "the ERROR");
     }
   };
 
@@ -75,20 +99,24 @@ const SendToFriend = () => {
           <input
             className="p-2 rounded-md"
             type="text"
-            value={receipientPhone}
+            value={recipientPhone}
             name="receipientPhone"
             onChange={handlePhoneChange}
           />
         </div>
         <div className="md:pt-8">
           <button
+            disabled={isButtonDisabled}
             type="submit"
-            className="bg-black text-white text-center flex justify-center items-center p-2 rounded-md w-24 h-8"
+            className={`bg-black text-white text-center flex justify-center items-center p-2 rounded-md w-24 h-8 ${
+              isButtonDisabled && "opacity-50"
+            }`}
           >
             Send
           </button>
         </div>
       </form>
+      <p className="font-bold text-sm">Send to: {friendName}</p>
     </div>
   );
 };
