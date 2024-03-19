@@ -19,7 +19,6 @@ const SelectedGame = () => {
   } = router;
 
   const { data, isLoading } = useGetMatchById(String(matchId));
-  console.log(data);
   const extractedMarkets = (): string[] => {
     const newArray: string[] = [];
     data?.markets?.forEach((value: Market) => {

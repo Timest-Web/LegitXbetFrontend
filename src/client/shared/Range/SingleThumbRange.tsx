@@ -31,6 +31,7 @@ const SingleThumbRange = ({
 			type='range'
 			className='h-2 w-full text-gold'
 			onChange={handleInputChange}
+			defaultValue={100}
 			step={step}
 		/>
 	);

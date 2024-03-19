@@ -31,6 +31,8 @@ const DesktopLandingPage = () => {
               <BetTable
                 href="upcoming"
                 icon={<MatchStar />}
+                filteredByOdd=""
+                filteredByTime=""
                 isLiveTable={false}
                 sportData={filterUpcomingMatches}
                 contentTitle="Highlights"
@@ -41,6 +43,8 @@ const DesktopLandingPage = () => {
                 href="top"
                 icon={<MatchStar />}
                 isLiveTable={false}
+                filteredByOdd=""
+                filteredByTime=""
                 sportData={filterTopleagues.reverse()}
                 contentTitle="Top Matches"
                 viewFeatureMatches={2}

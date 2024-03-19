@@ -5,7 +5,6 @@ import { useLink } from '@/src/client/shared/Hooks/useLink';
 import FifaCup from '../../../../../assets/fifaworldcup.png';
 import LeagueType from '../../../../../assets/LeagueType.png';
 import RenderLeagueItem from '@/src/client/components/components/RenderLeagueItem';
-import Carousel from '../../../../shared/Slider/CustomSlider';
 
 const LeftSection = () => {
 	const { link, handleClick } = useLink('Live Matches');

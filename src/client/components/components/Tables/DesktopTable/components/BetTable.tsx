@@ -8,6 +8,9 @@ import BetTableLoadingSkeleton from "@/src/client/shared/LoadingSkeleton/BetTabl
 import { useLink } from "@/src/client/shared/Hooks/useLink";
 import { SPORTS_TYPES } from "../../../MainSection/CenterSection/constant/data";
 import { getFeatureDates } from "@/src/client/shared/Utils/GetSportsDate";
+import { filterMatchesByTimeDifference } from "@/src/client/shared/Utils/FilterMatchesByTimeDifference";
+import { filterMatchesByOdd } from "@/src/client/shared/Utils/FilterMatchesByOdd";
+import { extractedMatchesArray } from "@/src/client/shared/Utils/ExtractedMatchesArray";
 
 const BetTable = ({
   href,
@@ -15,11 +18,15 @@ const BetTable = ({
   contentTitle,
   isLiveTable,
   sportData,
-  viewFeatureMatches
+  filteredByTime,
+  filteredByOdd,
+  viewFeatureMatches,
 }: {
   href?: string;
   sportData: any;
   icon?: ReactElement;
+  filteredByTime: string;
+  filteredByOdd: string;
   contentTitle: string;
   isLiveTable: boolean;
   viewFeatureMatches: number;
@@ -27,7 +34,7 @@ const BetTable = ({
   const router = useRouter();
   const { pathname } = router;
   const nextTwoDates = getFeatureDates(viewFeatureMatches);
-  const sportsType = ['Football', 'Basketball'];
+  const sportsType = ["Football", "Basketball"];
   const [collapse, setCollapse] = useState(false);
   const { link, handleClick } = useLink("Match Winner");
   const { link: dateClick, handleClick: dateHandleClick } = useLink(
@@ -53,18 +60,48 @@ const BetTable = ({
       : [];
   };
 
-
   const extractLeagues = extractedLeagues();
   const { link: leagueClick, handleClick: leagueHandleClick } = useLink(
     extractLeagues ? extractLeagues[0]?.name : ""
   );
-
-  // leagueClick.split(':')[0];
-
   const extractedMatches = extractLeagues.filter(
     (value: any) => value.name === leagueClick
   )[0]?.matches;
+  const hourDifference = filteredByTime.split("h")[0];
+  const filteredMatches = filterMatchesByTimeDifference(
+    extractedMatches,
+    hourDifference
+  );
 
+  console.log(filteredMatches, hourDifference);
+
+  // const filteredMatchesByOdd = filterMatchesByOdd(
+  //   filteredMatches,
+  //   String(filteredByOdd)
+  // );
+
+  // // const filteredMatchesByOdd =
+  // console.log(filteredMatchesByOdd);
+
+// const extractedMatchesArray = (data: any) => {
+//   return data.sort((a: any, b: any) => {
+//     const timeA = a.time?.split(":").map(Number);
+//     const timeB = b.time?.split(":").map(Number);
+//     if (timeA[0] !== timeB[0]) {
+//       return timeA[0] - timeB[0];
+//     }
+//     return timeA[1] - timeB[1];
+//   });
+// };
+
+const matches =
+  pathname === "/"
+    ? Array.isArray(extractedMatches)
+      ? extractedMatchesArray(extractedMatches)
+      : []
+    : Array.isArray(filteredMatches)
+    ? extractedMatchesArray(filteredMatches)
+    : [];
 
   return (
     <div className="w-[720px]">
@@ -172,8 +209,8 @@ const BetTable = ({
 
             {!collapse && (
               <>
-                {Array.isArray(extractedMatches) &&
-                  extractedMatches
+                {Array.isArray(matches) &&
+                  matches
                     .sort((a: any, b: any) => {
                       const timeA = a.time?.split(":").map(Number);
                       const timeB = b.time?.split(":").map(Number);
@@ -182,7 +219,7 @@ const BetTable = ({
                       }
                       return timeA[1] - timeB[1];
                     })
-                    .slice(0, 5)
+                    // .slice(0, 5)
                     .map((value: any, index: number) => {
                       return (
                         <TableRow
@@ -257,7 +294,9 @@ const BetTable = ({
               extractedMatches.length > 10 &&
               pathname === "/" && (
                 <Link
-                  href={`/sports/football?league=${leagueClick.split(":")[0].toLocaleLowerCase()}`}
+                  href={`/sports/football?league=${leagueClick
+                    .split(":")[0]
+                    .toLocaleLowerCase()}`}
                 >
                   <div className="h-12 w-full py-2 px-3">
                     <button className="w-full h-8 rounded-lg bg-lightAsh text-white text-xs">
