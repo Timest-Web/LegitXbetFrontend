@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { SetStateAction, useEffect, useState } from "react";
 import { SoftwareSorting } from "@heathmont/moon-icons-tw";
 import SingleThumbRange from "@/src/client/shared/Range/SingleThumbRange";
 import { translateSliderValue } from "@/src/client/shared/Range/TranslateSliderValue";
 
-const OddsFilter = () => {
+const OddsFilter = ({setSelectedOdd}: {setSelectedOdd: Function}) => {
   const [click, setClick] = useState(false);
   const [oddValue, setOddValue] = useState(0);
   const translateOddValue = translateSliderValue(oddValue);
+
+  useEffect(() => {
+    setSelectedOdd(Number(oddValue))
+  }, [setSelectedOdd, oddValue]);
 
   return (
     <div className="w-[243px] bg-black px-2 py-3 rounded-lg">

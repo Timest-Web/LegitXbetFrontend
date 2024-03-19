@@ -13,8 +13,8 @@ const Basketball = () => {
       leftSection={
         <div className="space-y-5">
           <PopularDataType data={BASKETBALL_DATA} />
-          <FilterByTime />
-          <OddsFilter />
+          {/* <FilterByTime /> */}
+          {/* <OddsFilter  /> */}
         </div>
       }
       centerSection={

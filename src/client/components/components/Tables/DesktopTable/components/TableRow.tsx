@@ -8,6 +8,7 @@ import { MoreOdds } from "./MoreOdds";
 import { TableProps } from "../../constant/data";
 import { OddsButtons } from "@/src/client/shared/Button/OddsButton/OddsButtons";
 import { truncateText } from "@/src/client/shared/Utils/TruncateText";
+import { addOneHourToTime } from "@/src/client/shared/Utils/AddOneHourToDate";
 
 const TableRow = ({
   id,
@@ -56,8 +57,8 @@ const TableRow = ({
   const formattedLeague = replaceSpacesWithDash(league?.split(":")[1]);
   const formattedTeamOne = replaceSpacesWithDash(teamOne);
   const formattedTeamTwo = replaceSpacesWithDash(teamTwo);
-
   const href = `/sport/football/${formattedLeague}/${formattedTeamOne}-vs-${formattedTeamTwo}/${id}`;
+  const updatedTime = addOneHourToTime(time);
 
   return (
     <div className="flex bg-darkAsh w-full rounded-b-xl">
@@ -65,7 +66,7 @@ const TableRow = ({
         <div className="flex flex-col items-center justify-center border-r border-r-gray-800 border-b border-b-gray-800 w-20 h-12 text-[10px] space-x-1">
           <div className="flex items-center justify-center space-x-1">
             <Time color="#E6EAEE" />
-            <p className="text-white ">{time}</p>
+            <p className="text-white ">{updatedTime}</p>
           </div>
           <p className="text-[10px] text-gray-400">{`ID: ${id}`}</p>
         </div>

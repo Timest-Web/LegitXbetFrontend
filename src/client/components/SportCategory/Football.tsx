@@ -1,32 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Layout from "../Layout";
+import BetTable from "../components/Tables/DesktopTable/components/BetTable";
+import MatchStar from "../../shared/Svg/MatchStar";
 import OddsFilter from "./components/OddsFilter";
 import FilterByTime from "./components/FilterByTime";
-import PopularDataType from "./components/PopularDataType";
 import MobileNavbar from "../../shared/MobileNavbar";
 import CenterSection from "../components/MainSection/CenterSection";
+import PopularDataType from "./components/PopularDataType";
+import { LoaderScreen } from "../../shared/Loader/LoaderScreen";
 import { FOOTBALL_DATA } from "../LandingPage/DesktopLandingPage/LeftSection/constant/data";
 import { filterMatches } from "../../shared/Utils/FilterMatches";
 import useGetFootballLeague from "@/src/helper/apis/services/bookmaking/football/get-leagues-type-api";
-import useGetLandingPageSportsMatches from "@/src/helper/apis/services/bookmaking/landingPage/get-landing-page-sports-and-matches";
 import useGetTopLeaguesFootball from "@/src/helper/apis/services/bookmaking/football/get-top-leagues-api";
-import BetTable from "../components/Tables/DesktopTable/components/BetTable";
-import MatchStar from "../../shared/Svg/MatchStar";
 import { BetTable as MobileBetTable } from "../components/Tables/MobileTable/components/BetTable";
-import { LoaderScreen } from "../../shared/Loader/LoaderScreen";
+import useGetLandingPageSportsMatches from "@/src/helper/apis/services/bookmaking/landingPage/get-landing-page-sports-and-matches";
+import { useLink } from "../../shared/Hooks/useLink";
 
 const Football = () => {
   const router = useRouter();
   const { query, asPath } = router;
+  const { link: clickFilterHour, handleClick } = useLink("All");
+  const { link: clickFilterOdd, handleClick: handleOddFilterClick } = useLink('100');
   const { data: upcomingMatches, isLoading } = useGetLandingPageSportsMatches();
   const { data: topLeaguesData, isLoading: topLeaguesIsLoading } =
     useGetTopLeaguesFootball();
   const { data: footballLeague, isLoading: footballLeagueIsLoading } =
-    useGetFootballLeague({
-      leagueName: `${query.league}`,
-    });
-
+    useGetFootballLeague({ leagueName: `${query.league}` });
   const extractText = asPath.split("=")[1];
   const capitalizedString = extractText
     ? extractText.charAt(0).toUpperCase() + extractText.slice(1)
@@ -37,7 +37,6 @@ const Football = () => {
       router.push("/sports/football?league=upcoming");
     }
   }, [query.league, router]);
-
 
   if (isLoading || topLeaguesIsLoading || footballLeagueIsLoading) {
     return (
@@ -54,8 +53,8 @@ const Football = () => {
           leftSection={
             <div className="space-y-5">
               <PopularDataType data={FOOTBALL_DATA} />
-              <FilterByTime />
-              <OddsFilter />
+              <FilterByTime setSelectedHour={handleClick} />
+              <OddsFilter setSelectedOdd={handleOddFilterClick} />
             </div>
           }
           centerSection={
@@ -65,6 +64,8 @@ const Football = () => {
                   href="upcoming"
                   icon={<MatchStar />}
                   isLiveTable={false}
+                  filteredByTime={clickFilterHour}
+                  filteredByOdd={clickFilterOdd}
                   sportData={filterMatches(
                     upcomingMatches?.upcoming?.football,
                     4
@@ -76,6 +77,8 @@ const Football = () => {
                 <BetTable
                   icon={<MatchStar />}
                   isLiveTable={false}
+                  filteredByTime={clickFilterHour}
+                  filteredByOdd={clickFilterOdd}
                   sportData={filterMatches(topLeaguesData, 4)}
                   contentTitle="Today's Games"
                   viewFeatureMatches={2}
@@ -84,6 +87,8 @@ const Football = () => {
                 <BetTable
                   icon={<MatchStar />}
                   isLiveTable={false}
+                  filteredByTime={clickFilterHour}
+                  filteredByOdd={clickFilterOdd}
                   sportData={filterMatches(footballLeague, 4)}
                   contentTitle={`${capitalizedString} Matches`}
                   viewFeatureMatches={4}

@@ -1,30 +1,47 @@
-import React, { useState } from 'react';
-import SingleThumbRange from '@/src/client/shared/Range/SingleThumbRange';
+import React, { useEffect, useState, useMemo, SetStateAction } from "react";
+import SingleThumbRange from "@/src/client/shared/Range/SingleThumbRange";
 
-const FilterByTime = () => {
-	const [filterValue, setFilterValue] = useState(0);
-	const timeStart = ['1hr', '3hr', '6hr', '12h', '24', 'All'];
+interface TimeLabels {
+  [key: number]: string;
+}
 
-	return (
-		<div className='w-[243px] bg-black px-2 py-3 rounded-lg'>
-			<p className='font-thin text-xs text-gray-400'>
-				Filter by start time
-			</p>
-			<SingleThumbRange
-				step={20}
-				setRangeValue={setFilterValue}
-			/>
-			<div className='flex items-start justify-between text-gray-400 mt-2'>
-				{timeStart.map((value, index) => (
-					<p
-						key={index}
-						className='text-[9px]'>
-						{value}
-					</p>
-				))}
-			</div>
-		</div>
-	);
+const FilterByTime = ({
+  setSelectedHour,
+}: {
+  setSelectedHour: Function;
+}) => {
+  const [filterValue, setFilterValue] = useState<number>(100);
+  const timeLabels: TimeLabels = useMemo(() => {
+    return {
+      0: "1hr",
+      20: "3hr",
+      40: "6hr",
+      60: "12hr",
+      80: "24hr",
+      100: "All",
+    };
+  }, []);
+
+  useEffect(() => {
+    const getTimeRangeLabel = (value: number): string => {
+      return timeLabels[value] || "";
+    };
+    setSelectedHour(getTimeRangeLabel(filterValue));
+  }, [setSelectedHour, timeLabels, filterValue]);
+
+  return (
+    <div className="w-[243px] bg-black px-2 py-3 rounded-lg">
+      <p className="font-thin text-xs text-gray-400">Filter by start time</p>
+      <SingleThumbRange step={20} setRangeValue={setFilterValue} />
+      <div className="flex items-start justify-between text-gray-400 mt-2">
+        {Object.values(timeLabels).map((label, index) => (
+          <p key={index} className="text-[9px]">
+            {label}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default FilterByTime;
