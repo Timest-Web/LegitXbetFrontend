@@ -21,14 +21,6 @@ const AllBettors = () => {
       accessorKey: "phone_number",
     },
     {
-      header: "Country",
-      accessorKey: "country",
-    },
-    {
-      header: "Joined At",
-      accessorKey: "joined_at",
-    },
-    {
       header: "Balance",
       accessorKey: "balance",
     },     {

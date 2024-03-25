@@ -33,7 +33,12 @@ const DepositLog = () => {
 
   return (
     <AdminDashboardLayout>
-      <AdminTable data={data} columns={columns} tableTitle="All Leagues" />
+      <AdminTable
+        data={data}
+        columns={columns}
+        tableTitle="Deposit Log"
+        searchField={true}
+      />
     </AdminDashboardLayout>
   );
 };

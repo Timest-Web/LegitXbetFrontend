@@ -23,8 +23,8 @@ const ActionColumn: React.FC<ActionColumnProps> = ({ row, popUpElement }) => {
 
   const [tabViewRows, setTabViewRows] = useState<TabViewRows>({});
   return (
-    <div className="flex justify-center items-center relative">
-      <button onClick={() => toggleTabView(row)}></button>
+    <div className="flex space-x-3">
+      <button onClick={() => toggleTabView(row)}><MoreIcon/></button>
       {tabViewRows[row.id] && popUpElement}
     </div>
   );

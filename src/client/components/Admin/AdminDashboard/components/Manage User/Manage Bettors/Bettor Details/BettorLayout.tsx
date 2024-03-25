@@ -36,7 +36,7 @@ const BettorLayout: React.FC<BettorLayoutProps> = ({ content }) => {
                 </p>
               </div>
             </section>
-            <section className="bg-white text-sm flex flex-col font-bold space-y-5 h-72 rounded-lg ml-6 mt-4 p-2">
+            <section className="bg-white text-sm flex flex-col font-bold space-y-5  rounded-lg ml-6 mt-4 p-2">
               <Link
                 className="opacity-50 hover:opacity-100"
                 href={{
@@ -94,7 +94,7 @@ const BettorLayout: React.FC<BettorLayoutProps> = ({ content }) => {
               <Link
                 className="opacity-50 hover:opacity-100"
                 href={{
-                  pathname: "/admin/manage-users/bettor-withdraw-log",
+                  pathname: "/admin/manage-users/bettor-withdrawal-log",
                   query: queryParams,
                 }}
               >
@@ -112,7 +112,17 @@ const BettorLayout: React.FC<BettorLayoutProps> = ({ content }) => {
             </section>
           </div>
 
-          <div className="bg-white p-5 w-[65%] mt-4 rounded-lg">{content}</div>
+          <div className="w-[65%] ">
+            <div className="bg-white p-5 w-full mt-4 rounded-lg">{content}</div>
+            <section className="mt-6 flex space-x-6">
+              <button className="bg-blue-500 w-36 p-2 rounded-md text-white text-sm ">
+                Login as Bettor
+              </button>
+              <button className="bg-red-600 w-36 p-2 rounded-md text-white text-sm ">
+                Ban Bettor
+              </button>
+            </section>
+          </div>
         </div>
       ) : (
         <p>Bettor not found</p>

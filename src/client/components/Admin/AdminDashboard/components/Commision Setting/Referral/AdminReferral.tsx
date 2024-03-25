@@ -15,7 +15,7 @@ const AdminReferral = () => {
           <p>Level</p>
           <p>Commission</p>
         </div>
-        <div className="flex justify-between text-sm p-3">
+        <div className="flex justify-between text-xs p-3">
           <p>LEVEL# 1 </p>
           <p>7.00 %</p>
         </div>

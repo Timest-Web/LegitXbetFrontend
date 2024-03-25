@@ -1,44 +1,53 @@
-import AdminDashboardLayout from "../../shared/AdminDashboardLayout"
+import AdminDashboardLayout from "../../shared/AdminDashboardLayout";
 import AdminTable from "../../shared/AdminTable";
-import matchdata from "../../../constant/MatchesData.json"
+import matchdata from "../../../constant/MatchesData.json";
 
 const RunningMatches = () => {
-    const data: any = matchdata;
-    const columns: any = [
-      {
-        header: "Title",
-        accessorKey:"title",
-      },
-      {
-        header: "League",
-        accessorKey: "league",
-      },
-      {
-        header: "Category",
-        accessorKey: "category",
-      },
-      {
-        header: "Game Starts From",
-        accessorKey: "game_starts_from",
-      },
-      {
-        header: "Bet Starts From",
-        accessorKey: "bet_starts_from",
-      },
-      {
-        header: "Bet Ends At",
-        accessorKey: "bet_ends_at",
-      },
-      {
-        header: "Markets",
-        accessorKey: "markets",
-      },
-      {
-        header: "Status",
-        accessorKey: "status",
-      }
-    ];
-    return ( <AdminDashboardLayout><AdminTable data={data} columns={columns} tableTitle="Running Matches"/></AdminDashboardLayout> );
-}
- 
+  const data: any = matchdata;
+  const columns: any = [
+    {
+      header: "Title",
+      accessorKey: "title",
+    },
+    {
+      header: "League",
+      accessorKey: "league",
+    },
+    {
+      header: "Category",
+      accessorKey: "category",
+    },
+    {
+      header: "Game Starts From",
+      accessorKey: "game_starts_from",
+    },
+    {
+      header: "Bet Starts From",
+      accessorKey: "bet_starts_from",
+    },
+    {
+      header: "Bet Ends At",
+      accessorKey: "bet_ends_at",
+    },
+    {
+      header: "Markets",
+      accessorKey: "markets",
+    },
+    {
+      header: "Status",
+      accessorKey: "status",
+    },
+  ];
+  return (
+    <AdminDashboardLayout>
+      <AdminTable
+        data={data}
+        columns={columns}
+        tableTitle="Running Matches"
+        addField={true}
+      />
+    </AdminDashboardLayout>
+  );
+};
+
 export default RunningMatches;

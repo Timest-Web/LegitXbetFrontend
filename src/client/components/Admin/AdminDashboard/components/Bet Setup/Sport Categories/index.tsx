@@ -30,10 +30,10 @@ const SportCategories = () => {
       accessorKey: "status",
       cell: ({ row }: { row: any }) => (
         <div
-          className={`text-xs rounded-lg ${
+          className={`w-1 text-xs ${
             row.original.status === "Enabled"
-              ? "bg-green-100 text-green-500 border border-solid border-green-400"
-              : "bg-red-100 text-red-500 border border-solid border-red-400"
+              ? " text-green-500 "
+              : "text-red-500  "
           }`}
         >
           {row.original.status}
@@ -56,7 +56,13 @@ const SportCategories = () => {
   ];
   return (
     <AdminDashboardLayout>
-      <AdminTable columns={columns} data={data} tableTitle="All Sports" />
+      <AdminTable
+        columns={columns}
+        data={data}
+        tableTitle="All Sports"
+        searchField={true}
+        addField={true}
+      />
     </AdminDashboardLayout>
   );
 };

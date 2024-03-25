@@ -40,7 +40,12 @@ const UpcomingMatches = () => {
   ];
   return (
     <AdminDashboardLayout>
-      <AdminTable data={data} columns={columns} tableTitle="Upcoming Matches" />
+      <AdminTable
+        data={data}
+        columns={columns}
+        tableTitle="Upcoming Matches"
+        addField={true}
+      />
     </AdminDashboardLayout>
   );
 };

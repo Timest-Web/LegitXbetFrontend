@@ -7,7 +7,7 @@ const AllMatches = () => {
   const columns: any = [
     {
       header: "Title",
-      accessorKey:"title",
+      accessorKey: "title",
     },
     {
       header: "League",
@@ -36,12 +36,17 @@ const AllMatches = () => {
     {
       header: "Status",
       accessorKey: "status",
-    }
+    },
   ];
 
   return (
     <AdminDashboardLayout>
-      <AdminTable data={data} columns={columns} tableTitle="All Leagues" />
+      <AdminTable
+        data={data}
+        columns={columns}
+        tableTitle="All Leagues"
+        addField={true}
+      />
     </AdminDashboardLayout>
   );
 };

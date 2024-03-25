@@ -21,7 +21,7 @@ const AdminDashboardLayout: React.FC<AdminDashboardLayoutProps> = ({
             <GenericUser className="text-white text-moon-24 items-end justify-end" />
           </div>
         </div>
-        <div className="overflow-y-auto">{children}</div>
+        <div className="overflow-y-auto p-3">{children}</div>
       </section>
     </div>
   );

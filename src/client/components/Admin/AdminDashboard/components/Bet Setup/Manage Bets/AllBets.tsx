@@ -31,7 +31,12 @@ const AllBets = () => {
   ];
   return (
     <AdminDashboardLayout>
-      <AdminTable data={data} columns={columns} tableTitle="All Bets" searchField={true}/>
+      <AdminTable
+        data={data}
+        columns={columns}
+        tableTitle="All Bets"
+        searchField={true}
+      />
     </AdminDashboardLayout>
   );
 };

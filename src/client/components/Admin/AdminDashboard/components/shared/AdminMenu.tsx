@@ -43,7 +43,7 @@ const AdminMenu = () => {
           {Object.entries(menuItemsData).map(([header, items], index) => (
             <AdminMenuMini
               key={index}
-              header={header.toUpperCase().replace(/_/g, " ")}
+              header={header.toUpperCase().replace(/_/g, "-" ).split('').join('  ')}
               content={items.map((item, index) =>
                 item.asMenuItem ? (
                   <MenuItem

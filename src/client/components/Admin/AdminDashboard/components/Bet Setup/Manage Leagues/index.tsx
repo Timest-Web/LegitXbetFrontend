@@ -3,9 +3,10 @@ import AdminActionColumn from "../../shared/AdminActionColumn";
 import AdminDashboardLayout from "../../shared/AdminDashboardLayout";
 import AdminTable from "../../shared/AdminTable";
 import { Row } from "@tanstack/react-table";
+import { useState } from "react";
 
 const ManageLeagues = () => {
-  const data: any = [
+  const [data, setData] = useState([
     {
       league_name: "English Premier League",
       category: "Football",
@@ -31,7 +32,7 @@ const ManageLeagues = () => {
       category: " American football",
       status: "Disabled",
     },
-  ];
+  ]);
   const columns: any = [
     {
       header: "League ",
@@ -41,17 +42,45 @@ const ManageLeagues = () => {
       header: "Category",
       accessorKey: "category",
     },
+    {
+      header: "Status",
+      accessorKey: "status",
+      cell: ({ row }: { row: any }) => (
+        <div
+          className={`w-1 text-xs ${
+            row.original.status === "Enabled"
+              ? " text-green-500 "
+              : "text-red-500  "
+          }`}
+        >
+          {row.original.status}
+        </div>
+      ),
+    },
 
     {
       header: "Action",
-      // cell: ({ row }: { row: Row<TableProps> }) => (
-      //    <AdminActionColumn  row={row} />
-      // ),
+      cell: ({ row }: { row: Row<TableProps> }) => (
+        <AdminActionColumn
+          row={row}
+          setStatus={(status: string) => {
+            const updatedData = [...data];
+            updatedData[row.index].status = status;
+            setData(updatedData);
+          }}
+        />
+      ),
     },
   ];
   return (
     <AdminDashboardLayout>
-      <AdminTable data={data} columns={columns} tableTitle="Leagues" />
+      <AdminTable
+        data={data}
+        columns={columns}
+        tableTitle="Leagues"
+        searchField={true}
+        addField={true}
+      />
     </AdminDashboardLayout>
   );
 };

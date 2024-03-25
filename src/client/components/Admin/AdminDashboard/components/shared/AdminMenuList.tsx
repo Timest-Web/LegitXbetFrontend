@@ -38,7 +38,7 @@ type MenuItemsData = {
 };
 
 const menuItemsData: MenuItemsData = {
-  betSetup: [
+  bet_Setup: [
     {
       icon: <SportEsoccer />,
       title: "Sport Categories",
@@ -123,6 +123,18 @@ const menuItemsData: MenuItemsData = {
           title: "All Bettors",
           href: "/admin/manage-users/all-bettors",
         },
+        {
+          title: "Active Bettors",
+          href: "/admin/manage-users/active-bettors",
+        },
+        {
+          title: "Banned Bettors",
+          href: "/admin/manage-users/banned-bettors",
+        },
+        {
+          title: "Unverified Bettors",
+          href: "/admin/manage-users/unverified-bettors",
+        },
       ],
     },
     {
@@ -178,23 +190,47 @@ const menuItemsData: MenuItemsData = {
       ],
     },
   ],
-  commission: [{ icon: <ShopRebate />, title: "Referral", href: "/admin/commissions/referral" , asMenuItem:true}],
+  commission: [
+    {
+      icon: <ShopRebate />,
+      title: "Referral",
+      href: "/admin/commissions/referral",
+      asMenuItem: true,
+    },
+  ],
   support: [
-    { icon: <GenericTicket />, title: "All Tickets", href: "/admin/support-tickets/all-tickets", asMenuItem:true },
-    { icon: <GenericPlus />, title: "Open Tickets", href: "/admin/support-tickets/open-tickets", asMenuItem:true },
+    {
+      icon: <GenericTicket />,
+      title: "All Tickets",
+      href: "/admin/support-tickets/all-tickets",
+      asMenuItem: true,
+    },
+    {
+      icon: <GenericPlus />,
+      title: "Open Tickets",
+      href: "/admin/support-tickets/open-tickets",
+      asMenuItem: true,
+    },
     {
       icon: <GenericMinus />,
       title: "Closed Ticket",
-      href: "/admin/support-tickets/closed-tickets", asMenuItem:true
+      href: "/admin/support-tickets/closed-tickets",
+      asMenuItem: true,
     },
     {
       icon: <GenericCheckAlternative />,
       title: "Answered Ticket",
-      href: "/admin/support-tickets/answered-tickets", asMenuItem:true
+      href: "/admin/support-tickets/answered-tickets",
+      asMenuItem: true,
     },
   ],
   settings: [
-    { icon: <GenericGlobe />, title: "Sports API", href: "" },
+    {
+      icon: <GenericGlobe />,
+      title: "Sports API",
+      href: "/admin/settings/sports-api",
+      asMenuItem: true,
+    },
     {
       icon: <GenericPartners />,
       title: "KYC Settings",
@@ -204,23 +240,55 @@ const menuItemsData: MenuItemsData = {
       icon: <MailEnvelope />,
       title: "Email Setting",
       href: "",
+      content: [
+        {
+          title: "Email Templates",
+          href: "/admin/settings/email-templates",
+        },
+        {
+          title: "Email Control",
+          href: "/admin/settings/email-control",
+        },
+      ],
     },
     {
       icon: <MailEmailStats />,
       title: "SMS Setting",
-      href: "",
+      href: "/admin/settings/sms-setting",
+      asMenuItem: true,
     },
     {
       icon: <GenericHelp />,
       title: "Manage Section",
       href: "#",
+      content: [
+        {
+          title: "",
+          href: "",
+        },
+      ],
     },
     {
       icon: <GenericSettings />,
       title: "General Setting",
       href: "#",
+      asMenuItem: true,
     },
-    { icon: <OtherSun />, title: "System", href: "" },
+    {
+      icon: <OtherSun />,
+      title: "System",
+      href: "",
+      content: [
+        {
+          title: "BackUp",
+          href: "/admin/settings/backup",
+        },
+        {
+          title: "Cache",
+          href: "/admin/settings/backup",
+        },
+      ],
+    },
   ],
 };
 
